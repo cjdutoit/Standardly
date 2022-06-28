@@ -11,5 +11,6 @@ namespace Standardly.Core.Brokers.FileSystems
         bool CheckIfFileExists(string path);
         void WriteToFile(string path, string content);
         string ReadFile(string path);
+        string[] GetListOfFiles(string path, string searchPattern = "*");
     }
 }
