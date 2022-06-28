@@ -21,5 +21,8 @@ namespace Standardly.Core.Brokers.FileSystems
 
         public string[] GetListOfFiles(string path, string searchPattern = "*") =>
             Directory.GetFiles(path, searchPattern, SearchOption.AllDirectories);
+
+        public bool CheckIfDirectoryExists(string path) =>
+            Directory.Exists(path);
     }
 }
