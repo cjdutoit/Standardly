@@ -24,5 +24,8 @@ namespace Standardly.Core.Brokers.FileSystems
 
         public bool CheckIfDirectoryExists(string path) =>
             Directory.Exists(path);
+
+        public void CreateDirectory(string path) =>
+            Directory.CreateDirectory(path);
     }
 }
