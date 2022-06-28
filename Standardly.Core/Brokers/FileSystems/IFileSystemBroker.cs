@@ -9,5 +9,6 @@ namespace Standardly.Core.Brokers.FileSystems
     public interface IFileSystemBroker
     {
         bool CheckIfFileExists(string path);
+        void WriteToFile(string path, string content);
     }
 }

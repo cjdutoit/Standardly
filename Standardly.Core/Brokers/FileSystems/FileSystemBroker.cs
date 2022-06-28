@@ -12,5 +12,8 @@ namespace Standardly.Core.Brokers.FileSystems
     {
         public bool CheckIfFileExists(string path) =>
             File.Exists(path);
+
+        public void WriteToFile(string path, string content) =>
+            File.WriteAllText(path, content);
     }
 }
