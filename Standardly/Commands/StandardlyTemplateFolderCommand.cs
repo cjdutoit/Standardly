@@ -1,4 +1,9 @@
-﻿using System.Diagnostics;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 

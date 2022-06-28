@@ -3,9 +3,9 @@
     <Metadata>
         <Identity Id="Standardly.4f725561-953f-4998-99c2-ec58132d8d4b" Version="0.1" Language="en-US" Publisher="Christo du Toit" />
         <DisplayName>Standardly</DisplayName>
-        <Description xml:space="preserve">An extention project that will allow you to generate various things in a "The Standard" compliant way.</Description>
+        <Description xml:space="preserve">An extention project that will allow you to generate various things in a 'The Standard' compliant way.</Description>
         <MoreInfo>https://github.com/cjdutoit/Standardly</MoreInfo>
-        <License>Resources\LICENSE.txt</License>
+        <License>LICENSE.txt</License>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Icon.png</PreviewImage>
         <Tags>Standardly, The Standard</Tags>
