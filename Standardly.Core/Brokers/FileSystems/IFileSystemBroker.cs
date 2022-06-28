@@ -10,5 +10,10 @@ namespace Standardly.Core.Brokers.FileSystems
     {
         bool CheckIfFileExists(string path);
         void WriteToFile(string path, string content);
+        string ReadFile(string path);
+        string[] GetListOfFiles(string path, string searchPattern = "*");
+        bool CheckIfDirectoryExists(string path);
+        void CreateDirectory(string path);
+        void DeleteDirectory(string path, bool recursive = false);
     }
 }
