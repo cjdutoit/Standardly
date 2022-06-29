@@ -39,6 +39,15 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             };
         }
 
+        public static TheoryData CriticalFileServiceDependencyExceptions()
+        {
+            return new TheoryData<Exception>()
+            {
+                new OutOfMemoryException(),
+                new UnauthorizedAccessException()
+            };
+        }
+
         private static string GetRandomString() =>
             new MnemonicString().GetValue();
     }
