@@ -35,6 +35,11 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public string ReadFromFile(string path) =>
-            this.fileSystemBroker.ReadFile(path);
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+
+                return this.fileSystemBroker.ReadFile(path);
+            });
     }
 }
