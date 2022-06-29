@@ -15,5 +15,8 @@ namespace Standardly.Core.Brokers.Loggings
 
         public void LogTrace(string message) =>
             this.logger.LogTrace(message);
+
+        public void LogDebug(string message) =>
+            this.logger.LogDebug(message);
     }
 }
