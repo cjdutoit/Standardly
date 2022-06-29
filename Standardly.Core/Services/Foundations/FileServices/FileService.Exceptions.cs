@@ -1,4 +1,5 @@
-﻿using Standardly.Core.Models.FileServices.Exceptions;
+﻿using System;
+using Standardly.Core.Models.FileServices.Exceptions;
 using Xeptions;
 
 namespace Standardly.Core.Services.Foundations.FileServices
@@ -17,6 +18,27 @@ namespace Standardly.Core.Services.Foundations.FileServices
             {
                 throw CreateAndLogValidationException(invalidFilePathException);
             }
+            catch (ArgumentNullException argumentNullException)
+            {
+                var invalidFileDependencyException =
+                    new InvalidFileServiceDependencyException(argumentNullException);
+
+                throw CreateAndLogDependencyValidationException(invalidFileDependencyException);
+            }
+            catch (ArgumentOutOfRangeException argumentOutOfRangeException)
+            {
+                var invalidFileDependencyException =
+                    new InvalidFileServiceDependencyException(argumentOutOfRangeException);
+
+                throw CreateAndLogDependencyValidationException(invalidFileDependencyException);
+            }
+            catch (ArgumentException argumentException)
+            {
+                var invalidFileDependencyException =
+                    new InvalidFileServiceDependencyException(argumentException);
+
+                throw CreateAndLogDependencyValidationException(invalidFileDependencyException);
+            }
         }
 
         private FileServiceValidationException CreateAndLogValidationException(Xeption exception)
@@ -25,6 +47,14 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 new FileServiceValidationException(exception);
 
             return fileValidationException;
+        }
+
+        private FileServiceDependencyValidationException CreateAndLogDependencyValidationException(Xeption exception)
+        {
+            var fileServiceDependencyValidationException =
+                new FileServiceDependencyValidationException(exception);
+
+            return fileServiceDependencyValidationException;
         }
     }
 }
