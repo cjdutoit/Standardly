@@ -1,5 +1,4 @@
-﻿using System;
-using Standardly.Core.Brokers.FileSystems;
+﻿using Standardly.Core.Brokers.FileSystems;
 
 namespace Standardly.Core.Services.Foundations.FileServices
 {
@@ -14,6 +13,6 @@ namespace Standardly.Core.Services.Foundations.FileServices
         }
 
         public bool CheckIfFileExists(string path) =>
-            throw new NotImplementedException();
+            this.fileSystemBroker.CheckIfFileExists(path);
     }
 }
