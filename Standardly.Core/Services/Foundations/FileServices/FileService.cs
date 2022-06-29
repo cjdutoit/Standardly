@@ -13,6 +13,11 @@ namespace Standardly.Core.Services.Foundations.FileServices
         }
 
         public bool CheckIfFileExists(string path) =>
-            this.fileSystemBroker.CheckIfFileExists(path);
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+
+                return this.fileSystemBroker.CheckIfFileExists(path);
+            });
     }
 }

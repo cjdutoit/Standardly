@@ -2,6 +2,7 @@
 using FluentAssertions;
 using Moq;
 using Standardly.Core.Models.FileServices.Exceptions;
+using Standardly.Core.Services.Foundations.FileServices;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
@@ -12,23 +13,21 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void ShouldThrowValidationExceptionOnCheckIfFileExistsIfPathIsInvalid(
-            string invalidPath)
+        public void ShouldThrowValidationExceptionOnCheckIfFileExistsIfPathIsInvalid(string invalidPath)
         {
             // given
             var invalidFilePathException =
                 new InvalidFilePathException();
 
             var expectedFileValidationException =
-                new FileValidationException(
-                    invalidFilePathException);
+                new FileServiceValidationException(invalidFilePathException);
 
             // when
-            Action checkIfDirectoryExistsAction = () =>
+            Action checkIfFileExistsAction = () =>
                 this.fileService.CheckIfFileExists(invalidPath);
 
-            FileValidationException actualException = Assert.Throws<FileValidationException>(
-                checkIfDirectoryExistsAction);
+            FileServiceValidationException actualException =
+                Assert.Throws<FileServiceValidationException>(checkIfFileExistsAction);
 
             // then
             actualException.Should().BeEquivalentTo(expectedFileValidationException);
