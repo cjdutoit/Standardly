@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization;
 using Moq;
 using Standardly.Core.Brokers.FileSystems;
 using Standardly.Core.Services.Foundations.FileServices;
@@ -18,13 +20,22 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             this.fileService = new FileService(fileSystemBroker: this.fileSystemBrokerMock.Object);
         }
 
-        public static TheoryData FileDependencyValidationExceptions()
+        public static TheoryData FileServiceDependencyValidationExceptions()
         {
             return new TheoryData<Exception>()
             {
                 new ArgumentNullException(),
                 new ArgumentOutOfRangeException(),
                 new ArgumentException()
+            };
+        }
+
+        public static TheoryData FileServiceDependencyExceptions()
+        {
+            return new TheoryData<Exception>()
+            {
+                new SerializationException(),
+                new IOException(),
             };
         }
 
