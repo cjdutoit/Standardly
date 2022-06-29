@@ -114,6 +114,20 @@ namespace Standardly.Core.Services.Foundations.FileServices
 
                 throw CreateAndLogDependencyValidationException(invalidFileDependencyException);
             }
+            catch (SerializationException serializationException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(serializationException);
+
+                throw CreateAndLogDependecyException(failedFileDependencyException);
+            }
+            catch (IOException ioException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(ioException);
+
+                throw CreateAndLogDependecyException(failedFileDependencyException);
+            }
         }
 
         private FileServiceValidationException CreateAndLogValidationException(Xeption exception)
