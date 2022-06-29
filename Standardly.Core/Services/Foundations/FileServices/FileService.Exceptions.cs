@@ -9,6 +9,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
     public partial class FileService
     {
         public delegate bool ReturningBooleanFunction();
+        public delegate void ReturningNothingFunction();
 
         public bool TryCatch(ReturningBooleanFunction returningBooleanFunction)
         {
@@ -75,6 +76,18 @@ namespace Standardly.Core.Services.Foundations.FileServices
                     new FailedFileServiceException(exception);
 
                 throw CreateAndLogServiceException(failedFileServiceException);
+            }
+        }
+
+        public void TryCatch(ReturningNothingFunction returningNothingFunction)
+        {
+            try
+            {
+                returningNothingFunction();
+            }
+            catch (InvalidFilePathException invalidFilePathException)
+            {
+                throw CreateAndLogValidationException(invalidFilePathException);
             }
         }
 
