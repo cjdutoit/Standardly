@@ -6,8 +6,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
     {
         private readonly IFileSystemBroker fileSystemBroker;
 
-        public FileService(
-            IFileSystemBroker fileSystemBroker)
+        public FileService(IFileSystemBroker fileSystemBroker)
         {
             this.fileSystemBroker = fileSystemBroker;
         }
