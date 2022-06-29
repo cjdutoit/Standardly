@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization;
 using Standardly.Core.Models.FileServices.Exceptions;
 using Xeptions;
 
@@ -39,6 +41,20 @@ namespace Standardly.Core.Services.Foundations.FileServices
 
                 throw CreateAndLogDependencyValidationException(invalidFileDependencyException);
             }
+            catch (SerializationException serializationException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(serializationException);
+
+                throw CreateAndLogDependecyException(failedFileDependencyException);
+            }
+            catch (IOException ioException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(ioException);
+
+                throw CreateAndLogDependecyException(failedFileDependencyException);
+            }
         }
 
         private FileServiceValidationException CreateAndLogValidationException(Xeption exception)
@@ -55,6 +71,13 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 new FileServiceDependencyValidationException(exception);
 
             return fileServiceDependencyValidationException;
+        }
+
+        private FileServiceDependencyException CreateAndLogDependecyException(Xeption exception)
+        {
+            var fileServiceDependencyException = new FileServiceDependencyException(exception);
+
+            return fileServiceDependencyException;
         }
     }
 }
