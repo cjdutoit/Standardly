@@ -89,6 +89,10 @@ namespace Standardly.Core.Services.Foundations.FileServices
             {
                 throw CreateAndLogValidationException(invalidFilePathException);
             }
+            catch (InvalidFileContentException invalidFileContentException)
+            {
+                throw CreateAndLogValidationException(invalidFileContentException);
+            }
         }
 
         private FileServiceValidationException CreateAndLogValidationException(Xeption exception)

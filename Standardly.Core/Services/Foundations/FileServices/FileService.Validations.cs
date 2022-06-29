@@ -19,6 +19,11 @@ namespace Standardly.Core.Services.Foundations.FileServices
             {
                 throw new InvalidFilePathException();
             }
+
+            if (IsInvalid(content))
+            {
+                throw new InvalidFileContentException();
+            }
         }
 
         private static bool IsInvalid(string @string) =>
