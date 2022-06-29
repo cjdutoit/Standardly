@@ -41,5 +41,37 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("   ")]
+        public void ShouldThrowValidationExceptionOnWriteToFileIfContentIsInvalid(string invalidContent)
+        {
+            // given
+            string somePath = GetRandomString();
+
+            var invalidFileContentException =
+                new InvalidFileContentException();
+
+            var expectedFileServiceValidationException =
+                new FileServiceValidationException(invalidFileContentException);
+
+            // when
+            Action checkIfDirectoryExistsAction = () =>
+                this.fileService.WriteToFile(somePath, invalidContent);
+
+            FileServiceValidationException actualException = Assert.Throws<FileServiceValidationException>(
+                checkIfDirectoryExistsAction);
+
+            // then
+            actualException.Should().BeEquivalentTo(expectedFileServiceValidationException);
+
+            this.fileSystemBrokerMock.Verify(broker =>
+                broker.WriteToFile(somePath, invalidContent),
+                        Times.Never);
+
+            this.fileSystemBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
