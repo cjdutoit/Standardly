@@ -11,7 +11,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
         [Theory]
         [MemberData(nameof(FileServiceDependencyValidationExceptions))]
         public void ShouldThrowDependencyValidationExceptionOnCheckIfFileExistsIfDependencyValidationErrorOccursAndLogIt(
-        Exception dependencyValidationException)
+            Exception dependencyValidationException)
         {
             // given
             string somePath = GetRandomString();
