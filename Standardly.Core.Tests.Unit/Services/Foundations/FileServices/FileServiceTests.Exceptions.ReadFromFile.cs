@@ -43,5 +43,44 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Theory]
+        [MemberData(nameof(FileServiceDependencyExceptions))]
+        public void ShouldThrowDependencyExceptionOnReadFromFileIfDependencyErrorOccursAndLogIt(
+            Exception dependencyException)
+        {
+            // given
+            string somePath = GetRandomString();
+
+            var invalidFileServiceDependencyException =
+                new InvalidFileServiceDependencyException(
+                    dependencyException);
+
+            var failedFileServiceDependencyException =
+                new FailedFileServiceDependencyException(invalidFileServiceDependencyException);
+
+            var expectedFileServiceDependencyException =
+                new FileServiceDependencyException(failedFileServiceDependencyException);
+
+            this.fileSystemBrokerMock.Setup(broker =>
+                broker.ReadFile(somePath))
+                    .Throws(dependencyException);
+
+            // when
+            Action writeToFileAction = () =>
+                this.fileService.ReadFromFile(somePath);
+
+            FileServiceDependencyException actualFileServiceDependencyException =
+                Assert.Throws<FileServiceDependencyException>(writeToFileAction);
+
+            // then
+            actualFileServiceDependencyException.Should().BeEquivalentTo(expectedFileServiceDependencyException);
+
+            this.fileSystemBrokerMock.Verify(broker =>
+                broker.ReadFile(somePath),
+                    Times.Once);
+
+            this.fileSystemBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
