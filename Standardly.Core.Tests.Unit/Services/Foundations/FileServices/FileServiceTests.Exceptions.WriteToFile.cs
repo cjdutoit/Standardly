@@ -128,5 +128,39 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Fact]
+        public void ShoudThrowServiceExceptionOnWriteIfServiceErrorOccurs()
+        {
+            // given
+            string somePath = GetRandomString();
+            string someContent = GetRandomString();
+            var serviceException = new Exception();
+
+            var failedFileServiceException =
+                new FailedFileServiceException(serviceException);
+
+            var expectedFileServiceException =
+                new FileServiceException(failedFileServiceException);
+
+            this.fileSystemBrokerMock.Setup(broker =>
+                broker.WriteToFile(somePath, someContent))
+                    .Throws(serviceException);
+
+            // when
+            Action writeToFileAction = () =>
+                this.fileService.WriteToFile(somePath, someContent);
+
+            // then
+            FileServiceException actualFileServiceException = Assert.Throws<FileServiceException>(writeToFileAction);
+
+            actualFileServiceException.Should().BeEquivalentTo(expectedFileServiceException);
+
+            this.fileSystemBrokerMock.Verify(broker =>
+                broker.WriteToFile(somePath, someContent),
+                    Times.Once);
+
+            this.fileSystemBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
