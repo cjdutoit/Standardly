@@ -3,5 +3,6 @@
     public interface IFileService
     {
         bool CheckIfFileExists(string path);
+        void WriteToFile(string path, string content);
     }
 }

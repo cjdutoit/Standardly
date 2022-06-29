@@ -1,4 +1,5 @@
-﻿using Standardly.Core.Brokers.FileSystems;
+﻿using System.IO;
+using Standardly.Core.Brokers.FileSystems;
 
 namespace Standardly.Core.Services.Foundations.FileServices
 {
@@ -17,6 +18,20 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 ValidatePath(path);
 
                 return this.fileSystemBroker.CheckIfFileExists(path);
+            });
+
+        public void WriteToFile(string path, string content) =>
+            TryCatch(() =>
+            {
+                ValidateInputs(path, content);
+
+                var fileInfo = new FileInfo(path);
+                if (!fileInfo.Directory.Exists)
+                {
+                    fileInfo.Directory.Create();
+                }
+
+                this.fileSystemBroker.WriteToFile(path, content);
             });
     }
 }

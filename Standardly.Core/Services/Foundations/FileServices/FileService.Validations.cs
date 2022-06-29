@@ -13,6 +13,19 @@ namespace Standardly.Core.Services.Foundations.FileServices
             }
         }
 
+        private static void ValidateInputs(string path, string content)
+        {
+            if (IsInvalid(path))
+            {
+                throw new InvalidFilePathException();
+            }
+
+            if (IsInvalid(content))
+            {
+                throw new InvalidFileContentException();
+            }
+        }
+
         private static bool IsInvalid(string @string) =>
             String.IsNullOrWhiteSpace(@string);
     }

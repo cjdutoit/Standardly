@@ -1,6 +1,6 @@
 ﻿using Xeptions;
 
-namespace Standardly.Core.Services.Foundations.FileServices
+namespace Standardly.Core.Models.FileServices.Exceptions
 {
     public class FileServiceValidationException : Xeption
     {
