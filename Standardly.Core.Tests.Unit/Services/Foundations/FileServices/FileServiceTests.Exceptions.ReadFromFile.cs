@@ -34,7 +34,8 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                 Assert.Throws<FileServiceDependencyValidationException>(writeToFileAction);
 
             // then
-            actualFileServiceDependencyValidationException.Should().BeEquivalentTo(expectedFileServiceDependencyValidationException);
+            actualFileServiceDependencyValidationException.Should()
+                .BeEquivalentTo(expectedFileServiceDependencyValidationException);
 
             this.fileSystemBrokerMock.Verify(broker =>
                 broker.ReadFile(somePath),
