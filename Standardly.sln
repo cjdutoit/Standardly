@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standardly.Core.Tests.Accep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standardly.Core.Tests.Unit", "Standardly.Core.Tests.Unit\Standardly.Core.Tests.Unit.csproj", "{3A2ECA6D-467F-41C1-9C3D-AE9248E571BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xeption", "Xeption\Xeption.csproj", "{E3FC297A-5013-4904-BCE4-0C030270E293}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,14 @@ Global
 		{3A2ECA6D-467F-41C1-9C3D-AE9248E571BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A2ECA6D-467F-41C1-9C3D-AE9248E571BC}.Release|x86.ActiveCfg = Release|Any CPU
 		{3A2ECA6D-467F-41C1-9C3D-AE9248E571BC}.Release|x86.Build.0 = Release|Any CPU
+		{E3FC297A-5013-4904-BCE4-0C030270E293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FC297A-5013-4904-BCE4-0C030270E293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FC297A-5013-4904-BCE4-0C030270E293}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E3FC297A-5013-4904-BCE4-0C030270E293}.Debug|x86.Build.0 = Debug|Any CPU
+		{E3FC297A-5013-4904-BCE4-0C030270E293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FC297A-5013-4904-BCE4-0C030270E293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3FC297A-5013-4904-BCE4-0C030270E293}.Release|x86.ActiveCfg = Release|Any CPU
+		{E3FC297A-5013-4904-BCE4-0C030270E293}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
