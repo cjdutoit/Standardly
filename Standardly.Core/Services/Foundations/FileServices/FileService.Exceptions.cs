@@ -142,6 +142,13 @@ namespace Standardly.Core.Services.Foundations.FileServices
 
                 throw CreateAndLogCriticalDependencyException(failedFileDependencyException);
             }
+            catch (Exception exception)
+            {
+                var failedFileServiceException =
+                    new FailedFileServiceException(exception);
+
+                throw CreateAndLogServiceException(failedFileServiceException);
+            }
         }
 
         private FileServiceValidationException CreateAndLogValidationException(Xeption exception)
