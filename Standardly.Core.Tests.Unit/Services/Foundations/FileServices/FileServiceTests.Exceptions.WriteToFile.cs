@@ -87,5 +87,46 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Theory]
+        [MemberData(nameof(CriticalFileServiceDependencyExceptions))]
+        public void ShouldThrowDependencyExceptionOnWriteIfDependencyErrorOccursAndLogItCritical(
+            Exception dependencyException)
+        {
+            // given
+            string somePath = GetRandomString();
+            string someContent = GetRandomString();
+
+            var invalidFileServiceDependencyException =
+                new InvalidFileServiceDependencyException(
+                    dependencyException);
+
+            var failedFileServiceDependencyException =
+                new FailedFileServiceDependencyException(
+                    invalidFileServiceDependencyException);
+
+            var expectedFileServiceDependencyException =
+                new FileServiceDependencyException(failedFileServiceDependencyException);
+
+            this.fileSystemBrokerMock.Setup(broker =>
+                broker.WriteToFile(somePath, someContent))
+                    .Throws(dependencyException);
+
+            // when
+            Action writeToFileAction = () =>
+                this.fileService.WriteToFile(somePath, someContent);
+
+            // then
+            FileServiceDependencyException actualFileServiceDependencyException =
+                Assert.Throws<FileServiceDependencyException>(writeToFileAction);
+
+            actualFileServiceDependencyException.Should().BeEquivalentTo(expectedFileServiceDependencyException);
+
+            this.fileSystemBrokerMock.Verify(broker =>
+                broker.WriteToFile(somePath, someContent),
+                    Times.Once);
+
+            this.fileSystemBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
