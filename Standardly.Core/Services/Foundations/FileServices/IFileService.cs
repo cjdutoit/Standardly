@@ -7,5 +7,6 @@
         string ReadFromFile(string path);
         string[] RetrieveListOfFiles(string path, string searchPattern = "*");
         bool CheckIfDirectoryExists(string path);
+        void DeleteDirectory(string path, bool recursive = false);
     }
 }
