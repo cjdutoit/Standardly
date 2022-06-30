@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Standardly.Core.Brokers.FileSystems;
 
 namespace Standardly.Core.Services.Foundations.FileServices
@@ -60,6 +59,6 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public void CreateDirectory(string path) =>
-            throw new NotImplementedException();
+            this.fileSystemBroker.CreateDirectory(path);
     }
 }
