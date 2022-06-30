@@ -8,6 +8,8 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
         public Template ConvertStringToTemplate(string stringTemplate) =>
             TryCatch(() =>
             {
+                ValidateStringTemplateIsNotNull(stringTemplate);
+
                 Template template = JsonConvert.DeserializeObject<Template>(stringTemplate);
                 template.RawTemplate = stringTemplate;
                 ValidateTemplate(template);

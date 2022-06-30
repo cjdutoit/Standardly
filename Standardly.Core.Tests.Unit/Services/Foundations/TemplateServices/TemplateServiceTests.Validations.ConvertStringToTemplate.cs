@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using FluentAssertions;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Models.Templates.Exceptions;
@@ -8,6 +9,29 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
 {
     public partial class TemplateServiceTests
     {
+        [Fact]
+        public async Task ShouldThrowValidationExceptionOnSendCompletedTemplateNotificationIfTemplateIsNullAndLogItAsync()
+        {
+            // given
+            string emptyStringTemplate = String.Empty;
+
+            var nullTemplateException =
+                new NullTemplateException();
+
+            var expectedTemplateNotificationValidationException =
+                new TemplateValidationException(nullTemplateException);
+
+            // when
+            Action convertStringToTemplateAction = () =>
+                this.templateService.ConvertStringToTemplate(emptyStringTemplate);
+
+            TemplateValidationException actualTemplateValidationException =
+                Assert.Throws<TemplateValidationException>(convertStringToTemplateAction);
+
+            // then
+            actualTemplateValidationException.Should().BeEquivalentTo(expectedTemplateNotificationValidationException);
+        }
+
         [Theory]
         [InlineData(null)]
         [InlineData("")]

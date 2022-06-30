@@ -17,6 +17,14 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
                 (Rule: IsInvalid(template.Tasks), Parameter: "Template Tasks"));
         }
 
+        private static void ValidateStringTemplateIsNotNull(string stringTemplate)
+        {
+            if (string.IsNullOrWhiteSpace(stringTemplate))
+            {
+                throw new NullTemplateException();
+            }
+        }
+
         private static dynamic IsInvalid(string text, bool condition = true) => new
         {
             Condition = String.IsNullOrWhiteSpace(text) && condition,
