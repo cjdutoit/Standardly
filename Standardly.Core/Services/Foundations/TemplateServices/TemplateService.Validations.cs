@@ -63,6 +63,7 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
                             Parameter: $"Actions[{actionIndex}].Scripts"));
 
                     actionRules.AddRange(GetFileItemValidationRules(actions[actionIndex], actionIndex));
+                    actionRules.AddRange(GetScriptValidationRules(actions[actionIndex], actionIndex));
                 }
             }
 
@@ -90,6 +91,29 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             }
 
             return fileItemRules;
+        }
+
+        private List<(dynamic Rule, string Parameter)> GetScriptValidationRules(Models.Actions.Action action, int actionIndex)
+        {
+            var scriptRules = new List<(dynamic Rule, string Parameter)>();
+
+            if (action.Scripts.Any())
+            {
+                var scripts = action.Scripts;
+
+                for (int scriptIndex = 0; scriptIndex <= scripts.Count - 1; scriptIndex++)
+                {
+                    scriptRules.Add(
+                        (Rule: IsInvalid(scripts[scriptIndex].Name),
+                            Parameter: $"Actions[{actionIndex}].Scripts[{scriptIndex}].Name"));
+
+                    scriptRules.Add(
+                        (Rule: IsInvalid(scripts[scriptIndex].Script),
+                            Parameter: $"Actions[{actionIndex}].Scripts[{scriptIndex}].Script"));
+                }
+            }
+
+            return scriptRules;
         }
 
         private static void ValidateStringTemplateIsNotNull(string stringTemplate)
