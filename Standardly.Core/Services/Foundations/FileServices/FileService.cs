@@ -51,6 +51,11 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public bool CheckIfDirectoryExists(string path) =>
-            this.fileSystemBroker.CheckIfDirectoryExists(path);
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+
+                return this.fileSystemBroker.CheckIfDirectoryExists(path);
+            });
     }
 }
