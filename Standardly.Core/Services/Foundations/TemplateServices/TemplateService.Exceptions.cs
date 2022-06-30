@@ -13,6 +13,10 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             {
                 return returningTemplateFunction();
             }
+            catch (NullTemplateException nullTemplateException)
+            {
+                throw CreateAndLogValidationException(nullTemplateException);
+            }
             catch (InvalidTemplateException invalidCommentException)
             {
                 throw CreateAndLogValidationException(invalidCommentException);
