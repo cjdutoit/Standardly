@@ -11,7 +11,7 @@ namespace Standardly.Core.Models.Templates
         public string Description { get; set; }
         public string TemplateType { get; set; }
         public int SortOrder { get; set; }
-        public string RequiredProjects { get; set; }
+        public string ProjectsRequired { get; set; }
         public List<Models.Tasks.Task> Tasks { get; set; } = new List<Models.Tasks.Task>();
         public List<string> CleanupTasks { get; set; } = new List<string>();
     }
