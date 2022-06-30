@@ -21,6 +21,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
 
             // then
             actualTemplate.Should().BeEquivalentTo(expectedTemplate);
+            actualTemplate.RawTemplate.Should().BeEquivalentTo(inputString);
         }
     }
 }
