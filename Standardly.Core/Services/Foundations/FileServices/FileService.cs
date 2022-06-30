@@ -33,5 +33,13 @@ namespace Standardly.Core.Services.Foundations.FileServices
 
                 this.fileSystemBroker.WriteToFile(path, content);
             });
+
+        public string ReadFromFile(string path) =>
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+
+                return this.fileSystemBroker.ReadFile(path);
+            });
     }
 }

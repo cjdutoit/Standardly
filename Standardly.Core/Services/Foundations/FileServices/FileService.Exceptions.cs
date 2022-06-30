@@ -10,6 +10,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
     {
         public delegate bool ReturningBooleanFunction();
         public delegate void ReturningNothingFunction();
+        public delegate string ReturningStringFunction();
 
         public bool TryCatch(ReturningBooleanFunction returningBooleanFunction)
         {
@@ -92,6 +93,74 @@ namespace Standardly.Core.Services.Foundations.FileServices
             catch (InvalidFileContentException invalidFileContentException)
             {
                 throw CreateAndLogValidationException(invalidFileContentException);
+            }
+            catch (ArgumentNullException argumentNullException)
+            {
+                var invalidFileDependencyException =
+                    new InvalidFileServiceDependencyException(argumentNullException);
+
+                throw CreateAndLogDependencyValidationException(invalidFileDependencyException);
+            }
+            catch (ArgumentOutOfRangeException argumentOutOfRangeException)
+            {
+                var invalidFileDependencyException =
+                    new InvalidFileServiceDependencyException(argumentOutOfRangeException);
+
+                throw CreateAndLogDependencyValidationException(invalidFileDependencyException);
+            }
+            catch (ArgumentException argumentException)
+            {
+                var invalidFileDependencyException =
+                    new InvalidFileServiceDependencyException(argumentException);
+
+                throw CreateAndLogDependencyValidationException(invalidFileDependencyException);
+            }
+            catch (SerializationException serializationException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(serializationException);
+
+                throw CreateAndLogDependecyException(failedFileDependencyException);
+            }
+            catch (OutOfMemoryException outOfMemoryException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(outOfMemoryException);
+
+                throw CreateAndLogCriticalDependencyException(failedFileDependencyException);
+            }
+            catch (IOException ioException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(ioException);
+
+                throw CreateAndLogDependecyException(failedFileDependencyException);
+            }
+            catch (UnauthorizedAccessException unauthorizedAccessException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(unauthorizedAccessException);
+
+                throw CreateAndLogCriticalDependencyException(failedFileDependencyException);
+            }
+            catch (Exception exception)
+            {
+                var failedFileServiceException =
+                    new FailedFileServiceException(exception);
+
+                throw CreateAndLogServiceException(failedFileServiceException);
+            }
+        }
+
+        public string TryCatch(ReturningStringFunction returningStringFunction)
+        {
+            try
+            {
+                return returningStringFunction();
+            }
+            catch (InvalidFilePathException invalidFilePathException)
+            {
+                throw CreateAndLogValidationException(invalidFilePathException);
             }
             catch (ArgumentNullException argumentNullException)
             {
