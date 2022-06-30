@@ -86,5 +86,53 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
             // then
             actualException.Should().BeEquivalentTo(expectedTemplateValidationException);
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("   ")]
+        public void ShouldThrowValidationExceptionOnConvertIfTemplateTasksIsInvalid(string invalidString)
+        {
+            // given
+            Template someTemplate = new Template()
+            {
+                Name = GetRandomString(),
+                Description = GetRandomString(),
+                TemplateType = GetRandomString()
+            };
+
+            Models.Tasks.Task someTask = new Models.Tasks.Task()
+            {
+                Name = invalidString,
+            };
+
+            someTemplate.Tasks.Add(someTask);
+            string someRawFile = SerializeTemplate(someTemplate);
+            string inputRawFile = someRawFile;
+
+            var invalidTemplateException =
+                new InvalidTemplateException();
+
+            invalidTemplateException.AddData(
+                key: "Tasks[0].Name",
+                values: "Text is required");
+
+            invalidTemplateException.AddData(
+                key: "Tasks[0].Actions",
+                values: "Actions is required");
+
+            var expectedTemplateValidationException =
+                new TemplateValidationException(invalidTemplateException);
+
+            // when
+            Action runConvertRawFileToTemplateAction = () =>
+                this.templateService.ConvertStringToTemplate(inputRawFile);
+
+            TemplateValidationException actualException = Assert.Throws<TemplateValidationException>(
+                runConvertRawFileToTemplateAction);
+
+            // then
+            actualException.Should().BeEquivalentTo(expectedTemplateValidationException);
+        }
     }
 }
