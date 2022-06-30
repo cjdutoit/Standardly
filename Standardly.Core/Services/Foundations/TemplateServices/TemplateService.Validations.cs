@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Standardly.Core.Models.PowerShellScripts;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Models.Templates.Exceptions;
 
@@ -36,10 +37,34 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
                 {
                     taskRules.Add((Rule: IsInvalid(tasks[taskIndex].Name), Parameter: $"Tasks[{taskIndex}].Name"));
                     taskRules.Add((Rule: IsInvalid(tasks[taskIndex].Actions), Parameter: $"Tasks[{taskIndex}].Actions"));
+                    taskRules.AddRange(GetActionValidationRules(tasks[taskIndex]));
                 }
             }
 
             return taskRules;
+        }
+
+        private List<(dynamic Rule, string Parameter)> GetActionValidationRules(Models.Tasks.Task task)
+        {
+            var actionRules = new List<(dynamic Rule, string Parameter)>();
+
+            if (task.Actions.Any())
+            {
+                var actions = task.Actions;
+
+                for (int actionIndex = 0; actionIndex <= actions.Count - 1; actionIndex++)
+                {
+                    actionRules.Add(
+                        (Rule: IsInvalid(actions[actionIndex].Name),
+                                Parameter: $"Actions[{actionIndex}].Name"));
+
+                    actionRules.Add(
+                        (Rule: IsInvalid(actions[actionIndex].Scripts),
+                            Parameter: $"Actions[{actionIndex}].Scripts"));
+                }
+            }
+
+            return actionRules;
         }
 
         private static void ValidateStringTemplateIsNotNull(string stringTemplate)
@@ -50,9 +75,9 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             }
         }
 
-        private static dynamic IsInvalid(string text, bool condition = true) => new
+        private static dynamic IsInvalid(string text) => new
         {
-            Condition = String.IsNullOrWhiteSpace(text) && condition,
+            Condition = String.IsNullOrWhiteSpace(text),
             Message = "Text is required"
         };
 
@@ -66,6 +91,12 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
         {
             Condition = actions.Count == 0,
             Message = "Actions is required"
+        };
+
+        private static dynamic IsInvalid(List<PowerShellScript> scripts) => new
+        {
+            Condition = scripts.Count == 0,
+            Message = "Scripts is required"
         };
 
         private static void Validate(params (dynamic Rule, string Parameter)[] validations)

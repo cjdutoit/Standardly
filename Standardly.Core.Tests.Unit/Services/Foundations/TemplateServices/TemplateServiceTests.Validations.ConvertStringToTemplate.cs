@@ -161,22 +161,9 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 {
                     new Models.Actions.Action()
                     {
-                        FileItems = new List<FileItem>()
-                        {
-                            new FileItem()
-                            {
-                                Template = invalidString,
-                                Target = invalidString
-                            },
-                        },
-                        Scripts = new List<PowerShellScript>()
-                        {
-                            new PowerShellScript()
-                            {
-                               Name = GetRandomString(),
-                               Script = GetRandomString(),
-                            },
-                        },
+                        Name = invalidString,
+                        FileItems = new List<FileItem>(),
+                        Scripts = new List<PowerShellScript>(),
                     }
                 }
             };
@@ -189,12 +176,12 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 new InvalidTemplateException();
 
             invalidTemplateException.AddData(
-                key: "Actions[0].FileItems[0].Template",
+                key: "Actions[0].Name",
                 values: "Text is required");
 
             invalidTemplateException.AddData(
-                key: "Actions[0].FileItems[0].Target",
-                values: "Text is required");
+                key: "Actions[0].Scripts",
+                values: "Scripts is required");
 
             var expectedTemplateValidationException =
                 new TemplateValidationException(invalidTemplateException);
