@@ -19,6 +19,9 @@ namespace Standardly.Core.Brokers.FileSystems
         public string ReadFile(string path) =>
             File.ReadAllText(path);
 
+        public void DeleteFile(string path) =>
+            File.Delete(path);
+
         public string[] GetListOfFiles(string path, string searchPattern = "*") =>
             Directory.GetFiles(path, searchPattern, SearchOption.AllDirectories);
 
