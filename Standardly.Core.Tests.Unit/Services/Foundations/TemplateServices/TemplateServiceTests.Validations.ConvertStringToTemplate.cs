@@ -98,7 +98,8 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
             {
                 Name = GetRandomString(),
                 Description = GetRandomString(),
-                TemplateType = GetRandomString()
+                TemplateType = GetRandomString(),
+                ProjectsRequired = GetRandomString()
             };
 
             Models.Tasks.Task someTask = new Models.Tasks.Task()
