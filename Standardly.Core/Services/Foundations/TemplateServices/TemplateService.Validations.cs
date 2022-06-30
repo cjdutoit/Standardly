@@ -61,10 +61,35 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
                     actionRules.Add(
                         (Rule: IsInvalid(actions[actionIndex].Scripts),
                             Parameter: $"Actions[{actionIndex}].Scripts"));
+
+                    actionRules.AddRange(GetFileItemValidationRules(actions[actionIndex], actionIndex));
                 }
             }
 
             return actionRules;
+        }
+
+        private List<(dynamic Rule, string Parameter)> GetFileItemValidationRules(Models.Actions.Action action, int actionIndex)
+        {
+            var fileItemRules = new List<(dynamic Rule, string Parameter)>();
+
+            if (action.FileItems.Any())
+            {
+                var fileItems = action.FileItems;
+
+                for (int fileItemIndex = 0; fileItemIndex <= fileItems.Count - 1; fileItemIndex++)
+                {
+                    fileItemRules.Add(
+                        (Rule: IsInvalid(fileItems[fileItemIndex].Target),
+                            Parameter: $"Actions[{actionIndex}].FileItems[{fileItemIndex}].Target"));
+
+                    fileItemRules.Add(
+                        (Rule: IsInvalid(fileItems[fileItemIndex].Template),
+                            Parameter: $"Actions[{actionIndex}].FileItems[{fileItemIndex}].Template"));
+                }
+            }
+
+            return fileItemRules;
         }
 
         private static void ValidateStringTemplateIsNotNull(string stringTemplate)

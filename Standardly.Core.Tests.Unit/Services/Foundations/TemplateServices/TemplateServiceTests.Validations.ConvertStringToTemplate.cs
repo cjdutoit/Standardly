@@ -219,6 +219,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 {
                     new Models.Actions.Action()
                     {
+                        Name = GetRandomString(),
                         FileItems = new List<FileItem>()
                         {
                             new FileItem()
