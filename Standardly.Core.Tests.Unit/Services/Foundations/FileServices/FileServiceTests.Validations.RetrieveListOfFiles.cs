@@ -12,8 +12,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void ShouldThrowValidationExceptionOnRetrieveListOfFilesIfPathIsInvalid(
-            string invalidPath)
+        public void ShouldThrowValidationExceptionOnRetrieveListOfFilesIfPathIsInvalid(string invalidPath)
         {
             // given
             string randomSearchPattern = GetRandomString();

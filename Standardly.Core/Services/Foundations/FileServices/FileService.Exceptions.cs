@@ -11,6 +11,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
         public delegate bool ReturningBooleanFunction();
         public delegate void ReturningNothingFunction();
         public delegate string ReturningStringFunction();
+        public delegate string[] ReturningStringsFunction();
 
         public bool TryCatch(ReturningBooleanFunction returningBooleanFunction)
         {
@@ -217,6 +218,18 @@ namespace Standardly.Core.Services.Foundations.FileServices
                     new FailedFileServiceException(exception);
 
                 throw CreateAndLogServiceException(failedFileServiceException);
+            }
+        }
+
+        public string[] TryCatch(ReturningStringsFunction returningStringsFunction)
+        {
+            try
+            {
+                return returningStringsFunction();
+            }
+            catch (InvalidFilePathException invalidFilePathException)
+            {
+                throw CreateAndLogValidationException(invalidFilePathException);
             }
         }
 
