@@ -42,6 +42,13 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 return this.fileSystemBroker.ReadFile(path);
             });
 
+        public void DeleteFile(string path) =>
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+                this.fileSystemBroker.DeleteFile(path);
+            });
+
         public string[] RetrieveListOfFiles(string path, string searchPattern = "*") =>
             TryCatch(() =>
             {
@@ -63,6 +70,13 @@ namespace Standardly.Core.Services.Foundations.FileServices
             {
                 ValidatePath(path);
                 this.fileSystemBroker.CreateDirectory(path);
+            });
+
+        public void DeleteDirectory(string path, bool recursive = false) =>
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+                this.fileSystemBroker.DeleteDirectory(path, recursive);
             });
     }
 }
