@@ -59,6 +59,10 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public void DeleteDirectory(string path, bool recursive = false) =>
-            this.fileSystemBroker.DeleteDirectory(path, recursive);
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+                this.fileSystemBroker.DeleteDirectory(path, recursive);
+            });
     }
 }
