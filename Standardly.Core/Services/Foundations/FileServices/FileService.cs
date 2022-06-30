@@ -59,6 +59,10 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public void CreateDirectory(string path) =>
-            this.fileSystemBroker.CreateDirectory(path);
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+                this.fileSystemBroker.CreateDirectory(path);
+            });
     }
 }
