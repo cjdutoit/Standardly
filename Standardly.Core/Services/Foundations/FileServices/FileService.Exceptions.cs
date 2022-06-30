@@ -183,6 +183,34 @@ namespace Standardly.Core.Services.Foundations.FileServices
 
                 throw CreateAndLogDependencyValidationException(invalidFileDependencyException);
             }
+            catch (SerializationException serializationException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(serializationException);
+
+                throw CreateAndLogDependecyException(failedFileDependencyException);
+            }
+            catch (OutOfMemoryException outOfMemoryException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(outOfMemoryException);
+
+                throw CreateAndLogCriticalDependencyException(failedFileDependencyException);
+            }
+            catch (IOException ioException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(ioException);
+
+                throw CreateAndLogDependecyException(failedFileDependencyException);
+            }
+            catch (UnauthorizedAccessException unauthorizedAccessException)
+            {
+                var failedFileDependencyException =
+                    new FailedFileServiceDependencyException(unauthorizedAccessException);
+
+                throw CreateAndLogCriticalDependencyException(failedFileDependencyException);
+            }
         }
 
         private FileServiceValidationException CreateAndLogValidationException(Xeption exception)
