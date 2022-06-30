@@ -49,5 +49,40 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.PowerShells
 
             this.powerShellBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Fact]
+        public void ShouldThrowValidationExceptionOnRunScriptsIfScriptIsEmpty()
+        {
+            // given
+            string somePath = GetRandomString();
+
+            List<PowerShellScript> someScripts = new List<PowerShellScript>();
+
+            var invalidPowerShellException =
+                new InvalidPowerShellException();
+
+            invalidPowerShellException.AddData(
+                key: $"scripts",
+                values: "Scripts is required");
+
+            var expectedPowerShellValidationException =
+                new PowerShellValidationException(invalidPowerShellException);
+
+            // when
+            Action runScriptsAction = () =>
+                this.powerShellService.RunScript(someScripts, somePath);
+
+            PowerShellValidationException actualException = Assert.Throws<PowerShellValidationException>(
+                runScriptsAction);
+
+            // then
+            actualException.Should().BeEquivalentTo(expectedPowerShellValidationException);
+
+            this.powerShellBrokerMock.Verify(broker =>
+                broker.RunScript(someScripts, somePath),
+                    Times.Never);
+
+            this.powerShellBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
