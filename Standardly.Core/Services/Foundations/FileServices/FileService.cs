@@ -65,6 +65,13 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 return this.fileSystemBroker.CheckIfDirectoryExists(path);
             });
 
+        public void CreateDirectory(string path) =>
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+                this.fileSystemBroker.CreateDirectory(path);
+            });
+
         public void DeleteDirectory(string path, bool recursive = false) =>
             TryCatch(() =>
             {
