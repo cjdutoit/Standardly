@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Standardly.Core.Brokers.FileSystems;
 
 namespace Standardly.Core.Services.Foundations.FileServices
@@ -52,6 +51,6 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public bool CheckIfDirectoryExists(string path) =>
-            throw new NotImplementedException();
+            this.fileSystemBroker.CheckIfDirectoryExists(path);
     }
 }
