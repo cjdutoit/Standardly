@@ -26,6 +26,19 @@ namespace Standardly.Core.Services.Foundations.FileServices
             }
         }
 
+        private static void ValidateSearchInputs(string path, string searchPattern)
+        {
+            if (IsInvalid(path))
+            {
+                throw new InvalidFilePathException();
+            }
+
+            if (IsInvalid(searchPattern))
+            {
+                throw new InvalidFileSearchPatternException();
+            }
+        }
+
         private static bool IsInvalid(string @string) =>
             String.IsNullOrWhiteSpace(@string);
     }

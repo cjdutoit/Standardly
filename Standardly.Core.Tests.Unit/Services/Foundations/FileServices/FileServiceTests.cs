@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using Moq;
 using Standardly.Core.Brokers.FileSystems;
@@ -48,7 +49,19 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             };
         }
 
+        private static int GetRandomNumber() =>
+            new IntRange(min: 2, max: 10).GetValue();
+
         private static string GetRandomString() =>
             new MnemonicString().GetValue();
+
+        private static string[] GetRandomStringArray()
+        {
+            return Enumerable.Range(start: 0, count: GetRandomNumber())
+                .Select(item =>
+                {
+                    return GetRandomString();
+                }).ToArray();
+        }
     }
 }

@@ -41,5 +41,13 @@ namespace Standardly.Core.Services.Foundations.FileServices
 
                 return this.fileSystemBroker.ReadFile(path);
             });
+
+        public string[] RetrieveListOfFiles(string path, string searchPattern = "*") =>
+            TryCatch(() =>
+            {
+                ValidateSearchInputs(path, searchPattern);
+
+                return this.fileSystemBroker.GetListOfFiles(path, searchPattern);
+            });
     }
 }
