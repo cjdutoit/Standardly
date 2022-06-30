@@ -16,6 +16,7 @@ namespace Standardly.Core.Services.Foundations.PowerShells
         {
             var rules = new List<(dynamic Rule, string Parameter)>();
             rules.Add((Rule: IsInvalid(executionFolder), Parameter: "executionFolder"));
+            rules.Add((Rule: IsInvalid(scripts), Parameter: "scripts"));
 
             return rules.ToArray();
         }
@@ -24,6 +25,12 @@ namespace Standardly.Core.Services.Foundations.PowerShells
         {
             Condition = String.IsNullOrWhiteSpace(text),
             Message = "Text is required"
+        };
+
+        private static dynamic IsInvalid(List<PowerShellScript> scripts) => new
+        {
+            Condition = scripts.Count == 0,
+            Message = "Scripts is required"
         };
 
         private static void Validate(params (dynamic Rule, string Parameter)[] validations)
