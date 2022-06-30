@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Standardly.Core.Brokers.PowerShells;
 using Standardly.Core.Models.PowerShellScripts;
 
@@ -16,6 +15,6 @@ namespace Standardly.Core.Services.Foundations.PowerShells
         }
 
         public string RunScript(List<PowerShellScript> scripts, string executionFolder) =>
-            throw new NotImplementedException();
+            this.powerShellBroker.RunScript(scripts, executionFolder);
     }
 }
