@@ -49,5 +49,13 @@ namespace Standardly.Core.Services.Foundations.FileServices
 
                 return this.fileSystemBroker.GetListOfFiles(path, searchPattern);
             });
+
+        public bool CheckIfDirectoryExists(string path) =>
+            TryCatch(() =>
+            {
+                ValidatePath(path);
+
+                return this.fileSystemBroker.CheckIfDirectoryExists(path);
+            });
     }
 }
