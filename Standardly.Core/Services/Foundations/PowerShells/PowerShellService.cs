@@ -15,6 +15,10 @@ namespace Standardly.Core.Services.Foundations.PowerShells
         }
 
         public string RunScript(List<PowerShellScript> scripts, string executionFolder) =>
-            this.powerShellBroker.RunScript(scripts, executionFolder);
+        TryCatch(() =>
+        {
+            ValidateInputs(scripts, executionFolder);
+            return this.powerShellBroker.RunScript(scripts, executionFolder);
+        });
     }
 }
