@@ -40,5 +40,39 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("   ")]
+        public void ShouldThrowValidationExceptionOnRetrieveListOfFilesIfSearchPatternIsInvalid(
+            string invalidSearchPattern)
+        {
+            // given
+            string randomPath = GetRandomString();
+            string inputPath = randomPath;
+
+            var invalidFileSearchPatternException =
+                new InvalidFileSearchPatternException();
+
+            var expectedFileServiceValidationException =
+                new FileServiceValidationException(invalidFileSearchPatternException);
+
+            // when
+            Action retrieveListOfFiles = () =>
+                this.fileService.RetrieveListOfFiles(inputPath, invalidSearchPattern);
+
+            // then
+            FileServiceValidationException actualFileServiceValidationException =
+                Assert.Throws<FileServiceValidationException>(retrieveListOfFiles);
+
+            actualFileServiceValidationException.Should().BeEquivalentTo(expectedFileServiceValidationException);
+
+            this.fileSystemBrokerMock.Verify(broker =>
+                broker.GetListOfFiles(inputPath, invalidSearchPattern),
+                        Times.Never);
+
+            this.fileSystemBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
