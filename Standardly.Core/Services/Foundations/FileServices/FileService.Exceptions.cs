@@ -231,6 +231,10 @@ namespace Standardly.Core.Services.Foundations.FileServices
             {
                 throw CreateAndLogValidationException(invalidFilePathException);
             }
+            catch (InvalidFileSearchPatternException invalidFileSearchPatternException)
+            {
+                throw CreateAndLogValidationException(invalidFileSearchPatternException);
+            }
         }
 
         private FileServiceValidationException CreateAndLogValidationException(Xeption exception)

@@ -32,6 +32,11 @@ namespace Standardly.Core.Services.Foundations.FileServices
             {
                 throw new InvalidFilePathException();
             }
+
+            if (IsInvalid(searchPattern))
+            {
+                throw new InvalidFileSearchPatternException();
+            }
         }
 
         private static bool IsInvalid(string @string) =>
