@@ -1,4 +1,5 @@
-﻿using Standardly.Core.Models.PowerShellScripts.Exceptions;
+﻿using System;
+using Standardly.Core.Models.PowerShellScripts.Exceptions;
 using Xeptions;
 
 namespace Standardly.Core.Services.Foundations.PowerShells
@@ -17,6 +18,13 @@ namespace Standardly.Core.Services.Foundations.PowerShells
             {
                 throw CreateAndLogValidationException(invalidPowerShellException);
             }
+            catch (Exception exception)
+            {
+                var failedPowerShellServiceException =
+                    new FailedPowerShellServiceException(exception);
+
+                throw CreateAndLogServiceException(failedPowerShellServiceException);
+            }
         }
 
         private PowerShellValidationException CreateAndLogValidationException(Xeption exception)
@@ -25,6 +33,13 @@ namespace Standardly.Core.Services.Foundations.PowerShells
                 new PowerShellValidationException(exception);
 
             return powerShellValidationException;
+        }
+
+        private PowerShellServiceException CreateAndLogServiceException(Xeption exception)
+        {
+            var powerShellServiceException = new PowerShellServiceException(exception);
+
+            return powerShellServiceException;
         }
     }
 }
