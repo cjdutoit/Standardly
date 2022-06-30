@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Standardly.Core.Brokers.FileSystems;
 
 namespace Standardly.Core.Services.Foundations.FileServices
@@ -49,5 +50,8 @@ namespace Standardly.Core.Services.Foundations.FileServices
 
                 return this.fileSystemBroker.GetListOfFiles(path, searchPattern);
             });
+
+        public bool CheckIfDirectoryExists(string path) =>
+            throw new NotImplementedException();
     }
 }
