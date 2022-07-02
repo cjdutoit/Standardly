@@ -63,57 +63,60 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                 return templates;
             });
 
-        public bool GenerateCodeFromTemplate(Template template, Dictionary<string, string> replacementDictionary)
-        {
-            var transformedStringTemplate = this.templateService
-                .TransformString(template.RawTemplate, replacementDictionary);
-
-            this.templateService.ValidateTransformation(transformedStringTemplate);
-
-            var transformedTemplate = this.templateService
-                .ConvertStringToTemplate(transformedStringTemplate);
-
-            if (transformedTemplate.Tasks.Any())
+        public bool GenerateCodeFromTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
+            TryCatch(() =>
             {
-                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                ValidateTemplateIsNotNull(template);
+
+                var transformedStringTemplate = this.templateService
+                    .TransformString(template.RawTemplate, replacementDictionary);
+
+                this.templateService.ValidateTransformation(transformedStringTemplate);
+
+                var transformedTemplate = this.templateService
+                    .ConvertStringToTemplate(transformedStringTemplate);
+
+                if (transformedTemplate.Tasks.Any())
                 {
-                    if (task.Actions.Any())
+                    foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
                     {
-                        foreach (Models.Actions.Action action in task.Actions)
+                        if (task.Actions.Any())
                         {
-                            if (action.FileItems.Any())
+                            foreach (Models.Actions.Action action in task.Actions)
                             {
-                                foreach (FileItem fileItem in action.FileItems)
+                                if (action.FileItems.Any())
                                 {
-                                    if (!string.IsNullOrEmpty(fileItem.Template))
+                                    foreach (FileItem fileItem in action.FileItems)
                                     {
-                                        string sourceString = this.fileService.ReadFromFile(fileItem.Template);
-
-                                        string transformedSourceString = this.templateService
-                                            .TransformString(sourceString, replacementDictionary);
-
-                                        this.templateService.ValidateTransformation(transformedSourceString);
-
-                                        var fileExists = this.fileService.CheckIfFileExists(fileItem.Target);
-
-                                        if (fileExists == false || (fileExists == true && fileItem.Replace == true))
+                                        if (!string.IsNullOrEmpty(fileItem.Template))
                                         {
-                                            this.fileService.WriteToFile(fileItem.Target, transformedSourceString);
+                                            string sourceString = this.fileService.ReadFromFile(fileItem.Template);
+
+                                            string transformedSourceString = this.templateService
+                                                .TransformString(sourceString, replacementDictionary);
+
+                                            this.templateService.ValidateTransformation(transformedSourceString);
+
+                                            var fileExists = this.fileService.CheckIfFileExists(fileItem.Target);
+
+                                            if (fileExists == false || (fileExists == true && fileItem.Replace == true))
+                                            {
+                                                this.fileService.WriteToFile(fileItem.Target, transformedSourceString);
+                                            }
                                         }
                                     }
                                 }
-                            }
 
-                            if (action.Scripts.Any())
-                            {
-                                this.powerShellService.RunScript(action.Scripts, action.ExecutionFolder);
+                                if (action.Scripts.Any())
+                                {
+                                    this.powerShellService.RunScript(action.Scripts, action.ExecutionFolder);
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            return true;
-        }
+                return true;
+            });
     }
 }

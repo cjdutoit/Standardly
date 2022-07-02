@@ -15,6 +15,7 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 {
     public partial class TemplateOrchestrationService
     {
+        private delegate bool ReturningBooleanFunction();
         private delegate List<Template> ReturningTemplateListFunction();
 
         private List<Template> TryCatch(ReturningTemplateListFunction returningTemplateListFunction)
@@ -48,8 +49,28 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             }
         }
 
+        private bool TryCatch(ReturningBooleanFunction returningBooleanFunction)
+        {
+            try
+            {
+                return returningBooleanFunction();
+            }
+            catch (NullTemplateOrchestrationException nullTemplateOrchestrationException)
+            {
+                throw CreateAndLogValidationException(nullTemplateOrchestrationException);
+            }
+        }
+
+        private TemplateOrchestrationValidationException CreateAndLogValidationException(Xeption exception)
+        {
+            var templateOrchestrationValidationException =
+                new TemplateOrchestrationValidationException(exception);
+
+            return templateOrchestrationValidationException;
+        }
+
         private TemplateOrchestrationDependencyValidationException CreateAndLogDependencyValidationException(
-            Xeption exception)
+        Xeption exception)
         {
             var templateOrchestrationDependencyValidationException =
                 new TemplateOrchestrationDependencyValidationException(exception.InnerException as Xeption);
