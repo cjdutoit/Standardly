@@ -1,4 +1,10 @@
-﻿using Moq;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
+using Moq;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices

@@ -1,58 +1,7 @@
 # To learn more about .editorconfig see https://aka.ms/editorconfigdocs
 
+[*.{cs,vb}]
 #Formatting - header template
 
 #add file header template
 file_header_template = ---------------------------------------------------------------\nCopyright (c) Hassan Habib All rights reserved.\nLicensed under the MIT License.\nSee License.txt in the project root for license information.\n---------------------------------------------------------------
-
-# C# or VB files
-[*.{cs,vb}]
-guidelines = 120
-
-# top-most EditorConfig file
-root = true
-
-# Don't use tabs for indentation.
-[*]
-indent_style = space
-end_of_line  = crlf
-# (Please don't specify an indent_size here; that has too many unintended consequences.)
-
-# Code files
-[*.{cs,csx,vb,vbx,xaml}]
-indent_size = 4
-
-# Xml project files
-[*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,projitems,shproj}]
-indent_size = 2
-
-# Xml config files
-[*.{props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct}]
-indent_size = 2
-
-# JSON files
-[*.json]
-indent_size = 2
-
-# Dotnet code style settings:
-[*.{cs,vb}]
-# Sort using and Import directives with System.* appearing first
-dotnet_sort_system_directives_first                             = true
-dotnet_separate_import_directive_groups                         = false
-
-# Dotnet code style settings:
-[*.{cs,vb}]
-# Sort using and Import directives with System.* appearing first
-dotnet_sort_system_directives_first                             = true
-dotnet_separate_import_directive_groups                         = false
-
-# Naming rules - async methods to be prefixed with Async
-dotnet_naming_rule.async_methods_must_end_with_async.severity   = warning
-dotnet_naming_rule.async_methods_must_end_with_async.symbols    = method_symbols
-dotnet_naming_rule.async_methods_must_end_with_async.style      = end_in_async_style
-
-dotnet_naming_symbols.method_symbols.applicable_kinds           = method
-dotnet_naming_symbols.method_symbols.required_modifiers         = async
-
-dotnet_naming_style.end_in_async_style.capitalization           = pascal_case
-dotnet_naming_style.end_in_async_style.required_suffix          = Async

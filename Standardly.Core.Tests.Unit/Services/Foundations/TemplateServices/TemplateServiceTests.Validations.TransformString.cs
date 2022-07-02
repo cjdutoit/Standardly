@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -33,7 +39,8 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
         }
         [Theory]
         [MemberData(nameof(DictionaryTheoryData))]
-        public void ShouldNotThrowExceptionOnTransformStringIfDictionaryIsNullOrEmpty(Dictionary<string, string> invalidDictionary)
+        public void ShouldNotThrowExceptionOnTransformStringIfDictionaryIsNullOrEmpty(
+            Dictionary<string, string> invalidDictionary)
         {
             // given
             string randomStringTemplate = GetRandomString();
