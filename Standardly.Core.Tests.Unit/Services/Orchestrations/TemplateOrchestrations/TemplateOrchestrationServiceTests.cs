@@ -126,6 +126,22 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             };
         }
 
+        public static TheoryData TemplateOrchestrationDependencyExceptions()
+        {
+            string exceptionMessage = GetRandomString();
+            var innerException = new Xeption(exceptionMessage);
+
+            return new TheoryData<Exception>()
+            {
+                new FileServiceException(innerException),
+                new FileServiceDependencyException(innerException),
+                new TemplateServiceException(innerException),
+                new TemplateDependencyException(innerException),
+                new PowerShellServiceException(innerException),
+                new PowerShellDependencyException(innerException),
+            };
+        }
+
         private static List<Models.FileItems.FileItem> CreateFileItems(int numberOfFileItems)
         {
             var fileItems = new List<Models.FileItems.FileItem>();

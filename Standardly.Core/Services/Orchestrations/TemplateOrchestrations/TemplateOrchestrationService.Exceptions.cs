@@ -85,6 +85,30 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 throw CreateAndLogDependencyValidationException(templateDependencyValidationException);
             }
+            catch (FileServiceException fileServiceException)
+            {
+                throw CreateAndLogDependencyException(fileServiceException);
+            }
+            catch (FileServiceDependencyException fileServiceDependencyException)
+            {
+                throw CreateAndLogDependencyException(fileServiceDependencyException);
+            }
+            catch (TemplateServiceException templateServiceException)
+            {
+                throw CreateAndLogDependencyException(templateServiceException);
+            }
+            catch (TemplateDependencyException templateDependencyException)
+            {
+                throw CreateAndLogDependencyException(templateDependencyException);
+            }
+            catch (PowerShellServiceException powerShellServiceException)
+            {
+                throw CreateAndLogDependencyException(powerShellServiceException);
+            }
+            catch (PowerShellDependencyException powerShellDependencyException)
+            {
+                throw CreateAndLogDependencyException(powerShellDependencyException);
+            }
         }
 
         private TemplateOrchestrationValidationException CreateAndLogValidationException(Xeption exception)
@@ -95,6 +119,14 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             return templateOrchestrationValidationException;
         }
 
+        private TemplateOrchestrationDependencyException CreateAndLogDependencyException(Xeption exception)
+        {
+            var templateOrchestrationDependencyException =
+                new TemplateOrchestrationDependencyException(exception.InnerException as Xeption);
+
+            throw templateOrchestrationDependencyException;
+        }
+
         private TemplateOrchestrationDependencyValidationException CreateAndLogDependencyValidationException(
         Xeption exception)
         {
@@ -102,14 +134,6 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                 new TemplateOrchestrationDependencyValidationException(exception.InnerException as Xeption);
 
             throw templateOrchestrationDependencyValidationException;
-        }
-
-        private TemplateOrchestrationDependencyException CreateAndLogDependencyException(Xeption exception)
-        {
-            var templateOrchestrationDependencyException =
-                new TemplateOrchestrationDependencyException(exception.InnerException as Xeption);
-
-            throw templateOrchestrationDependencyException;
         }
 
         private TemplateOrchestrationServiceException CreateAndLogServiceException(Exception exception)

@@ -52,5 +52,42 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             this.fileServiceMock.VerifyNoOtherCalls();
             this.powerShellServiceMock.VerifyNoOtherCalls();
         }
+
+        [Theory]
+        [MemberData(nameof(TemplateOrchestrationDependencyExceptions))]
+        public void ShouldThrowDependencyExceptionIfDependencyErrorOccursAndLogIt(
+           Exception dependencyException)
+        {
+            // given
+            Template randomTemplate = CreateRandomTemplate();
+            Template inputTemplate = randomTemplate;
+            Dictionary<string, string> randomReplacementDictionary = CreateReplacementDictionary();
+
+            TemplateOrchestrationDependencyException expectedException =
+               new TemplateOrchestrationDependencyException(
+                   dependencyException.InnerException as Xeption);
+
+            this.templateServiceMock.Setup(templateService =>
+                templateService.TransformString(inputTemplate.RawTemplate, randomReplacementDictionary))
+                    .Throws(dependencyException);
+
+            Action generateCodeFromTemplateAction = () =>
+               this.templateOrchestrationService.GenerateCodeFromTemplate(inputTemplate, randomReplacementDictionary);
+
+            TemplateOrchestrationDependencyException actualException =
+                Assert.Throws<TemplateOrchestrationDependencyException>(generateCodeFromTemplateAction);
+
+            // then
+            actualException.Should().BeEquivalentTo(expectedException);
+
+            this.templateServiceMock.Verify(templateService =>
+                templateService.TransformString(inputTemplate.RawTemplate, randomReplacementDictionary),
+                    Times.Once);
+
+            this.templateServiceMock.VerifyNoOtherCalls();
+            this.fileServiceMock.VerifyNoOtherCalls();
+            this.powerShellServiceMock.VerifyNoOtherCalls();
+        }
+
     }
 }
