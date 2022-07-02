@@ -78,5 +78,37 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             this.powerShellServiceMock.VerifyNoOtherCalls();
             this.templateServiceMock.VerifyNoOtherCalls();
         }
+
+        [Fact]
+        public void ShoudThrowServiceExceptionOnFindAllTemplatesIfServiceErrorOccurs()
+        {
+            // given
+            var serviceException = new Exception();
+
+            var failedTemplateOrchestrationServiceException =
+                new FailedTemplateOrchestrationServiceException(serviceException);
+
+            var expectedTemplateOrchestrationServiceException =
+                new TemplateOrchestrationServiceException(failedTemplateOrchestrationServiceException);
+
+            this.fileServiceMock.Setup(broker =>
+                broker.RetrieveListOfFiles(It.IsAny<string>(), It.IsAny<string>()))
+                    .Throws(serviceException);
+
+            // when
+            Action findAllTemplatesAction = () =>
+                this.templateOrchestrationService.FindAllTemplates();
+
+            // then
+            Assert.Throws<TemplateOrchestrationServiceException>(findAllTemplatesAction);
+
+            this.fileServiceMock.Verify(broker =>
+                broker.RetrieveListOfFiles(It.IsAny<string>(), It.IsAny<string>()),
+                    Times.Once);
+
+            this.fileServiceMock.VerifyNoOtherCalls();
+            this.powerShellServiceMock.VerifyNoOtherCalls();
+            this.templateServiceMock.VerifyNoOtherCalls();
+        }
     }
 }
