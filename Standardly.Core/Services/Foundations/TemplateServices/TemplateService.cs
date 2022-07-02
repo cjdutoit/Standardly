@@ -9,6 +9,11 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
     {
         public string TransformString(string @string, Dictionary<string, string> replacementDictionary)
         {
+            if (string.IsNullOrEmpty(@string))
+            {
+                return string.Empty;
+            }
+
             string template = @string;
 
             if (replacementDictionary.Any())

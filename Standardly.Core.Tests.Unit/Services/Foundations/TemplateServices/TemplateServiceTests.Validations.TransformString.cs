@@ -17,16 +17,16 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
             Dictionary<string, string> inputReplacementDictionary = randomReplacementDictionary;
 
             // when
-            var actualTemplate = this.templateService.TransformString(invalidString, inputReplacementDictionary);
+            var transformedTemplate = this.templateService.TransformString(invalidString, inputReplacementDictionary);
 
             // then
             foreach (KeyValuePair<string, string> item in inputReplacementDictionary)
             {
-                actualTemplate.Should().NotContain(item.Key);
+                transformedTemplate.Should().NotContain(item.Key);
 
-                if (invalidString.Contains("item.Key"))
+                if (!string.IsNullOrEmpty(invalidString) && invalidString.Contains("item.Key"))
                 {
-                    actualTemplate.Should().Contain(item.Value);
+                    transformedTemplate.Should().Contain(item.Value);
                 }
             }
         }
