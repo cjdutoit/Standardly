@@ -4,15 +4,19 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Moq;
+using Standardly.Core.Models.FileServices.Exceptions;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Services.Foundations.FileServices;
 using Standardly.Core.Services.Foundations.PowerShells;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Tynamix.ObjectFiller;
+using Xeptions;
+using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrations
 {
@@ -66,6 +70,18 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             }
 
             return dictionary;
+        }
+
+        public static TheoryData TemplateOrchestrationFindAllTemplatesDependencyValidationExceptions()
+        {
+            string exceptionMessage = GetRandomString();
+            var innerException = new Xeption(exceptionMessage);
+
+            return new TheoryData<Exception>()
+            {
+                new FileServiceValidationException(innerException),
+                new FileServiceDependencyValidationException(innerException),
+            };
         }
 
         private static Filler<Template> CreateTemplateFiller()
