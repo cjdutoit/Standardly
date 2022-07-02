@@ -6,6 +6,7 @@ using Standardly.Core.Models.PowerShellScripts;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Tynamix.ObjectFiller;
+using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
 {
@@ -16,6 +17,15 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
         public TemplateServiceTests()
         {
             this.templateService = new TemplateService();
+        }
+
+        public static TheoryData DictionaryTheoryData()
+        {
+            return new TheoryData<Dictionary<string, string>>()
+            {
+                null,
+                new Dictionary<string,string>(),
+            };
         }
 
         private static Dictionary<string, string> CreateReplacementDictionary()

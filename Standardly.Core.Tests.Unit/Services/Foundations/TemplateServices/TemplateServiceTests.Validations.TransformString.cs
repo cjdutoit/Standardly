@@ -30,5 +30,27 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 }
             }
         }
+        [Theory]
+        [MemberData(nameof(DictionaryTheoryData))]
+        public void ShouldNotThrowExceptionOnTransformStringIfDictionaryIsNullOrEmpty(Dictionary<string, string> invalidDictionary)
+        {
+            // given
+            string randomStringTemplate = GetRandomString();
+            string inputStringTemplate = randomStringTemplate;
+
+            // when
+            var transformedTemplate = this.templateService.TransformString(inputStringTemplate, invalidDictionary);
+
+            // then
+            foreach (KeyValuePair<string, string> item in invalidDictionary)
+            {
+                transformedTemplate.Should().NotContain(item.Key);
+
+                if (!string.IsNullOrEmpty(inputStringTemplate) && inputStringTemplate.Contains("item.Key"))
+                {
+                    transformedTemplate.Should().Contain(item.Value);
+                }
+            }
+        }
     }
 }
