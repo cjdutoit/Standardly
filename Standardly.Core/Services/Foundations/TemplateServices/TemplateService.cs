@@ -4,15 +4,24 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using Standardly.Core.Brokers.FileSystems;
 using Standardly.Core.Models.Templates;
 
 namespace Standardly.Core.Services.Foundations.TemplateServices
 {
     public partial class TemplateService : ITemplateService
     {
+        private readonly IFileSystemBroker fileSystemBroker;
+
+        public TemplateService(IFileSystemBroker fileSystemBroker)
+        {
+            this.fileSystemBroker = fileSystemBroker;
+        }
+
         public string TransformString(string @string, Dictionary<string, string> replacementDictionary)
         {
             if (string.IsNullOrEmpty(@string))
@@ -50,5 +59,8 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
 
                 return template;
             });
+
+        public void ValidateSourceFiles(Template template) =>
+            throw new NotImplementedException();
     }
 }

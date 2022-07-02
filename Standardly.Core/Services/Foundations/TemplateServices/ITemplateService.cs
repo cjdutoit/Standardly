@@ -14,5 +14,6 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
         string TransformString(string @string, Dictionary<string, string> replacementDictionary);
         void ValidateTransformation(string @string);
         Template ConvertStringToTemplate(string @string);
+        void ValidateSourceFiles(Template template);
     }
 }

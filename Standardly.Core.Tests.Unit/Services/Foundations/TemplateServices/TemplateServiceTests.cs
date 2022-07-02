@@ -6,7 +6,9 @@
 
 using System.Collections.Generic;
 using System.Text;
+using Moq;
 using Newtonsoft.Json;
+using Standardly.Core.Brokers.FileSystems;
 using Standardly.Core.Models.FileItems;
 using Standardly.Core.Models.PowerShellScripts;
 using Standardly.Core.Models.Templates;
@@ -18,11 +20,13 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
 {
     public partial class TemplateServiceTests
     {
+        private readonly Mock<IFileSystemBroker> fileSystemBrokerMock;
         private readonly ITemplateService templateService;
 
         public TemplateServiceTests()
         {
-            this.templateService = new TemplateService();
+            fileSystemBrokerMock = new Mock<IFileSystemBroker>();
+            this.templateService = new TemplateService(fileSystemBrokerMock.Object);
         }
 
         public static TheoryData DictionaryTheoryData()
