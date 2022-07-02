@@ -115,8 +115,8 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             Action generateCodeFromTemplateAction = () =>
                this.templateOrchestrationService.GenerateCodeFromTemplate(inputTemplate, randomReplacementDictionary);
 
-            TemplateOrchestrationDependencyException actualException =
-                Assert.Throws<TemplateOrchestrationDependencyException>(generateCodeFromTemplateAction);
+            TemplateOrchestrationServiceException actualException =
+                Assert.Throws<TemplateOrchestrationServiceException>(generateCodeFromTemplateAction);
 
             // then
             actualException.Should().BeEquivalentTo(expectedTemplateOrchestrationServiceException);

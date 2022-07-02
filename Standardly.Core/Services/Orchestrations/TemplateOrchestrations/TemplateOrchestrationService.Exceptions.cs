@@ -109,6 +109,13 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 throw CreateAndLogDependencyException(powerShellDependencyException);
             }
+            catch (Exception exception)
+            {
+                var failedTemplateOrchestrationServiceException =
+                    new FailedTemplateOrchestrationServiceException(exception.InnerException as Xeption);
+
+                throw CreateAndLogServiceException(failedTemplateOrchestrationServiceException);
+            }
         }
 
         private TemplateOrchestrationValidationException CreateAndLogValidationException(Xeption exception)
