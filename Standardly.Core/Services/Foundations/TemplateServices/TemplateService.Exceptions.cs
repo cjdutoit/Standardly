@@ -12,7 +12,6 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
 {
     public partial class TemplateService
     {
-
         private delegate string ReturningStringFunction();
         private delegate void ReturningNothingFunction();
         private delegate Models.Templates.Template ReturningTemplateFunction();
