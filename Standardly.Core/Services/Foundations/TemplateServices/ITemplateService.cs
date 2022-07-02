@@ -12,6 +12,7 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
     public interface ITemplateService
     {
         string TransformString(string @string, Dictionary<string, string> replacementDictionary);
+        void ValidateTransformation(string @string);
         Template ConvertStringToTemplate(string @string);
     }
 }
