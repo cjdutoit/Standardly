@@ -28,7 +28,6 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             };
 
             templateRules.AddRange(GetTaskValidationRules(template));
-
             Validate(templateRules.ToArray());
         }
 
