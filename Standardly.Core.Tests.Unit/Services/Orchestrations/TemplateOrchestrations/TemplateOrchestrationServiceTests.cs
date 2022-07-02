@@ -108,11 +108,79 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             };
         }
 
+        private static List<Models.FileItems.FileItem> CreateFileItems(int numberOfFileItems)
+        {
+            var fileItems = new List<Models.FileItems.FileItem>();
+
+            for (int i = 0; i < numberOfFileItems; i++)
+            {
+                fileItems.Add(new Models.FileItems.FileItem()
+                {
+                    Replace = true,
+                    Template = GetRandomString(),
+                    Target = GetRandomString()
+                });
+            }
+
+            return fileItems;
+        }
+
+        private static List<Models.PowerShellScripts.PowerShellScript> CreatePowerShellScripts(int numberOfPowerShellScripts)
+        {
+            var scripts = new List<Models.PowerShellScripts.PowerShellScript>();
+
+            for (int i = 0; i < numberOfPowerShellScripts; i++)
+            {
+                scripts.Add(new Models.PowerShellScripts.PowerShellScript()
+                {
+                    Name = GetRandomString(),
+                    Script = GetRandomString()
+                });
+            }
+
+            return scripts;
+        }
+
+        private static List<Models.Actions.Action> CreateActions(int numberOfActions)
+        {
+            var actions = new List<Models.Actions.Action>();
+
+            for (int i = 0; i < numberOfActions; i++)
+            {
+                var task = new Models.Actions.Action()
+                {
+                    Name = GetRandomString(),
+                    ExecutionFolder = GetRandomString(),
+                    FileItems = CreateFileItems(2),
+                    Scripts = CreatePowerShellScripts(2)
+                };
+            }
+
+            return actions;
+        }
+
+        private static List<Models.Tasks.Task> CreateTasks(int numberOfTasks)
+        {
+            var tasks = new List<Models.Tasks.Task>();
+
+            for (int i = 0; i < numberOfTasks; i++)
+            {
+                var task = new Models.Tasks.Task()
+                {
+                    Name = GetRandomString(),
+                    Actions = CreateActions(2)
+                };
+            }
+
+            return tasks;
+        }
+
         private static Filler<Template> CreateTemplateFiller()
         {
             var filler = new Filler<Template>();
             filler.Setup()
-                .OnType<Dictionary<string, string>>().Use(CreateDictionary); ;
+                .OnType<List<Models.Tasks.Task>>().Use(CreateTasks(2))
+                .OnType<Dictionary<string, string>>().Use(CreateDictionary);
 
             return filler;
         }

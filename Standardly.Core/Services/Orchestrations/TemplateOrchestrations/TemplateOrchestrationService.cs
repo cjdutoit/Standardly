@@ -7,7 +7,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using Standardly.Core.Models.FileItems;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Services.Foundations.FileServices;
 using Standardly.Core.Services.Foundations.PowerShells;
@@ -61,7 +63,57 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                 return templates;
             });
 
-        public bool GenerateCodeFromTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
-            throw new NotImplementedException();
+        public bool GenerateCodeFromTemplate(Template template, Dictionary<string, string> replacementDictionary)
+        {
+            var transformedStringTemplate = this.templateService
+                .TransformString(template.RawTemplate, replacementDictionary);
+
+            this.templateService.ValidateTransformation(transformedStringTemplate);
+
+            var transformedTemplate = this.templateService
+                .ConvertStringToTemplate(transformedStringTemplate);
+
+            if (transformedTemplate.Tasks.Any())
+            {
+                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                {
+                    if (task.Actions.Any())
+                    {
+                        foreach (Models.Actions.Action action in task.Actions)
+                        {
+                            if (action.FileItems.Any())
+                            {
+                                foreach (FileItem fileItem in action.FileItems)
+                                {
+                                    if (!string.IsNullOrEmpty(fileItem.Template))
+                                    {
+                                        string sourceString = this.fileService.ReadFromFile(fileItem.Template);
+
+                                        string transformedSourceString = this.templateService
+                                            .TransformString(sourceString, replacementDictionary);
+
+                                        this.templateService.ValidateTransformation(transformedSourceString);
+
+                                        var fileExists = this.fileService.CheckIfFileExists(fileItem.Target);
+
+                                        if (fileExists == false || (fileExists == true && fileItem.Replace == true))
+                                        {
+                                            this.fileService.WriteToFile(fileItem.Target, transformedSourceString);
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (action.Scripts.Any())
+                            {
+                                this.powerShellService.RunScript(action.Scripts, action.ExecutionFolder);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
     }
 }

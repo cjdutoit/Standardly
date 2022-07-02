@@ -40,7 +40,6 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                 templateService.ConvertStringToTemplate(transformedStringTemplate))
                     .Returns(transformedTemplate);
 
-
             if (transformedTemplate.Tasks.Any())
             {
                 foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
@@ -53,14 +52,17 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                             {
                                 foreach (FileItem fileItem in action.FileItems)
                                 {
-                                    this.fileServiceMock.Setup(fileService =>
+                                    if (!string.IsNullOrEmpty(fileItem.Template))
+                                    {
+                                        this.fileServiceMock.Setup(fileService =>
                                         fileService.ReadFromFile(fileItem.Template))
                                             .Returns(sourceTemplateString);
 
-                                    this.templateServiceMock.Setup(templateService =>
-                                        templateService
-                                            .TransformString(sourceTemplateString, randomReplacementDictionary))
-                                                .Returns(targetTemplateString);
+                                        this.templateServiceMock.Setup(templateService =>
+                                            templateService
+                                                .TransformString(sourceTemplateString, randomReplacementDictionary))
+                                                    .Returns(targetTemplateString);
+                                    }
                                 }
                             }
 
@@ -87,9 +89,12 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                     Times.Once);
 
             this.templateServiceMock.Verify(templateService =>
-                templateService.ConvertStringToTemplate(transformedStringTemplate),
+                templateService.ValidateTransformation(transformedStringTemplate),
                     Times.Once);
 
+            this.templateServiceMock.Verify(templateService =>
+                templateService.ConvertStringToTemplate(transformedStringTemplate),
+                    Times.Once);
 
             if (transformedTemplate.Tasks.Any())
             {
@@ -103,22 +108,38 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                             {
                                 foreach (FileItem fileItem in action.FileItems)
                                 {
-                                    this.fileServiceMock.Verify(fileService =>
+                                    if (!string.IsNullOrEmpty(fileItem.Template))
+                                    {
+                                        this.fileServiceMock.Verify(fileService =>
                                         fileService.ReadFromFile(fileItem.Template),
                                             Times.Once);
 
-                                    this.templateServiceMock.Verify(templateService =>
-                                        templateService
-                                            .TransformString(sourceTemplateString, randomReplacementDictionary),
+                                        this.templateServiceMock.Verify(templateService =>
+                                            templateService
+                                                .TransformString(sourceTemplateString, randomReplacementDictionary),
+                                                    Times.Once);
+
+                                        this.templateServiceMock.Verify(templateService =>
+                                            templateService
+                                                .ValidateTransformation(targetTemplateString),
+                                                    Times.Once);
+
+                                        this.fileServiceMock.Verify(fileService =>
+                                            fileService.CheckIfFileExists(fileItem.Target),
                                                 Times.Once);
+
+                                        this.fileServiceMock.Verify(fileService =>
+                                            fileService.WriteToFile(fileItem.Target, targetTemplateString),
+                                                Times.Once);
+                                    }
                                 }
                             }
 
                             if (action.Scripts.Any())
                             {
                                 this.powerShellServiceMock.Verify(powerShellService =>
-                                    powerShellService.RunScript(action.Scripts, action.ExecutionFolder),
-                                        Times.Once);
+                                powerShellService.RunScript(action.Scripts, action.ExecutionFolder),
+                                    Times.Once);
                             }
                         }
                     }
