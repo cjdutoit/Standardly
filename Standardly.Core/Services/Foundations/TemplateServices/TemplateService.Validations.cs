@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Standardly.Core.Models.PowerShellScripts;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Models.Templates.Exceptions;
@@ -29,6 +30,32 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             templateRules.AddRange(GetTaskValidationRules(template));
 
             Validate(templateRules.ToArray());
+        }
+
+        private void ValidateTagReplacement(string template)
+        {
+            var regex = @"\$([a-zA-Z]*)\$";
+            var matches = Regex.Matches(template, regex);
+            List<string> tags = new List<string>();
+
+            foreach (Match match in matches)
+            {
+                if (!tags.Contains(match.Value))
+                {
+                    tags.Add(match.Value);
+                }
+            }
+
+            var invalidTemplateException = new InvalidTemplateException();
+
+            foreach (string tag in tags)
+            {
+                invalidTemplateException.UpsertDataList(
+                    key: tag,
+                    value: "Key found that was not in the replacement dictionary, fix the errors and try again.");
+            }
+
+            invalidTemplateException.ThrowIfContainsErrors();
         }
 
         private List<(dynamic Rule, string Parameter)> GetTaskValidationRules(Template template)

@@ -4,7 +4,6 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
@@ -35,7 +34,10 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
         }
 
         public void ValidateTransformation(string @string) =>
-            throw new NotImplementedException();
+            TryCatch(() =>
+            {
+                ValidateTagReplacement(@string);
+            });
 
         public Template ConvertStringToTemplate(string @string) =>
             TryCatch(() =>
