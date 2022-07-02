@@ -181,6 +181,23 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             Message = "Scripts is required"
         };
 
+        private static void ValidateSouceFiles(params (dynamic Rule, string Parameter)[] validations)
+        {
+            var invalidTemplateSourceException = new InvalidTemplateSourceException();
+
+            foreach ((dynamic rule, string parameter) in validations)
+            {
+                if (rule.Condition)
+                {
+                    invalidTemplateSourceException.UpsertDataList(
+                        key: parameter,
+                        value: rule.Message);
+                }
+            }
+
+            invalidTemplateSourceException.ThrowIfContainsErrors();
+        }
+
         private static void Validate(params (dynamic Rule, string Parameter)[] validations)
         {
             var invalidTemplateException = new InvalidTemplateException();

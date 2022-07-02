@@ -4,8 +4,8 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using Standardly.Core.Brokers.FileSystems;
@@ -76,29 +76,33 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
 
                         foreach (FileItem fileItem in action.FileItems)
                         {
+                            var fileInfo = new FileInfo(fileItem.Template);
+
                             validationRules.Add(
                                 (Rule: IsInvalid(
                                         path: fileItem.Template,
                                         template: template.Name,
                                         task: task.Name ?? $"task[{taskCounter}]",
                                         action: action.Name ?? $"action[{actionCounter}]"),
-                                    Parameter: nameof(FileItem.Template)));
+                                    Parameter: fileInfo.Name));
                         }
                     }
                 }
+
+                ValidateSouceFiles(validationRules.ToArray());
             });
 
         private dynamic IsInvalid(string path, string template, string task, string action) => new
         {
             Condition = IsInvalidFilePath(path),
-            Message = $"File not found for {Environment.NewLine}" +
-                $"Template: {template}{Environment.NewLine}" +
-                $"Task: {task}{Environment.NewLine}" +
-                $"Action: {action}{Environment.NewLine}" +
-                $"Path: {path}{Environment.NewLine}{Environment.NewLine}"
+            Message = $"File not found for " +
+                $"Template[{template}]." +
+                $"Task[{task}]." +
+                $"Action[{action}]." +
+                $"Path: {path}"
         };
 
         private bool IsInvalidFilePath(string path) =>
-            this.fileSystemBroker.CheckIfFileExists(path);
+            !this.fileSystemBroker.CheckIfFileExists(path);
     }
 }

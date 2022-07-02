@@ -64,6 +64,10 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             {
                 throw CreateAndLogValidationException(invalidCommentException);
             }
+            catch (InvalidTemplateSourceException invalidTemplateSourceException)
+            {
+                throw CreateAndLogValidationException(invalidTemplateSourceException);
+            }
             catch (Exception exception)
             {
                 var failedTemplateServiceException =

@@ -18,7 +18,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
     public partial class TemplateServiceTests
     {
         [Fact]
-        public void ShouldThrowValidateExceptionIfSourceFilesnotFound()
+        public void ShouldThrowValidateExceptionIfSourceFilesNotFound()
         {
             // given
             Template randomTemplate = CreateRandomTemplate();
@@ -40,7 +40,11 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
 
                         invalidTemplateSourceException.AddData(
                             key: fileInfo.Name,
-                            values: $"File not found:  {fileItem.Template}");
+                            values: $"File not found for " +
+                                $"Template[{inputTemplate.Name}]." +
+                                $"Task[{task.Name ?? taskCounter.ToString()}]." +
+                                $"Action[{action.Name ?? actionCounter.ToString()}]." +
+                                $"Path: {fileItem.Template}");
                     }
                 }
             }
