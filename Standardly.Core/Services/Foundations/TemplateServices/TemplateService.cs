@@ -16,7 +16,7 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
 
             string template = @string;
 
-            if (replacementDictionary.Any())
+            if (replacementDictionary != null && replacementDictionary.Any())
             {
                 foreach (var replacement in replacementDictionary)
                 {

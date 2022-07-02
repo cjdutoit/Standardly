@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -42,13 +43,16 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
             var transformedTemplate = this.templateService.TransformString(inputStringTemplate, invalidDictionary);
 
             // then
-            foreach (KeyValuePair<string, string> item in invalidDictionary)
+            if (invalidDictionary != null && invalidDictionary.Any())
             {
-                transformedTemplate.Should().NotContain(item.Key);
-
-                if (!string.IsNullOrEmpty(inputStringTemplate) && inputStringTemplate.Contains("item.Key"))
+                foreach (KeyValuePair<string, string> item in invalidDictionary)
                 {
-                    transformedTemplate.Should().Contain(item.Value);
+                    transformedTemplate.Should().NotContain(item.Key);
+
+                    if (!string.IsNullOrEmpty(inputStringTemplate) && inputStringTemplate.Contains("item.Key"))
+                    {
+                        transformedTemplate.Should().Contain(item.Value);
+                    }
                 }
             }
         }
