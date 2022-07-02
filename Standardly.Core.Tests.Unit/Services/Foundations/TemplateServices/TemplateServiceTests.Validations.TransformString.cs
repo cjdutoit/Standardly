@@ -37,6 +37,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 }
             }
         }
+
         [Theory]
         [MemberData(nameof(DictionaryTheoryData))]
         public void ShouldNotThrowExceptionOnTransformStringIfDictionaryIsNullOrEmpty(

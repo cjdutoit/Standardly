@@ -33,6 +33,12 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             return template;
         }
 
+        public void ValidateTransformation(string @string) =>
+            TryCatch(() =>
+            {
+                ValidateTagReplacement(@string);
+            });
+
         public Template ConvertStringToTemplate(string @string) =>
             TryCatch(() =>
             {
