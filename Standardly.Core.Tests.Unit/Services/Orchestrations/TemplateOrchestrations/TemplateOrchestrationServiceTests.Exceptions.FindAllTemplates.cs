@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using System;
+using FluentAssertions;
 using Moq;
 using Standardly.Core.Models.TemplateOrchestrations.Exceptions;
 using Xeptions;
@@ -35,8 +36,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             Action findAllTemplatesAction = () =>
                 this.templateOrchestrationService.FindAllTemplates();
 
+            TemplateOrchestrationDependencyValidationException actualException =
+                Assert.Throws<TemplateOrchestrationDependencyValidationException>(findAllTemplatesAction);
+
             // then
-            Assert.Throws<TemplateOrchestrationDependencyValidationException>(findAllTemplatesAction);
+            actualException.Should().BeEquivalentTo(expectedDependencyValidationException);
 
             this.fileServiceMock.Verify(broker =>
                 broker.RetrieveListOfFiles(It.IsAny<string>(), It.IsAny<string>()),
@@ -67,8 +71,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             Action findAllTemplatesAction = () =>
                 this.templateOrchestrationService.FindAllTemplates();
 
+            TemplateOrchestrationDependencyException actualException =
+                Assert.Throws<TemplateOrchestrationDependencyException>(findAllTemplatesAction);
+
             // then
-            Assert.Throws<TemplateOrchestrationDependencyException>(findAllTemplatesAction);
+            actualException.Should().BeEquivalentTo(expectedTemplateOrchestrationDependencyException);
 
             this.fileServiceMock.Verify(broker =>
                 broker.RetrieveListOfFiles(It.IsAny<string>(), It.IsAny<string>()),
@@ -99,8 +106,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             Action findAllTemplatesAction = () =>
                 this.templateOrchestrationService.FindAllTemplates();
 
+            TemplateOrchestrationServiceException actualException =
+                Assert.Throws<TemplateOrchestrationServiceException>(findAllTemplatesAction);
+
             // then
-            Assert.Throws<TemplateOrchestrationServiceException>(findAllTemplatesAction);
+            actualException.Should().BeEquivalentTo(expectedTemplateOrchestrationServiceException);
 
             this.fileServiceMock.Verify(broker =>
                 broker.RetrieveListOfFiles(It.IsAny<string>(), It.IsAny<string>()),
