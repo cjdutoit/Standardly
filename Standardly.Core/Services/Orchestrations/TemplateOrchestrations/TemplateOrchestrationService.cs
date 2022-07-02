@@ -36,28 +36,29 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             TemplateFolder = Path.Combine(Path.GetDirectoryName(assembly), "Templates");
         }
 
-        public List<Template> FindAllTemplates()
-        {
-            List<Template> templates = new List<Template>();
-
-            var fileList = this.fileService
-                .RetrieveListOfFiles(this.TemplateFolder, searchPattern);
-
-            foreach (string file in fileList)
+        public List<Template> FindAllTemplates() =>
+            TryCatch(() =>
             {
-                try
-                {
-                    string rawTemplate = this.fileService.ReadFromFile(file);
-                    Template template = this.templateService.ConvertStringToTemplate(rawTemplate);
-                    templates.Add(template);
-                }
-                catch (Exception ex)
-                {
-                    // throw new Exception($"Failed to convert raw template {file} to template", ex);
-                }
-            }
+                List<Template> templates = new List<Template>();
 
-            return templates;
-        }
+                var fileList = this.fileService
+                    .RetrieveListOfFiles(this.TemplateFolder, searchPattern);
+
+                foreach (string file in fileList)
+                {
+                    try
+                    {
+                        string rawTemplate = this.fileService.ReadFromFile(file);
+                        Template template = this.templateService.ConvertStringToTemplate(rawTemplate);
+                        templates.Add(template);
+                    }
+                    catch (Exception ex)
+                    {
+                        // throw new Exception($"Failed to convert raw template {file} to template", ex);
+                    }
+                }
+
+                return templates;
+            });
     }
 }
