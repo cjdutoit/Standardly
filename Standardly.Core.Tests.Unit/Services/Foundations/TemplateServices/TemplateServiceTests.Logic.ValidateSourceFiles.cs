@@ -28,7 +28,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
 
             //then
             this.fileSystemBrokerMock.Verify(broker =>
-                broker.ReadFile(It.IsAny<string>()),
+                broker.CheckIfFileExists(It.IsAny<string>()),
                     Times.AtLeastOnce);
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();

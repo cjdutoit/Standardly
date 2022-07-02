@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Standardly.Core.Brokers.FileSystems;
+using Standardly.Core.Models.FileItems;
 using Standardly.Core.Models.Templates;
 
 namespace Standardly.Core.Services.Foundations.TemplateServices
@@ -61,6 +62,43 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             });
 
         public void ValidateSourceFiles(Template template) =>
-            throw new NotImplementedException();
+            TryCatch(() =>
+            {
+                List<(dynamic Rule, string Parameter)> validationRules = new List<(dynamic rule, string parameter)>();
+
+                for (int taskCounter = 0; taskCounter <= template.Tasks.Count - 1; taskCounter++)
+                {
+                    Models.Tasks.Task task = template.Tasks[taskCounter];
+
+                    for (int actionCounter = 0; actionCounter <= task.Actions.Count - 1; actionCounter++)
+                    {
+                        Models.Actions.Action action = task.Actions[actionCounter];
+
+                        foreach (FileItem fileItem in action.FileItems)
+                        {
+                            validationRules.Add(
+                                (Rule: IsInvalid(
+                                        path: fileItem.Template,
+                                        template: template.Name,
+                                        task: task.Name ?? $"task[{taskCounter}]",
+                                        action: action.Name ?? $"action[{actionCounter}]"),
+                                    Parameter: nameof(FileItem.Template)));
+                        }
+                    }
+                }
+            });
+
+        private dynamic IsInvalid(string path, string template, string task, string action) => new
+        {
+            Condition = IsInvalidFilePath(path),
+            Message = $"File not found for {Environment.NewLine}" +
+                $"Template: {template}{Environment.NewLine}" +
+                $"Task: {task}{Environment.NewLine}" +
+                $"Action: {action}{Environment.NewLine}" +
+                $"Path: {path}{Environment.NewLine}{Environment.NewLine}"
+        };
+
+        private bool IsInvalidFilePath(string path) =>
+            this.fileSystemBroker.CheckIfFileExists(path);
     }
 }
