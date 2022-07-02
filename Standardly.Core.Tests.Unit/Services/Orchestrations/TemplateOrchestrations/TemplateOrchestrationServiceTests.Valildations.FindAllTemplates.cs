@@ -39,7 +39,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             this.fileServiceMock.Setup(fileService =>
                 fileService.ReadFromFile(randomFileList[0]))
-                    .Throws(new InvalidFilePathException());
+                    .Throws(new InvalidFilePathException(randomFileList[0]));
 
             this.templateServiceMock.Setup(templateService =>
                 templateService.ConvertStringToTemplate(rawTemplateString))

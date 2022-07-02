@@ -72,6 +72,18 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             return dictionary;
         }
 
+        private static Dictionary<string, string> CreateReplacementDictionary()
+        {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+            for (int i = 0; i < GetRandomNumber(); i++)
+            {
+                dictionary.Add($"${GetRandomString(1)}$", GetRandomString(1));
+            }
+
+            return dictionary;
+        }
+
         public static TheoryData FindAllTemplateOrchestrationTemplatesDependencyValidationExceptions()
         {
             string exceptionMessage = GetRandomString();

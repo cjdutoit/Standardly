@@ -15,7 +15,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
         {
             if (IsInvalid(path))
             {
-                throw new InvalidFilePathException();
+                throw new InvalidFilePathException(path);
             }
         }
 
@@ -23,7 +23,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
         {
             if (IsInvalid(path))
             {
-                throw new InvalidFilePathException();
+                throw new InvalidFilePathException(path);
             }
 
             if (IsInvalid(content))
@@ -36,7 +36,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
         {
             if (IsInvalid(path))
             {
-                throw new InvalidFilePathException();
+                throw new InvalidFilePathException(path);
             }
 
             if (IsInvalid(searchPattern))

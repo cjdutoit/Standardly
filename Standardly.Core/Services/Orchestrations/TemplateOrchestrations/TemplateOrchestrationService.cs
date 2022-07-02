@@ -60,5 +60,8 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 
                 return templates;
             });
+
+        public bool GenerateCodeFromTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
+            throw new NotImplementedException();
     }
 }

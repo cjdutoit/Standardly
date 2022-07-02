@@ -25,7 +25,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             string inputSearchPattern = randomSearchPattern;
 
             var invalidFilePathException =
-                new InvalidFilePathException();
+                new InvalidFilePathException(invalidPath);
 
             var expectedFileServiceValidationException =
                 new FileServiceValidationException(invalidFilePathException);
