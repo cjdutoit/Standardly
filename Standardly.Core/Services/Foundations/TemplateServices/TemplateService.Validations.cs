@@ -46,17 +46,17 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
                 }
             }
 
-            var invalidTemplateException = new InvalidTemplateException();
+            var invalidReplacementException = new InvalidReplacementException();
 
             foreach (string tag in tags)
             {
-                invalidTemplateException.UpsertDataList(
+                invalidReplacementException.UpsertDataList(
                     key: tag,
-                    value: $"Found '{tag}' key that was not in the replacement dictionary, " +
+                    value: $"Found '{tag}' that was not in the replacement dictionary, " +
                         $"fix the errors and try again.");
             }
 
-            invalidTemplateException.ThrowIfContainsErrors();
+            invalidReplacementException.ThrowIfContainsErrors();
         }
 
         private List<(dynamic Rule, string Parameter)> GetTaskValidationRules(Template template)

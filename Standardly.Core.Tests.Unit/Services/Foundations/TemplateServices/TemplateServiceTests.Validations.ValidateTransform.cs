@@ -30,7 +30,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
             {
                 invalidReplacementException.AddData(
                     key: replacement.Key,
-                    values: $"Found '{replacement.Key}' key that was not in the replacement dictionary, " +
+                    values: $"Found '{replacement.Key}' that was not in the replacement dictionary, " +
                         $"fix the errors and try again.");
             }
 
