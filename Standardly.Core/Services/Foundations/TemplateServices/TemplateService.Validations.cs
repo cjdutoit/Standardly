@@ -52,7 +52,8 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             {
                 invalidTemplateException.UpsertDataList(
                     key: tag,
-                    value: "Key found that was not in the replacement dictionary, fix the errors and try again.");
+                    value: $"Found '{tag}' key that was not in the replacement dictionary, " +
+                        $"fix the errors and try again.");
             }
 
             invalidTemplateException.ThrowIfContainsErrors();
