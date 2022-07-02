@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using Newtonsoft.Json;
 using Standardly.Core.Models.FileItems;
 using Standardly.Core.Models.PowerShellScripts;
@@ -15,6 +16,30 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
         public TemplateServiceTests()
         {
             this.templateService = new TemplateService();
+        }
+
+        private static Dictionary<string, string> CreateReplacementDictionary()
+        {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+            for (int i = 0; i < GetRandomNumber(); i++)
+            {
+                dictionary.Add($"${GetRandomString(1)}$", GetRandomString(1));
+            }
+
+            return dictionary;
+        }
+
+        private static string CreateStringTemplate(Dictionary<string, string> dictionary)
+        {
+            var stringBuilder = new StringBuilder();
+
+            foreach (KeyValuePair<string, string> item in dictionary)
+            {
+                stringBuilder.Append($"{item.Key} {GetRandomString()} ");
+            }
+
+            return stringBuilder.ToString();
         }
 
         private static int GetRandomNumber() =>
