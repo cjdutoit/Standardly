@@ -4,6 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using Standardly.Core.Models.TemplateOrchestrations.Exceptions;
 using Standardly.Core.Models.Templates;
 
 namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations

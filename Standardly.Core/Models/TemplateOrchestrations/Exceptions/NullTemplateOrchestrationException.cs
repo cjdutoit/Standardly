@@ -6,7 +6,7 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
+namespace Standardly.Core.Models.TemplateOrchestrations.Exceptions
 {
     public class NullTemplateOrchestrationException : Xeption
     {

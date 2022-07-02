@@ -7,8 +7,10 @@
 using System;
 using System.Collections.Generic;
 using Standardly.Core.Models.FileServices.Exceptions;
+using Standardly.Core.Models.PowerShellScripts.Exceptions;
 using Standardly.Core.Models.TemplateOrchestrations.Exceptions;
 using Standardly.Core.Models.Templates;
+using Standardly.Core.Models.Templates.Exceptions;
 using Xeptions;
 
 namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
@@ -58,6 +60,30 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             catch (NullTemplateOrchestrationException nullTemplateOrchestrationException)
             {
                 throw CreateAndLogValidationException(nullTemplateOrchestrationException);
+            }
+            catch (FileServiceValidationException fileServiceValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(fileServiceValidationException);
+            }
+            catch (FileServiceDependencyValidationException fileServiceDependencyValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(fileServiceDependencyValidationException);
+            }
+            catch (PowerShellValidationException powerShellValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(powerShellValidationException);
+            }
+            catch (PowerShellDependencyValidationException powerShellDependencyValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(powerShellDependencyValidationException);
+            }
+            catch (TemplateValidationException templateValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(templateValidationException);
+            }
+            catch (TemplateDependencyValidationException templateDependencyValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(templateDependencyValidationException);
             }
         }
 

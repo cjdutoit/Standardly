@@ -120,7 +120,9 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                 new FileServiceValidationException(innerException),
                 new FileServiceDependencyValidationException(innerException),
                 new PowerShellValidationException(innerException),
+                new PowerShellDependencyValidationException(innerException),
                 new TemplateValidationException(innerException),
+                new TemplateDependencyValidationException(innerException),
             };
         }
 

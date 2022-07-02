@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
+using Moq;
 using Standardly.Core.Models.TemplateOrchestrations.Exceptions;
 using Standardly.Core.Models.Templates;
 using Xeptions;
@@ -37,11 +38,15 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             Action generateCodeFromTemplateAction = () =>
                this.templateOrchestrationService.GenerateCodeFromTemplate(inputTemplate, randomReplacementDictionary);
 
-            TemplateOrchestrationValidationException actualException =
-                Assert.Throws<TemplateOrchestrationValidationException>(generateCodeFromTemplateAction);
+            TemplateOrchestrationDependencyValidationException actualException =
+                Assert.Throws<TemplateOrchestrationDependencyValidationException>(generateCodeFromTemplateAction);
 
             // then
             actualException.Should().BeEquivalentTo(expectedException);
+
+            this.templateServiceMock.Verify(templateService =>
+                templateService.TransformString(inputTemplate.RawTemplate, randomReplacementDictionary),
+                    Times.Once);
 
             this.templateServiceMock.VerifyNoOtherCalls();
             this.fileServiceMock.VerifyNoOtherCalls();
