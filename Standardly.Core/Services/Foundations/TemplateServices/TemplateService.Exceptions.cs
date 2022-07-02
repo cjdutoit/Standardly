@@ -1,4 +1,10 @@
-﻿using Standardly.Core.Models.Templates.Exceptions;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
+using Standardly.Core.Models.Templates.Exceptions;
 using Xeptions;
 
 namespace Standardly.Core.Services.Foundations.TemplateServices

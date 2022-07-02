@@ -2,6 +2,7 @@
 
 #Formatting - header template
 
+[*.{cs,vb}]
 #add file header template
 file_header_template = ---------------------------------------------------------------\nCopyright (c) Christo du Toit. All rights reserved.\nLicensed under the MIT License.\nSee License.txt in the project root for license information.\n---------------------------------------------------------------
 

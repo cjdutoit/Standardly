@@ -1,4 +1,10 @@
-﻿using System.IO;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
+using System.IO;
 using Standardly.Core.Brokers.FileSystems;
 
 namespace Standardly.Core.Services.Foundations.FileServices

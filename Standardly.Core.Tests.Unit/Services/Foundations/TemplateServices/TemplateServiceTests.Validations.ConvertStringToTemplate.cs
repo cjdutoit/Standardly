@@ -1,4 +1,10 @@
-﻿using System;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -13,7 +19,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
     public partial class TemplateServiceTests
     {
         [Fact]
-        public async Task ShouldThrowValidationExceptionOnSendCompletedTemplateNotificationIfTemplateIsNullAndLogItAsync()
+        public async Task ShouldThrowValidationExceptionWhenIfTemplateIsNullAndLogItAsync()
         {
             // given
             string emptyStringTemplate = String.Empty;
@@ -201,7 +207,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void ShouldThrowValidationExceptionOnConvertIfTemplateTaskActionFileItemIsInvalid(string invalidString)
+        public void ShouldThrowValidationExceptionWhenTemplateTaskActionFileItemIsInvalid(string invalidString)
         {
             // given
             Template someTemplate = new Template()
