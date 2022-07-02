@@ -9,7 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Moq;
 using Standardly.Core.Models.FileServices.Exceptions;
+using Standardly.Core.Models.PowerShellScripts.Exceptions;
 using Standardly.Core.Models.Templates;
+using Standardly.Core.Models.Templates.Exceptions;
 using Standardly.Core.Services.Foundations.FileServices;
 using Standardly.Core.Services.Foundations.PowerShells;
 using Standardly.Core.Services.Foundations.TemplateServices;
@@ -105,6 +107,20 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             {
                 new FileServiceDependencyException(innerException),
                 new FileServiceException(innerException),
+            };
+        }
+
+        public static TheoryData TemplateOrchestrationDependencyValidationExceptions()
+        {
+            string exceptionMessage = GetRandomString();
+            var innerException = new Xeption(exceptionMessage);
+
+            return new TheoryData<Exception>()
+            {
+                new FileServiceValidationException(innerException),
+                new FileServiceDependencyValidationException(innerException),
+                new PowerShellValidationException(innerException),
+                new TemplateValidationException(innerException),
             };
         }
 
