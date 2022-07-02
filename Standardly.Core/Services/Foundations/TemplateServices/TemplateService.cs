@@ -5,14 +5,24 @@
 // ---------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using Standardly.Core.Brokers.FileSystems;
+using Standardly.Core.Models.FileItems;
 using Standardly.Core.Models.Templates;
 
 namespace Standardly.Core.Services.Foundations.TemplateServices
 {
     public partial class TemplateService : ITemplateService
     {
+        private readonly IFileSystemBroker fileSystemBroker;
+
+        public TemplateService(IFileSystemBroker fileSystemBroker)
+        {
+            this.fileSystemBroker = fileSystemBroker;
+        }
+
         public string TransformString(string @string, Dictionary<string, string> replacementDictionary)
         {
             if (string.IsNullOrEmpty(@string))
@@ -50,5 +60,49 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
 
                 return template;
             });
+
+        public void ValidateSourceFiles(Template template) =>
+            TryCatch(() =>
+            {
+                List<(dynamic Rule, string Parameter)> validationRules = new List<(dynamic rule, string parameter)>();
+
+                for (int taskCounter = 0; taskCounter <= template.Tasks.Count - 1; taskCounter++)
+                {
+                    Models.Tasks.Task task = template.Tasks[taskCounter];
+
+                    for (int actionCounter = 0; actionCounter <= task.Actions.Count - 1; actionCounter++)
+                    {
+                        Models.Actions.Action action = task.Actions[actionCounter];
+
+                        foreach (FileItem fileItem in action.FileItems)
+                        {
+                            var fileInfo = new FileInfo(fileItem.Template);
+
+                            validationRules.Add(
+                                (Rule: IsInvalid(
+                                        path: fileItem.Template,
+                                        template: template.Name,
+                                        task: task.Name ?? $"task[{taskCounter}]",
+                                        action: action.Name ?? $"action[{actionCounter}]"),
+                                    Parameter: fileInfo.Name));
+                        }
+                    }
+                }
+
+                ValidateSouceFiles(validationRules.ToArray());
+            });
+
+        private dynamic IsInvalid(string path, string template, string task, string action) => new
+        {
+            Condition = IsInvalidFilePath(path),
+            Message = $"File not found for " +
+                $"Template[{template}]." +
+                $"Task[{task}]." +
+                $"Action[{action}]." +
+                $"Path: {path}"
+        };
+
+        private bool IsInvalidFilePath(string path) =>
+            !this.fileSystemBroker.CheckIfFileExists(path);
     }
 }
