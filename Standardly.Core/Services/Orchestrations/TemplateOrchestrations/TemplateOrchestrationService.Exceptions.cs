@@ -30,6 +30,14 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 throw CreateAndLogDependencyValidationException(fileDependencyValidationException);
             }
+            catch (FileServiceDependencyException fileDependencyException)
+            {
+                throw CreateAndLogDependencyException(fileDependencyException);
+            }
+            catch (FileServiceException fileServiceException)
+            {
+                throw CreateAndLogDependencyException(fileServiceException);
+            }
         }
 
         private TemplateOrchestrationDependencyValidationException CreateAndLogDependencyValidationException(
@@ -39,6 +47,14 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                 new TemplateOrchestrationDependencyValidationException(exception.InnerException as Xeption);
 
             throw templateOrchestrationDependencyValidationException;
+        }
+
+        private TemplateOrchestrationDependencyException CreateAndLogDependencyException(Xeption exception)
+        {
+            var templateOrchestrationDependencyException =
+                new TemplateOrchestrationDependencyException(exception.InnerException as Xeption);
+
+            throw templateOrchestrationDependencyException;
         }
     }
 }

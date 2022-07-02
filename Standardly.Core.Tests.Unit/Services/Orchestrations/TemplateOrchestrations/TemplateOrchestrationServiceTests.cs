@@ -72,7 +72,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             return dictionary;
         }
 
-        public static TheoryData TemplateOrchestrationFindAllTemplatesDependencyValidationExceptions()
+        public static TheoryData FindAllTemplateOrchestrationTemplatesDependencyValidationExceptions()
         {
             string exceptionMessage = GetRandomString();
             var innerException = new Xeption(exceptionMessage);
@@ -81,6 +81,18 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             {
                 new FileServiceValidationException(innerException),
                 new FileServiceDependencyValidationException(innerException),
+            };
+        }
+
+        public static TheoryData FindAllTemplateOrchestrationDependencyExceptions()
+        {
+            string exceptionMessage = GetRandomString();
+            var innerException = new Xeption(exceptionMessage);
+
+            return new TheoryData<Exception>()
+            {
+                new FileServiceDependencyException(innerException),
+                new FileServiceException(innerException),
             };
         }
 
