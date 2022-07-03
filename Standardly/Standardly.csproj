@@ -46,6 +46,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\StandardlyTemplateFolderCommand.cs" />
+    <Compile Include="Forms\frmGenerate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGenerate.Designer.cs">
+      <DependentUpon>frmGenerate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mappers\GeneralMapper.cs" />
+    <Compile Include="Mappers\LocationMapper.cs" />
+    <Compile Include="Models\Settings\General.cs" />
+    <Compile Include="Models\Settings\GenerateCriteria.cs" />
+    <Compile Include="Models\Settings\Location.cs" />
+    <Compile Include="Models\Settings\ProjectInfo.cs" />
+    <Compile Include="Models\Settings\Setting.cs" />
     <Compile Include="Options\General.cs" />
     <Compile Include="Options\Locations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +142,11 @@
       <Project>{d58dfeec-b08a-40c2-8d2d-fa5eb9993767}</Project>
       <Name>Standardly.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\frmGenerate.resx">
+      <DependentUpon>frmGenerate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
