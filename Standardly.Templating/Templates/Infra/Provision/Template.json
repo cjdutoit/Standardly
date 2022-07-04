@@ -2,6 +2,7 @@
   "name": "PROVISION: Azure Resources Provisioning",
   "description": "Provision Azure Resources",
   "templateType": "PROVISION",
+  "ProjectsRequired": "Provision",
   "sortOrder": 10,
   "modelSingularName": "Provision",
   "modelPluralName": "Provisions",

@@ -2,6 +2,7 @@
   "name": "BROKERS: Logging Broker",
   "description": "Generates a Logging Broker",
   "templateType": "API",
+  "ProjectsRequired": "Api",
   "sortOrder": 1,
   "modelSingularName": "Logging",
   "modelPluralName": "Loggings",

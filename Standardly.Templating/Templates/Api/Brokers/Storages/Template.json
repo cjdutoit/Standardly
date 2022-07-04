@@ -2,6 +2,7 @@
   "name": "BROKERS: Storage Broker",
   "description": "Generates a Storage Broker with all CRUD operations",
   "templateType": "API",
+  "ProjectsRequired": "Api",
   "sortOrder": 1,
   "tasks": [
     {

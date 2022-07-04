@@ -2,6 +2,7 @@
   "name": "CONTROLLERS: API Controller",
   "description": "Generates an API Controller for GET, POST, PUT, DELETE operations",
   "templateType": "API",
+  "ProjectsRequired": "Api",
   "sortOrder": 6,
   "tasks": [
     {

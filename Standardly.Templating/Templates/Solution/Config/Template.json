@@ -2,6 +2,7 @@
   "name": "CONFIG: Solution Configuration Settings",
   "description": "Adds an .editorconfig, .gitignore and a license file to the project if they are not already present.",
   "templateType": "Config",
+  "ProjectsRequired": "Solution",
   "sortOrder": 100,
   "modelSingularName": "N/A ",
   "modelPluralName": "N/A",

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Models.Templates.Exceptions;
 using Xunit;
@@ -18,6 +19,45 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
 {
     public partial class TemplateValidationTests
     {
+        [Fact]
+        public void ShouldVerifyThatAllTemplateDeserialise()
+        {
+            // given
+            string searchPattern = "Template.json";
+            StringBuilder errorList = new StringBuilder();
+
+            var assembly = Assembly.GetExecutingAssembly().Location;
+            var templateFolder = Path.Combine(Path.GetDirectoryName(assembly), "Templates");
+
+            var fileList = this.fileService
+                .RetrieveListOfFiles(templateFolder, searchPattern);
+
+            for (int fileCounter = 0; fileCounter <= fileList.Length - 1; fileCounter++)
+            {
+                try
+                {
+                    string rawTemplate = this.fileService.ReadFromFile(fileList[fileCounter]);
+                    Template template = this.templateService.ConvertStringToTemplate(rawTemplate);
+                }
+                catch (TemplateValidationException ex)
+                {
+                    foreach (DictionaryEntry dictionaryEntry in ex.InnerException.Data)
+                    {
+                        foreach (string value in dictionaryEntry.Value as List<string>)
+                        {
+                            errorList
+                                .AppendLine($"Template[{fileCounter}].{dictionaryEntry.Key} -> {value}"
+                                + Environment.NewLine +
+                                $"Path: {fileList[fileCounter]}" + Environment.NewLine);
+                        }
+                    }
+                }
+            }
+
+            Assert.False(errorList.Length > 0, errorList.ToString());
+        }
+
+
         [Fact]
         public void ShouldVerifyThatAllTemplateDefinitionsArePresent()
         {
