@@ -144,6 +144,30 @@
     <None Update="Templates\Api\Brokers\Storages\Template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationRole.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationRoleClaim.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUser.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUserClaim.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUserLogin.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUserRole.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUserToken.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Templates\Infra\Build\001_dotnet.yml.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
