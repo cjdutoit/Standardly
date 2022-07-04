@@ -1,0 +1,177 @@
+{
+  "name": "CONFIG: Solution Configuration Settings",
+  "description": "Adds an .editorconfig, .gitignore and a license file to the project if they are not already present.",
+  "templateType": "Config",
+  "sortOrder": 100,
+  "modelSingularName": "N/A ",
+  "modelPluralName": "N/A",
+  "tasks": [
+    {
+      "name": "CONFIG: Add .editorconfig to solution",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/config-solution-editorconfig"
+            }
+          ]
+        },
+        {
+          "name": "CONFIG: Add .editorconfig to solution",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Solution\\Config\\001_.editorconfig.txt",
+              "target": "$solutionFolder$\\.editorconfig",
+              "replace": false
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"CONFIG: Add .editorconfig to solution\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/config-solution-editorconfig"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CONFIG: Add .gitignore to solution",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/config-solution-gitignore"
+            }
+          ]
+        },
+        {
+          "name": "CONFIG: Add .gitignore to solution",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Solution\\Config\\001_.gitignore.txt",
+              "target": "$solutionFolder$\\.gitignore",
+              "replace": false
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"CONFIG: Add .gitignore to solution\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/config-solution-gitignore"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CONFIG: Add license file to solution",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/config-solution-license"
+            }
+          ]
+        },
+        {
+          "name": "CONFIG: Add license file to solution",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Solution\\Config\\001_License.txt.txt",
+              "target": "$solutionFolder$\\License.txt",
+              "replace": false
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"CONFIG: Add license file to solution\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/config-solution-license"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "CleanupTasks": [
+    "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+    "* Pull Requests:",
+    "  - CONFIG: Solution Configuration Settings"
+  ]
+}
