@@ -90,7 +90,7 @@
           "scripts": [
             {
               "name": "Add $safeItemNameSingular$ Model Migration",
-              "script": "Add-Migration Add$safeItemNameSingular$Model"
+              "script": "Add-Migration Add$safeItemNameSingular$Model -Project $projectName$"
             },
             {
               "name": "Stage all changes",
