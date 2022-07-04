@@ -1,0 +1,328 @@
+{
+  "name": "BROKERS: Storage Broker",
+  "description": "Generates a Storage Broker with all CRUD operations",
+  "templateType": "API",
+  "sortOrder": 1,
+  "tasks": [
+    {
+      "name": "001 - BROKERS: Storage - Insert $safeItemNameSingular$",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-insert"
+            },
+            {
+              "name": "Install EFxceptions from NuGet",
+              "script": "Install-Package EFxceptions -ProjectName $projectName$"
+            },
+            {
+              "name": "Install Microsoft.EntityFrameworkCore.SqlServer from NuGet",
+              "script": "Install-Package Microsoft.EntityFrameworkCore.SqlServer -ProjectName $projectName$"
+            },
+            {
+              "name": "Install Microsoft.EntityFrameworkCore.Tools from NuGet",
+              "script": "Install-Package Microsoft.EntityFrameworkCore.Tools -ProjectName $projectName$"
+            }
+          ]
+        },
+        {
+          "name": "Add Storgage Broker",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\001_IStorageBroker.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\IStorageBroker.cs",
+              "replace": false
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\001_StorageBroker.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\StorageBroker.cs",
+              "replace": false
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Add migration",
+              "script": "Add-Migration InitialCreate"
+            },
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Storage Broker - Add Initial Migration\""
+            }
+          ]
+        },
+        {
+          "name": "Add Insert",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\001_IStorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\IStorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\001_StorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\StorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\001_StorageBroker.Items.Configurations.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\StorageBroker.$safeItemNamePlural$.Configurations.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Add $safeItemNameSingular$ Model Migration",
+              "script": "Add-Migration Add$safeItemNameSingular$Model"
+            },
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Storage - Insert $safeItemNameSingular$\""
+            },
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-insert"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "002 - BROKERS: Storage - Select All $safeItemNamePlural$",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Create new branch based on the current branch",
+              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-selectall users/$username$/brokers-$lowerPluralDescriptionName$-insert"
+            }
+          ]
+        },
+        {
+          "name": "Add Select All",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\002_IStorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\IStorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\002_StorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\StorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Storage - Select All $safeItemNamePlural$\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectall"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "003 - BROKERS: Storage - Select $safeItemNameSingular$ By Id",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Create new branch based on the current branch",
+              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid users/$username$/brokers-$lowerPluralDescriptionName$-selectall"
+            }
+          ]
+        },
+        {
+          "name": "Add Select By Id",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\003_IStorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\IStorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\003_StorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\StorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Storage - Select $safeItemNameSingular$ By Id\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "004 - BROKERS: Storage - Update $safeItemNameSingular$",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Create new branch based on the current branch",
+              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-update users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid"
+            }
+          ]
+        },
+        {
+          "name": "Add Update",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\004_IStorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\IStorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\004_StorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\StorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Storage - Update $safeItemNameSingular$\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-update"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "005 - BROKERS: Storage - Delete $safeItemNameSingular$",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-delete users/$username$/brokers-$lowerPluralDescriptionName$-update"
+            }
+          ]
+        },
+        {
+          "name": "Add Delete",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\005_IStorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\IStorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\005_StorageBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\StorageBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Storage - Delete $safeItemNameSingular$\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-delete"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "CleanupTasks": [
+    "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
+    "* Resolve / remove any TODO items in the task list i.e. add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker",
+    "* Verify that the solution builds and that all tests pass",
+    "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+    "* Pull Requests:",
+    "  - BROKERS: Storage - Insert $safeItemNameSingular$",
+    "  - BROKERS: Storage - Select All $safeItemNamePlural$",
+    "  - BROKERS: Storage - Select $safeItemNameSingular$ By Id",
+    "  - BROKERS: Storage - Update $safeItemNameSingular$",
+    "  - BROKERS: Storage - Delete $safeItemNameSingular$"
+  ]
+}

@@ -1,0 +1,11 @@
+﻿using Xeptions;
+
+namespace $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions
+{
+    public class Invalid$safeItemNameSingular$Exception : Xeption
+    {
+        public Invalid$safeItemNameSingular$Exception()
+            : base(message: "Invalid $parameterSafeItemNameSingular$. Please correct the errors and try again.")
+        { }
+    }
+}

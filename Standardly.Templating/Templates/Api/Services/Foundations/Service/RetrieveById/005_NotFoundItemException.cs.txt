@@ -1,0 +1,12 @@
+﻿using System;
+using Xeptions;
+
+namespace $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions
+{
+    public class NotFound$safeItemNameSingular$Exception : Xeption
+    {
+        public NotFound$safeItemNameSingular$Exception(Guid $parameterSafeItemNameSingular$Id)
+            : base(message: $"Couldn't find $parameterSafeItemNameSingular$ with $parameterSafeItemNameSingular$Id: {$parameterSafeItemNameSingular$Id}.")
+        { }
+    }
+}

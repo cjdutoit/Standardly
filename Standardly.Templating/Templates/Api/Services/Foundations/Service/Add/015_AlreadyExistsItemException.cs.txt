@@ -1,0 +1,12 @@
+﻿using System;
+using Xeptions;
+
+namespace $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions
+{
+    public class AlreadyExists$safeItemNameSingular$Exception : Xeption
+    {
+        public AlreadyExists$safeItemNameSingular$Exception(Exception innerException)
+            : base(message: "$safeItemNameSingular$ with the same Id already exists.", innerException)
+        { }
+    }
+}

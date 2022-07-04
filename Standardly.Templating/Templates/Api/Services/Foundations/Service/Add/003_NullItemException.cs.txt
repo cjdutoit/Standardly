@@ -1,0 +1,11 @@
+﻿using Xeptions;
+
+namespace $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions
+{
+    public class Null$safeItemNameSingular$Exception : Xeption
+    {
+        public Null$safeItemNameSingular$Exception()
+            : base(message: "$safeItemNameSingular$ is null.")
+        { }
+    }
+}

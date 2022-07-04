@@ -1,0 +1,12 @@
+﻿using System;
+using Xeptions;
+
+namespace $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions
+{
+    public class Failed$safeItemNameSingular$ServiceException : Xeption
+    {
+        public Failed$safeItemNameSingular$ServiceException(Exception innerException)
+            : base(message: "Failed $parameterSafeItemNameSingular$ service occurred, please contact support", innerException)
+        { }
+    }
+}

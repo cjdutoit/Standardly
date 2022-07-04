@@ -1,0 +1,345 @@
+{
+  "name": "BROKERS: Event Broker",
+  "description": "Generates an Event Broker ADD, MODIFY and REMOVED operations",
+  "templateType": "API",
+  "sortOrder": 1,
+  "tasks": [
+    {
+      "name": "001 - BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event",
+      "actions": [
+        {
+          "name": "Create branch for Subscribe to Add Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
+            }
+          ]
+        },
+        {
+          "name": "Subscribe To Add Event",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\001_IEventBroker.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\IEventBroker.cs",
+              "replace": false
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\001_EventBroker.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\EventBroker.cs",
+              "replace": false
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\001_IEventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\IEventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\001_EventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\EventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch for Subscribe to Add Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "002 - BROKERS: Events - Publish $safeItemNameSingular$ Add Event",
+      "actions": [
+        {
+          "name": "Create branch for Publish Add Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Create new branch based on the current branch",
+              "script": "git checkout -b users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
+            }
+          ]
+        },
+        {
+          "name": "Publish Add Event",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\002_IEventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\IEventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\002_EventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\EventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Events - Publish $safeItemNameSingular$ Add Event\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch for Publish Add Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "003 - BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event",
+      "actions": [
+        {
+          "name": "Create branch for Subscribe to Modify Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Create new branch based on the current branch",
+              "script": "git checkout -b users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent"
+            }
+          ]
+        },
+        {
+          "name": "Subscribe To Modify Event",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\003_IEventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\IEventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\003_EventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\EventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch for Subscribe to Modify Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "004 - BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event",
+      "actions": [
+        {
+          "name": "Create branch for Publish Modify Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Create new branch based on the current branch",
+              "script": "git checkout -b users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent"
+            }
+          ]
+        },
+        {
+          "name": "Publish Modify Event",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\004_IEventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\IEventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\004_EventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\EventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch for Publish Modify Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "005 - BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event",
+      "actions": [
+        {
+          "name": "Create branch for Subscribe to Remove Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Create new branch based on the current branch",
+              "script": "git checkout -b users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent"
+            }
+          ]
+        },
+        {
+          "name": "Subscribe To Remove Event",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\005_IEventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\IEventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\005_EventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\EventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch for Subscribe to Remove Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "006 - BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event",
+      "actions": [
+        {
+          "name": "Create branch for Publish Remove Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Create new branch based on the current branch",
+              "script": "git checkout -b users/$username$/brokers-events-publish$lowerPluralDescriptionName$removeevent users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent"
+            }
+          ]
+        },
+        {
+          "name": "Publish Remove Event",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\006_IEventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\IEventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\LocalEvents\\006_EventBroker.Items.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\LocalEvents\\EventBroker.$safeItemNamePlural$.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch for Publish Remove Event",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$removeevent"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "CleanupTasks": [
+    "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
+    "* Resolve / remove any TODO items in the task list",
+    "* Verify that the solution builds and that all tests pass",
+    "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+    "* Pull Requests:",
+    "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event",
+    "  - BROKERS: Events - Publish $safeItemNameSingular$ Add Event",
+    "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event",
+    "  - BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event",
+    "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event",
+    "  - BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event"
+  ]
+}

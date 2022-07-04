@@ -1,0 +1,12 @@
+﻿using Xeptions;
+
+namespace $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions
+{
+    public class $safeItemNameSingular$ValidationException : Xeption
+    {
+        public $safeItemNameSingular$ValidationException(Xeption innerException)
+            : base(message: "$safeItemNameSingular$ validation errors occurred, please try again.",
+                  innerException)
+        { }
+    }
+}

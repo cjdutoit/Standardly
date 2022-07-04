@@ -1,0 +1,74 @@
+{
+  "name": "INFRA: Setup Infrastructure Build Project",
+  "description": "Setup Infrastructure Build Project",
+  "templateType": "INFRA",
+  "sortOrder": 10,
+  "modelSingularName": "Build",
+  "modelPluralName": "Builds",
+  "tasks": [
+    {
+      "name": "INFRA: Setup Infrastructure Build Project",
+      "actions": [
+        {
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/infra-build-projectsetup"
+            },
+            {
+              "name": "Install ADotNet from NuGet",
+              "script": "Install-Package ADotNet -ProjectName $infrastructureBuildProjectName$"
+            }
+          ]
+        },
+        {
+          "name": "INFRA: Setup Infrastructure Build Project",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Infra\\Build\\001_Program.cs.txt",
+              "target": "$infrastructureBuildProjectFolder$\\Program.cs",
+              "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Infra\\Build\\001_dotnet.yml.txt",
+              "target": "$solutionFolder$\\.github\\workflows\\dotnet.yml",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"INFRA: Setup Infrastructure Build Project\""
+            },
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/infra-build-projectsetup"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "CleanupTasks": [
+    "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
+    "* Execute the build project to generate the YAML file.",
+    "* Verify that the solution builds, that all tests pass and commit the newly generated YAML file",
+    "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+    "* Pull Requests:",
+    "  - INFRA: Setup Infrastructure Build Project"
+  ]
+}

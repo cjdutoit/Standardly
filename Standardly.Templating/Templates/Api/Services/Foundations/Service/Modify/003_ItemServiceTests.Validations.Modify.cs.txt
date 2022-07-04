@@ -1,0 +1,46 @@
+﻿using System.Threading.Tasks;
+using FluentAssertions;
+using Moq;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
+using Xunit;
+
+namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+{
+    public partial class $safeItemNameSingular$ServiceTests
+    {
+        [Fact]
+        public async Task ShouldThrowValidationExceptionOnModifyIf$safeItemNameSingular$IsNullAndLogItAsync()
+        {
+            // given
+            $safeItemNameSingular$ null$safeItemNameSingular$ = null;
+            var null$safeItemNameSingular$Exception = new Null$safeItemNameSingular$Exception();
+
+            var expected$safeItemNameSingular$ValidationException =
+                new $safeItemNameSingular$ValidationException(null$safeItemNameSingular$Exception);
+
+            // when
+            ValueTask<$safeItemNameSingular$> modify$safeItemNameSingular$Task =
+                this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(null$safeItemNameSingular$);
+
+            $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(modify$safeItemNameSingular$Task.AsTask);
+
+            // then
+            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
+
+            this.loggingBrokerMock.Verify(broker =>
+                broker.LogError(It.Is(SameExceptionAs(
+                    expected$safeItemNameSingular$ValidationException))),
+                        Times.Once);
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.Update$safeItemNameSingular$Async(It.IsAny<$safeItemNameSingular$>()),
+                    Times.Never);
+
+            this.loggingBrokerMock.VerifyNoOtherCalls();
+            this.dateTimeBrokerMock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
+        }
+    }
+}

@@ -1,0 +1,9 @@
+﻿using $infrastructureProvisionProjectName$.$models$.Configurations;
+
+namespace $infrastructureProvisionProjectName$.$brokers$.Configurations
+{
+    public interface IConfigurationBroker
+    {
+        CloudManagementConfiguration GetConfigurations();
+    }
+}

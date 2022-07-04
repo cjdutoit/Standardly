@@ -1,0 +1,10 @@
+﻿using System;
+using Microsoft.AspNetCore.Identity;
+
+namespace $rootnamespace$.$models$.Users
+{
+    public class ApplicationRoleClaim : IdentityRoleClaim<Guid>
+    {
+        public virtual ApplicationRole Role { get; set; }
+    }
+}

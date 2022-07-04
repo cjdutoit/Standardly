@@ -1,0 +1,13 @@
+﻿using System;
+using System.Threading.Tasks;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+
+namespace $rootnamespace$.$brokers$.Events
+{
+    public partial interface IEventBroker
+    {
+        void SubscribeTo$safeItemNameSingular$AddEvent(
+            Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+                $parameterSafeItemNameSingular$AddEventHandler);
+    }
+}

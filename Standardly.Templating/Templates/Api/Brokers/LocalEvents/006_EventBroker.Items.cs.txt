@@ -1,0 +1,45 @@
+﻿using System;
+using System.Threading.Tasks;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+
+namespace $rootnamespace$.$brokers$.Events
+{
+    public partial class EventBroker
+    {
+        private static Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+            $safeItemNameSingular$AddEventHandler;
+        
+        private static Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+            $safeItemNameSingular$ModifyEventHandler;
+
+        private static Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+            $safeItemNameSingular$RemoveEventHandler;
+
+        public void SubscribeTo$safeItemNameSingular$AddEvent(
+            Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+                $parameterSafeItemNameSingular$AddEventHandler) =>
+            $safeItemNameSingular$AddEventHandler = $parameterSafeItemNameSingular$AddEventHandler;
+
+        public async ValueTask Publish$safeItemNameSingular$AddEventAsync(
+            $safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+        await $safeItemNameSingular$AddEventHandler($parameterSafeItemNameSingular$);
+
+        public void SubscribeTo$safeItemNameSingular$ModifyEvent(
+            Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+                $parameterSafeItemNameSingular$ModifyEventHandler) =>
+            $safeItemNameSingular$ModifyEventHandler = $parameterSafeItemNameSingular$ModifyEventHandler;
+
+        public async ValueTask Publish$safeItemNameSingular$ModifyEventAsync(
+            $safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+        await $safeItemNameSingular$ModifyEventHandler($parameterSafeItemNameSingular$);
+
+        public void SubscribeTo$safeItemNameSingular$RemoveEvent(
+            Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+                $parameterSafeItemNameSingular$RemoveEventHandler) =>
+            $safeItemNameSingular$RemoveEventHandler = $parameterSafeItemNameSingular$RemoveEventHandler;
+
+        public async ValueTask Publish$safeItemNameSingular$RemoveEventAsync(
+            $safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+        await $safeItemNameSingular$RemoveEventHandler($parameterSafeItemNameSingular$);
+    }
+}

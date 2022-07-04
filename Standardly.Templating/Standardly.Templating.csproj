@@ -1,0 +1,672 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Templates\Api\Brokers\LocalEvents\" />
+    <Folder Include="Templates\Api\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\Api\Brokers\DateTimes\001_DateTimeBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\DateTimes\001_IDateTimeBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\DateTimes\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\001_EventBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\001_EventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\001_IEventBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\001_IEventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\002_EventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\002_IEventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\003_EventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\003_IEventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\004_EventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\004_IEventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\005_EventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\005_IEventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\006_EventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\006_IEventBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\LocalEvents\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\001_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\001_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\002_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\002_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\003_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\003_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\004_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\004_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\005_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\005_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\006_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\006_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\001_IStorageBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\001_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\001_StorageBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\001_StorageBroker.Items.Configurations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\001_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\002_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\002_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\003_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\003_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\004_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\004_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\005_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\005_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Controllers\001_ItemController.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Controllers\002_ItemController.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Controllers\003_ItemController.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Controllers\004_ItemController.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Controllers\005_ItemController.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Controllers\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationRole.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationRoleClaim.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUser.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUserClaim.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUserLogin.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUserRole.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\001_ApplicationUserToken.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Data\AspNetIdentity\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\001_IItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\001_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\001_ItemServiceTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\001_ItemServiceTests.Logic.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\002_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\003_ItemServiceTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\003_ItemServiceTests.Validations.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\003_ItemValidationException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\003_NullItemException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\004_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\004_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\004_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\005_InvalidItemException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\005_ItemServiceTests.Validations.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\006_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\006_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\007_ItemServiceTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\007_ItemServiceTests.Validations.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\008_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\009_ItemServiceTests.Validations.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\010_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\011_ItemServiceTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\011_ItemServiceTests.Validations.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\012_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\012_ItemServiceTests.Logic.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\012_ItemServiceTests.Validations.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\013_FailedItemStorageException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\013_ItemDependencyException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\013_ItemServiceTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\013_ItemServiceTests.Exceptions.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\014_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\015_AlreadyExistsItemException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\015_ItemDependencyValidationException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\015_ItemServiceTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\015_ItemServiceTests.Exceptions.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\016_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\017_InvalidItemReferenceException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\017_ItemServiceTests.Exceptions.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\018_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\019_ItemServiceTests.Exceptions.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\020_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\021_FailedItemServiceException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\021_ItemServiceException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\021_ItemServiceTests.Exceptions.Add.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Add\022_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\001_IItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\001_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\001_ItemServiceTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\001_ItemServiceTests.Logic.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\002_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\003_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\004_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\004_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\005_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\006_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\007_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\008_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\008_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\009_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\010_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\010_ItemServiceTests.Logic.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\010_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\011_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\012_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\013_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\014_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\014_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\015_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\016_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\017_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\018_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\018_ItemServiceTests.Validations.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\019_ItemServiceTests.Exceptions.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\020_ItemServiceTests.Exceptions.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\021_ItemServiceTests.Exceptions.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\022_ItemServiceTests.Exceptions.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\022_LockedItemException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\023_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\024_ItemServiceTests.Exceptions.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\001_IItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\001_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\001_ItemServiceTests.Logic.RemoveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\002_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\003_ItemServiceTests.Validations.RemoveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\004_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\005_ItemServiceTests.Validations.RemoveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\006_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\007_ItemServiceTests.Exceptions.RemoveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\008_ItemServiceTests.Exceptions.RemoveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\009_ItemServiceTests.Exceptions.RemoveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RemoveById\010_ItemServiceTests.Exceptions.RemoveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\001_IItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\001_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\001_ItemServiceTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\001_ItemServiceTests.Logic.RetrieveAll.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\002_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\003_ItemServiceTests.Exceptions.RetrieveAll.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\004_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\004_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\005_ItemServiceTests.Exceptions.RetrieveAll.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveAll\006_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\001_IItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\001_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\001_ItemServiceTests.Logic.RetrieveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\002_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\003_ItemServiceTests.Validations.RetrieveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\004_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\004_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\005_ItemServiceTests.Validations.RetrieveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\005_NotFoundItemException.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\006_ItemService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\006_ItemService.Exceptions.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\006_ItemService.Validations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\007_ItemServiceTests.Exceptions.RetrieveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\RetrieveById\008_ItemServiceTests.Exceptions.RetrieveById.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Build\001_dotnet.yml.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Build\001_Program.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Build\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\001_CloudBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\001_ICloudBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\002_CloudBroker.ResourceGroups.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\002_ICloudBroker.ResourceGroups.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\003_CloudBroker.WebApps.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\003_ICloudBroker.WebApps.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\004_CloudBroker.Plans.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\004_ICloudBroker.Plans.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\005_CloudBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\005_CloudBroker.Storages.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\005_ICloudBroker.Storages.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\005_SqlDatabaseAccess.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\006_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\006_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\007_appSetttings.json.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\007_CloudAction.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\007_CloudManagementConfiguration.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\007_ConfigurationBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\007_IConfigurationBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\008_CloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\008_ICloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\009_CloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\009_ICloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\010_CloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\010_ICloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\011_CloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\011_ICloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\011_SqlDatabase.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\012_CloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\012_ICloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\013_CloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\013_ICloudManagementService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\014_CloudManagementProcessingService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\014_ICloudManagementProcessingService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\015_CloudManagementProcessingService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\016_Program.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Infra\Provision\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Solution\Config\001_.editorconfig.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Solution\Config\001_.gitignore.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Solution\Config\001_License.txt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Solution\Config\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

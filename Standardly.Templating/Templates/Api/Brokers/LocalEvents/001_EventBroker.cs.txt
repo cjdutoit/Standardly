@@ -1,0 +1,6 @@
+﻿namespace $rootnamespace$.$brokers$.Events
+{
+    public partial class EventBroker
+    {
+    }
+}

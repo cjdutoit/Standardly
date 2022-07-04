@@ -1,0 +1,62 @@
+﻿using System.Threading.Tasks;
+using FluentAssertions;
+using Microsoft.Data.SqlClient;
+using Moq;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
+using Xunit;
+
+namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+{
+    public partial class $safeItemNameSingular$ServiceTests
+    {
+        [Fact]
+        public async Task ShouldThrowCriticalDependencyExceptionOnModifyIfSqlErrorOccursAndLogItAsync()
+        {
+            // given
+            $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandom$safeItemNameSingular$();
+            SqlException sqlException = GetSqlException();
+
+            var failed$safeItemNameSingular$StorageException =
+                new Failed$safeItemNameSingular$StorageException(sqlException);
+
+            var expected$safeItemNameSingular$DependencyException =
+                new $safeItemNameSingular$DependencyException(failed$safeItemNameSingular$StorageException);
+
+            this.dateTimeBrokerMock.Setup(broker =>
+                broker.GetCurrentDateTimeOffset())
+                    .Throws(sqlException);
+
+            // when
+            ValueTask<$safeItemNameSingular$> add$safeItemNameSingular$Task =
+                this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(random$safeItemNameSingular$);
+
+            $safeItemNameSingular$DependencyException actual$safeItemNameSingular$DependencyException =
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(add$safeItemNameSingular$Task.AsTask);
+
+            // then
+            actual$safeItemNameSingular$DependencyException.Should().BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
+
+            this.dateTimeBrokerMock.Verify(broker =>
+                broker.GetCurrentDateTimeOffset(),
+                    Times.Once);
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.Select$safeItemNameSingular$ByIdAsync(random$safeItemNameSingular$.Id),
+                    Times.Never);
+
+            this.loggingBrokerMock.Verify(broker =>
+                broker.LogCritical(It.Is(SameExceptionAs(
+                    expected$safeItemNameSingular$DependencyException))),
+                        Times.Once);
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.Update$safeItemNameSingular$Async(random$safeItemNameSingular$),
+                    Times.Never);
+
+            this.dateTimeBrokerMock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
+            this.loggingBrokerMock.VerifyNoOtherCalls();
+        }
+    }
+}

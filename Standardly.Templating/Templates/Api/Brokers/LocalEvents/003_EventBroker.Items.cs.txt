@@ -1,0 +1,30 @@
+﻿using System;
+using System.Threading.Tasks;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+
+namespace $rootnamespace$.$brokers$.Events
+{
+    public partial class EventBroker
+    {
+        private static Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+            $safeItemNameSingular$AddEventHandler;
+        
+        private static Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+            $safeItemNameSingular$ModifyEventHandler;
+
+        public void SubscribeTo$safeItemNameSingular$AddEvent(
+            Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+                $parameterSafeItemNameSingular$AddEventHandler) =>
+            $safeItemNameSingular$AddEventHandler = $parameterSafeItemNameSingular$AddEventHandler;
+
+        public async ValueTask Publish$safeItemNameSingular$AddEventAsync(
+            $safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+        await $safeItemNameSingular$AddEventHandler($parameterSafeItemNameSingular$);
+
+        public void SubscribeTo$safeItemNameSingular$ModifyEvent(
+            Func<$safeItemNameSingular$, ValueTask<$safeItemNameSingular$>> 
+                $parameterSafeItemNameSingular$ModifyEventHandler) =>
+            $safeItemNameSingular$ModifyEventHandler = $parameterSafeItemNameSingular$ModifyEventHandler;
+
+    }
+}
