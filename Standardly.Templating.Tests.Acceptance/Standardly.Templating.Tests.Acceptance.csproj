@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -27,7 +27,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Standardly.Core\Standardly.Core.csproj" />
+    <ProjectReference Include="..\Standardly.Core\Standardly.Core.csproj">
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Standardly.Templating\Standardly.Templating.csproj">
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
   "name": "FOUNDATIONS: Service",
   "description": "Generates a service",
   "templateType": "API",
+  "ProjectsRequired": "Api,Unit",
   "sortOrder": 2,
   "tasks": [
     {

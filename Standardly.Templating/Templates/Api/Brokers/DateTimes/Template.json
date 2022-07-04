@@ -2,6 +2,7 @@
   "name": "BROKERS: DateTime Broker",
   "description": "Generates a DateTime Broker",
   "templateType": "API",
+  "ProjectsRequired": "Api",
   "sortOrder": 1,
   "modelSingularName": "DateTime",
   "modelPluralName": "DateTimes",

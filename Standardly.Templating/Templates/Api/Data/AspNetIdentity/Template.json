@@ -2,6 +2,7 @@
   "name": "DATA: Identity Models on ASP.NET Core",
   "description": "Add models for use with Identity on ASP.NET Core",
   "templateType": "API",
+  "ProjectsRequired": "Api",
   "sortOrder": 10,
   "modelSingularName": "N/A",
   "modelPluralName": "N/A ",
