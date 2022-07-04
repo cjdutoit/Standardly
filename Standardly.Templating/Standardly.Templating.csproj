@@ -102,6 +102,48 @@
     <None Update="Templates\Api\Brokers\Loggings\Template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Templates\Api\Brokers\Storages\001_IStorageBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\001_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\001_StorageBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\001_StorageBroker.Items.Configurations.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\001_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\002_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\002_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\003_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\003_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\004_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\004_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\005_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\005_StorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Templates\Infra\Build\001_dotnet.yml.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
