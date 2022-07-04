@@ -1,0 +1,19 @@
+﻿using System.IO;
+using $infrastructureProvisionProjectName$.$models$.Configurations;
+using Microsoft.Extensions.Configuration;
+
+namespace $infrastructureProvisionProjectName$.$brokers$.Configurations
+{
+    public class ConfigurationBroker : IConfigurationBroker
+    {
+        public CloudManagementConfiguration GetConfigurations()
+        {
+            IConfigurationRoot configurationRoot = new ConfigurationBuilder()
+                .SetBasePath(basePath: Directory.GetCurrentDirectory())
+                .AddJsonFile(path: "appSettings.json", optional: false)
+                .Build();
+
+            return configurationRoot.Get<CloudManagementConfiguration>();
+        }
+    }
+}

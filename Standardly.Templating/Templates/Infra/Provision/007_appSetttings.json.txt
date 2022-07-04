@@ -1,0 +1,12 @@
+﻿{
+  "projectName": "$projectName$",
+  "up": {
+    "environments": [
+      "DEV"
+    ]
+  },
+  "down": {
+    "environments": [
+    ]
+  }
+}

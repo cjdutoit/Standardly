@@ -1,0 +1,16 @@
+﻿using System.Threading.Tasks;
+using $infrastructureProvisionProjectName$.Services.Processings.CloudManagementProcessings;
+
+namespace $infrastructureProvisionProjectName$
+{
+    internal class Program
+    {
+        static async Task Main(string[] args)
+        {
+            ICloudManagementProcessingService cloudManagementProcessingService =
+                new CloudManagementProcessingService();
+
+            await cloudManagementProcessingService.ProcessAsync();
+        }
+    }
+}
