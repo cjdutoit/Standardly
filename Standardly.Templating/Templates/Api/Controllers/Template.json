@@ -1,0 +1,291 @@
+{
+  "name": "CONTROLLERS: API Controller",
+  "description": "Generates an API Controller for GET, POST, PUT, DELETE operations",
+  "templateType": "API",
+  "sortOrder": 6,
+  "tasks": [
+    {
+      "name": "CONTROLLERS: $safeItemNameSingular$ Controller - POST",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-post"
+            }
+          ]
+        },
+        {
+          "name": "CONTROLLERS: POST $safeItemNameSingular$",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\$controllers$\\001_ItemController.cs.txt",
+              "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"CONTROLLERS: POST $safeItemNameSingular$\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-post"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CONTROLLERS: GET $safeItemNamePlural$",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-getall"
+            }
+          ]
+        },
+        {
+          "name": "CONTROLLERS: GET ALL $safeItemNamePlural$",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\$controllers$\\002_ItemController.cs.txt",
+              "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"CONTROLLERS: GET ALL $safeItemNamePlural$\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-getall"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CONTROLLERS: GET $safeItemNameSingular$ By Id",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-getbyid"
+            }
+          ]
+        },
+        {
+          "name": "CONTROLLERS: GET $safeItemNameSingular$ By Id",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\$controllers$\\003_ItemController.cs.txt",
+              "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"CONTROLLERS: GET $safeItemNameSingular$ By Id\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-getbyid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CONTROLLERS: PUT $safeItemNameSingular$",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-put"
+            }
+          ]
+        },
+        {
+          "name": "CONTROLLERS: PUT $safeItemNameSingular$",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\$controllers$\\004_ItemController.cs.txt",
+              "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"CONTROLLERS: PUT $safeItemNameSingular$\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-put"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CONTROLLERS: DELETE $safeItemNameSingular$",
+      "actions": [
+        {
+          "name": "Create branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Checkout base branch",
+              "script": "git checkout $basebranch$"
+            },
+            {
+              "name": "Fetch the latest code",
+              "script": "git pull origin"
+            },
+            {
+              "name": "Create new branch",
+              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-delete"
+            }
+          ]
+        },
+        {
+          "name": "CONTROLLERS: DELETE $safeItemNameSingular$",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\$controllers$\\005_ItemController.cs.txt",
+              "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
+              "replace": true
+            }
+          ],
+          "scripts": [
+            {
+              "name": "Stage all changes",
+              "script": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "script": "git commit -m \"CONTROLLERS: DELETE $safeItemNameSingular$\""
+            }
+          ]
+        },
+        {
+          "name": "Push branch",
+          "executionFolder": "$projectFolder$",
+          "scripts": [
+            {
+              "name": "Push changes to <remote>",
+              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-delete"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "CleanupTasks": [
+    "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
+    "* Resolve / remove any TODO items in the task list",
+    "* Verify that the solution builds and that all tests pass",
+    "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+    "* Add screenshots to the pull request to show it working and handling the errors",
+    "* Pull Requests:",
+    "  - CONTROLLERS: POST $safeItemNameSingular$",
+    "  - CONTROLLERS: GET ALL $safeItemNamePlural$",
+    "  - CONTROLLERS: GET $safeItemNameSingular$ By Id",
+    "  - CONTROLLERS: PUT $safeItemNameSingular$",
+    "  - CONTROLLERS: DELETE $safeItemNameSingular$"
+  ]
+}
