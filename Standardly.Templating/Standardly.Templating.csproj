@@ -63,6 +63,45 @@
     <None Update="Templates\Api\Brokers\LocalEvents\Template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Templates\Api\Brokers\Loggings\001_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\001_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\002_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\002_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\003_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\003_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\004_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\004_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\005_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\005_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\006_ILoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\006_LoggingBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Loggings\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Templates\Infra\Build\001_dotnet.yml.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
