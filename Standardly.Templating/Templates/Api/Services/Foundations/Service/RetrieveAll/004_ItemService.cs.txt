@@ -1,0 +1,37 @@
+﻿using System.Linq;
+using System.Threading.Tasks;
+using $rootnamespace$.$brokers$.DateTimes;
+using $rootnamespace$.$brokers$.Loggings;
+using $rootnamespace$.$brokers$.Storages;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+
+namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
+{
+    public partial class $safeItemNameSingular$Service : I$safeItemNameSingular$Service
+    {
+        private readonly IStorageBroker storageBroker;
+        private readonly IDateTimeBroker dateTimeBroker;
+        private readonly ILoggingBroker loggingBroker;
+
+        public $safeItemNameSingular$Service(
+            IStorageBroker storageBroker,
+            IDateTimeBroker dateTimeBroker,
+            ILoggingBroker loggingBroker)
+        {
+            this.storageBroker = storageBroker;
+            this.dateTimeBroker = dateTimeBroker;
+            this.loggingBroker = loggingBroker;
+        }
+
+        public ValueTask<$safeItemNameSingular$> Add$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+            TryCatch(async () =>
+            {
+                Validate$safeItemNameSingular$OnAdd($parameterSafeItemNameSingular$);
+
+                return await this.storageBroker.Insert$safeItemNameSingular$Async($parameterSafeItemNameSingular$);
+            });
+
+        public IQueryable<$safeItemNameSingular$> RetrieveAll$safeItemNamePlural$() =>
+            TryCatch(() => this.storageBroker.SelectAll$safeItemNamePlural$());
+    }
+}

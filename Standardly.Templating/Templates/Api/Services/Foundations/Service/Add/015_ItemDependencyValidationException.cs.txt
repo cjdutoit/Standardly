@@ -1,0 +1,11 @@
+﻿using Xeptions;
+
+namespace $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions
+{
+    public class $safeItemNameSingular$DependencyValidationException : Xeption
+    {
+        public $safeItemNameSingular$DependencyValidationException(Xeption innerException)
+            : base(message: "$safeItemNameSingular$ dependency validation occurred, please try again.", innerException)
+        { }
+    }
+}

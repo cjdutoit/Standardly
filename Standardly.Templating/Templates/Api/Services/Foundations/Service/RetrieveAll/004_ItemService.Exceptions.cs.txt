@@ -1,0 +1,129 @@
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using EFxceptions.Models.Exceptions;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
+using Xeptions;
+
+namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
+{
+    public partial class $safeItemNameSingular$Service
+    {
+        private delegate ValueTask<$safeItemNameSingular$> Returning$safeItemNameSingular$Function();
+        private delegate IQueryable<$safeItemNameSingular$> Returning$safeItemNamePlural$Function();
+
+        private async ValueTask<$safeItemNameSingular$> TryCatch(Returning$safeItemNameSingular$Function returning$safeItemNameSingular$Function)
+        {
+            try
+            {
+                return await returning$safeItemNameSingular$Function();
+            }
+            catch (Null$safeItemNameSingular$Exception null$safeItemNameSingular$Exception)
+            {
+                throw CreateAndLogValidationException(null$safeItemNameSingular$Exception);
+            }
+            catch (Invalid$safeItemNameSingular$Exception invalid$safeItemNameSingular$Exception)
+            {
+                throw CreateAndLogValidationException(invalid$safeItemNameSingular$Exception);
+            }
+            catch (SqlException sqlException)
+            {
+                var failed$safeItemNameSingular$StorageException =
+                    new Failed$safeItemNameSingular$StorageException(sqlException);
+
+                throw CreateAndLogCriticalDependencyException(failed$safeItemNameSingular$StorageException);
+            }
+            catch (DuplicateKeyException duplicateKeyException)
+            {
+                var alreadyExists$safeItemNameSingular$Exception =
+                    new AlreadyExists$safeItemNameSingular$Exception(duplicateKeyException);
+
+                throw CreateAndLogDependencyValidationException(alreadyExists$safeItemNameSingular$Exception);
+            }
+            catch (ForeignKeyConstraintConflictException foreignKeyConstraintConflictException)
+            {
+                var invalid$safeItemNameSingular$ReferenceException =
+                    new Invalid$safeItemNameSingular$ReferenceException(foreignKeyConstraintConflictException);
+
+                throw CreateAndLogDependencyValidationException(invalid$safeItemNameSingular$ReferenceException);
+            }
+            catch (DbUpdateException databaseUpdateException)
+            {
+                var failed$safeItemNameSingular$StorageException =
+                    new Failed$safeItemNameSingular$StorageException(databaseUpdateException);
+
+                throw CreateAndLogDependecyException(failed$safeItemNameSingular$StorageException);
+            }
+            catch (Exception exception)
+            {
+                var failed$safeItemNameSingular$ServiceException =
+                    new Failed$safeItemNameSingular$ServiceException(exception);
+
+                throw CreateAndLogServiceException(failed$safeItemNameSingular$ServiceException);
+            }
+        }
+
+        private IQueryable<$safeItemNameSingular$> TryCatch(Returning$safeItemNamePlural$Function returning$safeItemNamePlural$Function)
+        {
+            try
+            {
+                return returning$safeItemNamePlural$Function();
+            }
+            catch (SqlException sqlException)
+            {
+                var failed$safeItemNameSingular$StorageException =
+                    new Failed$safeItemNameSingular$StorageException(sqlException);
+                throw CreateAndLogCriticalDependencyException(failed$safeItemNameSingular$StorageException);
+            }
+        }
+
+        private $safeItemNameSingular$ValidationException CreateAndLogValidationException(Xeption exception)
+        {
+            var $parameterSafeItemNameSingular$ValidationException =
+                new $safeItemNameSingular$ValidationException(exception);
+
+            this.loggingBroker.LogError($parameterSafeItemNameSingular$ValidationException);
+
+            return $parameterSafeItemNameSingular$ValidationException;
+        }
+
+        private $safeItemNameSingular$DependencyException CreateAndLogCriticalDependencyException(Xeption exception)
+        {
+            var $parameterSafeItemNameSingular$DependencyException = new $safeItemNameSingular$DependencyException(exception);
+            this.loggingBroker.LogCritical($parameterSafeItemNameSingular$DependencyException);
+
+            return $parameterSafeItemNameSingular$DependencyException;
+        }
+
+        private $safeItemNameSingular$DependencyValidationException CreateAndLogDependencyValidationException(Xeption exception)
+        {
+            var $parameterSafeItemNameSingular$DependencyValidationException =
+                new $safeItemNameSingular$DependencyValidationException(exception);
+
+            this.loggingBroker.LogError($parameterSafeItemNameSingular$DependencyValidationException);
+
+            return $parameterSafeItemNameSingular$DependencyValidationException;
+        }
+
+        private $safeItemNameSingular$DependencyException CreateAndLogDependecyException(
+            Xeption exception)
+        {
+            var $parameterSafeItemNameSingular$DependencyException = new $safeItemNameSingular$DependencyException(exception);
+            this.loggingBroker.LogError($parameterSafeItemNameSingular$DependencyException);
+
+            return $parameterSafeItemNameSingular$DependencyException;
+        }
+
+        private $safeItemNameSingular$ServiceException CreateAndLogServiceException(
+            Xeption exception)
+        {
+            var $parameterSafeItemNameSingular$ServiceException = new $safeItemNameSingular$ServiceException(exception);
+            this.loggingBroker.LogError($parameterSafeItemNameSingular$ServiceException);
+
+            return $parameterSafeItemNameSingular$ServiceException;
+        }
+    }
+}

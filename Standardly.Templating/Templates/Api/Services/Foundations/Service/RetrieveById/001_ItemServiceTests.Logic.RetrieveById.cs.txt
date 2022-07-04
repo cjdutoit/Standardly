@@ -1,0 +1,41 @@
+﻿using System.Threading.Tasks;
+using FluentAssertions;
+using Force.DeepCloner;
+using Moq;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+using Xunit;
+
+namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+{
+    public partial class $safeItemNameSingular$ServiceTests
+    {
+        [Fact]
+        public async Task ShouldRetrieve$safeItemNameSingular$ByIdAsync()
+        {
+            // given
+            $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandom$safeItemNameSingular$();
+            $safeItemNameSingular$ input$safeItemNameSingular$ = random$safeItemNameSingular$;
+            $safeItemNameSingular$ storage$safeItemNameSingular$ = random$safeItemNameSingular$;
+            $safeItemNameSingular$ expected$safeItemNameSingular$ = storage$safeItemNameSingular$.DeepClone();
+
+            this.storageBrokerMock.Setup(broker =>
+                broker.Select$safeItemNameSingular$ByIdAsync(input$safeItemNameSingular$.Id))
+                    .ReturnsAsync(storage$safeItemNameSingular$);
+
+            // when
+            $safeItemNameSingular$ actual$safeItemNameSingular$ =
+                await this.$parameterSafeItemNameSingular$Service.Retrieve$safeItemNameSingular$ByIdAsync(input$safeItemNameSingular$.Id);
+
+            // then
+            actual$safeItemNameSingular$.Should().BeEquivalentTo(expected$safeItemNameSingular$);
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.Select$safeItemNameSingular$ByIdAsync(input$safeItemNameSingular$.Id),
+                    Times.Once);
+
+            this.storageBrokerMock.VerifyNoOtherCalls();
+            this.dateTimeBrokerMock.VerifyNoOtherCalls();
+            this.loggingBrokerMock.VerifyNoOtherCalls();
+        }
+    }
+}

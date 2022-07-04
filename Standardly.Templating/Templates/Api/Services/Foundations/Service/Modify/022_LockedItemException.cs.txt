@@ -1,0 +1,13 @@
+﻿using System;
+using Xeptions;
+
+namespace $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions
+{
+    public class Locked$safeItemNameSingular$Exception : Xeption
+    {
+        public Locked$safeItemNameSingular$Exception(Exception innerException)
+            : base(message: "Locked $parameterSafeItemNameSingular$ record exception, please try again later", innerException)
+        {
+        }
+    }
+}

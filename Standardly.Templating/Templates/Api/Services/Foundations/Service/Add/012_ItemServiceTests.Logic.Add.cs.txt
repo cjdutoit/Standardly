@@ -1,0 +1,53 @@
+﻿using System;
+using System.Threading.Tasks;
+using FluentAssertions;
+using Force.DeepCloner;
+using Moq;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+using Xunit;
+
+namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+{
+    public partial class $safeItemNameSingular$ServiceTests
+    {
+        [Fact]
+        public async Task ShouldAdd$safeItemNameSingular$Async()
+        {
+            // given
+            DateTimeOffset randomDateTimeOffset =
+                GetRandomDateTimeOffset();
+
+            $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandom$safeItemNameSingular$(randomDateTimeOffset);
+            $safeItemNameSingular$ input$safeItemNameSingular$ = random$safeItemNameSingular$;
+            $safeItemNameSingular$ storage$safeItemNameSingular$ = input$safeItemNameSingular$;
+            $safeItemNameSingular$ expected$safeItemNameSingular$ = storage$safeItemNameSingular$.DeepClone();
+
+            this.dateTimeBrokerMock.Setup(broker =>
+                broker.GetCurrentDateTimeOffset())
+                    .Returns(randomDateTimeOffset);
+
+            this.storageBrokerMock.Setup(broker =>
+                broker.Insert$safeItemNameSingular$Async(input$safeItemNameSingular$))
+                    .ReturnsAsync(storage$safeItemNameSingular$);
+
+            // when
+            $safeItemNameSingular$ actual$safeItemNameSingular$ = await this.$parameterSafeItemNameSingular$Service
+                .Add$safeItemNameSingular$Async(input$safeItemNameSingular$);
+
+            // then
+            actual$safeItemNameSingular$.Should().BeEquivalentTo(expected$safeItemNameSingular$);
+
+            this.dateTimeBrokerMock.Verify(broker =>
+                broker.GetCurrentDateTimeOffset(),
+                    Times.Once());
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.Insert$safeItemNameSingular$Async(input$safeItemNameSingular$),
+                    Times.Once);
+
+            this.dateTimeBrokerMock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
+            this.loggingBrokerMock.VerifyNoOtherCalls();
+        }
+    }
+}

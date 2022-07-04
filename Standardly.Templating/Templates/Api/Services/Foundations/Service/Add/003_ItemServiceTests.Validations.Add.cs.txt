@@ -1,0 +1,44 @@
+﻿using System.Threading.Tasks;
+using FluentAssertions;
+using Moq;
+using $rootnamespace$.$models$.$safeItemNamePlural$;
+using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
+using Xunit;
+
+namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+{
+    public partial class $safeItemNameSingular$ServiceTests
+    {
+        [Fact]
+        public async Task ShouldThrowValidationExceptionOnAddIf$safeItemNameSingular$IsNullAndLogItAsync()
+        {
+            // given
+            $safeItemNameSingular$ null$safeItemNameSingular$ = null;
+
+            var null$safeItemNameSingular$Exception =
+                new Null$safeItemNameSingular$Exception();
+
+            var expected$safeItemNameSingular$ValidationException =
+                new $safeItemNameSingular$ValidationException(null$safeItemNameSingular$Exception);
+
+            // when
+            ValueTask<$safeItemNameSingular$> add$safeItemNameSingular$Task =
+                this.$parameterSafeItemNameSingular$Service.Add$safeItemNameSingular$Async(null$safeItemNameSingular$);
+
+            $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(add$safeItemNameSingular$Task.AsTask);
+
+            // then
+            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
+
+            this.loggingBrokerMock.Verify(broker =>
+                broker.LogError(It.Is(SameExceptionAs(
+                    expected$safeItemNameSingular$ValidationException))),
+                        Times.Once);
+
+            this.loggingBrokerMock.VerifyNoOtherCalls();
+            this.dateTimeBrokerMock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
+        }
+    }
+}
