@@ -93,7 +93,8 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                                             string sourceString = this.fileService.ReadFromFile(fileItem.Template);
 
                                             string transformedSourceString = this.templateService
-                                                .TransformString(sourceString, replacementDictionary);
+                                                .TransformString(sourceString, replacementDictionary)
+                                                .Replace("##n##", "\\n");
 
                                             this.templateService.ValidateTransformation(transformedSourceString);
 
