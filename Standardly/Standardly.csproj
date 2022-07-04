@@ -142,6 +142,10 @@
       <Project>{d58dfeec-b08a-40c2-8d2d-fa5eb9993767}</Project>
       <Name>Standardly.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Standardly.Templating\Standardly.Templating.csproj">
+      <Project>{32a3445d-b5ed-4b5c-9cf8-cb98169647c0}</Project>
+      <Name>Standardly.Templating</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\frmGenerate.resx">
