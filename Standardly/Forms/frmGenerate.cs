@@ -14,7 +14,6 @@ using System.Windows.Forms;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Standardly.Models.Settings;
-using MessageBox = System.Windows.Forms.MessageBox;
 using Template = Standardly.Core.Models.Templates.Template;
 
 namespace Standardly.Forms
@@ -48,7 +47,7 @@ namespace Standardly.Forms
             txtGitHubBaseBranchName.Text = this.settings.General.DefaultBranchName;
             txtGitHubUsername.Text = this.settings.General.GitHubUsername;
             txtDisplayName.Text = this.settings.General.DisplayName;
-            txtCopyright.Text = this.settings.General.Copyright.Replace("\n", Environment.NewLine);
+            txtCopyright.Text = this.settings.General.Copyright;
             txtLicense.Text = this.settings.General.License;
             txtProject.Text = this.settings.ProjectInfo.ProjectName;
             txtUnitTestProject.Text = this.settings.ProjectInfo.UnitTestProjectName;
@@ -113,145 +112,133 @@ namespace Standardly.Forms
             }
         }
 
-        private (bool hasErrors, string message) HasFormValidationErrors()
+        private void ValidateInput(Control control, bool condition, string error, StringBuilder errors)
         {
-            bool hasErrors = false;
-            StringBuilder message = new StringBuilder();
-
-            txtGitHubBaseBranchName.BackColor = string.IsNullOrEmpty(txtGitHubBaseBranchName.Text)
+            control.BackColor = condition
                 ? System.Drawing.Color.MistyRose
                 : System.Drawing.Color.White;
 
-            txtGitHubUsername.BackColor = string.IsNullOrEmpty(txtGitHubUsername.Text)
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.White;
-
-            txtModelSingularName.BackColor = string.IsNullOrEmpty(txtModelSingularName.Text)
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.White;
-
-            txtModelPluralName.BackColor = string.IsNullOrEmpty(txtModelPluralName.Text) ||
-                (!string.IsNullOrEmpty(txtModelPluralName.Text)
-                        && txtModelSingularName.Text == txtModelPluralName.Text)
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.White;
-
-            cbTemplates.BackColor = cbTemplates.SelectedItem == null
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.White;
-
-            txtProject.BackColor = string.IsNullOrEmpty(txtProject.Text)
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.White;
-
-            txtUnitTestProject.BackColor = string.IsNullOrEmpty(txtUnitTestProject.Text)
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.White;
-
-            txtAcceptanceTestProject.BackColor = string.IsNullOrEmpty(txtAcceptanceTestProject.Text)
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.White;
-
-            txtInfrastructureBuildProject.BackColor = string.IsNullOrEmpty(txtInfrastructureBuildProject.Text)
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.White;
-
-            txtInfrastructureProvisionProject.BackColor = string.IsNullOrEmpty(txtInfrastructureProvisionProject.Text)
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.White;
-
-            chkExperienceUsersOnly.BackColor = chkExperienceUsersOnly.Checked == false
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.Transparent;
-
-            chkDisclaimer.BackColor = chkDisclaimer.Checked == false
-                ? System.Drawing.Color.MistyRose
-                : System.Drawing.Color.Transparent;
-
-            if (string.IsNullOrEmpty(txtGitHubBaseBranchName.Text))
+            if (condition == true)
             {
-                hasErrors = true;
-                message.AppendLine($"GitHub Base Branch Name Required");
+                errors.AppendLine(error);
             }
-
-            if (string.IsNullOrEmpty(txtGitHubUsername.Text))
-            {
-                hasErrors = true;
-                message.AppendLine($"GitHub Username Required");
-            }
-
-            if (string.IsNullOrEmpty(txtModelSingularName.Text))
-            {
-                hasErrors = true;
-                message.AppendLine($"Model Singular Name Required");
-            }
-
-            if (string.IsNullOrEmpty(txtModelPluralName.Text))
-            {
-                hasErrors = true;
-                message.AppendLine($"Model Plural Name Required");
-            }
-
-            if (!string.IsNullOrEmpty(txtModelPluralName.Text)
-                && txtModelSingularName.Text == txtModelPluralName.Text)
-            {
-                hasErrors = true;
-                message.AppendLine($"Model Plural Name Should Not Match Singular Name");
-            }
-
-            if (cbTemplates.SelectedItem == null)
-            {
-                hasErrors = true;
-                message.AppendLine($"Template Selection Required");
-            }
-
-            if (string.IsNullOrEmpty(txtProject.Text))
-            {
-                hasErrors = true;
-                message.AppendLine($"Project Required");
-            }
-
-            if (string.IsNullOrEmpty(txtUnitTestProject.Text))
-            {
-                hasErrors = true;
-                message.AppendLine($"Unit Test Project Required -> Exit and add an empty xUnit project with name " +
-                    $"{txtProject.Text}.Tests.Unit to the solution.");
-            }
-
-            if (string.IsNullOrEmpty(txtAcceptanceTestProject.Text))
-            {
-                hasErrors = true;
-                message.AppendLine($"Acceptance Test Project Required -> Exit and add an empty xUnit project with " +
-                    $"name {txtProject.Text}.Tests.Acceptance to the solution.");
-            }
-
-            //if (string.IsNullOrEmpty(txtInfrastructureBuildProject.Text))
-            //{
-            //    hasErrors = true;
-            //    message.AppendLine($"Infrastructure Build Project Required -> " +
-            //        $"Exit and add an empty Console App project with name " +
-            //        $"{txtProject.Text}.Infrastructure.Build to the solution.");
-            //}
-
-            //if (string.IsNullOrEmpty(txtInfrastructureProvisionProject.Text))
-            //{
-            //    hasErrors = true;
-            //    message.AppendLine($"Infrastructure Provision Project Required -> " +
-            //        $"Exit and add an empty Console App project with name " +
-            //        $"{txtProject.Text}.Infrastructure.Provision to the solution.");
-            //}
-
-            if (chkExperienceUsersOnly.Checked == false || chkDisclaimer.Checked == false)
-            {
-                hasErrors = true;
-                message.AppendLine($"Accept the disclaimer and acknowledge that you are an experienced developer");
-            }
-
-            txtMessage.Text = message.ToString();
-            btnGenerateFromTemplate.Enabled = !hasErrors;
-
-            return (hasErrors, message.ToString());
         }
+
+        private void HasFormValidationErrors()
+        {
+            List<string> requiredProjects = new List<string>();
+
+            if (cbTemplates.SelectedItem != null)
+            {
+                requiredProjects.AddRange(((Template)cbTemplates.SelectedItem)
+                .ProjectsRequired.ToLower()
+                .Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).ToList());
+            }
+
+            StringBuilder errors = new StringBuilder();
+
+            ValidateInput(
+                txtGitHubBaseBranchName,
+                string.IsNullOrEmpty(txtGitHubBaseBranchName.Text),
+                "* GitHub Base Branch Name Required",
+                errors);
+
+            ValidateInput(
+               txtDisplayName,
+               string.IsNullOrEmpty(txtDisplayName.Text),
+               "* Display Name Required",
+               errors);
+
+            ValidateInput(
+               txtGitHubUsername,
+               string.IsNullOrEmpty(txtGitHubUsername.Text),
+               "* GitHub Username Required",
+               errors);
+
+            ValidateInput(
+                txtCopyright,
+                chkEditorConfig.Checked == true && string.IsNullOrEmpty(txtCopyright.Text),
+                "* GitHub Username Required",
+                errors);
+
+            ValidateInput(
+                txtLicense,
+                chkLicense.Checked == true && string.IsNullOrEmpty(txtLicense.Text),
+                "* GitHub Username Required",
+                errors);
+
+            ValidateInput(
+               txtModelSingularName,
+               string.IsNullOrEmpty(txtModelSingularName.Text),
+               "* Model Singular Name Required",
+               errors);
+
+            ValidateInput(
+               txtModelPluralName,
+               string.IsNullOrEmpty(txtModelPluralName.Text) || txtModelSingularName.Text == txtModelPluralName.Text,
+               "* Model Plural Name Required And Should Not Be The Same As The Singular Name",
+               errors);
+
+            ValidateInput(
+               cbTemplates,
+               cbTemplates.SelectedItem == null,
+               "* Template Selection Required",
+               errors);
+
+            ValidateInput(
+               txtProject,
+               string.IsNullOrEmpty(txtProject.Text) &&
+               (requiredProjects.Contains("main")
+                || requiredProjects.Contains("api")
+                    || requiredProjects.Contains("portal")),
+               "* Project Required",
+               errors);
+
+            ValidateInput(
+                txtUnitTestProject,
+                string.IsNullOrEmpty(txtUnitTestProject.Text) && requiredProjects.Contains("unit"),
+                $"* Unit Test Project Required -> " +
+                    $"Add a xUnit project with name '{txtProject.Text}.Tests.Unit' to the solution.",
+               errors);
+
+            ValidateInput(
+                txtAcceptanceTestProject,
+                string.IsNullOrEmpty(txtAcceptanceTestProject.Text) && requiredProjects.Contains("acceptance"),
+                $"* Acceptance Test Project Required -> " +
+                    $"Add a xUnit project with name '{txtProject.Text}.Tests.Acceptance' to the solution.",
+               errors);
+
+            ValidateInput(
+                txtInfrastructureBuildProject,
+                string.IsNullOrEmpty(txtInfrastructureBuildProject.Text) && requiredProjects.Contains("build"),
+                $"* Infrastructure Build Project Required -> " +
+                    $"Add a console project with name '{txtProject.Text}.Infrastructure.Build' to the solution.",
+               errors);
+
+            ValidateInput(
+                txtInfrastructureProvisionProject,
+                string.IsNullOrEmpty(txtInfrastructureProvisionProject.Text) && requiredProjects.Contains("provision"),
+                $"* Infrastructure Provision Project Required -> " +
+                    $"Add a console project with name '{txtProject.Text}.Infrastructure.Provision' to the solution.",
+               errors);
+
+            ValidateInput(
+               chkExperienceUsersOnly,
+               chkExperienceUsersOnly.Checked == false,
+               "* Acknowledge that you are an experienced developer and that this will NOT limit your learning potential",
+               errors);
+
+            ValidateInput(
+               chkDisclaimer,
+               chkDisclaimer.Checked == false,
+               "* Accept the disclaimer",
+               errors);
+
+            txtMessage.Text = errors.ToString();
+            btnGenerateFromTemplate.Enabled = errors.Length == 0;
+        }
+
+
 
         private void txtTemplateSearch_TextChanged(object sender, EventArgs e)
         {
@@ -305,27 +292,27 @@ namespace Standardly.Forms
 
         private void txtDisplayName_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void txtGitHubUsername_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void txtGitHubBaseBranchName_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void txtCopyright_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void txtLicense_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void btnGenerateFromTemplate_Click(object sender, EventArgs e)
@@ -333,28 +320,16 @@ namespace Standardly.Forms
             try
             {
                 btnGenerateFromTemplate.Enabled = false;
-                btnGenerateFromTemplate.Refresh();
                 btnCancel.Enabled = false;
-
-                (var hasErrors, var message) = HasFormValidationErrors();
-
-                if (hasErrors == true)
-                {
-                    MessageBox.Show(
-                        "Code Generation completed",
-                        "The code generation has been completed.  " +
-                            "Please complete the TODO actions and submit a Pull Request " +
-                                "for each branch linked to the respective issues.",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    return;
-                }
 
                 this.GenerateCriteria.GitHubBaseBranchName = txtGitHubBaseBranchName.Text;
                 this.GenerateCriteria.GitHubUsername = txtGitHubUsername.Text;
                 this.GenerateCriteria.DisplayName = txtDisplayName.Text;
-                this.GenerateCriteria.Copyright = txtCopyright.Text.Replace(Environment.NewLine, "##n##");
+
+                this.GenerateCriteria.Copyright = txtCopyright.Text
+                    .Replace("\r", "")
+                    .Replace("\n", "\\n");
+
                 this.GenerateCriteria.License = txtLicense.Text;
 
                 this.GenerateCriteria.Template = this.templates

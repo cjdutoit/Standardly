@@ -50,16 +50,20 @@ namespace Standardly
                 var frmGenerate = new frmGenerate(settings, templateService, templateOrchestrationService);
                 frmGenerate.ShowDialog();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                await VS.MessageBox
+                    .ShowWarningAsync("Standardly - Generate", $"{ex.Message} {ex.InnerException.Message}");
             }
 
-            await VS.MessageBox.ShowWarningAsync("Standardly - Generate", "Button clicked");
+
         }
 
-        private Setting GetSettings(General general, Locations locations, Project project, IEnumerable<Project> projects)
+        private Setting GetSettings(
+            General general,
+            Locations locations,
+            Project project,
+            IEnumerable<Project> projects)
         {
             switch (project.Name)
             {

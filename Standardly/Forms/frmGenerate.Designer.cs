@@ -34,18 +34,18 @@ namespace Standardly.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGenerate));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.gbTemplates = new System.Windows.Forms.GroupBox();
-            this.txtTemplateSearch = new System.Windows.Forms.TextBox();
-            this.cbTemplateType = new System.Windows.Forms.ComboBox();
-            this.cbTemplates = new System.Windows.Forms.ComboBox();
-            this.txtModelSingularName = new System.Windows.Forms.TextBox();
-            this.txtModelPluralName = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chkExperienceUsersOnly = new System.Windows.Forms.CheckBox();
+            this.chkDisclaimer = new System.Windows.Forms.CheckBox();
+            this.lnkDisclaimer = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.gbProjects = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtProject = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblAcceptanceTestProject = new System.Windows.Forms.Label();
@@ -54,30 +54,20 @@ namespace Standardly.Forms
             this.txtInfrastructureBuildProject = new System.Windows.Forms.TextBox();
             this.txtAcceptanceTestProject = new System.Windows.Forms.TextBox();
             this.txtUnitTestProject = new System.Windows.Forms.TextBox();
-            this.lblSerachTemplates = new System.Windows.Forms.Label();
-            this.lblTemplateType = new System.Windows.Forms.Label();
+            this.txtProject = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gbTemplates = new System.Windows.Forms.GroupBox();
             this.lblTemplates = new System.Windows.Forms.Label();
             this.lblModelPlural = new System.Windows.Forms.Label();
             this.lblModelSingular = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.chkExperienceUsersOnly = new System.Windows.Forms.CheckBox();
-            this.chkDisclaimer = new System.Windows.Forms.CheckBox();
-            this.lnkDisclaimer = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.txtMessage = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnGenerateFromTemplate = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtLicense = new System.Windows.Forms.TextBox();
-            this.txtCopyright = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.chkGitIgnore = new System.Windows.Forms.CheckBox();
-            this.chkLicense = new System.Windows.Forms.CheckBox();
-            this.chkEditorConfig = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTemplateType = new System.Windows.Forms.Label();
+            this.cbTemplates = new System.Windows.Forms.ComboBox();
+            this.cbTemplateType = new System.Windows.Forms.ComboBox();
+            this.txtModelPluralName = new System.Windows.Forms.TextBox();
+            this.txtModelSingularName = new System.Windows.Forms.TextBox();
+            this.txtTemplateSearch = new System.Windows.Forms.TextBox();
+            this.lblSerachTemplates = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtGitHubUsername = new System.Windows.Forms.TextBox();
@@ -87,13 +77,24 @@ namespace Standardly.Forms
             this.lblGitHubBaseBranchName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtLicense = new System.Windows.Forms.TextBox();
+            this.txtCopyright = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chkGitIgnore = new System.Windows.Forms.CheckBox();
+            this.chkLicense = new System.Windows.Forms.CheckBox();
+            this.chkEditorConfig = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnGenerateFromTemplate = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.gbTemplates.SuspendLayout();
-            this.gbProjects.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.gbProjects.SuspendLayout();
+            this.gbTemplates.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -101,6 +102,8 @@ namespace Standardly.Forms
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(6, 13);
@@ -122,266 +125,10 @@ namespace Standardly.Forms
             this.tabPage1.Text = "Template";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Controls.Add(this.groupBox4);
-            this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(964, 438);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Configuration";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // gbTemplates
-            // 
-            this.gbTemplates.Controls.Add(this.lblTemplates);
-            this.gbTemplates.Controls.Add(this.lblModelPlural);
-            this.gbTemplates.Controls.Add(this.lblModelSingular);
-            this.gbTemplates.Controls.Add(this.lblTemplateType);
-            this.gbTemplates.Controls.Add(this.cbTemplates);
-            this.gbTemplates.Controls.Add(this.cbTemplateType);
-            this.gbTemplates.Controls.Add(this.txtModelPluralName);
-            this.gbTemplates.Controls.Add(this.txtModelSingularName);
-            this.gbTemplates.Controls.Add(this.txtTemplateSearch);
-            this.gbTemplates.Controls.Add(this.lblSerachTemplates);
-            this.gbTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTemplates.Location = new System.Drawing.Point(7, 7);
-            this.gbTemplates.Name = "gbTemplates";
-            this.gbTemplates.Size = new System.Drawing.Size(948, 120);
-            this.gbTemplates.TabIndex = 0;
-            this.gbTemplates.TabStop = false;
-            this.gbTemplates.Text = "Template Info";
-            // 
-            // txtTemplateSearch
-            // 
-            this.txtTemplateSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemplateSearch.Location = new System.Drawing.Point(132, 25);
-            this.txtTemplateSearch.Name = "txtTemplateSearch";
-            this.txtTemplateSearch.Size = new System.Drawing.Size(240, 20);
-            this.txtTemplateSearch.TabIndex = 1;
-            this.txtTemplateSearch.TextChanged += new System.EventHandler(this.txtTemplateSearch_TextChanged);
-            // 
-            // cbTemplateType
-            // 
-            this.cbTemplateType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTemplateType.FormattingEnabled = true;
-            this.cbTemplateType.Location = new System.Drawing.Point(538, 24);
-            this.cbTemplateType.Name = "cbTemplateType";
-            this.cbTemplateType.Size = new System.Drawing.Size(250, 21);
-            this.cbTemplateType.TabIndex = 2;
-            this.cbTemplateType.SelectedIndexChanged += new System.EventHandler(this.cbTemplateType_SelectedIndexChanged);
-            // 
-            // cbTemplates
-            // 
-            this.cbTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTemplates.FormattingEnabled = true;
-            this.cbTemplates.Location = new System.Drawing.Point(132, 51);
-            this.cbTemplates.Name = "cbTemplates";
-            this.cbTemplates.Size = new System.Drawing.Size(656, 21);
-            this.cbTemplates.TabIndex = 3;
-            this.cbTemplates.SelectedIndexChanged += new System.EventHandler(this.cbTemplates_SelectedIndexChanged);
-            // 
-            // txtModelSingularName
-            // 
-            this.txtModelSingularName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelSingularName.Location = new System.Drawing.Point(132, 75);
-            this.txtModelSingularName.Name = "txtModelSingularName";
-            this.txtModelSingularName.Size = new System.Drawing.Size(250, 20);
-            this.txtModelSingularName.TabIndex = 4;
-            this.txtModelSingularName.TextChanged += new System.EventHandler(this.txtModelSingularName_TextChanged);
-            // 
-            // txtModelPluralName
-            // 
-            this.txtModelPluralName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelPluralName.Location = new System.Drawing.Point(538, 78);
-            this.txtModelPluralName.Name = "txtModelPluralName";
-            this.txtModelPluralName.Size = new System.Drawing.Size(250, 20);
-            this.txtModelPluralName.TabIndex = 5;
-            this.txtModelPluralName.TextChanged += new System.EventHandler(this.txtModelPluralName_TextChanged);
-            // 
-            // gbProjects
-            // 
-            this.gbProjects.Controls.Add(this.label11);
-            this.gbProjects.Controls.Add(this.label7);
-            this.gbProjects.Controls.Add(this.label8);
-            this.gbProjects.Controls.Add(this.lblAcceptanceTestProject);
-            this.gbProjects.Controls.Add(this.lblUnitTestProject);
-            this.gbProjects.Controls.Add(this.txtInfrastructureProvisionProject);
-            this.gbProjects.Controls.Add(this.txtInfrastructureBuildProject);
-            this.gbProjects.Controls.Add(this.txtAcceptanceTestProject);
-            this.gbProjects.Controls.Add(this.txtUnitTestProject);
-            this.gbProjects.Controls.Add(this.txtProject);
-            this.gbProjects.Controls.Add(this.label6);
-            this.gbProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProjects.Location = new System.Drawing.Point(7, 134);
-            this.gbProjects.Name = "gbProjects";
-            this.gbProjects.Size = new System.Drawing.Size(948, 174);
-            this.gbProjects.TabIndex = 1;
-            this.gbProjects.TabStop = false;
-            this.gbProjects.Text = "Projects";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 41);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Project: ";
-            // 
-            // txtProject
-            // 
-            this.txtProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProject.Location = new System.Drawing.Point(173, 34);
-            this.txtProject.Name = "txtProject";
-            this.txtProject.ReadOnly = true;
-            this.txtProject.Size = new System.Drawing.Size(769, 20);
-            this.txtProject.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 141);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 13);
-            this.label7.TabIndex = 55;
-            this.label7.Text = "Infrastructure Provision Project: ";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 115);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(137, 13);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "Infrastructure Build Project: ";
-            // 
-            // lblAcceptanceTestProject
-            // 
-            this.lblAcceptanceTestProject.AutoSize = true;
-            this.lblAcceptanceTestProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAcceptanceTestProject.Location = new System.Drawing.Point(12, 89);
-            this.lblAcceptanceTestProject.Name = "lblAcceptanceTestProject";
-            this.lblAcceptanceTestProject.Size = new System.Drawing.Size(131, 13);
-            this.lblAcceptanceTestProject.TabIndex = 57;
-            this.lblAcceptanceTestProject.Text = "Acceptance Test Project: ";
-            // 
-            // lblUnitTestProject
-            // 
-            this.lblUnitTestProject.AutoSize = true;
-            this.lblUnitTestProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnitTestProject.Location = new System.Drawing.Point(12, 63);
-            this.lblUnitTestProject.Name = "lblUnitTestProject";
-            this.lblUnitTestProject.Size = new System.Drawing.Size(92, 13);
-            this.lblUnitTestProject.TabIndex = 58;
-            this.lblUnitTestProject.Text = "Unit Test Project: ";
-            // 
-            // txtInfrastructureProvisionProject
-            // 
-            this.txtInfrastructureProvisionProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfrastructureProvisionProject.Location = new System.Drawing.Point(173, 138);
-            this.txtInfrastructureProvisionProject.Name = "txtInfrastructureProvisionProject";
-            this.txtInfrastructureProvisionProject.ReadOnly = true;
-            this.txtInfrastructureProvisionProject.Size = new System.Drawing.Size(769, 20);
-            this.txtInfrastructureProvisionProject.TabIndex = 10;
-            // 
-            // txtInfrastructureBuildProject
-            // 
-            this.txtInfrastructureBuildProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfrastructureBuildProject.Location = new System.Drawing.Point(173, 112);
-            this.txtInfrastructureBuildProject.Name = "txtInfrastructureBuildProject";
-            this.txtInfrastructureBuildProject.ReadOnly = true;
-            this.txtInfrastructureBuildProject.Size = new System.Drawing.Size(769, 20);
-            this.txtInfrastructureBuildProject.TabIndex = 9;
-            // 
-            // txtAcceptanceTestProject
-            // 
-            this.txtAcceptanceTestProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAcceptanceTestProject.Location = new System.Drawing.Point(173, 86);
-            this.txtAcceptanceTestProject.Name = "txtAcceptanceTestProject";
-            this.txtAcceptanceTestProject.ReadOnly = true;
-            this.txtAcceptanceTestProject.Size = new System.Drawing.Size(769, 20);
-            this.txtAcceptanceTestProject.TabIndex = 8;
-            // 
-            // txtUnitTestProject
-            // 
-            this.txtUnitTestProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitTestProject.Location = new System.Drawing.Point(173, 60);
-            this.txtUnitTestProject.Name = "txtUnitTestProject";
-            this.txtUnitTestProject.ReadOnly = true;
-            this.txtUnitTestProject.Size = new System.Drawing.Size(769, 20);
-            this.txtUnitTestProject.TabIndex = 7;
-            // 
-            // lblSerachTemplates
-            // 
-            this.lblSerachTemplates.AutoSize = true;
-            this.lblSerachTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSerachTemplates.Location = new System.Drawing.Point(12, 27);
-            this.lblSerachTemplates.Name = "lblSerachTemplates";
-            this.lblSerachTemplates.Size = new System.Drawing.Size(110, 13);
-            this.lblSerachTemplates.TabIndex = 0;
-            this.lblSerachTemplates.Text = "Search for templates: ";
-            // 
-            // lblTemplateType
-            // 
-            this.lblTemplateType.AutoSize = true;
-            this.lblTemplateType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateType.Location = new System.Drawing.Point(430, 27);
-            this.lblTemplateType.Name = "lblTemplateType";
-            this.lblTemplateType.Size = new System.Drawing.Size(84, 13);
-            this.lblTemplateType.TabIndex = 51;
-            this.lblTemplateType.Text = "Template Type: ";
-            // 
-            // lblTemplates
-            // 
-            this.lblTemplates.AutoSize = true;
-            this.lblTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplates.Location = new System.Drawing.Point(12, 54);
-            this.lblTemplates.Name = "lblTemplates";
-            this.lblTemplates.Size = new System.Drawing.Size(57, 13);
-            this.lblTemplates.TabIndex = 52;
-            this.lblTemplates.Text = "Template: ";
-            // 
-            // lblModelPlural
-            // 
-            this.lblModelPlural.AutoSize = true;
-            this.lblModelPlural.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelPlural.Location = new System.Drawing.Point(430, 82);
-            this.lblModelPlural.Name = "lblModelPlural";
-            this.lblModelPlural.Size = new System.Drawing.Size(102, 13);
-            this.lblModelPlural.TabIndex = 53;
-            this.lblModelPlural.Text = "Model Name Plural: ";
-            // 
-            // lblModelSingular
-            // 
-            this.lblModelSingular.AutoSize = true;
-            this.lblModelSingular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelSingular.Location = new System.Drawing.Point(12, 78);
-            this.lblModelSingular.Name = "lblModelSingular";
-            this.lblModelSingular.Size = new System.Drawing.Size(114, 13);
-            this.lblModelSingular.TabIndex = 54;
-            this.lblModelSingular.Text = "Model Name Singular: ";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label11.Location = new System.Drawing.Point(12, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(245, 15);
-            this.label11.TabIndex = 59;
-            this.label11.Text = "** Names assumed by convention.  **";
-            // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.label10);
             this.groupBox6.Controls.Add(this.label1);
             this.groupBox6.Controls.Add(this.chkExperienceUsersOnly);
@@ -467,130 +214,267 @@ namespace Standardly.Forms
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "templates folder";
             // 
-            // txtMessage
+            // gbProjects
             // 
-            this.txtMessage.Location = new System.Drawing.Point(7, 483);
-            this.txtMessage.Multiline = true;
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ReadOnly = true;
-            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMessage.Size = new System.Drawing.Size(967, 167);
-            this.txtMessage.TabIndex = 15;
+            this.gbProjects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbProjects.Controls.Add(this.label11);
+            this.gbProjects.Controls.Add(this.label7);
+            this.gbProjects.Controls.Add(this.label8);
+            this.gbProjects.Controls.Add(this.lblAcceptanceTestProject);
+            this.gbProjects.Controls.Add(this.lblUnitTestProject);
+            this.gbProjects.Controls.Add(this.txtInfrastructureProvisionProject);
+            this.gbProjects.Controls.Add(this.txtInfrastructureBuildProject);
+            this.gbProjects.Controls.Add(this.txtAcceptanceTestProject);
+            this.gbProjects.Controls.Add(this.txtUnitTestProject);
+            this.gbProjects.Controls.Add(this.txtProject);
+            this.gbProjects.Controls.Add(this.label6);
+            this.gbProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbProjects.Location = new System.Drawing.Point(7, 134);
+            this.gbProjects.Name = "gbProjects";
+            this.gbProjects.Size = new System.Drawing.Size(948, 174);
+            this.gbProjects.TabIndex = 1;
+            this.gbProjects.TabStop = false;
+            this.gbProjects.Text = "Projects";
             // 
-            // btnCancel
+            // label11
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(504, 656);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(470, 48);
-            this.btnCancel.TabIndex = 17;
-            this.btnCancel.Text = "Cancel / Exit";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label11.Location = new System.Drawing.Point(12, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(245, 15);
+            this.label11.TabIndex = 59;
+            this.label11.Text = "** Names assumed by convention.  **";
             // 
-            // btnGenerateFromTemplate
+            // label7
             // 
-            this.btnGenerateFromTemplate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerateFromTemplate.Location = new System.Drawing.Point(6, 656);
-            this.btnGenerateFromTemplate.Name = "btnGenerateFromTemplate";
-            this.btnGenerateFromTemplate.Size = new System.Drawing.Size(470, 48);
-            this.btnGenerateFromTemplate.TabIndex = 16;
-            this.btnGenerateFromTemplate.Text = "Generate Code From Template";
-            this.btnGenerateFromTemplate.UseVisualStyleBackColor = true;
-            this.btnGenerateFromTemplate.Click += new System.EventHandler(this.btnGenerateFromTemplate_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 141);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(157, 13);
+            this.label7.TabIndex = 55;
+            this.label7.Text = "Infrastructure Provision Project: ";
             // 
-            // label2
+            // label8
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(121, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(700, 15);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "** The sections below can be configured under Tools > Options > The Standard Code" +
-    " Generator > General **";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 115);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(137, 13);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Infrastructure Build Project: ";
             // 
-            // txtLicense
+            // lblAcceptanceTestProject
             // 
-            this.txtLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLicense.Location = new System.Drawing.Point(75, 158);
-            this.txtLicense.Multiline = true;
-            this.txtLicense.Name = "txtLicense";
-            this.txtLicense.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLicense.Size = new System.Drawing.Size(871, 125);
-            this.txtLicense.TabIndex = 23;
-            this.txtLicense.TextChanged += new System.EventHandler(this.txtLicense_TextChanged);
+            this.lblAcceptanceTestProject.AutoSize = true;
+            this.lblAcceptanceTestProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcceptanceTestProject.Location = new System.Drawing.Point(12, 89);
+            this.lblAcceptanceTestProject.Name = "lblAcceptanceTestProject";
+            this.lblAcceptanceTestProject.Size = new System.Drawing.Size(131, 13);
+            this.lblAcceptanceTestProject.TabIndex = 57;
+            this.lblAcceptanceTestProject.Text = "Acceptance Test Project: ";
             // 
-            // txtCopyright
+            // lblUnitTestProject
             // 
-            this.txtCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCopyright.Location = new System.Drawing.Point(75, 26);
-            this.txtCopyright.Multiline = true;
-            this.txtCopyright.Name = "txtCopyright";
-            this.txtCopyright.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCopyright.Size = new System.Drawing.Size(871, 125);
-            this.txtCopyright.TabIndex = 22;
-            this.txtCopyright.TextChanged += new System.EventHandler(this.txtCopyright_TextChanged);
+            this.lblUnitTestProject.AutoSize = true;
+            this.lblUnitTestProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnitTestProject.Location = new System.Drawing.Point(12, 63);
+            this.lblUnitTestProject.Name = "lblUnitTestProject";
+            this.lblUnitTestProject.Size = new System.Drawing.Size(92, 13);
+            this.lblUnitTestProject.TabIndex = 58;
+            this.lblUnitTestProject.Text = "Unit Test Project: ";
             // 
-            // label5
+            // txtInfrastructureProvisionProject
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 50;
-            this.label5.Text = "Copyright: ";
+            this.txtInfrastructureProvisionProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInfrastructureProvisionProject.Location = new System.Drawing.Point(173, 138);
+            this.txtInfrastructureProvisionProject.Name = "txtInfrastructureProvisionProject";
+            this.txtInfrastructureProvisionProject.ReadOnly = true;
+            this.txtInfrastructureProvisionProject.Size = new System.Drawing.Size(769, 20);
+            this.txtInfrastructureProvisionProject.TabIndex = 10;
             // 
-            // chkGitIgnore
+            // txtInfrastructureBuildProject
             // 
-            this.chkGitIgnore.AutoSize = true;
-            this.chkGitIgnore.Checked = true;
-            this.chkGitIgnore.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkGitIgnore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkGitIgnore.Location = new System.Drawing.Point(7, 43);
-            this.chkGitIgnore.Name = "chkGitIgnore";
-            this.chkGitIgnore.Size = new System.Drawing.Size(221, 17);
-            this.chkGitIgnore.TabIndex = 20;
-            this.chkGitIgnore.Text = "Add .gitignore to Solution if it doesn\'t exist";
-            this.chkGitIgnore.UseVisualStyleBackColor = true;
+            this.txtInfrastructureBuildProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInfrastructureBuildProject.Location = new System.Drawing.Point(173, 112);
+            this.txtInfrastructureBuildProject.Name = "txtInfrastructureBuildProject";
+            this.txtInfrastructureBuildProject.ReadOnly = true;
+            this.txtInfrastructureBuildProject.Size = new System.Drawing.Size(769, 20);
+            this.txtInfrastructureBuildProject.TabIndex = 9;
             // 
-            // chkLicense
+            // txtAcceptanceTestProject
             // 
-            this.chkLicense.AutoSize = true;
-            this.chkLicense.Checked = true;
-            this.chkLicense.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkLicense.Location = new System.Drawing.Point(7, 64);
-            this.chkLicense.Name = "chkLicense";
-            this.chkLicense.Size = new System.Drawing.Size(246, 17);
-            this.chkLicense.TabIndex = 21;
-            this.chkLicense.Text = "Add Licence.txt file to Solution if it doesn\'t exist";
-            this.chkLicense.UseVisualStyleBackColor = true;
+            this.txtAcceptanceTestProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAcceptanceTestProject.Location = new System.Drawing.Point(173, 86);
+            this.txtAcceptanceTestProject.Name = "txtAcceptanceTestProject";
+            this.txtAcceptanceTestProject.ReadOnly = true;
+            this.txtAcceptanceTestProject.Size = new System.Drawing.Size(769, 20);
+            this.txtAcceptanceTestProject.TabIndex = 8;
             // 
-            // chkEditorConfig
+            // txtUnitTestProject
             // 
-            this.chkEditorConfig.AutoSize = true;
-            this.chkEditorConfig.Checked = true;
-            this.chkEditorConfig.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkEditorConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEditorConfig.Location = new System.Drawing.Point(7, 20);
-            this.chkEditorConfig.Name = "chkEditorConfig";
-            this.chkEditorConfig.Size = new System.Drawing.Size(236, 17);
-            this.chkEditorConfig.TabIndex = 19;
-            this.chkEditorConfig.Text = "Add .editorconfig to Solution if it doesn\'t exist";
-            this.chkEditorConfig.UseVisualStyleBackColor = true;
+            this.txtUnitTestProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnitTestProject.Location = new System.Drawing.Point(173, 60);
+            this.txtUnitTestProject.Name = "txtUnitTestProject";
+            this.txtUnitTestProject.ReadOnly = true;
+            this.txtUnitTestProject.Size = new System.Drawing.Size(769, 20);
+            this.txtUnitTestProject.TabIndex = 7;
             // 
-            // label3
+            // txtProject
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 161);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
-            this.label3.TabIndex = 50;
-            this.label3.Text = "License: ";
+            this.txtProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProject.Location = new System.Drawing.Point(173, 34);
+            this.txtProject.Name = "txtProject";
+            this.txtProject.ReadOnly = true;
+            this.txtProject.Size = new System.Drawing.Size(769, 20);
+            this.txtProject.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 41);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Project: ";
+            // 
+            // gbTemplates
+            // 
+            this.gbTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbTemplates.Controls.Add(this.lblTemplates);
+            this.gbTemplates.Controls.Add(this.lblModelPlural);
+            this.gbTemplates.Controls.Add(this.lblModelSingular);
+            this.gbTemplates.Controls.Add(this.lblTemplateType);
+            this.gbTemplates.Controls.Add(this.cbTemplates);
+            this.gbTemplates.Controls.Add(this.cbTemplateType);
+            this.gbTemplates.Controls.Add(this.txtModelPluralName);
+            this.gbTemplates.Controls.Add(this.txtModelSingularName);
+            this.gbTemplates.Controls.Add(this.txtTemplateSearch);
+            this.gbTemplates.Controls.Add(this.lblSerachTemplates);
+            this.gbTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTemplates.Location = new System.Drawing.Point(7, 7);
+            this.gbTemplates.Name = "gbTemplates";
+            this.gbTemplates.Size = new System.Drawing.Size(948, 120);
+            this.gbTemplates.TabIndex = 0;
+            this.gbTemplates.TabStop = false;
+            this.gbTemplates.Text = "Template Info";
+            // 
+            // lblTemplates
+            // 
+            this.lblTemplates.AutoSize = true;
+            this.lblTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplates.Location = new System.Drawing.Point(12, 54);
+            this.lblTemplates.Name = "lblTemplates";
+            this.lblTemplates.Size = new System.Drawing.Size(57, 13);
+            this.lblTemplates.TabIndex = 52;
+            this.lblTemplates.Text = "Template: ";
+            // 
+            // lblModelPlural
+            // 
+            this.lblModelPlural.AutoSize = true;
+            this.lblModelPlural.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelPlural.Location = new System.Drawing.Point(430, 82);
+            this.lblModelPlural.Name = "lblModelPlural";
+            this.lblModelPlural.Size = new System.Drawing.Size(102, 13);
+            this.lblModelPlural.TabIndex = 53;
+            this.lblModelPlural.Text = "Model Name Plural: ";
+            // 
+            // lblModelSingular
+            // 
+            this.lblModelSingular.AutoSize = true;
+            this.lblModelSingular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelSingular.Location = new System.Drawing.Point(12, 78);
+            this.lblModelSingular.Name = "lblModelSingular";
+            this.lblModelSingular.Size = new System.Drawing.Size(114, 13);
+            this.lblModelSingular.TabIndex = 54;
+            this.lblModelSingular.Text = "Model Name Singular: ";
+            // 
+            // lblTemplateType
+            // 
+            this.lblTemplateType.AutoSize = true;
+            this.lblTemplateType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplateType.Location = new System.Drawing.Point(430, 27);
+            this.lblTemplateType.Name = "lblTemplateType";
+            this.lblTemplateType.Size = new System.Drawing.Size(84, 13);
+            this.lblTemplateType.TabIndex = 51;
+            this.lblTemplateType.Text = "Template Type: ";
+            // 
+            // cbTemplates
+            // 
+            this.cbTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTemplates.FormattingEnabled = true;
+            this.cbTemplates.Location = new System.Drawing.Point(132, 51);
+            this.cbTemplates.Name = "cbTemplates";
+            this.cbTemplates.Size = new System.Drawing.Size(656, 21);
+            this.cbTemplates.TabIndex = 3;
+            this.cbTemplates.SelectedIndexChanged += new System.EventHandler(this.cbTemplates_SelectedIndexChanged);
+            // 
+            // cbTemplateType
+            // 
+            this.cbTemplateType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTemplateType.FormattingEnabled = true;
+            this.cbTemplateType.Location = new System.Drawing.Point(538, 24);
+            this.cbTemplateType.Name = "cbTemplateType";
+            this.cbTemplateType.Size = new System.Drawing.Size(250, 21);
+            this.cbTemplateType.TabIndex = 2;
+            this.cbTemplateType.SelectedIndexChanged += new System.EventHandler(this.cbTemplateType_SelectedIndexChanged);
+            // 
+            // txtModelPluralName
+            // 
+            this.txtModelPluralName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelPluralName.Location = new System.Drawing.Point(538, 78);
+            this.txtModelPluralName.Name = "txtModelPluralName";
+            this.txtModelPluralName.Size = new System.Drawing.Size(250, 20);
+            this.txtModelPluralName.TabIndex = 5;
+            this.txtModelPluralName.TextChanged += new System.EventHandler(this.txtModelPluralName_TextChanged);
+            // 
+            // txtModelSingularName
+            // 
+            this.txtModelSingularName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelSingularName.Location = new System.Drawing.Point(132, 75);
+            this.txtModelSingularName.Name = "txtModelSingularName";
+            this.txtModelSingularName.Size = new System.Drawing.Size(250, 20);
+            this.txtModelSingularName.TabIndex = 4;
+            this.txtModelSingularName.TextChanged += new System.EventHandler(this.txtModelSingularName_TextChanged);
+            // 
+            // txtTemplateSearch
+            // 
+            this.txtTemplateSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTemplateSearch.Location = new System.Drawing.Point(132, 25);
+            this.txtTemplateSearch.Name = "txtTemplateSearch";
+            this.txtTemplateSearch.Size = new System.Drawing.Size(250, 20);
+            this.txtTemplateSearch.TabIndex = 1;
+            this.txtTemplateSearch.TextChanged += new System.EventHandler(this.txtTemplateSearch_TextChanged);
+            // 
+            // lblSerachTemplates
+            // 
+            this.lblSerachTemplates.AutoSize = true;
+            this.lblSerachTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSerachTemplates.Location = new System.Drawing.Point(12, 27);
+            this.lblSerachTemplates.Name = "lblSerachTemplates";
+            this.lblSerachTemplates.Size = new System.Drawing.Size(110, 13);
+            this.lblSerachTemplates.TabIndex = 0;
+            this.lblSerachTemplates.Text = "Search for templates: ";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.groupBox4);
+            this.tabPage2.Controls.Add(this.groupBox5);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(964, 438);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Configuration";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -678,6 +562,8 @@ namespace Standardly.Forms
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.txtLicense);
             this.groupBox4.Controls.Add(this.txtCopyright);
             this.groupBox4.Controls.Add(this.label3);
@@ -690,8 +576,56 @@ namespace Standardly.Forms
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Copyright";
             // 
+            // txtLicense
+            // 
+            this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLicense.Location = new System.Drawing.Point(75, 158);
+            this.txtLicense.Multiline = true;
+            this.txtLicense.Name = "txtLicense";
+            this.txtLicense.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLicense.Size = new System.Drawing.Size(871, 125);
+            this.txtLicense.TabIndex = 23;
+            this.txtLicense.TextChanged += new System.EventHandler(this.txtLicense_TextChanged);
+            // 
+            // txtCopyright
+            // 
+            this.txtCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCopyright.Location = new System.Drawing.Point(75, 26);
+            this.txtCopyright.Multiline = true;
+            this.txtCopyright.Name = "txtCopyright";
+            this.txtCopyright.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtCopyright.Size = new System.Drawing.Size(871, 125);
+            this.txtCopyright.TabIndex = 22;
+            this.txtCopyright.TextChanged += new System.EventHandler(this.txtCopyright_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "License: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 50;
+            this.label5.Text = "Copyright: ";
+            // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.chkGitIgnore);
             this.groupBox5.Controls.Add(this.chkLicense);
             this.groupBox5.Controls.Add(this.chkEditorConfig);
@@ -703,6 +637,94 @@ namespace Standardly.Forms
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Solution, Project and Other Configurations";
             // 
+            // chkGitIgnore
+            // 
+            this.chkGitIgnore.AutoSize = true;
+            this.chkGitIgnore.Checked = true;
+            this.chkGitIgnore.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkGitIgnore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkGitIgnore.Location = new System.Drawing.Point(7, 43);
+            this.chkGitIgnore.Name = "chkGitIgnore";
+            this.chkGitIgnore.Size = new System.Drawing.Size(221, 17);
+            this.chkGitIgnore.TabIndex = 20;
+            this.chkGitIgnore.Text = "Add .gitignore to Solution if it doesn\'t exist";
+            this.chkGitIgnore.UseVisualStyleBackColor = true;
+            // 
+            // chkLicense
+            // 
+            this.chkLicense.AutoSize = true;
+            this.chkLicense.Checked = true;
+            this.chkLicense.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkLicense.Location = new System.Drawing.Point(7, 64);
+            this.chkLicense.Name = "chkLicense";
+            this.chkLicense.Size = new System.Drawing.Size(246, 17);
+            this.chkLicense.TabIndex = 21;
+            this.chkLicense.Text = "Add Licence.txt file to Solution if it doesn\'t exist";
+            this.chkLicense.UseVisualStyleBackColor = true;
+            // 
+            // chkEditorConfig
+            // 
+            this.chkEditorConfig.AutoSize = true;
+            this.chkEditorConfig.Checked = true;
+            this.chkEditorConfig.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkEditorConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEditorConfig.Location = new System.Drawing.Point(7, 20);
+            this.chkEditorConfig.Name = "chkEditorConfig";
+            this.chkEditorConfig.Size = new System.Drawing.Size(236, 17);
+            this.chkEditorConfig.TabIndex = 19;
+            this.chkEditorConfig.Text = "Add .editorconfig to Solution if it doesn\'t exist";
+            this.chkEditorConfig.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label2.Location = new System.Drawing.Point(121, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(700, 15);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "** The sections below can be configured under Tools > Options > The Standard Code" +
+    " Generator > General **";
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMessage.Location = new System.Drawing.Point(7, 483);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ReadOnly = true;
+            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMessage.Size = new System.Drawing.Size(967, 167);
+            this.txtMessage.TabIndex = 15;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(494, 656);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(480, 48);
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Text = "Cancel / Exit";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnGenerateFromTemplate
+            // 
+            this.btnGenerateFromTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGenerateFromTemplate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateFromTemplate.Location = new System.Drawing.Point(6, 656);
+            this.btnGenerateFromTemplate.Name = "btnGenerateFromTemplate";
+            this.btnGenerateFromTemplate.Size = new System.Drawing.Size(480, 48);
+            this.btnGenerateFromTemplate.TabIndex = 16;
+            this.btnGenerateFromTemplate.Text = "Generate Code From Template";
+            this.btnGenerateFromTemplate.UseVisualStyleBackColor = true;
+            this.btnGenerateFromTemplate.Click += new System.EventHandler(this.btnGenerateFromTemplate_Click);
+            // 
             // frmGenerate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,7 +734,9 @@ namespace Standardly.Forms
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnGenerateFromTemplate);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1000, 748);
             this.Name = "frmGenerate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -720,14 +744,14 @@ namespace Standardly.Forms
             this.TopMost = true;
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.gbTemplates.ResumeLayout(false);
-            this.gbTemplates.PerformLayout();
-            this.gbProjects.ResumeLayout(false);
-            this.gbProjects.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.gbProjects.ResumeLayout(false);
+            this.gbProjects.PerformLayout();
+            this.gbTemplates.ResumeLayout(false);
+            this.gbTemplates.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
