@@ -612,6 +612,16 @@
               "script": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-add"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$\""
+            }
+          ]
         }
       ]
     },
@@ -789,6 +799,16 @@
             {
               "name": "Push changes to <remote>",
               "script": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-retrieveall"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$\""
             }
           ]
         }
@@ -1020,6 +1040,16 @@
             {
               "name": "Push changes to <remote>",
               "script": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id\""
             }
           ]
         }
@@ -1588,6 +1618,16 @@
               "script": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-modify"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$\""
+            }
+          ]
         }
       ]
     },
@@ -1841,6 +1881,16 @@
               "script": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-removebyid"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id\""
+            }
+          ]
         }
       ]
     }
@@ -1850,7 +1900,7 @@
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Pull Requests:",
     "  - FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$",
     "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$",
     "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id",

@@ -67,6 +67,16 @@
               "script": "git push origin users/$username$/brokers-loggers-loginformation"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Logging - Log Information\""
+            }
+          ]
         }
       ]
     },
@@ -116,6 +126,16 @@
             {
               "name": "Push changes to <remote>",
               "script": "git push origin users/$username$/brokers-loggers-logtrace"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Logging - Log Trace\""
             }
           ]
         }
@@ -169,6 +189,16 @@
               "script": "git push origin users/$username$/brokers-loggers-logdebug"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Logging - Log Debug\""
+            }
+          ]
         }
       ]
     },
@@ -218,6 +248,16 @@
             {
               "name": "Push changes to <remote>",
               "script": "git push origin users/$username$/brokers-loggers-logwarning"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Logging - Log Warning\""
             }
           ]
         }
@@ -271,6 +311,16 @@
               "script": "git push origin users/$username$/brokers-loggers-logerror"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Logging - Log Error\""
+            }
+          ]
         }
       ]
     },
@@ -322,6 +372,16 @@
               "script": "git push origin users/$username$/brokers-loggers-logcritical"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Logging - Log Critical\""
+            }
+          ]
         }
       ]
     }
@@ -331,7 +391,7 @@
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Pull Requests:",
     "  - BROKERS: Logging - Log Information",
     "  - BROKERS: Logging - Log LogTrace",
     "  - BROKERS: Logging - Log LogDebug",

@@ -63,6 +63,16 @@
               "script": "git push origin users/$username$/brokers-datetime-getcurrentdatetimeoffset"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: DateTime - Get Current DateTime Offset\""
+            }
+          ]
         }
       ]
     }
@@ -72,7 +82,7 @@
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Pull Requests:",
     "  - BROKERS: DateTime - Get Current DateTime Offset"
   ]
 }

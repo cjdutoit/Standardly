@@ -58,6 +58,16 @@
               "script": "git push origin users/$username$/config-solution-editorconfig"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"CONFIG: Add .editorconfig to solution\""
+            }
+          ]
         }
       ]
     },
@@ -110,6 +120,16 @@
             {
               "name": "Push changes to <remote>",
               "script": "git push origin users/$username$/config-solution-gitignore"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"CONFIG: Add .gitignore to solution\""
             }
           ]
         }
@@ -166,13 +186,23 @@
               "script": "git push origin users/$username$/config-solution-license"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"CONFIG: Add license file to solution\""
+            }
+          ]
         }
       ]
     }
   ],
   "CleanupTasks": [
     "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Pull Requests:",
     "  - CONFIG: Solution Configuration Settings"
   ]
 }

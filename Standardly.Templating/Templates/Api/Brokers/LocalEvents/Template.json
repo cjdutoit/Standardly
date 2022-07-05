@@ -71,6 +71,16 @@
               "script": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event\""
+            }
+          ]
         }
       ]
     },
@@ -120,6 +130,16 @@
             {
               "name": "Push changes to <remote>",
               "script": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Events - Publish $safeItemNameSingular$ Add Event\""
             }
           ]
         }
@@ -173,6 +193,16 @@
               "script": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event\""
+            }
+          ]
         }
       ]
     },
@@ -222,6 +252,16 @@
             {
               "name": "Push changes to <remote>",
               "script": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event\""
             }
           ]
         }
@@ -275,6 +315,16 @@
               "script": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event\""
+            }
+          ]
         }
       ]
     },
@@ -326,6 +376,16 @@
               "script": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$removeevent"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event\""
+            }
+          ]
         }
       ]
     }
@@ -335,7 +395,7 @@
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Pull Requests:",
     "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event",
     "  - BROKERS: Events - Publish $safeItemNameSingular$ Add Event",
     "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event",

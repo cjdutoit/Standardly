@@ -531,6 +531,16 @@
               "script": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"PROVISION: Setup Infrastructure Provision Project\""
+            }
+          ]
         }
       ]
     }
@@ -539,7 +549,7 @@
     "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
     "* Verify that the solution builds",
     "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Pull Requests:",
     "  - PROVISION: Azure Resources Provisioning"
   ]
 }

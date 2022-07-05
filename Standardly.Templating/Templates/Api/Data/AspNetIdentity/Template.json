@@ -88,6 +88,16 @@
               "script": "git push origin users/$username$/data-identity-models"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -t \"DATA: Identity Models on ASP.NET Core\""
+            }
+          ]
         }
       ]
     }
