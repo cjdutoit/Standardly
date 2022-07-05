@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Standardly.Core.Models.FileItems;
 using Standardly.Core.Models.PowerShellScripts;
@@ -19,7 +18,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
     public partial class TemplateServiceTests
     {
         [Fact]
-        public async Task ShouldThrowValidationExceptionWhenIfTemplateIsNullAndLogItAsync()
+        public void ShouldThrowValidationExceptionWhenIfTemplateIsNullAndLogItAsync()
         {
             // given
             string emptyStringTemplate = String.Empty;

@@ -31,7 +31,7 @@
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
-              "template": "$templateFolder$\\Api\\$controllers$\\001_ItemController.cs.txt",
+              "template": "$templateFolder$\\Api\\Controllers\\001_ItemController.cs.txt",
               "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
               "replace": true
             }
@@ -85,7 +85,7 @@
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
-              "template": "$templateFolder$\\Api\\$controllers$\\002_ItemController.cs.txt",
+              "template": "$templateFolder$\\Api\\Controllers\\002_ItemController.cs.txt",
               "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
               "replace": true
             }
@@ -139,7 +139,7 @@
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
-              "template": "$templateFolder$\\Api\\$controllers$\\003_ItemController.cs.txt",
+              "template": "$templateFolder$\\Api\\Controllers\\003_ItemController.cs.txt",
               "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
               "replace": true
             }
@@ -193,7 +193,7 @@
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
-              "template": "$templateFolder$\\Api\\$controllers$\\004_ItemController.cs.txt",
+              "template": "$templateFolder$\\Api\\Controllers\\004_ItemController.cs.txt",
               "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
               "replace": true
             }
@@ -247,7 +247,7 @@
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
-              "template": "$templateFolder$\\Api\\$controllers$\\005_ItemController.cs.txt",
+              "template": "$templateFolder$\\Api\\Controllers\\005_ItemController.cs.txt",
               "target": "$projectFolder$\\$controllers$\\$safeItemNamePlural$Controller.cs",
               "replace": true
             }
