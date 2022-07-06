@@ -6,11 +6,11 @@
 
 using System;
 using System.Collections.Generic;
+using Standardly.Core.Brokers.ExecutionBroker;
 using Standardly.Core.Brokers.FileSystems;
-using Standardly.Core.Brokers.PowerShells;
 using Standardly.Core.Models.Templates.Exceptions;
+using Standardly.Core.Services.Foundations.Executions;
 using Standardly.Core.Services.Foundations.FileServices;
-using Standardly.Core.Services.Foundations.PowerShells;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Tynamix.ObjectFiller;
@@ -20,7 +20,7 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
     public partial class TemplateValidationTests
     {
         private readonly IFileService fileService;
-        private readonly IPowerShellService powerShellService;
+        private readonly IExecutionService executionService;
         private readonly ITemplateService templateService;
         private readonly ITemplateOrchestrationService templateOrchestrationService;
         private readonly IFileSystemBroker fileSystemBroker;
@@ -30,12 +30,12 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
         {
             this.fileSystemBroker = new FileSystemBroker();
             fileService = new FileService(this.fileSystemBroker);
-            powerShellService = new PowerShellService(new PowerShellBroker());
+            executionService = new ExecutionService(new CliExecutionBroker());
             templateService = new TemplateService(this.fileSystemBroker);
 
             templateOrchestrationService = new TemplateOrchestrationService(
                 fileService: fileService,
-                powerShellService: powerShellService,
+                executionService: executionService,
                 templateService: templateService);
         }
 

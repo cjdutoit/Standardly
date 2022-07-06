@@ -6,8 +6,8 @@
 
 using System;
 using System.Collections.Generic;
+using Standardly.Core.Models.Executions.Exceptions;
 using Standardly.Core.Models.FileServices.Exceptions;
-using Standardly.Core.Models.PowerShellScripts.Exceptions;
 using Standardly.Core.Models.TemplateOrchestrations.Exceptions;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Models.Templates.Exceptions;
@@ -69,13 +69,13 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 throw CreateAndLogDependencyValidationException(fileServiceDependencyValidationException);
             }
-            catch (PowerShellValidationException powerShellValidationException)
+            catch (ExecutionValidationException executionValidationException)
             {
-                throw CreateAndLogDependencyValidationException(powerShellValidationException);
+                throw CreateAndLogDependencyValidationException(executionValidationException);
             }
-            catch (PowerShellDependencyValidationException powerShellDependencyValidationException)
+            catch (ExecutionDependencyValidationException executionDependencyValidationException)
             {
-                throw CreateAndLogDependencyValidationException(powerShellDependencyValidationException);
+                throw CreateAndLogDependencyValidationException(executionDependencyValidationException);
             }
             catch (TemplateValidationException templateValidationException)
             {
@@ -101,13 +101,13 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 throw CreateAndLogDependencyException(templateDependencyException);
             }
-            catch (PowerShellServiceException powerShellServiceException)
+            catch (ExecutionServiceException executionServiceException)
             {
-                throw CreateAndLogDependencyException(powerShellServiceException);
+                throw CreateAndLogDependencyException(executionServiceException);
             }
-            catch (PowerShellDependencyException powerShellDependencyException)
+            catch (ExecutionDependencyException executionDependencyException)
             {
-                throw CreateAndLogDependencyException(powerShellDependencyException);
+                throw CreateAndLogDependencyException(executionDependencyException);
             }
             catch (Exception exception)
             {

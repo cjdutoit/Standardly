@@ -6,12 +6,12 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.PowerShellScripts.Exceptions
+namespace Standardly.Core.Models.Executions.Exceptions
 {
-    public class PowerShellDependencyValidationException : Xeption
+    public class ExecutionDependencyException : Xeption
     {
-        public PowerShellDependencyValidationException(Xeption innerException)
-            : base(message: "PowerShell dependency validation occurred, please try again.", innerException)
+        public ExecutionDependencyException(Xeption innerException) :
+            base(message: "Execution dependency error occurred, contact support.", innerException)
         { }
     }
 }

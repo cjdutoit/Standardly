@@ -26,5 +26,6 @@ namespace Standardly.Models.Settings
         public bool AddEditorConfigFile { get; set; }
         public bool AddGitIgnoreFile { get; set; }
         public bool AddLicenseFile { get; set; }
+        public bool SubmitAsDraftPullRequest { get; set; }
     }
 }

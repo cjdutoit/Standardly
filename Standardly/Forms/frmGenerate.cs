@@ -11,9 +11,11 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Standardly.Core.Models.FileItems;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Standardly.Models.Settings;
+using Action = Standardly.Core.Models.Actions.Action;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Template = Standardly.Core.Models.Templates.Template;
 
@@ -369,6 +371,7 @@ namespace Standardly.Forms
                 this.GenerateCriteria.AddEditorConfigFile = chkEditorConfig.Checked;
                 this.GenerateCriteria.AddGitIgnoreFile = chkGitIgnore.Checked;
                 this.GenerateCriteria.AddLicenseFile = chkLicense.Checked;
+                this.GenerateCriteria.SubmitAsDraftPullRequest = chkSubmitAsDraftPullRequest.Checked;
 
                 GenerateCode();
             }
@@ -407,40 +410,65 @@ namespace Standardly.Forms
 
                 this.templateService.ValidateSourceFiles(transformedConfigTemplate);
 
+                Core.Models.Tasks.Task editorConfigTask = transformedConfigTemplate.Tasks
+                    .FirstOrDefault(task => task.Name == "CONFIG: Add .editorconfig to solution");
+
+                Core.Models.Tasks.Task gitIgnoreTask = transformedConfigTemplate.Tasks
+                    .FirstOrDefault(task => task.Name == "CONFIG: Add .gitignore to solution");
+
+                Core.Models.Tasks.Task licenseTask = transformedConfigTemplate.Tasks
+                    .FirstOrDefault(task => task.Name == "CONFIG: Add license file to solution");
+
                 if (!GenerateCriteria.AddEditorConfigFile)
                 {
-                    Core.Models.Tasks.Task editorConfig = transformedConfigTemplate.Tasks
-                        .FirstOrDefault(task => task.Name == "CONFIG: Add .editorconfig to solution");
-
-                    if (editorConfig != null)
+                    if (editorConfigTask != null)
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(editorConfig);
+                        transformedConfigTemplate.Tasks.Remove(editorConfigTask);
+                    }
+                }
+                else
+                {
+                    if (IsTaskRequired(editorConfigTask))
+                    {
+                        transformedConfigTemplate.Tasks.Remove(editorConfigTask);
                     }
                 }
 
                 if (!GenerateCriteria.AddGitIgnoreFile)
                 {
-                    Core.Models.Tasks.Task gitIgnore = transformedConfigTemplate.Tasks
-                        .FirstOrDefault(task => task.Name == "CONFIG: Add .gitignore to solution");
-
-                    if (gitIgnore != null)
+                    if (gitIgnoreTask != null)
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(gitIgnore);
+                        transformedConfigTemplate.Tasks.Remove(gitIgnoreTask);
                     }
                 }
+                else
+                {
+                    if (IsTaskRequired(gitIgnoreTask))
+                    {
+                        transformedConfigTemplate.Tasks.Remove(gitIgnoreTask);
+                    }
+                }
+
                 if (!GenerateCriteria.AddLicenseFile)
                 {
-                    Core.Models.Tasks.Task license = transformedConfigTemplate.Tasks
-                        .FirstOrDefault(task => task.Name == "CONFIG: Add license file to solution");
-
-                    if (license != null)
+                    if (licenseTask != null)
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(license);
+                        transformedConfigTemplate.Tasks.Remove(licenseTask);
+                    }
+                }
+                else
+                {
+                    if (IsTaskRequired(licenseTask))
+                    {
+                        transformedConfigTemplate.Tasks.Remove(licenseTask);
                     }
                 }
 
-                this.templateOrchestrationService
-                    .GenerateCodeFromTemplate(transformedConfigTemplate, replacementsDictionary);
+                if (transformedConfigTemplate.Tasks.Any())
+                {
+                    this.templateOrchestrationService
+                        .GenerateCodeFromTemplate(transformedConfigTemplate, replacementsDictionary);
+                }
             }
 
             string rawTransformedTemplate = this.templateService
@@ -466,6 +494,25 @@ namespace Standardly.Forms
             }
 
             txtMessage.Text = cleanupTaskMessage.ToString();
+        }
+
+        private static bool IsTaskRequired(Core.Models.Tasks.Task editorConfig)
+        {
+            List<FileItem> fileItems = new List<FileItem>();
+            foreach (Action action in editorConfig.Actions)
+            {
+                fileItems.AddRange(action.FileItems);
+            }
+
+            foreach (FileItem fileItem in fileItems.ToList())
+            {
+                if (File.Exists(fileItem.Target) && fileItem.Replace == false)
+                {
+                    fileItems.Remove(fileItem);
+                }
+            }
+
+            return !fileItems.Any();
         }
 
         private void GetReplacementDictionary(Dictionary<string, string> replacementsDictionary)
@@ -494,6 +541,9 @@ namespace Standardly.Forms
             replacementsDictionary.Add("$projectName$", settings.ProjectInfo.ProjectName);
             replacementsDictionary.Add("$projectFolder$", settings.ProjectInfo.ProjectFolder.Replace("\\", "\\\\"));
             replacementsDictionary.Add("$unitTestProjectName$", settings.ProjectInfo.UnitTestProjectName);
+
+            replacementsDictionary.Add("$draftPullRequest$",
+                GenerateCriteria.SubmitAsDraftPullRequest == true ? "-d " : "");
 
             replacementsDictionary.Add(
                 "$unitTestProjectFolder$",
@@ -587,6 +637,14 @@ namespace Standardly.Forms
                                     .ToArray();
 
             return words;
+        }
+
+        private void chkPublicRepository_CheckedChanged(object sender, EventArgs e)
+        {
+            chkSubmitAsDraftPullRequest.Enabled = chkPublicRepository.Checked;
+            chkSubmitAsDraftPullRequest.Checked = chkPublicRepository.Checked;
+
+
         }
     }
 }

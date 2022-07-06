@@ -6,15 +6,15 @@
 
 using System.Collections.Generic;
 using Moq;
-using Standardly.Core.Models.PowerShellScripts;
+using Standardly.Core.Models.Executions;
 using Xunit;
 
-namespace Standardly.Core.Tests.Unit.Services.Foundations.PowerShells
+namespace Standardly.Core.Tests.Unit.Services.Foundations.Executions
 {
-    public partial class PowerShellServiceTests
+    public partial class ExecutionServiceTests
     {
         [Fact]
-        public void ShouldRunScript()
+        public void ShouldRunExecutions()
         {
             // given
             string randomFilePath = GetRandomString();
@@ -23,18 +23,18 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.PowerShells
             string inputName = randomContent;
             string inputValue = randomContent;
 
-            List<PowerShellScript> inputDictionary = new List<PowerShellScript>();
-            inputDictionary.Add(new PowerShellScript() { Name = inputName, Script = inputValue });
+            List<Execution> inputDictionary = new List<Execution>();
+            inputDictionary.Add(new Execution() { Name = inputName, Instruction = inputValue });
 
             // when
-            this.powerShellService.RunScript(inputDictionary, inputFilePath);
+            this.executionService.Run(inputDictionary, inputFilePath);
 
             // then
-            this.powerShellBrokerMock.Verify(broker =>
-                broker.RunScript(inputDictionary, inputFilePath),
+            this.executionBrokerMock.Verify(broker =>
+                broker.Run(inputDictionary, inputFilePath),
                     Times.Once);
 
-            this.powerShellBrokerMock.VerifyNoOtherCalls();
+            this.executionBrokerMock.VerifyNoOtherCalls();
         }
     }
 }

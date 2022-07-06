@@ -11,18 +11,18 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-post"
+              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-post"
             }
           ]
         },
@@ -36,24 +36,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"CONTROLLERS: POST $safeItemNameSingular$\""
+              "instruction": "git commit -m \"CONTROLLERS: POST $safeItemNameSingular$\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-post"
+              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-post"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: $safeItemNameSingular$ Controller - POST\" -b \" \""
             }
           ]
         }
@@ -65,18 +75,18 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-getall"
+              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-getall"
             }
           ]
         },
@@ -90,24 +100,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"CONTROLLERS: GET ALL $safeItemNamePlural$\""
+              "instruction": "git commit -m \"CONTROLLERS: GET ALL $safeItemNamePlural$\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-getall"
+              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-getall"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: GET $safeItemNamePlural$\" -b \" \""
             }
           ]
         }
@@ -119,18 +139,18 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-getbyid"
+              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-getbyid"
             }
           ]
         },
@@ -144,24 +164,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"CONTROLLERS: GET $safeItemNameSingular$ By Id\""
+              "instruction": "git commit -m \"CONTROLLERS: GET $safeItemNameSingular$ By Id\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-getbyid"
+              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-getbyid"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: GET $safeItemNameSingular$ By Id\" -b \" \""
             }
           ]
         }
@@ -173,18 +203,18 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-put"
+              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-put"
             }
           ]
         },
@@ -198,24 +228,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"CONTROLLERS: PUT $safeItemNameSingular$\""
+              "instruction": "git commit -m \"CONTROLLERS: PUT $safeItemNameSingular$\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-put"
+              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-put"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: PUT $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -227,18 +267,18 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-delete"
+              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-delete"
             }
           ]
         },
@@ -252,24 +292,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"CONTROLLERS: DELETE $safeItemNameSingular$\""
+              "instruction": "git commit -m \"CONTROLLERS: DELETE $safeItemNameSingular$\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-delete"
+              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-delete"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: DELETE $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -282,7 +332,7 @@
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
     "* Add screenshots to the pull request to show it working and handling the errors",
-    "* Pull Requests:",
+    "* Review Draft Pull Requests:",
     "  - CONTROLLERS: POST $safeItemNameSingular$",
     "  - CONTROLLERS: GET ALL $safeItemNamePlural$",
     "  - CONTROLLERS: GET $safeItemNameSingular$ By Id",

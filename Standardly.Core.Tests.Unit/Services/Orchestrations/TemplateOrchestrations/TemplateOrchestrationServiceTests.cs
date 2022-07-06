@@ -8,12 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Moq;
+using Standardly.Core.Models.Executions.Exceptions;
 using Standardly.Core.Models.FileServices.Exceptions;
-using Standardly.Core.Models.PowerShellScripts.Exceptions;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Models.Templates.Exceptions;
+using Standardly.Core.Services.Foundations.Executions;
 using Standardly.Core.Services.Foundations.FileServices;
-using Standardly.Core.Services.Foundations.PowerShells;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Tynamix.ObjectFiller;
@@ -25,19 +25,19 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
     public partial class TemplateOrchestrationServiceTests
     {
         private readonly Mock<IFileService> fileServiceMock;
-        private readonly Mock<IPowerShellService> powerShellServiceMock;
+        private readonly Mock<IExecutionService> executionServiceMock;
         private readonly Mock<ITemplateService> templateServiceMock;
         private readonly ITemplateOrchestrationService templateOrchestrationService;
 
         public TemplateOrchestrationServiceTests()
         {
             fileServiceMock = new Mock<IFileService>();
-            powerShellServiceMock = new Mock<IPowerShellService>();
+            executionServiceMock = new Mock<IExecutionService>();
             templateServiceMock = new Mock<ITemplateService>();
 
             templateOrchestrationService = new TemplateOrchestrationService(
                 fileService: fileServiceMock.Object,
-                powerShellService: powerShellServiceMock.Object,
+                executionService: executionServiceMock.Object,
                 templateService: templateServiceMock.Object);
         }
 
@@ -119,8 +119,8 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             {
                 new FileServiceValidationException(innerException),
                 new FileServiceDependencyValidationException(innerException),
-                new PowerShellValidationException(innerException),
-                new PowerShellDependencyValidationException(innerException),
+                new ExecutionValidationException(innerException),
+                new ExecutionDependencyValidationException(innerException),
                 new TemplateValidationException(innerException),
                 new TemplateDependencyValidationException(innerException),
             };
@@ -137,8 +137,8 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                 new FileServiceDependencyException(innerException),
                 new TemplateServiceException(innerException),
                 new TemplateDependencyException(innerException),
-                new PowerShellServiceException(innerException),
-                new PowerShellDependencyException(innerException),
+                new ExecutionServiceException(innerException),
+                new ExecutionDependencyException(innerException),
             };
         }
 
@@ -159,20 +159,20 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             return fileItems;
         }
 
-        private static List<Models.PowerShellScripts.PowerShellScript> CreatePowerShellScripts(int numberOfPowerShellScripts)
+        private static List<Models.Executions.Execution> CreateExecutions(int numberOfExecutions)
         {
-            var scripts = new List<Models.PowerShellScripts.PowerShellScript>();
+            var executions = new List<Models.Executions.Execution>();
 
-            for (int i = 0; i < numberOfPowerShellScripts; i++)
+            for (int i = 0; i < numberOfExecutions; i++)
             {
-                scripts.Add(new Models.PowerShellScripts.PowerShellScript()
+                executions.Add(new Models.Executions.Execution()
                 {
                     Name = GetRandomString(),
-                    Script = GetRandomString()
+                    Instruction = GetRandomString()
                 });
             }
 
-            return scripts;
+            return executions;
         }
 
         private static List<Models.Actions.Action> CreateActions(int numberOfActions)
@@ -186,7 +186,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                     Name = GetRandomString(),
                     ExecutionFolder = GetRandomString(),
                     FileItems = CreateFileItems(2),
-                    Scripts = CreatePowerShellScripts(2)
+                    Executions = CreateExecutions(2)
                 };
             }
 

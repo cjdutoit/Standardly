@@ -6,13 +6,12 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.PowerShellScripts.Exceptions
+namespace Standardly.Core.Models.Executions.Exceptions
 {
-    public class PowerShellValidationException : Xeption
+    public class InvalidExecutionException : Xeption
     {
-        public PowerShellValidationException(Xeption innerException)
-            : base(message: "PowerShell validation error occurred, fix the errors and try again.",
-                  innerException)
+        public InvalidExecutionException()
+            : base(message: "Invalid execution criteria, fix the errors and try again.")
         { }
     }
 }

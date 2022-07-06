@@ -17,4 +17,9 @@
 	  <ProjectReference Include="..\Xeption\Xeption.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Brokers\NetCliC\" />
+	  <Folder Include="Brokers\PowerShells\" />
+	</ItemGroup>
+
 </Project>

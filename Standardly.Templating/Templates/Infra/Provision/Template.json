@@ -13,22 +13,22 @@
         {
           "name": "Create branch",
           "executionFolder": "$infrastructureProvisionProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/provision-cloud-infrastructure"
+              "instruction": "git checkout -b users/$username$/provision-cloud-infrastructure"
             },
             {
               "name": "Install Microsoft.Azure.Management.Fluent from NuGet",
-              "script": "Install-Package Microsoft.Azure.Management.Fluent -ProjectName $infrastructureProvisionProjectName$"
+              "instruction": "Install-Package Microsoft.Azure.Management.Fluent -ProjectName $infrastructureProvisionProjectName$"
             }
           ]
         },
@@ -47,18 +47,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Initialize Cloud Broker\""
+              "instruction": "git commit -m \"BROKERS: Initialize Cloud Broker\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -77,18 +77,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Resource Groups\""
+              "instruction": "git commit -m \"BROKERS: Resource Groups\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -107,18 +107,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Create Web App\""
+              "instruction": "git commit -m \"BROKERS: Create Web App\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -137,18 +137,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Create App Service Plan\""
+              "instruction": "git commit -m \"BROKERS: Create App Service Plan\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -177,18 +177,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Storage Create Server, Database and Access\""
+              "instruction": "git commit -m \"BROKERS: Storage Create Server, Database and Access\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -207,18 +207,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Implement Logging Broker\""
+              "instruction": "git commit -m \"BROKERS: Implement Logging Broker\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -252,18 +252,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Implement Configuration Brokers\""
+              "instruction": "git commit -m \"BROKERS: Implement Configuration Brokers\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -282,18 +282,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"FOUNDATIONS: Implement Provisioning Resource Group\""
+              "instruction": "git commit -m \"FOUNDATIONS: Implement Provisioning Resource Group\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -312,18 +312,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"FOUNDATIONS: Implement Provisioning App Service Plan\""
+              "instruction": "git commit -m \"FOUNDATIONS: Implement Provisioning App Service Plan\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -342,18 +342,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"FOUNDATIONS: Provision Sql Server\""
+              "instruction": "git commit -m \"FOUNDATIONS: Provision Sql Server\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -377,18 +377,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"FOUNDATIONS: Provision Sql Database\""
+              "instruction": "git commit -m \"FOUNDATIONS: Provision Sql Database\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -407,18 +407,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"FOUNDATIONS: Provision Web App\""
+              "instruction": "git commit -m \"FOUNDATIONS: Provision Web App\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -437,18 +437,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"FOUNDATIONS: Deprovision Resource Groups\""
+              "instruction": "git commit -m \"FOUNDATIONS: Deprovision Resource Groups\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -467,18 +467,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"PROCESSINGS: Cloud Management Processing Service Provision\""
+              "instruction": "git commit -m \"PROCESSINGS: Cloud Management Processing Service Provision\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -492,18 +492,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"PROCESSINGS: Cloud Management Processing Service Deprovision\""
+              "instruction": "git commit -m \"PROCESSINGS: Cloud Management Processing Service Deprovision\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
         },
@@ -517,18 +517,28 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"EXPOSER: Run Process Async\""
+              "instruction": "git commit -m \"EXPOSER: Run Process Async\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/provision-cloud-infrastructure"
+              "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"PROVISION: Azure Resources Provisioning\" -b \" \""
             }
           ]
         }

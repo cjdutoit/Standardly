@@ -11,18 +11,18 @@
         {
           "name": "Create branch for Subscribe to Add Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
+              "instruction": "git checkout -b users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
             }
           ]
         },
@@ -51,24 +51,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event\""
+              "instruction": "git commit -m \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event\""
             }
           ]
         },
         {
           "name": "Push branch for Subscribe to Add Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
+              "instruction": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event\" -b \" \""
             }
           ]
         }
@@ -80,10 +90,10 @@
         {
           "name": "Create branch for Publish Add Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
+              "instruction": "git checkout -b users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent"
             }
           ]
         },
@@ -102,24 +112,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Events - Publish $safeItemNameSingular$ Add Event\""
+              "instruction": "git commit -m \"BROKERS: Events - Publish $safeItemNameSingular$ Add Event\""
             }
           ]
         },
         {
           "name": "Push branch for Publish Add Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent"
+              "instruction": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Events - Publish $safeItemNameSingular$ Add Event\" -b \" \""
             }
           ]
         }
@@ -131,10 +151,10 @@
         {
           "name": "Create branch for Subscribe to Modify Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent"
+              "instruction": "git checkout -b users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent"
             }
           ]
         },
@@ -153,24 +173,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event\""
+              "instruction": "git commit -m \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event\""
             }
           ]
         },
         {
           "name": "Push branch for Subscribe to Modify Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent"
+              "instruction": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event\" -b \" \""
             }
           ]
         }
@@ -182,10 +212,10 @@
         {
           "name": "Create branch for Publish Modify Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent"
+              "instruction": "git checkout -b users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent"
             }
           ]
         },
@@ -204,24 +234,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event\""
+              "instruction": "git commit -m \"BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event\""
             }
           ]
         },
         {
           "name": "Push branch for Publish Modify Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent"
+              "instruction": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event\" -b \" \""
             }
           ]
         }
@@ -233,10 +273,10 @@
         {
           "name": "Create branch for Subscribe to Remove Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent"
+              "instruction": "git checkout -b users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent"
             }
           ]
         },
@@ -255,24 +295,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event\""
+              "instruction": "git commit -m \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event\""
             }
           ]
         },
         {
           "name": "Push branch for Subscribe to Remove Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent"
+              "instruction": "git push origin users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event\" -b \" \""
             }
           ]
         }
@@ -284,10 +334,10 @@
         {
           "name": "Create branch for Publish Remove Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-events-publish$lowerPluralDescriptionName$removeevent users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent"
+              "instruction": "git checkout -b users/$username$/brokers-events-publish$lowerPluralDescriptionName$removeevent users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent"
             }
           ]
         },
@@ -306,24 +356,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event\""
+              "instruction": "git commit -m \"BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event\""
             }
           ]
         },
         {
           "name": "Push branch for Publish Remove Event",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$removeevent"
+              "instruction": "git push origin users/$username$/brokers-events-publish$lowerPluralDescriptionName$removeevent"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event\" -b \" \""
             }
           ]
         }
@@ -335,7 +395,7 @@
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Draft Pull Requests:",
     "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event",
     "  - BROKERS: Events - Publish $safeItemNameSingular$ Add Event",
     "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event",

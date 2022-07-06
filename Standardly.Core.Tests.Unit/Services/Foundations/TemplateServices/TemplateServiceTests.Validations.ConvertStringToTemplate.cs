@@ -7,8 +7,8 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
+using Standardly.Core.Models.Executions;
 using Standardly.Core.Models.FileItems;
-using Standardly.Core.Models.PowerShellScripts;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Models.Templates.Exceptions;
 using Xunit;
@@ -168,7 +168,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                     {
                         Name = invalidString,
                         FileItems = new List<FileItem>(),
-                        Scripts = new List<PowerShellScript>(),
+                        Executions = new List<Execution>(),
                     }
                 }
             };
@@ -185,8 +185,8 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 values: "Text is required");
 
             invalidTemplateException.AddData(
-                key: "Actions[0].Scripts",
-                values: "Scripts is required");
+                key: "Actions[0].Executions",
+                values: "Executions is required");
 
             var expectedTemplateValidationException =
                 new TemplateValidationException(invalidTemplateException);
@@ -233,12 +233,12 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                                 Target = invalidString
                             },
                         },
-                        Scripts = new List<PowerShellScript>()
+                        Executions = new List<Execution>()
                         {
-                            new PowerShellScript()
+                            new Execution()
                             {
                                Name = GetRandomString(),
-                               Script = GetRandomString(),
+                               Instruction = GetRandomString(),
                             },
                         },
                     }
@@ -278,7 +278,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void ShouldThrowValidationExceptionOnConvertIfTemplateTaskActionScriptsIsInvalid(string invalidString)
+        public void ShouldThrowValidationExceptionOnConvertIfTemplateTaskActionExecutionsIsInvalid(string invalidString)
         {
             // given
             Template someTemplate = new Template()
@@ -305,12 +305,12 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                                 Target = GetRandomString()
                             },
                         },
-                        Scripts = new List<PowerShellScript>()
+                        Executions = new List<Execution>()
                         {
-                            new PowerShellScript()
+                            new Execution()
                             {
                                Name = invalidString,
-                               Script = invalidString,
+                               Instruction = invalidString,
                             },
                         },
                     }
@@ -325,11 +325,11 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 new InvalidTemplateException();
 
             invalidTemplateException.AddData(
-                key: "Actions[0].Scripts[0].Name",
+                key: "Actions[0].Executions[0].Name",
                 values: "Text is required");
 
             invalidTemplateException.AddData(
-                key: "Actions[0].Scripts[0].Script",
+                key: "Actions[0].Executions[0].Instruction",
                 values: "Text is required");
 
             var expectedTemplateValidationException =

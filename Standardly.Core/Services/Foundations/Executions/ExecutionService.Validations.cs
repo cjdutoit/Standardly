@@ -6,28 +6,28 @@
 
 using System;
 using System.Collections.Generic;
-using Standardly.Core.Models.PowerShellScripts;
-using Standardly.Core.Models.PowerShellScripts.Exceptions;
+using Standardly.Core.Models.Executions;
+using Standardly.Core.Models.Executions.Exceptions;
 
-namespace Standardly.Core.Services.Foundations.PowerShells
+namespace Standardly.Core.Services.Foundations.Executions
 {
-    public partial class PowerShellService
+    public partial class ExecutionService
     {
-        private void ValidateInputs(List<PowerShellScript> scripts, string executionFolder)
+        private void ValidateInputs(List<Execution> executions, string executionFolder)
         {
-            Validate(GetValidationInputRules(scripts, executionFolder));
+            Validate(GetValidationInputRules(executions, executionFolder));
         }
 
         private (dynamic Rule, string Parameter)[] GetValidationInputRules(
-            List<PowerShellScript> scripts, string executionFolder)
+            List<Execution> execution, string executionFolder)
         {
             var rules = new List<(dynamic Rule, string Parameter)>();
             rules.Add((Rule: IsInvalid(executionFolder), Parameter: "executionFolder"));
-            rules.Add((Rule: IsInvalid(scripts), Parameter: "scripts"));
+            rules.Add((Rule: IsInvalid(execution), Parameter: "executions"));
 
-            foreach (PowerShellScript script in scripts)
+            foreach (Execution item in execution)
             {
-                rules.Add((Rule: IsInvalid(script), Parameter: $"Script[{script.Name}]"));
+                rules.Add((Rule: IsInvalid(item), Parameter: $"Execution[{item.Name}]"));
             }
 
             return rules.ToArray();
@@ -39,33 +39,33 @@ namespace Standardly.Core.Services.Foundations.PowerShells
             Message = "Text is required"
         };
 
-        private static dynamic IsInvalid(List<PowerShellScript> scripts) => new
+        private static dynamic IsInvalid(List<Execution> executions) => new
         {
-            Condition = scripts.Count == 0,
-            Message = "Scripts is required"
+            Condition = executions.Count == 0,
+            Message = "Executions is required"
         };
 
-        private static dynamic IsInvalid(PowerShellScript script) => new
+        private static dynamic IsInvalid(Execution execution) => new
         {
-            Condition = String.IsNullOrWhiteSpace(script.Name) || String.IsNullOrWhiteSpace(script.Script),
-            Message = $"Script required"
+            Condition = String.IsNullOrWhiteSpace(execution.Name) || String.IsNullOrWhiteSpace(execution.Instruction),
+            Message = $"Execution required"
         };
 
         private static void Validate(params (dynamic Rule, string Parameter)[] validations)
         {
-            var invalidPowerShellException = new InvalidPowerShellException();
+            var invalidExecutionException = new InvalidExecutionException();
 
             foreach ((dynamic rule, string parameter) in validations)
             {
                 if (rule.Condition)
                 {
-                    invalidPowerShellException.UpsertDataList(
+                    invalidExecutionException.UpsertDataList(
                         key: parameter,
                         value: rule.Message);
                 }
             }
 
-            invalidPowerShellException.ThrowIfContainsErrors();
+            invalidExecutionException.ThrowIfContainsErrors();
         }
     }
 }

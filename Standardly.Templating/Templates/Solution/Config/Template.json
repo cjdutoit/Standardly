@@ -13,18 +13,18 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/config-solution-editorconfig"
+              "instruction": "git checkout -b users/$username$/config-solution-editorconfig"
             }
           ]
         },
@@ -38,24 +38,34 @@
               "replace": false
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"CONFIG: Add .editorconfig to solution\""
+              "instruction": "git commit -m \"CONFIG: Add .editorconfig to solution\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/config-solution-editorconfig"
+              "instruction": "git push origin users/$username$/config-solution-editorconfig"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONFIG: Add .editorconfig to solution\" -b \" \""
             }
           ]
         }
@@ -67,18 +77,18 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/config-solution-gitignore"
+              "instruction": "git checkout -b users/$username$/config-solution-gitignore"
             }
           ]
         },
@@ -92,24 +102,34 @@
               "replace": false
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"CONFIG: Add .gitignore to solution\""
+              "instruction": "git commit -m \"CONFIG: Add .gitignore to solution\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/config-solution-gitignore"
+              "instruction": "git push origin users/$username$/config-solution-gitignore"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONFIG: Add .gitignore to solution\" -b \" \""
             }
           ]
         }
@@ -121,18 +141,18 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/config-solution-license"
+              "instruction": "git checkout -b users/$username$/config-solution-license"
             }
           ]
         },
@@ -146,24 +166,34 @@
               "replace": false
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"CONFIG: Add license file to solution\""
+              "instruction": "git commit -m \"CONFIG: Add license file to solution\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/config-solution-license"
+              "instruction": "git push origin users/$username$/config-solution-license"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONFIG: Add license file to solution\" -b \" \""
             }
           ]
         }
@@ -172,7 +202,9 @@
   ],
   "CleanupTasks": [
     "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
-    "  - CONFIG: Solution Configuration Settings"
+    "* Review Draft Pull Requests:",
+    "  - CONFIG: Add .editorconfig to solution",
+    "  - CONFIG: Add .gitignore to solution",
+    "  - CONFIG: Add license file to solution"
   ]
 }

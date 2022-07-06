@@ -39,7 +39,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             this.templateServiceMock.VerifyNoOtherCalls();
             this.fileServiceMock.VerifyNoOtherCalls();
-            this.powerShellServiceMock.VerifyNoOtherCalls();
+            this.executionServiceMock.VerifyNoOtherCalls();
         }
     }
 }

@@ -4,11 +4,13 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace Standardly.Core.Models.PowerShellScripts
+using System.Collections.Generic;
+using Standardly.Core.Models.Executions;
+
+namespace Standardly.Core.Services.Foundations.Executions
 {
-    public class PowerShellScript
+    public interface IExecutionService
     {
-        public string Name { get; set; }
-        public string Script { get; set; }
+        string Run(List<Execution> executions, string executionFolder);
     }
 }

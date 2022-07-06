@@ -11,30 +11,30 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-insert"
+              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-insert"
             },
             {
               "name": "Install EFxceptions from NuGet",
-              "script": "Install-Package EFxceptions -ProjectName $projectName$"
+              "instruction": "Install-Package EFxceptions -ProjectName $projectName$"
             },
             {
               "name": "Install Microsoft.EntityFrameworkCore.SqlServer from NuGet",
-              "script": "Install-Package Microsoft.EntityFrameworkCore.SqlServer -ProjectName $projectName$"
+              "instruction": "Install-Package Microsoft.EntityFrameworkCore.SqlServer -ProjectName $projectName$"
             },
             {
               "name": "Install Microsoft.EntityFrameworkCore.Tools from NuGet",
-              "script": "Install-Package Microsoft.EntityFrameworkCore.Tools -ProjectName $projectName$"
+              "instruction": "Install-Package Microsoft.EntityFrameworkCore.Tools -ProjectName $projectName$"
             }
           ]
         },
@@ -53,18 +53,18 @@
               "replace": false
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Add migration",
-              "script": "Add-Migration InitialCreate"
+              "instruction": "dotnet ef migrations add InitialCreate -Project $projectName$"
             },
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Storage Broker - Add Initial Migration\""
+              "instruction": "git commit -m \"BROKERS: Storage Broker - Add Initial Migration\""
             }
           ]
         },
@@ -88,22 +88,32 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Add $safeItemNameSingular$ Model Migration",
-              "script": "Add-Migration Add$safeItemNameSingular$Model -Project $projectName$"
+              "instruction": "dotnet ef migrations add Add$safeItemNameSingular$Model -Project $projectName$"
             },
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Storage - Insert $safeItemNameSingular$\""
+              "instruction": "git commit -m \"BROKERS: Storage - Insert $safeItemNameSingular$\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-insert"
+              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-insert"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Insert $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -115,10 +125,10 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-selectall users/$username$/brokers-$lowerPluralDescriptionName$-insert"
+              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-selectall users/$username$/brokers-$lowerPluralDescriptionName$-insert"
             }
           ]
         },
@@ -137,24 +147,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Storage - Select All $safeItemNamePlural$\""
+              "instruction": "git commit -m \"BROKERS: Storage - Select All $safeItemNamePlural$\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectall"
+              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectall"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Select All $safeItemNamePlural$\" -b \" \""
             }
           ]
         }
@@ -166,10 +186,10 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid users/$username$/brokers-$lowerPluralDescriptionName$-selectall"
+              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid users/$username$/brokers-$lowerPluralDescriptionName$-selectall"
             }
           ]
         },
@@ -188,24 +208,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Storage - Select $safeItemNameSingular$ By Id\""
+              "instruction": "git commit -m \"BROKERS: Storage - Select $safeItemNameSingular$ By Id\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid"
+              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Select $safeItemNameSingular$ By Id\" -b \" \""
             }
           ]
         }
@@ -217,10 +247,10 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-update users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid"
+              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-update users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid"
             }
           ]
         },
@@ -239,24 +269,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Storage - Update $safeItemNameSingular$\""
+              "instruction": "git commit -m \"BROKERS: Storage - Update $safeItemNameSingular$\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-update"
+              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-update"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Update $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -268,10 +308,10 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-delete users/$username$/brokers-$lowerPluralDescriptionName$-update"
+              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-delete users/$username$/brokers-$lowerPluralDescriptionName$-update"
             }
           ]
         },
@@ -290,24 +330,34 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Storage - Delete $safeItemNameSingular$\""
+              "instruction": "git commit -m \"BROKERS: Storage - Delete $safeItemNameSingular$\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-delete"
+              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-delete"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executions": [
+            {
+              "name": "Create Pull Request",
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Delete $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -319,7 +369,7 @@
     "* Resolve / remove any TODO items in the task list i.e. add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Draft Pull Requests:",
     "  - BROKERS: Storage - Insert $safeItemNameSingular$",
     "  - BROKERS: Storage - Select All $safeItemNamePlural$",
     "  - BROKERS: Storage - Select $safeItemNameSingular$ By Id",

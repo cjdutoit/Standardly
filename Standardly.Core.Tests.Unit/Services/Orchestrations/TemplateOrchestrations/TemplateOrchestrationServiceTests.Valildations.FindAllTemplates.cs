@@ -64,7 +64,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                     Times.Exactly(expectedFileList.Length - 1));
 
             this.fileServiceMock.VerifyNoOtherCalls();
-            this.powerShellServiceMock.VerifyNoOtherCalls();
+            this.executionServiceMock.VerifyNoOtherCalls();
         }
     }
 }
