@@ -88,6 +88,16 @@
               "instruction": "git push origin users/$username$/data-identity-models"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -d -t \"DATA: Identity Models on ASP.NET Core\""
+            }
+          ]
         }
       ]
     }
@@ -97,7 +107,7 @@
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Draft Pull Requests:",
     "  - DATA: Identity Models on ASP.NET Core"
   ]
 }

@@ -106,6 +106,16 @@
               "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-insert"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -d -t \"BROKERS: Storage - Insert $safeItemNameSingular$\""
+            }
+          ]
         }
       ]
     },
@@ -155,6 +165,16 @@
             {
               "name": "Push changes to <remote>",
               "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectall"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -d -t \"BROKERS: Storage - Select All $safeItemNamePlural$\""
             }
           ]
         }
@@ -208,6 +228,16 @@
               "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -d -t \"BROKERS: Storage - Select $safeItemNameSingular$ By Id\""
+            }
+          ]
         }
       ]
     },
@@ -257,6 +287,16 @@
             {
               "name": "Push changes to <remote>",
               "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-update"
+            }
+          ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -d -t \"BROKERS: Storage - Update $safeItemNameSingular$\""
             }
           ]
         }
@@ -310,6 +350,16 @@
               "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-delete"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -d -t \"BROKERS: Storage - Delete $safeItemNameSingular$\""
+            }
+          ]
         }
       ]
     }
@@ -319,7 +369,7 @@
     "* Resolve / remove any TODO items in the task list i.e. add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Pull Requests:",
+    "* Review Draft Pull Requests:",
     "  - BROKERS: Storage - Insert $safeItemNameSingular$",
     "  - BROKERS: Storage - Select All $safeItemNamePlural$",
     "  - BROKERS: Storage - Select $safeItemNameSingular$ By Id",

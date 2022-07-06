@@ -531,6 +531,16 @@
               "instruction": "git push origin users/$username$/provision-cloud-infrastructure"
             }
           ]
+        },
+        {
+          "name": "Create Pull Request",
+          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "scripts": [
+            {
+              "name": "Create Pull Request",
+              "script": "gh pr create -d -t \"PROVISION: Azure Resources Provisioning\""
+            }
+          ]
         }
       ]
     }
