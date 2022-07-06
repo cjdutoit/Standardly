@@ -67,10 +67,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: DateTime - Get Current DateTime Offset\""
+              "instruction": "gh pr create -d -t \"BROKERS: DateTime - Get Current DateTime Offset\""
             }
           ]
         }

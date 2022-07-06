@@ -71,10 +71,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Logging - Log Information\""
+              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Information\""
             }
           ]
         }
@@ -132,10 +132,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Logging - Log Trace\""
+              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Trace\""
             }
           ]
         }
@@ -193,10 +193,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Logging - Log Debug\""
+              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Debug\""
             }
           ]
         }
@@ -254,10 +254,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Logging - Log Warning\""
+              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Warning\""
             }
           ]
         }
@@ -315,10 +315,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Logging - Log Error\""
+              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Error\""
             }
           ]
         }
@@ -376,10 +376,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Logging - Log Critical\""
+              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Critical\""
             }
           ]
         }

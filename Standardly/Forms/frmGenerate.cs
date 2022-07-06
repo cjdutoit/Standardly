@@ -11,9 +11,11 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Standardly.Core.Models.FileItems;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Standardly.Models.Settings;
+using Action = Standardly.Core.Models.Actions.Action;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Template = Standardly.Core.Models.Templates.Template;
 
@@ -407,40 +409,68 @@ namespace Standardly.Forms
 
                 this.templateService.ValidateSourceFiles(transformedConfigTemplate);
 
+                Core.Models.Tasks.Task editorConfigTask = transformedConfigTemplate.Tasks
+                    .FirstOrDefault(task => task.Name == "CONFIG: Add .editorconfig to solution");
+
+                Core.Models.Tasks.Task gitIgnoreTask = transformedConfigTemplate.Tasks
+                    .FirstOrDefault(task => task.Name == "CONFIG: Add .gitignore to solution");
+
+                Core.Models.Tasks.Task licenseTask = transformedConfigTemplate.Tasks
+                    .FirstOrDefault(task => task.Name == "CONFIG: Add license file to solution");
+
                 if (!GenerateCriteria.AddEditorConfigFile)
                 {
-                    Core.Models.Tasks.Task editorConfig = transformedConfigTemplate.Tasks
-                        .FirstOrDefault(task => task.Name == "CONFIG: Add .editorconfig to solution");
-
-                    if (editorConfig != null)
+                    if (editorConfigTask != null)
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(editorConfig);
+                        GenerateCriteria.ConfigTemplate.Tasks.Remove(editorConfigTask);
+                    }
+                }
+                else
+                {
+                    if (IsTaskRequired(editorConfigTask))
+                    {
+                        GenerateCriteria.ConfigTemplate.Tasks.Remove(editorConfigTask);
                     }
                 }
 
                 if (!GenerateCriteria.AddGitIgnoreFile)
                 {
-                    Core.Models.Tasks.Task gitIgnore = transformedConfigTemplate.Tasks
-                        .FirstOrDefault(task => task.Name == "CONFIG: Add .gitignore to solution");
 
-                    if (gitIgnore != null)
+                    if (gitIgnoreTask != null)
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(gitIgnore);
+                        GenerateCriteria.ConfigTemplate.Tasks.Remove(gitIgnoreTask);
                     }
                 }
+                else
+                {
+                    if (IsTaskRequired(gitIgnoreTask))
+                    {
+                        GenerateCriteria.ConfigTemplate.Tasks.Remove(gitIgnoreTask);
+                    }
+                }
+
+
                 if (!GenerateCriteria.AddLicenseFile)
                 {
-                    Core.Models.Tasks.Task license = transformedConfigTemplate.Tasks
-                        .FirstOrDefault(task => task.Name == "CONFIG: Add license file to solution");
 
-                    if (license != null)
+                    if (licenseTask != null)
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(license);
+                        GenerateCriteria.ConfigTemplate.Tasks.Remove(licenseTask);
+                    }
+                }
+                else
+                {
+                    if (IsTaskRequired(licenseTask))
+                    {
+                        GenerateCriteria.ConfigTemplate.Tasks.Remove(licenseTask);
                     }
                 }
 
-                this.templateOrchestrationService
-                    .GenerateCodeFromTemplate(transformedConfigTemplate, replacementsDictionary);
+                if (transformedConfigTemplate.Tasks.Any())
+                {
+                    this.templateOrchestrationService
+                        .GenerateCodeFromTemplate(transformedConfigTemplate, replacementsDictionary);
+                }
             }
 
             string rawTransformedTemplate = this.templateService
@@ -466,6 +496,25 @@ namespace Standardly.Forms
             }
 
             txtMessage.Text = cleanupTaskMessage.ToString();
+        }
+
+        private static bool IsTaskRequired(Core.Models.Tasks.Task editorConfig)
+        {
+            List<FileItem> fileItems = new List<FileItem>();
+            foreach (Action action in editorConfig.Actions)
+            {
+                fileItems.AddRange(fileItems);
+            }
+
+            foreach (FileItem fileItem in fileItems)
+            {
+                if (File.Exists(fileItem.Template) && fileItem.Replace == false)
+                {
+                    fileItems.Remove(fileItem);
+                }
+            }
+
+            return !fileItems.Any();
         }
 
         private void GetReplacementDictionary(Dictionary<string, string> replacementsDictionary)

@@ -75,10 +75,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event\""
+              "instruction": "gh pr create -d -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event\""
             }
           ]
         }
@@ -136,10 +136,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Events - Publish $safeItemNameSingular$ Add Event\""
+              "instruction": "gh pr create -d -t \"BROKERS: Events - Publish $safeItemNameSingular$ Add Event\""
             }
           ]
         }
@@ -197,10 +197,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event\""
+              "instruction": "gh pr create -d -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event\""
             }
           ]
         }
@@ -258,10 +258,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event\""
+              "instruction": "gh pr create -d -t \"BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event\""
             }
           ]
         }
@@ -319,10 +319,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event\""
+              "instruction": "gh pr create -d -t \"BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event\""
             }
           ]
         }
@@ -380,10 +380,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event\""
+              "instruction": "gh pr create -d -t \"BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event\""
             }
           ]
         }

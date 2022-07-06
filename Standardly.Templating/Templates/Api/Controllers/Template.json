@@ -60,10 +60,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"CONTROLLERS: $safeItemNameSingular$ Controller - POST\""
+              "instruction": "gh pr create -d -t \"CONTROLLERS: $safeItemNameSingular$ Controller - POST\""
             }
           ]
         }
@@ -124,10 +124,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"CONTROLLERS: GET $safeItemNamePlural$\""
+              "instruction": "gh pr create -d -t \"CONTROLLERS: GET $safeItemNamePlural$\""
             }
           ]
         }
@@ -188,10 +188,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"CONTROLLERS: GET $safeItemNameSingular$ By Id\""
+              "instruction": "gh pr create -d -t \"CONTROLLERS: GET $safeItemNameSingular$ By Id\""
             }
           ]
         }
@@ -252,10 +252,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"CONTROLLERS: PUT $safeItemNameSingular$\""
+              "instruction": "gh pr create -d -t \"CONTROLLERS: PUT $safeItemNameSingular$\""
             }
           ]
         }
@@ -316,10 +316,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"CONTROLLERS: DELETE $safeItemNameSingular$\""
+              "instruction": "gh pr create -d -t \"CONTROLLERS: DELETE $safeItemNameSingular$\""
             }
           ]
         }

@@ -110,10 +110,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Storage - Insert $safeItemNameSingular$\""
+              "instruction": "gh pr create -d -t \"BROKERS: Storage - Insert $safeItemNameSingular$\""
             }
           ]
         }
@@ -171,10 +171,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Storage - Select All $safeItemNamePlural$\""
+              "instruction": "gh pr create -d -t \"BROKERS: Storage - Select All $safeItemNamePlural$\""
             }
           ]
         }
@@ -232,10 +232,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Storage - Select $safeItemNameSingular$ By Id\""
+              "instruction": "gh pr create -d -t \"BROKERS: Storage - Select $safeItemNameSingular$ By Id\""
             }
           ]
         }
@@ -293,10 +293,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Storage - Update $safeItemNameSingular$\""
+              "instruction": "gh pr create -d -t \"BROKERS: Storage - Update $safeItemNameSingular$\""
             }
           ]
         }
@@ -354,10 +354,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"BROKERS: Storage - Delete $safeItemNameSingular$\""
+              "instruction": "gh pr create -d -t \"BROKERS: Storage - Delete $safeItemNameSingular$\""
             }
           ]
         }

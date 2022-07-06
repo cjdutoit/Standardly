@@ -65,10 +65,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"INFRA: Setup Infrastructure Build Project\""
+              "instruction": "gh pr create -d -t \"INFRA: Setup Infrastructure Build Project\""
             }
           ]
         }

@@ -62,10 +62,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"CONFIG: Add .editorconfig to solution\""
+              "instruction": "gh pr create -d -t \"CONFIG: Add .editorconfig to solution\""
             }
           ]
         }
@@ -126,10 +126,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"CONFIG: Add .gitignore to solution\""
+              "instruction": "gh pr create -d -t \"CONFIG: Add .gitignore to solution\""
             }
           ]
         }
@@ -190,10 +190,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"CONFIG: Add license file to solution\""
+              "instruction": "gh pr create -d -t \"CONFIG: Add license file to solution\""
             }
           ]
         }

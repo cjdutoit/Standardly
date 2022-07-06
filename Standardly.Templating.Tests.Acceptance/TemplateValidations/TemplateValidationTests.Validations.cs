@@ -48,7 +48,8 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
                             errorList
                                 .AppendLine($"Template[{fileCounter}].{dictionaryEntry.Key} -> {value}"
                                 + Environment.NewLine +
-                                $"Path: {fileList[fileCounter]}" + Environment.NewLine);
+                                $"Path: {fileList[fileCounter].Substring(Path.GetDirectoryName(assembly).Length)}"
+                                + Environment.NewLine);
                         }
                     }
                 }

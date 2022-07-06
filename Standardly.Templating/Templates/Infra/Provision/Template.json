@@ -535,10 +535,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"PROVISION: Azure Resources Provisioning\""
+              "instruction": "gh pr create -d -t \"PROVISION: Azure Resources Provisioning\""
             }
           ]
         }

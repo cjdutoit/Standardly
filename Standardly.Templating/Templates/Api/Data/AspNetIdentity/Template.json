@@ -92,10 +92,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"DATA: Identity Models on ASP.NET Core\""
+              "instruction": "gh pr create -d -t \"DATA: Identity Models on ASP.NET Core\""
             }
           ]
         }

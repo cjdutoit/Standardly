@@ -616,10 +616,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$\""
+              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$\""
             }
           ]
         }
@@ -805,10 +805,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$\""
+              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$\""
             }
           ]
         }
@@ -1046,10 +1046,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id\""
+              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id\""
             }
           ]
         }
@@ -1622,10 +1622,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$\""
+              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$\""
             }
           ]
         }
@@ -1885,10 +1885,10 @@
         {
           "name": "Create Pull Request",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create Pull Request",
-              "script": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id\""
+              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id\""
             }
           ]
         }
