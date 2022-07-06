@@ -70,7 +70,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: DateTime - Get Current DateTime Offset\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: DateTime - Get Current DateTime Offset\" -b \" \""
             }
           ]
         }

@@ -113,7 +113,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Storage - Insert $safeItemNameSingular$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Insert $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -174,7 +174,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Storage - Select All $safeItemNamePlural$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Select All $safeItemNamePlural$\" -b \" \""
             }
           ]
         }
@@ -235,7 +235,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Storage - Select $safeItemNameSingular$ By Id\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Select $safeItemNameSingular$ By Id\" -b \" \""
             }
           ]
         }
@@ -296,7 +296,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Storage - Update $safeItemNameSingular$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Update $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -357,7 +357,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Storage - Delete $safeItemNameSingular$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Storage - Delete $safeItemNameSingular$\" -b \" \""
             }
           ]
         }

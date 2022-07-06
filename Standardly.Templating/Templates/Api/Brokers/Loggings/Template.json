@@ -74,7 +74,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Information\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Logging - Log Information\" -b \" \""
             }
           ]
         }
@@ -135,7 +135,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Trace\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Logging - Log Trace\" -b \" \""
             }
           ]
         }
@@ -196,7 +196,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Debug\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Logging - Log Debug\" -b \" \""
             }
           ]
         }
@@ -257,7 +257,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Warning\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Logging - Log Warning\" -b \" \""
             }
           ]
         }
@@ -318,7 +318,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Error\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Logging - Log Error\" -b \" \""
             }
           ]
         }
@@ -379,7 +379,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"BROKERS: Logging - Log Critical\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"BROKERS: Logging - Log Critical\" -b \" \""
             }
           ]
         }

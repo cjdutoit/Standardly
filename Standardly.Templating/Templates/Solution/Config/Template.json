@@ -65,7 +65,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"CONFIG: Add .editorconfig to solution\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONFIG: Add .editorconfig to solution\" -b \" \""
             }
           ]
         }
@@ -129,7 +129,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"CONFIG: Add .gitignore to solution\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONFIG: Add .gitignore to solution\" -b \" \""
             }
           ]
         }
@@ -193,7 +193,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"CONFIG: Add license file to solution\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONFIG: Add license file to solution\" -b \" \""
             }
           ]
         }

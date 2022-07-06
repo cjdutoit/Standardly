@@ -68,7 +68,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"INFRA: Setup Infrastructure Build Project\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"INFRA: Setup Infrastructure Build Project\" -b \" \""
             }
           ]
         }

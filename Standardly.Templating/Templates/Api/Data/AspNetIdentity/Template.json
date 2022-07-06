@@ -95,7 +95,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"DATA: Identity Models on ASP.NET Core\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"DATA: Identity Models on ASP.NET Core\" -b \" \""
             }
           ]
         }

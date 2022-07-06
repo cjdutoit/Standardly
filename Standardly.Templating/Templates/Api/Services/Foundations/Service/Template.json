@@ -619,7 +619,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -808,7 +808,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$\" -b \" \""
             }
           ]
         }
@@ -1049,7 +1049,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id\" -b \" \""
             }
           ]
         }
@@ -1625,7 +1625,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -1888,7 +1888,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id\" -b \" \""
             }
           ]
         }

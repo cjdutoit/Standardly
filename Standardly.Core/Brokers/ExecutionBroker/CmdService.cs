@@ -18,7 +18,7 @@ namespace Standardly.Core.Brokers.ExecutionBroker
         private AutoResetEvent _outputWaitHandle;
         private string _cmdOutput;
 
-        public CmdService(string cmdPath)
+        public CmdService(string cmdPath, string arguments = "")
         {
             _cmdProcess = new Process();
             _outputWaitHandle = new AutoResetEvent(false);
@@ -26,10 +26,16 @@ namespace Standardly.Core.Brokers.ExecutionBroker
 
             ProcessStartInfo processStartInfo = new ProcessStartInfo();
             processStartInfo.FileName = cmdPath;
+
+            if (!string.IsNullOrWhiteSpace(arguments))
+            {
+                //processStartInfo.Arguments = arguments;
+            }
+
             processStartInfo.UseShellExecute = false;
             processStartInfo.RedirectStandardOutput = true;
             processStartInfo.RedirectStandardInput = true;
-            processStartInfo.CreateNoWindow = true;
+            processStartInfo.CreateNoWindow = false;
 
             _cmdProcess.OutputDataReceived += _cmdProcess_OutputDataReceived;
 
@@ -45,7 +51,7 @@ namespace Standardly.Core.Brokers.ExecutionBroker
             _cmdOutput = String.Empty;
 
             _streamWriter.WriteLine(command);
-            _streamWriter.WriteLine("echo end");
+            _streamWriter.WriteLine(" echo end");
             _outputWaitHandle.WaitOne();
             return _cmdOutput;
         }

@@ -371,6 +371,7 @@ namespace Standardly.Forms
                 this.GenerateCriteria.AddEditorConfigFile = chkEditorConfig.Checked;
                 this.GenerateCriteria.AddGitIgnoreFile = chkGitIgnore.Checked;
                 this.GenerateCriteria.AddLicenseFile = chkLicense.Checked;
+                this.GenerateCriteria.SubmitAsDraftPullRequest = chkSubmitAsDraftPullRequest.Checked;
 
                 GenerateCode();
             }
@@ -422,47 +423,44 @@ namespace Standardly.Forms
                 {
                     if (editorConfigTask != null)
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(editorConfigTask);
+                        transformedConfigTemplate.Tasks.Remove(editorConfigTask);
                     }
                 }
                 else
                 {
                     if (IsTaskRequired(editorConfigTask))
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(editorConfigTask);
+                        transformedConfigTemplate.Tasks.Remove(editorConfigTask);
                     }
                 }
 
                 if (!GenerateCriteria.AddGitIgnoreFile)
                 {
-
                     if (gitIgnoreTask != null)
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(gitIgnoreTask);
+                        transformedConfigTemplate.Tasks.Remove(gitIgnoreTask);
                     }
                 }
                 else
                 {
                     if (IsTaskRequired(gitIgnoreTask))
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(gitIgnoreTask);
+                        transformedConfigTemplate.Tasks.Remove(gitIgnoreTask);
                     }
                 }
 
-
                 if (!GenerateCriteria.AddLicenseFile)
                 {
-
                     if (licenseTask != null)
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(licenseTask);
+                        transformedConfigTemplate.Tasks.Remove(licenseTask);
                     }
                 }
                 else
                 {
                     if (IsTaskRequired(licenseTask))
                     {
-                        GenerateCriteria.ConfigTemplate.Tasks.Remove(licenseTask);
+                        transformedConfigTemplate.Tasks.Remove(licenseTask);
                     }
                 }
 
@@ -503,12 +501,12 @@ namespace Standardly.Forms
             List<FileItem> fileItems = new List<FileItem>();
             foreach (Action action in editorConfig.Actions)
             {
-                fileItems.AddRange(fileItems);
+                fileItems.AddRange(action.FileItems);
             }
 
-            foreach (FileItem fileItem in fileItems)
+            foreach (FileItem fileItem in fileItems.ToList())
             {
-                if (File.Exists(fileItem.Template) && fileItem.Replace == false)
+                if (File.Exists(fileItem.Target) && fileItem.Replace == false)
                 {
                     fileItems.Remove(fileItem);
                 }
@@ -543,6 +541,9 @@ namespace Standardly.Forms
             replacementsDictionary.Add("$projectName$", settings.ProjectInfo.ProjectName);
             replacementsDictionary.Add("$projectFolder$", settings.ProjectInfo.ProjectFolder.Replace("\\", "\\\\"));
             replacementsDictionary.Add("$unitTestProjectName$", settings.ProjectInfo.UnitTestProjectName);
+
+            replacementsDictionary.Add("$draftPullRequest$",
+                GenerateCriteria.SubmitAsDraftPullRequest == true ? "-d " : "");
 
             replacementsDictionary.Add(
                 "$unitTestProjectFolder$",
@@ -636,6 +637,14 @@ namespace Standardly.Forms
                                     .ToArray();
 
             return words;
+        }
+
+        private void chkPublicRepository_CheckedChanged(object sender, EventArgs e)
+        {
+            chkSubmitAsDraftPullRequest.Enabled = chkPublicRepository.Checked;
+            chkSubmitAsDraftPullRequest.Checked = chkPublicRepository.Checked;
+
+
         }
     }
 }

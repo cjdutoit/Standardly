@@ -63,7 +63,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"CONTROLLERS: $safeItemNameSingular$ Controller - POST\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: $safeItemNameSingular$ Controller - POST\" -b \" \""
             }
           ]
         }
@@ -127,7 +127,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"CONTROLLERS: GET $safeItemNamePlural$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: GET $safeItemNamePlural$\" -b \" \""
             }
           ]
         }
@@ -191,7 +191,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"CONTROLLERS: GET $safeItemNameSingular$ By Id\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: GET $safeItemNameSingular$ By Id\" -b \" \""
             }
           ]
         }
@@ -255,7 +255,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"CONTROLLERS: PUT $safeItemNameSingular$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: PUT $safeItemNameSingular$\" -b \" \""
             }
           ]
         }
@@ -319,7 +319,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"CONTROLLERS: DELETE $safeItemNameSingular$\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"CONTROLLERS: DELETE $safeItemNameSingular$\" -b \" \""
             }
           ]
         }

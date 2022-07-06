@@ -538,7 +538,7 @@
           "executions": [
             {
               "name": "Create Pull Request",
-              "instruction": "gh pr create -d -t \"PROVISION: Azure Resources Provisioning\""
+              "instruction": "gh pr create $draftPullRequest$ -t \"PROVISION: Azure Resources Provisioning\" -b \" \""
             }
           ]
         }
