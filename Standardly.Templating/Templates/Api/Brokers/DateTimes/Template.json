@@ -13,18 +13,18 @@
         {
           "name": "Create branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/brokers-datetime-getcurrentdatetimeoffset"
+              "instruction": "git checkout -b users/$username$/brokers-datetime-getcurrentdatetimeoffset"
             }
           ]
         },
@@ -43,24 +43,24 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: DateTime - Get Current DateTime Offset\""
+              "instruction": "git commit -m \"BROKERS: DateTime - Get Current DateTime Offset\""
             }
           ]
         },
         {
           "name": "Push branch",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-datetime-getcurrentdatetimeoffset"
+              "instruction": "git push origin users/$username$/brokers-datetime-getcurrentdatetimeoffset"
             }
           ]
         }

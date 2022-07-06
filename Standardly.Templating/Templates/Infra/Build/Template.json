@@ -13,22 +13,22 @@
         {
           "name":  "Create branch",
           "executionFolder": "$infrastructureBuildProjectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/infra-build-projectsetup"
+              "instruction": "git checkout -b users/$username$/infra-build-projectsetup"
             },
             {
               "name": "Install ADotNet from NuGet",
-              "script": "Install-Package ADotNet -ProjectName $infrastructureBuildProjectName$"
+              "instruction": "Install-Package ADotNet -ProjectName $infrastructureBuildProjectName$"
             }
           ]
         },
@@ -47,18 +47,18 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"INFRA: Setup Infrastructure Build Project\""
+              "instruction": "git commit -m \"INFRA: Setup Infrastructure Build Project\""
             },
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/infra-build-projectsetup"
+              "instruction": "git push origin users/$username$/infra-build-projectsetup"
             }
           ]
         }

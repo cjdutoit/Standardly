@@ -13,22 +13,22 @@
         {
           "name": "Create branch for Log Information",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Checkout base branch",
-              "script": "git checkout $basebranch$"
+              "instruction": "git checkout $basebranch$"
             },
             {
               "name": "Fetch the latest code",
-              "script": "git pull origin"
+              "instruction": "git pull origin"
             },
             {
               "name": "Create new branch",
-              "script": "git checkout -b users/$username$/brokers-loggers-loginformation"
+              "instruction": "git checkout -b users/$username$/brokers-loggers-loginformation"
             },
             {
               "name": "Install Microsoft.Extensions.Logging from NuGet",
-              "script": "Install-Package Microsoft.Extensions.Logging -ProjectName $projectName$"
+              "instruction": "Install-Package Microsoft.Extensions.Logging -ProjectName $projectName$"
             }
           ]
         },
@@ -47,24 +47,24 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Logging - Log Information\""
+              "instruction": "git commit -m \"BROKERS: Logging - Log Information\""
             }
           ]
         },
         {
           "name": "Push branch for Log Information",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-loggers-loginformation"
+              "instruction": "git push origin users/$username$/brokers-loggers-loginformation"
             }
           ]
         }
@@ -76,10 +76,10 @@
         {
           "name": "Create branch for Log Trace",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-loggers-logtrace users/$username$/brokers-loggers-loginformation"
+              "instruction": "git checkout -b users/$username$/brokers-loggers-logtrace users/$username$/brokers-loggers-loginformation"
             }
           ]
         },
@@ -98,24 +98,24 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Logging - Log LogTrace\""
+              "instruction": "git commit -m \"BROKERS: Logging - Log LogTrace\""
             }
           ]
         },
         {
           "name": "Push branch for Log LogTrace",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-loggers-logtrace"
+              "instruction": "git push origin users/$username$/brokers-loggers-logtrace"
             }
           ]
         }
@@ -127,10 +127,10 @@
         {
           "name": "Create branch for Log Debug",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-loggers-logdebug users/$username$/brokers-loggers-logtrace"
+              "instruction": "git checkout -b users/$username$/brokers-loggers-logdebug users/$username$/brokers-loggers-logtrace"
             }
           ]
         },
@@ -149,24 +149,24 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Logging - Log LogDebug\""
+              "instruction": "git commit -m \"BROKERS: Logging - Log LogDebug\""
             }
           ]
         },
         {
           "name": "Push branch for Log Debug",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-loggers-logdebug"
+              "instruction": "git push origin users/$username$/brokers-loggers-logdebug"
             }
           ]
         }
@@ -178,10 +178,10 @@
         {
           "name": "Create branch for Log Warning",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-loggers-logwarning users/$username$/brokers-loggers-logdebug"
+              "instruction": "git checkout -b users/$username$/brokers-loggers-logwarning users/$username$/brokers-loggers-logdebug"
             }
           ]
         },
@@ -200,24 +200,24 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Logging - Log LogWarning\""
+              "instruction": "git commit -m \"BROKERS: Logging - Log LogWarning\""
             }
           ]
         },
         {
           "name": "Push branch for Log Warning",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-loggers-logwarning"
+              "instruction": "git push origin users/$username$/brokers-loggers-logwarning"
             }
           ]
         }
@@ -229,10 +229,10 @@
         {
           "name": "Create branch for Log Error",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-loggers-logerror users/$username$/brokers-loggers-logwarning"
+              "instruction": "git checkout -b users/$username$/brokers-loggers-logerror users/$username$/brokers-loggers-logwarning"
             }
           ]
         },
@@ -251,24 +251,24 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Logging - Log LogError\""
+              "instruction": "git commit -m \"BROKERS: Logging - Log LogError\""
             }
           ]
         },
         {
           "name": "Push branch for Log Error",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-loggers-logerror"
+              "instruction": "git push origin users/$username$/brokers-loggers-logerror"
             }
           ]
         }
@@ -280,10 +280,10 @@
         {
           "name": "Create branch for Log Critical",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "script": "git checkout -b users/$username$/brokers-loggers-logcritical users/$username$/brokers-loggers-logerror"
+              "instruction": "git checkout -b users/$username$/brokers-loggers-logcritical users/$username$/brokers-loggers-logerror"
             }
           ]
         },
@@ -302,24 +302,24 @@
               "replace": true
             }
           ],
-          "scripts": [
+          "executions": [
             {
               "name": "Stage all changes",
-              "script": "git add -A"
+              "instruction": "git add -A"
             },
             {
               "name": "Commit staged changes",
-              "script": "git commit -m \"BROKERS: Logging - Log LogCritical\""
+              "instruction": "git commit -m \"BROKERS: Logging - Log LogCritical\""
             }
           ]
         },
         {
           "name": "Push branch for Log Critical",
           "executionFolder": "$projectFolder$",
-          "scripts": [
+          "executions": [
             {
               "name": "Push changes to <remote>",
-              "script": "git push origin users/$username$/brokers-loggers-logcritical"
+              "instruction": "git push origin users/$username$/brokers-loggers-logcritical"
             }
           ]
         }

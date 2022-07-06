@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Standardly.Core.Models.PowerShellScripts;
+using Standardly.Core.Models.Executions;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Models.Templates.Exceptions;
 
@@ -92,11 +92,11 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
                                 Parameter: $"Actions[{actionIndex}].Name"));
 
                     actionRules.Add(
-                        (Rule: IsInvalid(actions[actionIndex].Scripts),
-                            Parameter: $"Actions[{actionIndex}].Scripts"));
+                        (Rule: IsInvalid(actions[actionIndex].Executions),
+                            Parameter: $"Actions[{actionIndex}].Executions"));
 
                     actionRules.AddRange(GetFileItemValidationRules(actions[actionIndex], actionIndex));
-                    actionRules.AddRange(GetScriptValidationRules(actions[actionIndex], actionIndex));
+                    actionRules.AddRange(GetExecutionValidationRules(actions[actionIndex], actionIndex));
                 }
             }
 
@@ -126,27 +126,27 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             return fileItemRules;
         }
 
-        private List<(dynamic Rule, string Parameter)> GetScriptValidationRules(Models.Actions.Action action, int actionIndex)
+        private List<(dynamic Rule, string Parameter)> GetExecutionValidationRules(Models.Actions.Action action, int actionIndex)
         {
-            var scriptRules = new List<(dynamic Rule, string Parameter)>();
+            var executionRules = new List<(dynamic Rule, string Parameter)>();
 
-            if (action.Scripts.Any())
+            if (action.Executions.Any())
             {
-                var scripts = action.Scripts;
+                var executions = action.Executions;
 
-                for (int scriptIndex = 0; scriptIndex <= scripts.Count - 1; scriptIndex++)
+                for (int executionIndex = 0; executionIndex <= executions.Count - 1; executionIndex++)
                 {
-                    scriptRules.Add(
-                        (Rule: IsInvalid(scripts[scriptIndex].Name),
-                            Parameter: $"Actions[{actionIndex}].Scripts[{scriptIndex}].Name"));
+                    executionRules.Add(
+                        (Rule: IsInvalid(executions[executionIndex].Name),
+                            Parameter: $"Actions[{actionIndex}].Executions[{executionIndex}].Name"));
 
-                    scriptRules.Add(
-                        (Rule: IsInvalid(scripts[scriptIndex].Script),
-                            Parameter: $"Actions[{actionIndex}].Scripts[{scriptIndex}].Script"));
+                    executionRules.Add(
+                        (Rule: IsInvalid(executions[executionIndex].Instruction),
+                            Parameter: $"Actions[{actionIndex}].Executions[{executionIndex}].Instruction"));
                 }
             }
 
-            return scriptRules;
+            return executionRules;
         }
 
         private static void ValidateStringTemplateIsNotNull(string stringTemplate)
@@ -175,10 +175,10 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             Message = "Actions is required"
         };
 
-        private static dynamic IsInvalid(List<PowerShellScript> scripts) => new
+        private static dynamic IsInvalid(List<Execution> executions) => new
         {
-            Condition = scripts.Count == 0,
-            Message = "Scripts is required"
+            Condition = executions.Count == 0,
+            Message = "Executions is required"
         };
 
         private static void ValidateSouceFiles(params (dynamic Rule, string Parameter)[] validations)

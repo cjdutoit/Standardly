@@ -4,14 +4,13 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using Xeptions;
+using System.Collections.Generic;
+using Standardly.Core.Models.Executions;
 
-namespace Standardly.Core.Models.PowerShellScripts.Exceptions
+namespace Standardly.Core.Brokers.ExecutionBroker
 {
-    public class InvalidPowerShellException : Xeption
+    public interface IExecutionBroker
     {
-        public InvalidPowerShellException()
-            : base(message: "Invalid powershell criteria, fix the errors and try again.")
-        { }
+        string Run(List<Execution> executions, string executionFolder);
     }
 }

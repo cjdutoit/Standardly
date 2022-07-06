@@ -8,26 +8,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
-using System.Management.Automation.Runspaces;
 using System.Text;
-using Standardly.Core.Models.PowerShellScripts;
+using Standardly.Core.Models.Executions;
 
-namespace Standardly.Core.Brokers.PowerShells
+namespace Standardly.Core.Brokers.ExecutionBroker
 {
-    public class PowerShellBroker : IPowerShellBroker
+    public class PowerShellExecutionBroker : IExecutionBroker
     {
-        private RunspacePool RsPool { get; set; }
-
-        public string RunScript(List<PowerShellScript> scripts, string executionFolder)
+        public string Run(List<Execution> executions, string executionFolder)
         {
             using (PowerShell powershell = PowerShell.Create())
             {
                 powershell
                     .AddScript($"cd {executionFolder}");
 
-                foreach (PowerShellScript script in scripts)
+                foreach (Execution script in executions)
                 {
-                    powershell.AddScript($"{script.Script}");
+                    powershell.AddScript($"{script.Instruction}");
                 }
 
                 List<PSObject> PSOutput = powershell.Invoke().ToList();

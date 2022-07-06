@@ -11,8 +11,8 @@ using System.Linq;
 using System.Reflection;
 using Standardly.Core.Models.FileItems;
 using Standardly.Core.Models.Templates;
+using Standardly.Core.Services.Foundations.Executions;
 using Standardly.Core.Services.Foundations.FileServices;
-using Standardly.Core.Services.Foundations.PowerShells;
 using Standardly.Core.Services.Foundations.TemplateServices;
 
 namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
@@ -20,18 +20,18 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
     public partial class TemplateOrchestrationService : ITemplateOrchestrationService
     {
         private readonly IFileService fileService;
-        private readonly IPowerShellService powerShellService;
+        private readonly IExecutionService executionService;
         private readonly ITemplateService templateService;
         public string TemplateFolder { get; private set; }
         private readonly string searchPattern = "Template.json";
 
         public TemplateOrchestrationService(
             IFileService fileService,
-            IPowerShellService powerShellService,
+            IExecutionService executionService,
             ITemplateService templateService)
         {
             this.fileService = fileService;
-            this.powerShellService = powerShellService;
+            this.executionService = executionService;
             this.templateService = templateService;
 
             var assembly = Assembly.GetExecutingAssembly().Location;
@@ -108,9 +108,9 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                                     }
                                 }
 
-                                if (action.Scripts.Any())
+                                if (action.Executions.Any())
                                 {
-                                    this.powerShellService.RunScript(action.Scripts, action.ExecutionFolder);
+                                    this.executionService.Run(action.Executions, action.ExecutionFolder);
                                 }
                             }
                         }

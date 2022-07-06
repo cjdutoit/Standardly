@@ -9,8 +9,8 @@ using System.Text;
 using Moq;
 using Newtonsoft.Json;
 using Standardly.Core.Brokers.FileSystems;
+using Standardly.Core.Models.Executions;
 using Standardly.Core.Models.FileItems;
-using Standardly.Core.Models.PowerShellScripts;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Tynamix.ObjectFiller;
@@ -76,16 +76,16 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
             return JsonConvert.SerializeObject(template);
         }
 
-        private static List<PowerShellScript> CreateListOfPowerShellScripts()
+        private static List<Execution> CreateListOfExecutions()
         {
-            List<PowerShellScript> list = new List<PowerShellScript>();
+            List<Execution> list = new List<Execution>();
 
             for (int i = 0; i < GetRandomNumber(); i++)
             {
-                list.Add(new PowerShellScript()
+                list.Add(new Execution()
                 {
                     Name = GetRandomString(1),
-                    Script = GetRandomString(1)
+                    Instruction = GetRandomString(1)
                 });
             }
 
@@ -120,7 +120,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                     Name = GetRandomString(1),
                     ExecutionFolder = GetRandomString(1),
                     FileItems = CreateListOfFileItems(),
-                    Scripts = CreateListOfPowerShellScripts()
+                    Executions = CreateListOfExecutions()
                 });
             }
 

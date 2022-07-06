@@ -30,7 +30,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             string sourceTemplateString = GetRandomString();
             string targetTemplateString = GetRandomString();
-            string powerShellScriptMessage = GetRandomString();
+            string executionMessage = GetRandomString();
 
             this.templateServiceMock.Setup(templateService =>
                 templateService.TransformString(inputTemplate.RawTemplate, randomReplacementDictionary))
@@ -66,11 +66,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                                 }
                             }
 
-                            if (action.Scripts.Any())
+                            if (action.Executions.Any())
                             {
-                                this.powerShellServiceMock.Setup(powerShellService =>
-                                    powerShellService.RunScript(action.Scripts, action.ExecutionFolder))
-                                        .Returns(powerShellScriptMessage);
+                                this.executionServiceMock.Setup(executionService =>
+                                    executionService.Run(action.Executions, action.ExecutionFolder))
+                                        .Returns(executionMessage);
                             }
                         }
                     }
@@ -135,10 +135,10 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                                 }
                             }
 
-                            if (action.Scripts.Any())
+                            if (action.Executions.Any())
                             {
-                                this.powerShellServiceMock.Verify(powerShellService =>
-                                powerShellService.RunScript(action.Scripts, action.ExecutionFolder),
+                                this.executionServiceMock.Verify(executionService =>
+                                executionService.Run(action.Executions, action.ExecutionFolder),
                                     Times.Once);
                             }
                         }
@@ -148,7 +148,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             this.templateServiceMock.VerifyNoOtherCalls();
             this.fileServiceMock.VerifyNoOtherCalls();
-            this.powerShellServiceMock.VerifyNoOtherCalls();
+            this.executionServiceMock.VerifyNoOtherCalls();
         }
 
     }

@@ -47,7 +47,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                     Times.Once);
 
             this.fileServiceMock.VerifyNoOtherCalls();
-            this.powerShellServiceMock.VerifyNoOtherCalls();
+            this.executionServiceMock.VerifyNoOtherCalls();
             this.templateServiceMock.VerifyNoOtherCalls();
         }
 
@@ -82,7 +82,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                     Times.Once);
 
             this.fileServiceMock.VerifyNoOtherCalls();
-            this.powerShellServiceMock.VerifyNoOtherCalls();
+            this.executionServiceMock.VerifyNoOtherCalls();
             this.templateServiceMock.VerifyNoOtherCalls();
         }
 
@@ -117,7 +117,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                     Times.Once);
 
             this.fileServiceMock.VerifyNoOtherCalls();
-            this.powerShellServiceMock.VerifyNoOtherCalls();
+            this.executionServiceMock.VerifyNoOtherCalls();
             this.templateServiceMock.VerifyNoOtherCalls();
         }
     }

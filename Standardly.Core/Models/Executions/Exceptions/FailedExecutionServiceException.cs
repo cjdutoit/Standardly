@@ -4,14 +4,16 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using System;
 using Xeptions;
 
-namespace Standardly.Core.Models.PowerShellScripts.Exceptions
+namespace Standardly.Core.Models.Executions.Exceptions
 {
-    public class PowerShellDependencyException : Xeption
+    public class FailedExecutionServiceException : Xeption
     {
-        public PowerShellDependencyException(Xeption innerException) :
-            base(message: "PowerShell dependency error occurred, contact support.", innerException)
+        public FailedExecutionServiceException(Exception innerException)
+            : base(message: "Failed execution service error occurred, contact support.",
+                  innerException)
         { }
     }
 }

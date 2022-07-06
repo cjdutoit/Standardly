@@ -7,10 +7,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Standardly.Core.Brokers.ExecutionBroker;
 using Standardly.Core.Brokers.FileSystems;
-using Standardly.Core.Brokers.PowerShells;
+using Standardly.Core.Services.Foundations.Executions;
 using Standardly.Core.Services.Foundations.FileServices;
-using Standardly.Core.Services.Foundations.PowerShells;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Standardly.Forms;
@@ -34,16 +34,16 @@ namespace Standardly
                 Setting settings = GetSettings(general, locations, project, projects);
 
                 IFileSystemBroker fileSystemBroker = new FileSystemBroker();
-                IPowerShellBroker powerShellBroker = new PowerShellBroker();
+                IExecutionBroker executionBroker = new CliExecutionBroker();
 
                 IFileService fileService = new FileService(fileSystemBroker);
-                IPowerShellService powerShellService = new PowerShellService(powerShellBroker);
+                IExecutionService executionService = new ExecutionService(executionBroker);
                 ITemplateService templateService = new TemplateService(fileSystemBroker);
 
                 ITemplateOrchestrationService templateOrchestrationService =
                     new TemplateOrchestrationService(
                         fileService: fileService,
-                        powerShellService: powerShellService,
+                        executionService: executionService,
                         templateService: templateService
                     );
 
