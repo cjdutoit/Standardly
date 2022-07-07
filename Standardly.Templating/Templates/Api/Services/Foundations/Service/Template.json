@@ -23,6 +23,26 @@
             {
               "name": "Create new branch",
               "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-add"
+            },
+            {
+              "name": "Install DeepCloner from NuGet",
+              "instruction": "dotnet add $unitTestProjectFile$ package DeepCloner"
+            },
+            {
+              "name": "Install FluentAssertions from NuGet",
+              "instruction": "dotnet add $unitTestProjectFile$ package FluentAssertions"
+            },
+            {
+              "name": "Install Moq from NuGet",
+              "instruction": "dotnet add $unitTestProjectFile$ package Moq"
+            },
+            {
+              "name": "Install Tynamix.ObjectFiller from NuGet",
+              "instruction": "dotnet add $unitTestProjectFile$ package Tynamix.ObjectFiller"
+            },
+            {
+              "name": "Install Xeption from NuGet",
+              "instruction": "dotnet add $unitTestProjectFile$ package Xeption"
             }
           ]
         },

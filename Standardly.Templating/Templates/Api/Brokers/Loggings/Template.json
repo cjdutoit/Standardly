@@ -28,7 +28,7 @@
             },
             {
               "name": "Install Microsoft.Extensions.Logging from NuGet",
-              "instruction": "Install-Package Microsoft.Extensions.Logging -ProjectName $projectName$"
+              "instruction": "dotnet add $projectFile$ package Microsoft.Extensions.Logging"
             }
           ]
         },

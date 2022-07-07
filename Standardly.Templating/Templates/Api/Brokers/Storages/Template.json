@@ -26,15 +26,15 @@
             },
             {
               "name": "Install EFxceptions from NuGet",
-              "instruction": "Install-Package EFxceptions -ProjectName $projectName$"
+              "instruction": "dotnet add $projectFile$ package EFxceptions"
             },
             {
               "name": "Install Microsoft.EntityFrameworkCore.SqlServer from NuGet",
-              "instruction": "Install-Package Microsoft.EntityFrameworkCore.SqlServer -ProjectName $projectName$"
+              "instruction": "dotnet add $projectFile$ package Microsoft.EntityFrameworkCore.SqlServer"
             },
             {
               "name": "Install Microsoft.EntityFrameworkCore.Tools from NuGet",
-              "instruction": "Install-Package Microsoft.EntityFrameworkCore.Tools -ProjectName $projectName$"
+              "instruction": "dotnet add $projectFile$ package Microsoft.EntityFrameworkCore.Tools"
             }
           ]
         },

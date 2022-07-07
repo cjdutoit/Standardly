@@ -28,7 +28,7 @@
             },
             {
               "name": "Install ADotNet from NuGet",
-              "instruction": "Install-Package ADotNet -ProjectName $infrastructureBuildProjectName$"
+              "instruction": "dotnet add $infrastructureBuildProjectFile$ package ADotNet -ProjectName"
             }
           ]
         },

@@ -28,7 +28,7 @@
             },
             {
               "name": "Install Microsoft.Azure.Management.Fluent from NuGet",
-              "instruction": "Install-Package Microsoft.Azure.Management.Fluent -ProjectName $infrastructureProvisionProjectName$"
+              "instruction": "dotnet add $infrastructureProvisionProjectFile$ package Microsoft.Azure.Management.Fluent"
             }
           ]
         },
