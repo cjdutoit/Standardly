@@ -540,6 +540,7 @@ namespace Standardly.Forms
             replacementsDictionary.Add("$templateFolder$", templateFolder.Replace("\\", "\\\\"));
             replacementsDictionary.Add("$projectName$", settings.ProjectInfo.ProjectName);
             replacementsDictionary.Add("$projectFolder$", settings.ProjectInfo.ProjectFolder.Replace("\\", "\\\\"));
+            replacementsDictionary.Add("$projectFile$", settings.ProjectInfo.ProjectFile);
             replacementsDictionary.Add("$unitTestProjectName$", settings.ProjectInfo.UnitTestProjectName);
 
             replacementsDictionary.Add("$draftPullRequest$",
@@ -548,6 +549,8 @@ namespace Standardly.Forms
             replacementsDictionary.Add(
                 "$unitTestProjectFolder$",
                 settings.ProjectInfo.UnitTestProjectFolder.Replace("\\", "\\\\"));
+
+            replacementsDictionary.Add("$unitTestProjectFile$", settings.ProjectInfo.UnitTestProjectFile);
 
             replacementsDictionary.Add(
                 "$acceptanceTestProjectName$",
@@ -558,6 +561,10 @@ namespace Standardly.Forms
                 settings.ProjectInfo.AcceptanceTestProjectFolder.Replace("\\", "\\\\"));
 
             replacementsDictionary.Add(
+                "$acceptanceTestProjectFile$",
+                settings.ProjectInfo.AcceptanceTestProjectFile);
+
+            replacementsDictionary.Add(
                 "$infrastructureBuildProjectName$",
                 settings.ProjectInfo.InfrastructureBuildProjectName);
 
@@ -566,12 +573,20 @@ namespace Standardly.Forms
                 settings.ProjectInfo.InfrastructureBuildProjectFolder.Replace("\\", "\\\\"));
 
             replacementsDictionary.Add(
+                "$infrastructureBuildProjectFile$",
+                settings.ProjectInfo.InfrastructureBuildProjectFile);
+
+            replacementsDictionary.Add(
                 "$infrastructureProvisionProjectName$",
                 settings.ProjectInfo.InfrastructureProvisionProjectName);
 
             replacementsDictionary.Add(
                 "$infrastructureProvisionProjectFolder$",
                 settings.ProjectInfo.InfrastructureProvisionProjectFolder.Replace("\\", "\\\\"));
+
+            replacementsDictionary.Add(
+                "$infrastructureProvisionProjectFile$",
+                settings.ProjectInfo.InfrastructureProvisionProjectFile);
 
             replacementsDictionary.Add("$displayName$", GenerateCriteria.DisplayName);
             replacementsDictionary.Add("$username$", GenerateCriteria.GitHubUsername);

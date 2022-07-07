@@ -108,37 +108,64 @@ namespace Standardly
                     ProjectName = project.Name,
                     ProjectFullPath = project.FullPath,
                     ProjectFolder = new FileInfo(project.FullPath).Directory.FullName,
+                    ProjectFile = new FileInfo(project.FullPath).Name,
                     UnitTestProjectName = unitTestProject != null ? unitTestProject.Name : "",
                     UnitTestProjectFullPath = unitTestProject != null ? unitTestProject.FullPath : "",
+
                     UnitTestProjectFolder = unitTestProject != null
                         ? new FileInfo(unitTestProject.FullPath).DirectoryName
                         : "",
+
+                    UnitTestProjectFile = unitTestProject != null
+                        ? new FileInfo(unitTestProject.FullPath).Name
+                        : "",
+
                     AcceptanceTestProjectName = acceptanceTestProject != null
                         ? acceptanceTestProject.Name
                         : "",
+
                     AcceptanceTestProjectFullPath = acceptanceTestProject != null
                         ? acceptanceTestProject.FullPath
                         : "",
+
                     AcceptanceTestProjectFolder = acceptanceTestProject != null
                         ? new FileInfo(acceptanceTestProject.FullPath).DirectoryName
                         : "",
+
+                    AcceptanceTestProjectFile = acceptanceTestProject != null
+                        ? new FileInfo(acceptanceTestProject.FullPath).Name
+                        : "",
+
                     InfrastructureBuildProjectName = infrastructureBuildProject != null
                         ? infrastructureBuildProject.Name
                         : "",
+
                     InfrastructureBuildProjectFullPath = infrastructureBuildProject != null
                         ? infrastructureBuildProject.FullPath
                         : "",
+
                     InfrastructureBuildProjectFolder = infrastructureBuildProject != null
                         ? new FileInfo(infrastructureBuildProject.FullPath).DirectoryName
                         : "",
+
+                    InfrastructureBuildProjectFile = infrastructureBuildProject != null
+                        ? new FileInfo(infrastructureBuildProject.FullPath).Name
+                        : "",
+
                     InfrastructureProvisionProjectName = infrastructureProvisionProject != null
                         ? infrastructureProvisionProject.Name
                         : "",
+
                     InfrastructureProvisionProjectFullPath = infrastructureProvisionProject != null
                         ? infrastructureProvisionProject.FullPath
                         : "",
+
                     InfrastructureProvisionProjectFolder = infrastructureProvisionProject != null
                         ? new FileInfo(infrastructureProvisionProject.FullPath).DirectoryName
+                        : "",
+
+                    InfrastructureProvisionProjectFile = infrastructureProvisionProject != null
+                        ? new FileInfo(infrastructureProvisionProject.FullPath).Name
                         : ""
                 }
             };
