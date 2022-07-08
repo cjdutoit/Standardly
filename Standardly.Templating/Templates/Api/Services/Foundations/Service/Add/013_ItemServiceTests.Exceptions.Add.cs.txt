@@ -32,10 +32,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Add$safeItemNameSingular$Async(some$safeItemNameSingular$);
 
             $safeItemNameSingular$DependencyException actual$safeItemNameSingular$DependencyException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(add$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(
+                    add$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$DependencyException.Should().BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
+            actual$safeItemNameSingular$DependencyException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
 
             this.dateTimeBrokerMock.Verify(broker =>
                 broker.GetCurrentDateTimeOffset(),
