@@ -107,7 +107,7 @@
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Review Draft Pull Requests:",
-    "  - DATA: Identity Models on ASP.NET Core"
+    "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
+    "  - DATA: Identity Models on ASP.NET Core  -> users/$username$/data-identity-models"
   ]
 }

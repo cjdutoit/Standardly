@@ -80,7 +80,7 @@
     "* Execute the build project to generate the YAML file.",
     "* Verify that the solution builds, that all tests pass and commit the newly generated YAML file",
     "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Review Draft Pull Requests:",
-    "  - INFRA: Setup Infrastructure Build Project"
+    "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
+    "  - INFRA: Setup Infrastructure Build Project  ->  users/$username$/infra-build-projectsetup"
   ]
 }

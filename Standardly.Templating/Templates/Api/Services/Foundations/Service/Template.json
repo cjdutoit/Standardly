@@ -1928,11 +1928,11 @@
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
-    "* Review Draft Pull Requests:",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id"
+    "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$  ->  users/$username$/$foundations$-$safeItemNamePlural$-add",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$  ->  users/$username$/$foundations$-$safeItemNamePlural$-retrieveall",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id  ->  users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$  ->  users/$username$/$foundations$-$safeItemNamePlural$-modify",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id  ->  users/$username$/$foundations$-$safeItemNamePlural$-removebyid"
   ]
 }
