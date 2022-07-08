@@ -2,10 +2,10 @@
 on:
   push:
     branches:
-    - master
+    - $basebranch$
   pull_request:
     branches:
-    - master
+    - $basebranch$
 jobs:
   build:
     runs-on: windows-latest
