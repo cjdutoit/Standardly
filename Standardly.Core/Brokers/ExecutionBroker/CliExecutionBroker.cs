@@ -16,7 +16,6 @@ namespace Standardly.Core.Brokers.ExecutionBroker
         {
             List<Execution> executionList = new List<Execution>();
             executionList.Add(new Execution("Execution Folder", $"cd /d \"{executionFolder}\""));
-            executionList.Add(new Execution("Git Authentication", $"gh auth login --with-token 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"));
             executionList.AddRange(executions);
             executionList.Add(new Execution("Pause", "pause"));
 

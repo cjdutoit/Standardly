@@ -126,52 +126,54 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
         {
             InvalidReplacementException invalidReplacementException = new InvalidReplacementException();
 
-            try
+            // given
+            List<(dynamic Rule, string Parameter)> validationRules = new List<(dynamic rule, string parameter)>();
+            Dictionary<string, string> replacementsDictionary = GetReplacementDictionaryWithRandomValues();
+            List<Template> templates = this.templateOrchestrationService.FindAllTemplates();
+
+            // when
+            for (int templateCounter = 0; templateCounter <= templates.Count - 1; templateCounter++)
             {
-                // given
-                List<(dynamic Rule, string Parameter)> validationRules = new List<(dynamic rule, string parameter)>();
-                Dictionary<string, string> replacementsDictionary = GetReplacementDictionaryWithRandomValues();
-                List<Template> templates = this.templateOrchestrationService.FindAllTemplates();
+                Template template = templates[templateCounter];
 
-                for (int templateCounter = 0; templateCounter <= templates.Count - 1; templateCounter++)
+                string rawTransformedTemplate = this.templateService
+                    .TransformString(template.RawTemplate, replacementsDictionary);
+
+                try
                 {
-                    Template template = templates[templateCounter];
-
-                    string rawTransformedTemplate = this.templateService
-                        .TransformString(template.RawTemplate, replacementsDictionary);
-
-                    try
+                    this.templateService.ValidateTransformation(rawTransformedTemplate);
+                }
+                catch (TemplateValidationException templateValidationException)
+                {
+                    var templateName = template.Name ?? templateCounter.ToString();
+                    foreach (DictionaryEntry dictionaryEntry in templateValidationException.InnerException.Data)
                     {
-                        this.templateService.ValidateTransformation(rawTransformedTemplate);
-                    }
-                    catch (InvalidReplacementException invalidReplacementEx)
-                    {
-                        var templateName = template.Name ?? templateCounter.ToString();
-                        foreach (DictionaryEntry dictionaryEntry in invalidReplacementEx.Data)
-                        {
-                            invalidReplacementException.Data
-                                .Add($"Template[{templateName}].{dictionaryEntry.Key}", dictionaryEntry.Value);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        throw;
+                        invalidReplacementException.Data
+                            .Add($"Template[{templateName}].{dictionaryEntry.Key}", dictionaryEntry.Value);
                     }
                 }
-
-                // when
-                Validate(validationRules.ToArray());
+                catch (Exception ex)
+                {
+                    throw;
+                }
             }
-            catch (InvalidTemplateException ex)
+
+            // then
+            if (invalidReplacementException.Data.Count > 0)
             {
-                foreach (DictionaryEntry dictionaryEntry in ex.Data)
+                StringBuilder errorMessages = new StringBuilder();
+
+                foreach (DictionaryEntry dictionaryEntry in invalidReplacementException.Data)
                 {
                     string errors = ((List<string>)dictionaryEntry.Value)
                            .Select(value => value).Aggregate((t1, t2) => t1 + $"{Environment.NewLine}" + t2);
 
-                    Assert.True(false, errors);
+                    errorMessages.AppendLine($"{dictionaryEntry.Key}");
                 }
+
+                Assert.True(false, errorMessages.ToString());
             }
         }
     }
 }
+

@@ -34,6 +34,7 @@ namespace Standardly.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGenerate));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -56,6 +57,8 @@ namespace Standardly.Forms
             this.txtProject = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gbTemplates = new System.Windows.Forms.GroupBox();
+            this.chkSubmitAsDraftPullRequest = new System.Windows.Forms.CheckBox();
+            this.chkPublicRepository = new System.Windows.Forms.CheckBox();
             this.lblTemplates = new System.Windows.Forms.Label();
             this.lblModelPlural = new System.Windows.Forms.Label();
             this.lblModelSingular = new System.Windows.Forms.Label();
@@ -68,12 +71,9 @@ namespace Standardly.Forms
             this.lblSerachTemplates = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtGitHubUsername = new System.Windows.Forms.TextBox();
-            this.txtGitHubBaseBranchName = new System.Windows.Forms.TextBox();
             this.lblGitHubUsername = new System.Windows.Forms.Label();
             this.txtDisplayName = new System.Windows.Forms.TextBox();
-            this.lblGitHubBaseBranchName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtLicense = new System.Windows.Forms.TextBox();
@@ -88,8 +88,8 @@ namespace Standardly.Forms
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnGenerateFromTemplate = new System.Windows.Forms.Button();
-            this.chkPublicRepository = new System.Windows.Forms.CheckBox();
-            this.chkSubmitAsDraftPullRequest = new System.Windows.Forms.CheckBox();
+            this.txtGitHubBaseBranchName = new System.Windows.Forms.TextBox();
+            this.lblGitHubBaseBranchName = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -133,9 +133,9 @@ namespace Standardly.Forms
             this.groupBox6.Controls.Add(this.lnkDisclaimer);
             this.groupBox6.Controls.Add(this.linkLabel1);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(7, 325);
+            this.groupBox6.Location = new System.Drawing.Point(7, 344);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(948, 110);
+            this.groupBox6.Size = new System.Drawing.Size(948, 88);
             this.groupBox6.TabIndex = 22;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Legal Stuff";
@@ -144,7 +144,7 @@ namespace Standardly.Forms
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(27, 81);
+            this.label10.Location = new System.Drawing.Point(31, 67);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(162, 13);
             this.label10.TabIndex = 22;
@@ -154,7 +154,7 @@ namespace Standardly.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(370, 81);
+            this.label1.Location = new System.Drawing.Point(374, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 13);
             this.label1.TabIndex = 22;
@@ -165,7 +165,7 @@ namespace Standardly.Forms
             this.chkExperienceUsersOnly.AutoSize = true;
             this.chkExperienceUsersOnly.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkExperienceUsersOnly.ForeColor = System.Drawing.Color.Red;
-            this.chkExperienceUsersOnly.Location = new System.Drawing.Point(11, 33);
+            this.chkExperienceUsersOnly.Location = new System.Drawing.Point(15, 19);
             this.chkExperienceUsersOnly.Name = "chkExperienceUsersOnly";
             this.chkExperienceUsersOnly.Size = new System.Drawing.Size(916, 17);
             this.chkExperienceUsersOnly.TabIndex = 11;
@@ -180,7 +180,7 @@ namespace Standardly.Forms
             this.chkDisclaimer.AutoSize = true;
             this.chkDisclaimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDisclaimer.ForeColor = System.Drawing.Color.Red;
-            this.chkDisclaimer.Location = new System.Drawing.Point(11, 56);
+            this.chkDisclaimer.Location = new System.Drawing.Point(15, 42);
             this.chkDisclaimer.Name = "chkDisclaimer";
             this.chkDisclaimer.Size = new System.Drawing.Size(752, 17);
             this.chkDisclaimer.TabIndex = 12;
@@ -193,7 +193,7 @@ namespace Standardly.Forms
             // 
             this.lnkDisclaimer.AutoSize = true;
             this.lnkDisclaimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkDisclaimer.Location = new System.Drawing.Point(189, 81);
+            this.lnkDisclaimer.Location = new System.Drawing.Point(193, 67);
             this.lnkDisclaimer.Name = "lnkDisclaimer";
             this.lnkDisclaimer.Size = new System.Drawing.Size(145, 13);
             this.lnkDisclaimer.TabIndex = 13;
@@ -204,7 +204,7 @@ namespace Standardly.Forms
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(548, 81);
+            this.linkLabel1.Location = new System.Drawing.Point(560, 67);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(97, 13);
             this.linkLabel1.TabIndex = 14;
@@ -225,9 +225,9 @@ namespace Standardly.Forms
             this.gbProjects.Controls.Add(this.txtProject);
             this.gbProjects.Controls.Add(this.label6);
             this.gbProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProjects.Location = new System.Drawing.Point(7, 145);
+            this.gbProjects.Location = new System.Drawing.Point(7, 167);
             this.gbProjects.Name = "gbProjects";
-            this.gbProjects.Size = new System.Drawing.Size(948, 174);
+            this.gbProjects.Size = new System.Drawing.Size(948, 171);
             this.gbProjects.TabIndex = 1;
             this.gbProjects.TabStop = false;
             this.gbProjects.Text = "Projects";
@@ -340,6 +340,8 @@ namespace Standardly.Forms
             // 
             // gbTemplates
             // 
+            this.gbTemplates.Controls.Add(this.txtGitHubBaseBranchName);
+            this.gbTemplates.Controls.Add(this.lblGitHubBaseBranchName);
             this.gbTemplates.Controls.Add(this.chkSubmitAsDraftPullRequest);
             this.gbTemplates.Controls.Add(this.chkPublicRepository);
             this.gbTemplates.Controls.Add(this.lblTemplates);
@@ -355,10 +357,34 @@ namespace Standardly.Forms
             this.gbTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTemplates.Location = new System.Drawing.Point(7, 7);
             this.gbTemplates.Name = "gbTemplates";
-            this.gbTemplates.Size = new System.Drawing.Size(948, 132);
+            this.gbTemplates.Size = new System.Drawing.Size(948, 154);
             this.gbTemplates.TabIndex = 0;
             this.gbTemplates.TabStop = false;
             this.gbTemplates.Text = "Template Info";
+            // 
+            // chkSubmitAsDraftPullRequest
+            // 
+            this.chkSubmitAsDraftPullRequest.AutoSize = true;
+            this.chkSubmitAsDraftPullRequest.Enabled = false;
+            this.chkSubmitAsDraftPullRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSubmitAsDraftPullRequest.Location = new System.Drawing.Point(132, 131);
+            this.chkSubmitAsDraftPullRequest.Name = "chkSubmitAsDraftPullRequest";
+            this.chkSubmitAsDraftPullRequest.Size = new System.Drawing.Size(167, 17);
+            this.chkSubmitAsDraftPullRequest.TabIndex = 56;
+            this.chkSubmitAsDraftPullRequest.Text = "Submit Pull Requests As Draft";
+            this.chkSubmitAsDraftPullRequest.UseVisualStyleBackColor = true;
+            // 
+            // chkPublicRepository
+            // 
+            this.chkPublicRepository.AutoSize = true;
+            this.chkPublicRepository.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPublicRepository.Location = new System.Drawing.Point(15, 131);
+            this.chkPublicRepository.Name = "chkPublicRepository";
+            this.chkPublicRepository.Size = new System.Drawing.Size(108, 17);
+            this.chkPublicRepository.TabIndex = 55;
+            this.chkPublicRepository.Text = "Public Repository";
+            this.chkPublicRepository.UseVisualStyleBackColor = true;
+            this.chkPublicRepository.CheckedChanged += new System.EventHandler(this.chkPublicRepository_CheckedChanged);
             // 
             // lblTemplates
             // 
@@ -473,12 +499,9 @@ namespace Standardly.Forms
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtGitHubUsername);
-            this.groupBox1.Controls.Add(this.txtGitHubBaseBranchName);
             this.groupBox1.Controls.Add(this.lblGitHubUsername);
             this.groupBox1.Controls.Add(this.txtDisplayName);
-            this.groupBox1.Controls.Add(this.lblGitHubBaseBranchName);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 21);
@@ -488,16 +511,6 @@ namespace Standardly.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GitHub";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(465, 80);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 13);
-            this.label9.TabIndex = 51;
-            this.label9.Text = "e.g. main";
-            // 
             // txtGitHubUsername
             // 
             this.txtGitHubUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -506,15 +519,6 @@ namespace Standardly.Forms
             this.txtGitHubUsername.Size = new System.Drawing.Size(300, 20);
             this.txtGitHubUsername.TabIndex = 17;
             this.txtGitHubUsername.TextChanged += new System.EventHandler(this.txtGitHubUsername_TextChanged);
-            // 
-            // txtGitHubBaseBranchName
-            // 
-            this.txtGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGitHubBaseBranchName.Location = new System.Drawing.Point(159, 77);
-            this.txtGitHubBaseBranchName.Name = "txtGitHubBaseBranchName";
-            this.txtGitHubBaseBranchName.Size = new System.Drawing.Size(300, 20);
-            this.txtGitHubBaseBranchName.TabIndex = 18;
-            this.txtGitHubBaseBranchName.TextChanged += new System.EventHandler(this.txtGitHubBaseBranchName_TextChanged);
             // 
             // lblGitHubUsername
             // 
@@ -534,16 +538,6 @@ namespace Standardly.Forms
             this.txtDisplayName.Size = new System.Drawing.Size(300, 20);
             this.txtDisplayName.TabIndex = 16;
             this.txtDisplayName.TextChanged += new System.EventHandler(this.txtDisplayName_TextChanged);
-            // 
-            // lblGitHubBaseBranchName
-            // 
-            this.lblGitHubBaseBranchName.AutoSize = true;
-            this.lblGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGitHubBaseBranchName.Location = new System.Drawing.Point(12, 80);
-            this.lblGitHubBaseBranchName.Name = "lblGitHubBaseBranchName";
-            this.lblGitHubBaseBranchName.Size = new System.Drawing.Size(141, 13);
-            this.lblGitHubBaseBranchName.TabIndex = 50;
-            this.lblGitHubBaseBranchName.Text = "GitHub Base Branch Name: ";
             // 
             // label4
             // 
@@ -707,29 +701,23 @@ namespace Standardly.Forms
             this.btnGenerateFromTemplate.UseVisualStyleBackColor = true;
             this.btnGenerateFromTemplate.Click += new System.EventHandler(this.btnGenerateFromTemplate_Click);
             // 
-            // chkPublicRepository
+            // txtGitHubBaseBranchName
             // 
-            this.chkPublicRepository.AutoSize = true;
-            this.chkPublicRepository.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPublicRepository.Location = new System.Drawing.Point(15, 109);
-            this.chkPublicRepository.Name = "chkPublicRepository";
-            this.chkPublicRepository.Size = new System.Drawing.Size(108, 17);
-            this.chkPublicRepository.TabIndex = 55;
-            this.chkPublicRepository.Text = "Public Repository";
-            this.chkPublicRepository.UseVisualStyleBackColor = true;
-            this.chkPublicRepository.CheckedChanged += new System.EventHandler(this.chkPublicRepository_CheckedChanged);
+            this.txtGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGitHubBaseBranchName.Location = new System.Drawing.Point(209, 104);
+            this.txtGitHubBaseBranchName.Name = "txtGitHubBaseBranchName";
+            this.txtGitHubBaseBranchName.Size = new System.Drawing.Size(579, 20);
+            this.txtGitHubBaseBranchName.TabIndex = 57;
             // 
-            // chkSubmitAsDraftPullRequest
+            // lblGitHubBaseBranchName
             // 
-            this.chkSubmitAsDraftPullRequest.AutoSize = true;
-            this.chkSubmitAsDraftPullRequest.Enabled = false;
-            this.chkSubmitAsDraftPullRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkSubmitAsDraftPullRequest.Location = new System.Drawing.Point(132, 109);
-            this.chkSubmitAsDraftPullRequest.Name = "chkSubmitAsDraftPullRequest";
-            this.chkSubmitAsDraftPullRequest.Size = new System.Drawing.Size(153, 17);
-            this.chkSubmitAsDraftPullRequest.TabIndex = 56;
-            this.chkSubmitAsDraftPullRequest.Text = "Submit as draft pull request";
-            this.chkSubmitAsDraftPullRequest.UseVisualStyleBackColor = true;
+            this.lblGitHubBaseBranchName.AutoSize = true;
+            this.lblGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGitHubBaseBranchName.Location = new System.Drawing.Point(12, 107);
+            this.lblGitHubBaseBranchName.Name = "lblGitHubBaseBranchName";
+            this.lblGitHubBaseBranchName.Size = new System.Drawing.Size(181, 13);
+            this.lblGitHubBaseBranchName.TabIndex = 58;
+            this.lblGitHubBaseBranchName.Text = "GitHub Base Branch / Branch From: ";
             // 
             // frmGenerate
             // 
@@ -740,7 +728,9 @@ namespace Standardly.Forms
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnGenerateFromTemplate);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1000, 748);
             this.Name = "frmGenerate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -803,12 +793,9 @@ namespace Standardly.Forms
         private System.Windows.Forms.Label lblSerachTemplates;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtGitHubUsername;
-        private System.Windows.Forms.TextBox txtGitHubBaseBranchName;
         private System.Windows.Forms.Label lblGitHubUsername;
         private System.Windows.Forms.TextBox txtDisplayName;
-        private System.Windows.Forms.Label lblGitHubBaseBranchName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtLicense;
@@ -825,5 +812,7 @@ namespace Standardly.Forms
         private System.Windows.Forms.Button btnGenerateFromTemplate;
         private System.Windows.Forms.CheckBox chkSubmitAsDraftPullRequest;
         private System.Windows.Forms.CheckBox chkPublicRepository;
+        private System.Windows.Forms.TextBox txtGitHubBaseBranchName;
+        private System.Windows.Forms.Label lblGitHubBaseBranchName;
     }
 }

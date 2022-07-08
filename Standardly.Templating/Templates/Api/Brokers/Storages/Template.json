@@ -56,7 +56,7 @@
           "executions": [
             {
               "name": "Add migration",
-              "instruction": "dotnet ef migrations add InitialCreate -Project $projectName$"
+              "instruction": "dotnet-ef migrations add InitialCreate"
             },
             {
               "name": "Stage all changes",
@@ -91,7 +91,7 @@
           "executions": [
             {
               "name": "Add $safeItemNameSingular$ Model Migration",
-              "instruction": "dotnet ef migrations add Add$safeItemNameSingular$Model -Project $projectName$"
+              "instruction": "dotnet-ef migrations add Add$safeItemNameSingular$Model"
             },
             {
               "name": "Stage all changes",

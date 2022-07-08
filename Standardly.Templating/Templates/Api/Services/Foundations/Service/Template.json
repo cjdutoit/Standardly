@@ -25,6 +25,10 @@
               "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-add"
             },
             {
+              "name": "Change folder",
+              "instruction": "cd /d \"$unitTestProjectFolder$\""
+            },
+            {
               "name": "Install DeepCloner from NuGet",
               "instruction": "dotnet add $unitTestProjectFile$ package DeepCloner"
             },
@@ -43,6 +47,10 @@
             {
               "name": "Install Xeption from NuGet",
               "instruction": "dotnet add $unitTestProjectFile$ package Xeption"
+            },
+            {
+              "name": "Change folder",
+              "instruction": "cd /d \"$projectFolder$\""
             }
           ]
         },

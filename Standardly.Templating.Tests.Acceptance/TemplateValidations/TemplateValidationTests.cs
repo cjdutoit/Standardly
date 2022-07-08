@@ -94,14 +94,19 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
             replacementsDictionary.Add("$templateFolder$", GetRandomString());
             replacementsDictionary.Add("$projectName$", GetRandomString());
             replacementsDictionary.Add("$projectFolder$", GetRandomString());
+            replacementsDictionary.Add("$projectFile$", GetRandomString());
             replacementsDictionary.Add("$unitTestProjectName$", GetRandomString());
             replacementsDictionary.Add("$unitTestProjectFolder$", GetRandomString());
+            replacementsDictionary.Add("$unitTestProjectFile$", GetRandomString());
             replacementsDictionary.Add("$acceptanceTestProjectName$", GetRandomString());
             replacementsDictionary.Add("$acceptanceTestProjectFolder$", GetRandomString());
+            replacementsDictionary.Add("$acceptanceTestProjectFile$", GetRandomString());
             replacementsDictionary.Add("$infrastructureBuildProjectName$", GetRandomString());
             replacementsDictionary.Add("$infrastructureBuildProjectFolder$", GetRandomString());
+            replacementsDictionary.Add("$infrastructureBuildProjectFile$", GetRandomString());
             replacementsDictionary.Add("$infrastructureProvisionProjectName$", GetRandomString());
             replacementsDictionary.Add("$infrastructureProvisionProjectFolder$", GetRandomString());
+            replacementsDictionary.Add("$infrastructureProvisionProjectFile$", GetRandomString());
             replacementsDictionary.Add("$displayName$", GetRandomString());
             replacementsDictionary.Add("$username$", GetRandomString());
             replacementsDictionary.Add("$brokers$", GetRandomString());
@@ -115,6 +120,8 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
             replacementsDictionary.Add("$year$", GetRandomString());
             replacementsDictionary.Add("$copyright$", GetRandomString());
             replacementsDictionary.Add("$license$", GetRandomString());
+            replacementsDictionary.Add("$draftPullRequest$", GetRandomString());
+
 
             return replacementsDictionary;
         }
