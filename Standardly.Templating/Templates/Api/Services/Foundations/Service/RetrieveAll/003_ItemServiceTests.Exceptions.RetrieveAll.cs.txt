@@ -5,7 +5,7 @@ using Moq;
 using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
 using Xunit;
 
-namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
@@ -33,7 +33,8 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 Assert.Throws<$safeItemNameSingular$DependencyException>(retrieveAll$safeItemNamePlural$Action);
 
             // then
-            actual$safeItemNameSingular$DependencyException.Should().BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
+            actual$safeItemNameSingular$DependencyException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
 
             this.storageBrokerMock.Verify(broker =>
                 broker.SelectAll$safeItemNamePlural$(),
