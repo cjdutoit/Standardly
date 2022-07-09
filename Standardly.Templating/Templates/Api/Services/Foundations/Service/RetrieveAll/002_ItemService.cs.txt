@@ -5,7 +5,7 @@ using $rootnamespace$.$brokers$.Loggings;
 using $rootnamespace$.$brokers$.Storages;
 using $rootnamespace$.$models$.$safeItemNamePlural$;
 
-namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
+namespace $rootnamespace$.$models$.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$Service : I$safeItemNameSingular$Service
     {
@@ -24,12 +24,12 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
         }
 
         public ValueTask<$safeItemNameSingular$> Add$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
-        TryCatch(async () =>
-        {
-            Validate$safeItemNameSingular$OnAdd($parameterSafeItemNameSingular$);
+            TryCatch(async () =>
+            {
+                Validate$safeItemNameSingular$OnAdd($parameterSafeItemNameSingular$);
 
-            return await this.storageBroker.Insert$safeItemNameSingular$Async($parameterSafeItemNameSingular$);
-        });
+                return await this.storageBroker.Insert$safeItemNameSingular$Async($parameterSafeItemNameSingular$);
+            });
 
         public IQueryable<$safeItemNameSingular$> RetrieveAll$safeItemNamePlural$() =>
             this.storageBroker.SelectAll$safeItemNamePlural$();

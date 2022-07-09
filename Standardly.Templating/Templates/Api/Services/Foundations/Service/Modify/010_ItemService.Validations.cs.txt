@@ -58,14 +58,6 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
                 (Rule: IsNotRecent($parameterSafeItemNameSingular$.UpdatedDate), Parameter: nameof($parameterSafeItemNameSingular$.UpdatedDate)));
         }
 
-        private static void Validate$safeItemNameSingular$IsNotNull($safeItemNameSingular$ $parameterSafeItemNameSingular$)
-        {
-            if ($parameterSafeItemNameSingular$ is null)
-            {
-                throw new Null$safeItemNameSingular$Exception();
-            }
-        }
-
         public void Validate$safeItemNameSingular$Id(Guid $parameterSafeItemNameSingular$Id) =>
             Validate((Rule: IsInvalid($parameterSafeItemNameSingular$Id), Parameter: nameof($safeItemNameSingular$.Id)));
 
@@ -76,6 +68,35 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
                 throw new NotFound$safeItemNameSingular$Exception($parameterSafeItemNameSingular$Id);
             }
         }
+
+        private static void Validate$safeItemNameSingular$IsNotNull($safeItemNameSingular$ $parameterSafeItemNameSingular$)
+        {
+            if ($parameterSafeItemNameSingular$ is null)
+            {
+                throw new Null$safeItemNameSingular$Exception();
+            }
+        }
+
+        private static dynamic IsInvalid(Guid id) => new
+        {
+            Condition = id == Guid.Empty,
+            Message = "Id is required"
+        };
+
+        private static dynamic IsInvalid(DateTimeOffset date) => new
+        {
+            Condition = date == default,
+            Message = "Date is required"
+        };
+
+        private static dynamic IsSame(
+            DateTimeOffset firstDate,
+            DateTimeOffset secondDate,
+            string secondDateName) => new
+            {
+                Condition = firstDate == secondDate,
+                Message = $"Date is the same as {secondDateName}"
+            };
 
         private static dynamic IsNotSame(
             DateTimeOffset firstDate,
@@ -94,27 +115,6 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
                 Condition = firstId != secondId,
                 Message = $"Id is not the same as {secondIdName}"
             };
-
-        private static dynamic IsSame(
-            DateTimeOffset firstDate,
-            DateTimeOffset secondDate,
-            string secondDateName) => new
-            {
-                Condition = firstDate == secondDate,
-                Message = $"Date is the same as {secondDateName}"
-            };
-
-        private static dynamic IsInvalid(Guid id) => new
-        {
-            Condition = id == Guid.Empty,
-            Message = "Id is required"
-        };
-
-        private static dynamic IsInvalid(DateTimeOffset date) => new
-        {
-            Condition = date == default,
-            Message = "Date is required"
-        };
 
         private dynamic IsNotRecent(DateTimeOffset date) => new
         {

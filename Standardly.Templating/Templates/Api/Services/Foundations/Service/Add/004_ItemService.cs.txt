@@ -23,11 +23,11 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
         }
 
         public ValueTask<$safeItemNameSingular$> Add$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
-        TryCatch(async () =>
-        {
-            Validate$safeItemNameSingular$OnAdd($parameterSafeItemNameSingular$);
+            TryCatch(async () =>
+            {
+                Validate$safeItemNameSingular$OnAdd($parameterSafeItemNameSingular$);
 
-            return await this.storageBroker.Insert$safeItemNameSingular$Async($parameterSafeItemNameSingular$);
-        });
+                return await this.storageBroker.Insert$safeItemNameSingular$Async($parameterSafeItemNameSingular$);
+            });
     }
 }

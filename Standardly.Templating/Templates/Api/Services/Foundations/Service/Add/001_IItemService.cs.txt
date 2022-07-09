@@ -3,7 +3,7 @@ using $rootnamespace$.$models$.$safeItemNamePlural$;
 
 namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
 {
-    public partial interface I$safeItemNameSingular$Service
+    public interface I$safeItemNameSingular$Service
     {
         ValueTask<$safeItemNameSingular$> Add$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$);
     }

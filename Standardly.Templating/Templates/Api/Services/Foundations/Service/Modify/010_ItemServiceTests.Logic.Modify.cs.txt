@@ -6,7 +6,7 @@ using Moq;
 using $rootnamespace$.$models$.$safeItemNamePlural$;
 using Xunit;
 
-namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
@@ -14,7 +14,6 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
         public async Task ShouldModify$safeItemNameSingular$Async()
         {
             // given
-            int minuteInPast = GetRandomNegativeNumber();
             DateTimeOffset randomDateTimeOffset = GetRandomDateTimeOffset();
             $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandomModify$safeItemNameSingular$(randomDateTimeOffset);
             $safeItemNameSingular$ input$safeItemNameSingular$ = random$safeItemNameSingular$;
@@ -27,10 +26,6 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
             this.dateTimeBrokerMock.Setup(broker =>
                 broker.GetCurrentDateTimeOffset())
                     .Returns(randomDateTimeOffset);
-
-            this.storageBrokerMock.Setup(broker =>
-                broker.Select$safeItemNameSingular$ByIdAsync($parameterSafeItemNameSingular$Id))
-                    .ReturnsAsync(storage$safeItemNameSingular$);
 
             this.storageBrokerMock.Setup(broker =>
                 broker.Update$safeItemNameSingular$Async(input$safeItemNameSingular$))
@@ -48,16 +43,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                     Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.Select$safeItemNameSingular$ByIdAsync(input$safeItemNameSingular$.Id),
-                    Times.Once);
-
-            this.storageBrokerMock.Verify(broker =>
                 broker.Update$safeItemNameSingular$Async(input$safeItemNameSingular$),
                     Times.Once);
 
+            this.dateTimeBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
-            this.dateTimeBrokerMock.VerifyNoOtherCalls();
         }
     }
 }

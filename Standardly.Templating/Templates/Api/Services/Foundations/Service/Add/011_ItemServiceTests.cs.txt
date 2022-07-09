@@ -34,9 +34,6 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
         private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException) =>
             actualException => actualException.SameExceptionAs(expectedException);
 
-        private static DateTimeOffset GetRandomDateTimeOffset() =>
-            new DateTimeRange(earliestDate: new DateTime()).GetValue();
-
         public static TheoryData MinutesBeforeOrAfter()
         {
             int randomNumber = GetRandomNumber();
@@ -54,6 +51,9 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
 
         private static int GetRandomNegativeNumber() =>
             -1 * new IntRange(min: 2, max: 10).GetValue();
+
+        private static DateTimeOffset GetRandomDateTimeOffset() =>
+            new DateTimeRange(earliestDate: new DateTime()).GetValue();
 
         private static $safeItemNameSingular$ CreateRandom$safeItemNameSingular$(DateTimeOffset dateTimeOffset) =>
             Create$safeItemNameSingular$Filler(dateTimeOffset).Create();

@@ -6,7 +6,7 @@ using Moq;
 using $rootnamespace$.$models$.$safeItemNamePlural$;
 using Xunit;
 
-namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
@@ -14,7 +14,6 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
         public async Task ShouldModify$safeItemNameSingular$Async()
         {
             // given
-            int minuteInPast = GetRandomNegativeNumber();
             DateTimeOffset randomDateTimeOffset = GetRandomDateTimeOffset();
             $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandomModify$safeItemNameSingular$(randomDateTimeOffset);
             $safeItemNameSingular$ input$safeItemNameSingular$ = random$safeItemNameSingular$;
@@ -23,10 +22,6 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
             $safeItemNameSingular$ updated$safeItemNameSingular$ = input$safeItemNameSingular$;
             $safeItemNameSingular$ expected$safeItemNameSingular$ = updated$safeItemNameSingular$.DeepClone();
             Guid $parameterSafeItemNameSingular$Id = input$safeItemNameSingular$.Id;
-
-            this.storageBrokerMock.Setup(broker =>
-                broker.Select$safeItemNameSingular$ByIdAsync($parameterSafeItemNameSingular$Id))
-                    .ReturnsAsync(storage$safeItemNameSingular$);
 
             this.storageBrokerMock.Setup(broker =>
                 broker.Update$safeItemNameSingular$Async(input$safeItemNameSingular$))
@@ -38,10 +33,6 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
 
             // then
             actual$safeItemNameSingular$.Should().BeEquivalentTo(expected$safeItemNameSingular$);
-
-            this.storageBrokerMock.Verify(broker =>
-                broker.Select$safeItemNameSingular$ByIdAsync(input$safeItemNameSingular$.Id),
-                    Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
                 broker.Update$safeItemNameSingular$Async(input$safeItemNameSingular$),

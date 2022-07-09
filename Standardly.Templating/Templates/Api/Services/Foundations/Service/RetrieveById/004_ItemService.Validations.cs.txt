@@ -35,6 +35,9 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
                 (Rule: IsNotRecent($parameterSafeItemNameSingular$.CreatedDate), Parameter: nameof($safeItemNameSingular$.CreatedDate)));
         }
 
+        public void Validate$safeItemNameSingular$Id(Guid $parameterSafeItemNameSingular$Id) =>
+            Validate((Rule: IsInvalid($parameterSafeItemNameSingular$Id), Parameter: nameof($safeItemNameSingular$.Id)));
+
         private static void Validate$safeItemNameSingular$IsNotNull($safeItemNameSingular$ $parameterSafeItemNameSingular$)
         {
             if ($parameterSafeItemNameSingular$ is null)
@@ -43,8 +46,17 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
             }
         }
 
-        public void Validate$safeItemNameSingular$Id(Guid $parameterSafeItemNameSingular$Id) =>
-            Validate((Rule: IsInvalid($parameterSafeItemNameSingular$Id), Parameter: nameof($safeItemNameSingular$.Id)));
+        private static dynamic IsInvalid(Guid id) => new
+        {
+            Condition = id == Guid.Empty,
+            Message = "Id is required"
+        };
+
+        private static dynamic IsInvalid(DateTimeOffset date) => new
+        {
+            Condition = date == default,
+            Message = "Date is required"
+        };
 
         private static dynamic IsNotSame(
             DateTimeOffset firstDate,
@@ -63,18 +75,6 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
                 Condition = firstId != secondId,
                 Message = $"Id is not the same as {secondIdName}"
             };
-
-        private static dynamic IsInvalid(Guid id) => new
-        {
-            Condition = id == Guid.Empty,
-            Message = "Id is required"
-        };
-
-        private static dynamic IsInvalid(DateTimeOffset date) => new
-        {
-            Condition = date == default,
-            Message = "Date is required"
-        };
 
         private dynamic IsNotRecent(DateTimeOffset date) => new
         {
