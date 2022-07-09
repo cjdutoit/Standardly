@@ -1413,7 +1413,7 @@
           ]
         },
         {
-          "name": "014 - ShouldThrowValidationExceptionOnModifyIf$safeItemNameSingular$DoesNotExistAndLogItAsync -> PASS",
+          "name": "014 - ShouldThrowValidationExceptionOnModifyIfStorageCreatedDateNotSameAsCreatedDateAndLogItAsyncs -> PASS",
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
@@ -1434,12 +1434,12 @@
             },
             {
               "name": "Commit staged changes",
-              "instruction": "git commit -m \"ShouldThrowValidationExceptionOnModifyIf$safeItemNameSingular$DoesNotExistAndLogItAsync -> PASS\""
+              "instruction": "git commit -m \"ShouldThrowValidationExceptionOnModifyIfStorageCreatedDateNotSameAsCreatedDateAndLogItAsyncs -> PASS\""
             }
           ]
         },
         {
-          "name": "015 - ShouldThrowValidationExceptionOnModifyIfStorageCreatedUserIdNotSameAsCreatedUserIdAndLogItAsync -> FAIL",
+          "name": "015 - ShouldThrowValidationExceptionOnModifyIfCreatedUserIdDontMacthStorageAndLogItAsync -> FAIL",
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
@@ -1455,12 +1455,12 @@
             },
             {
               "name": "Commit staged changes",
-              "instruction": "git commit -m \"ShouldThrowValidationExceptionOnModifyIfStorageCreatedUserIdNotSameAsCreatedUserIdAndLogItAsync -> FAIL\""
+              "instruction": "git commit -m \"ShouldThrowValidationExceptionOnModifyIfCreatedUserIdDontMacthStorageAndLogItAsync -> FAIL\""
             }
           ]
         },
         {
-          "name": "016 - ShouldThrowValidationExceptionOnModifyIfStorageCreatedUserIdNotSameAsCreatedUserIdAndLogItAsync -> PASS",
+          "name": "016 - ShouldThrowValidationExceptionOnModifyIfCreatedUserIdDontMacthStorageAndLogItAsync -> PASS",
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
@@ -1476,7 +1476,7 @@
             },
             {
               "name": "Commit staged changes",
-              "instruction": "git commit -m \"ShouldThrowValidationExceptionOnModifyIfStorageCreatedUserIdNotSameAsCreatedUserIdAndLogItAsync -> PASS\""
+              "instruction": "git commit -m \"ShouldThrowValidationExceptionOnModifyIfCreatedUserIdDontMacthStorageAndLogItAsync -> PASS\""
             }
           ]
         },
@@ -1528,7 +1528,7 @@
           ]
         },
         {
-          "name": "019 - ShouldThrowCriticalDependencyExceptionOnModifyIfSqlErrorOccursAndLogItAsync -> FAIL",
+          "name": "019 - ShouldThrowCriticalDependencyExceptionOnModifyIfSqlErrorOccursAndLogItAsync -> PASS",
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
@@ -1544,12 +1544,12 @@
             },
             {
               "name": "Commit staged changes",
-              "instruction": "git commit -m \"ShouldThrowCriticalDependencyExceptionOnModifyIfSqlErrorOccursAndLogItAsync -> FAIL\""
+              "instruction": "git commit -m \"ShouldThrowCriticalDependencyExceptionOnModifyIfSqlErrorOccursAndLogItAsync -> PASS\""
             }
           ]
         },
         {
-          "name": "020 - ShouldThrowCriticalDependencyExceptionOnModifyIfSqlErrorOccursAndLogItAsync -> PASS",
+          "name": "020 - ShouldThrowValidationExceptionOnModifyIfReferenceErrorOccursAndLogItAsync -> PASS",
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
@@ -1565,7 +1565,7 @@
             },
             {
               "name": "Commit staged changes",
-              "instruction": "git commit -m \"ShouldThrowCriticalDependencyExceptionOnModifyIfSqlErrorOccursAndLogItAsync -> PASS\""
+              "instruction": "git commit -m \"ShouldThrowValidationExceptionOnModifyIfReferenceErrorOccursAndLogItAsync -> PASS\""
             }
           ]
         },
@@ -1634,6 +1634,27 @@
             {
               "name": "Commit staged changes",
               "instruction": "git commit -m \"ShouldThrowDependencyValidationExceptionOnModifyIfDatabaseUpdateConcurrencyErrorOccursAndLogItAsync -> PASS\""
+            }
+          ]
+        },
+        {
+          "name": "024 - ShouldThrowValidationExceptionOnModifyIfStorageUpdatedDateSameAsUpdatedDateAndLogItAsync -> PASS",
+          "executionFolder": "$projectFolder$",
+          "fileItems": [
+            {
+              "template": "$templateFolder$\\Api\\Services\\Foundations\\Service\\Modify\\024_ItemServiceTests.Exceptions.Modify.cs.txt",
+              "target": "$projectFolder$\\$services$\\$foundations$\\$safeItemNamePlural$\\$safeItemNameSingular$ServiceTests.Exceptions.Modify.cs",
+              "replace": true
+            }
+          ],
+          "executions": [
+            {
+              "name": "Stage all changes",
+              "instruction": "git add -A"
+            },
+            {
+              "name": "Commit staged changes",
+              "instruction": "git commit -m \"ShouldThrowValidationExceptionOnModifyIfStorageUpdatedDateSameAsUpdatedDateAndLogItAsync -> PASS\""
             }
           ]
         },
