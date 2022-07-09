@@ -53,9 +53,6 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
             {
                 Validate$safeItemNameSingular$OnModify($parameterSafeItemNameSingular$);
 
-                $safeItemNameSingular$ maybe$safeItemNameSingular$ =
-                    await this.storageBroker.Select$safeItemNameSingular$ByIdAsync($parameterSafeItemNameSingular$.Id);
-
                 return await this.storageBroker.Update$safeItemNameSingular$Async($parameterSafeItemNameSingular$);
             });
     }

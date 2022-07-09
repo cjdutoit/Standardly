@@ -7,7 +7,7 @@ using $rootnamespace$.$models$.$safeItemNamePlural$;
 using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
 using Xunit;
 
-namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
@@ -26,10 +26,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(null$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
+            actual$safeItemNameSingular$ValidationException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
 
             this.loggingBrokerMock.Verify(broker =>
                 broker.LogError(It.Is(SameExceptionAs(
@@ -101,10 +103,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(invalid$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             //then
-            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
+            actual$safeItemNameSingular$ValidationException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
 
             this.dateTimeBrokerMock.Verify(broker =>
                 broker.GetCurrentDateTimeOffset(),
@@ -119,9 +123,9 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 broker.Update$safeItemNameSingular$Async(It.IsAny<$safeItemNameSingular$>()),
                     Times.Never);
 
-            this.dateTimeBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
+            this.dateTimeBrokerMock.VerifyNoOtherCalls();
         }
 
         [Fact]
@@ -149,10 +153,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(invalid$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
+            actual$safeItemNameSingular$ValidationException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
 
             this.dateTimeBrokerMock.Verify(broker =>
                 broker.GetCurrentDateTimeOffset(),
@@ -167,9 +173,9 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 broker.Select$safeItemNameSingular$ByIdAsync(invalid$safeItemNameSingular$.Id),
                     Times.Never);
 
-            this.dateTimeBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
+            this.dateTimeBrokerMock.VerifyNoOtherCalls();
         }
 
         [Theory]
@@ -200,10 +206,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(random$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidatonException);
+            actual$safeItemNameSingular$ValidationException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ValidatonException);
 
             this.dateTimeBrokerMock.Verify(broker =>
                 broker.GetCurrentDateTimeOffset(),
@@ -227,11 +235,9 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
         public async Task ShouldThrowValidationExceptionOnModifyIf$safeItemNameSingular$DoesNotExistAndLogItAsync()
         {
             // given
-            int randomNegativeMinutes = GetRandomNegativeNumber();
             DateTimeOffset randomDateTimeOffset = GetRandomDateTimeOffset();
-            $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandom$safeItemNameSingular$(randomDateTimeOffset);
+            $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandomModify$safeItemNameSingular$(randomDateTimeOffset);
             $safeItemNameSingular$ nonExist$safeItemNameSingular$ = random$safeItemNameSingular$;
-            nonExist$safeItemNameSingular$.CreatedDate = randomDateTimeOffset.AddMinutes(randomNegativeMinutes);
             $safeItemNameSingular$ null$safeItemNameSingular$ = null;
 
             var notFound$safeItemNameSingular$Exception =
@@ -253,10 +259,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(nonExist$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
+            actual$safeItemNameSingular$ValidationException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
 
             this.storageBrokerMock.Verify(broker =>
                 broker.Select$safeItemNameSingular$ByIdAsync(nonExist$safeItemNameSingular$.Id),
@@ -280,13 +288,14 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
         public async Task ShouldThrowValidationExceptionOnModifyIfStorageCreatedDateNotSameAsCreatedDateAndLogItAsync()
         {
             // given
-            int randomNumber = GetRandomNumber();
+            int randomNumber = GetRandomNegativeNumber();
             int randomMinutes = randomNumber;
             DateTimeOffset randomDateTimeOffset = GetRandomDateTimeOffset();
             $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandomModify$safeItemNameSingular$(randomDateTimeOffset);
-            $safeItemNameSingular$ invalid$safeItemNameSingular$ = random$safeItemNameSingular$;
-            $safeItemNameSingular$ storage$safeItemNameSingular$ = random$safeItemNameSingular$.DeepClone();
-            invalid$safeItemNameSingular$.CreatedDate = storage$safeItemNameSingular$.CreatedDate.AddMinutes(randomMinutes);
+            $safeItemNameSingular$ invalid$safeItemNameSingular$ = random$safeItemNameSingular$.DeepClone();
+            $safeItemNameSingular$ storage$safeItemNameSingular$ = invalid$safeItemNameSingular$.DeepClone();
+            storage$safeItemNameSingular$.CreatedDate = storage$safeItemNameSingular$.CreatedDate.AddMinutes(randomMinutes);
+            storage$safeItemNameSingular$.UpdatedDate = storage$safeItemNameSingular$.UpdatedDate.AddMinutes(randomMinutes);
             var invalid$safeItemNameSingular$Exception = new Invalid$safeItemNameSingular$Exception();
 
             invalid$safeItemNameSingular$Exception.AddData(
@@ -309,10 +318,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(invalid$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
+            actual$safeItemNameSingular$ValidationException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
 
             this.storageBrokerMock.Verify(broker =>
                 broker.Select$safeItemNameSingular$ByIdAsync(invalid$safeItemNameSingular$.Id),

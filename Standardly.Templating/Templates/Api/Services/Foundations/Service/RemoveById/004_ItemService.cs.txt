@@ -70,8 +70,7 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
                 $safeItemNameSingular$ maybe$safeItemNameSingular$ = await this.storageBroker
                     .Select$safeItemNameSingular$ByIdAsync($parameterSafeItemNameSingular$Id);
 
-                return await this.storageBroker
-                    .Delete$safeItemNameSingular$Async(maybe$safeItemNameSingular$);
+                return await this.storageBroker.Delete$safeItemNameSingular$Async(maybe$safeItemNameSingular$);
             });
     }
 }

@@ -40,8 +40,10 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
             {
                 Validate$safeItemNameSingular$Id($parameterSafeItemNameSingular$Id);
 
-                return await this.storageBroker
+                $safeItemNameSingular$ maybe$safeItemNameSingular$ = await this.storageBroker
                     .Select$safeItemNameSingular$ByIdAsync($parameterSafeItemNameSingular$Id);
+
+                return maybe$safeItemNameSingular$;
             });
     }
 }

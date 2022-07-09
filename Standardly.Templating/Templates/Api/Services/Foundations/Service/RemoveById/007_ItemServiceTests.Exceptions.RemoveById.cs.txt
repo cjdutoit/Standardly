@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
+using FluentAssertions;
 using Microsoft.Data.SqlClient;
 using Moq;
 using $rootnamespace$.$models$.$safeItemNamePlural$;
 using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
 using Xunit;
 
-namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
@@ -30,11 +31,13 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
             ValueTask<$safeItemNameSingular$> add$safeItemNameSingular$Task =
                 this.$parameterSafeItemNameSingular$Service.Remove$safeItemNameSingular$ByIdAsync(random$safeItemNameSingular$.Id);
 
-            $safeItemNameSingular$DependencyException actual$safeItemNameSingular$DependencyException = 
-                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(add$safeItemNameSingular$Task.AsTask);
+            $safeItemNameSingular$DependencyException actual$safeItemNameSingular$DependencyException =
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(
+                    add$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$DependencyException.Should().BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
+            actual$safeItemNameSingular$DependencyException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
 
             this.storageBrokerMock.Verify(broker =>
                 broker.Select$safeItemNameSingular$ByIdAsync(random$safeItemNameSingular$.Id),

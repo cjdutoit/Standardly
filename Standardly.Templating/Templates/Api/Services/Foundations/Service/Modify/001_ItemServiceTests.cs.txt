@@ -13,7 +13,7 @@ using Tynamix.ObjectFiller;
 using Xeptions;
 using Xunit;
 
-namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
@@ -37,8 +37,8 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
         private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException) =>
             actualException => actualException.SameExceptionAs(expectedException);
 
-        private static DateTimeOffset GetRandomDateTimeOffset() =>
-            new DateTimeRange(earliestDate: new DateTime()).GetValue();
+        private static string GetRandomMessage() =>
+            new MnemonicString(wordCount: GetRandomNumber()).GetValue();
 
         public static TheoryData MinutesBeforeOrAfter()
         {
@@ -55,14 +55,14 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
         private static SqlException GetSqlException() =>
             (SqlException)FormatterServices.GetUninitializedObject(typeof(SqlException));
 
-        private static string GetRandomMessage() =>
-            new MnemonicString(wordCount: GetRandomNumber()).GetValue();
-
         private static int GetRandomNumber() =>
             new IntRange(min: 2, max: 10).GetValue();
 
         private static int GetRandomNegativeNumber() =>
             -1 * new IntRange(min: 2, max: 10).GetValue();
+
+        private static DateTimeOffset GetRandomDateTimeOffset() =>
+            new DateTimeRange(earliestDate: new DateTime()).GetValue();
 
         private static $safeItemNameSingular$ CreateRandomModify$safeItemNameSingular$(DateTimeOffset dateTimeOffset)
         {
