@@ -26,7 +26,8 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Add$safeItemNameSingular$Async(null$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(add$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    add$safeItemNameSingular$Task.AsTask);
 
             // then
             actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);

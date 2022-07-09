@@ -9,7 +9,7 @@ using $rootnamespace$.$models$.$safeItemNamePlural$;
 using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
 using Xunit;
 
-namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
@@ -31,14 +31,16 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                     .Throws(sqlException);
 
             // when
-            ValueTask<$safeItemNameSingular$> add$safeItemNameSingular$Task =
+            ValueTask<$safeItemNameSingular$> modify$safeItemNameSingular$Task =
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(random$safeItemNameSingular$);
 
             $safeItemNameSingular$DependencyException actual$safeItemNameSingular$DependencyException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(add$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$DependencyException.Should().BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
+            actual$safeItemNameSingular$DependencyException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
 
             this.dateTimeBrokerMock.Verify(broker =>
                 broker.GetCurrentDateTimeOffset(),
@@ -88,7 +90,8 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(some$safeItemNameSingular$);
 
             $safeItemNameSingular$DependencyValidationException actual$safeItemNameSingular$DependencyValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
             actual$safeItemNameSingular$DependencyValidationException.Should()
@@ -137,10 +140,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(random$safeItemNameSingular$);
 
             $safeItemNameSingular$DependencyException actual$safeItemNameSingular$DependencyException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$DependencyException.Should().BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
+            actual$safeItemNameSingular$DependencyException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
 
             this.dateTimeBrokerMock.Verify(broker =>
                 broker.GetCurrentDateTimeOffset(),
@@ -165,7 +170,7 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
         }
 
         [Fact]
-        public async Task ShouldThrowDependencyValidationExceptionOnModifyIfDatabaseUpdateConcurrencyErrorOccursAndLogItAsync()
+        public async Task ShouldThrowDependencyValidationExceptionOnModifyIfDbUpdateConcurrencyErrorOccursAndLogAsync()
         {
             // given
             $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandom$safeItemNameSingular$();
@@ -186,7 +191,8 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(random$safeItemNameSingular$);
 
             $safeItemNameSingular$DependencyValidationException actual$safeItemNameSingular$DependencyValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
             actual$safeItemNameSingular$DependencyValidationException.Should()
@@ -235,8 +241,13 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
             ValueTask<$safeItemNameSingular$> modify$safeItemNameSingular$Task =
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(random$safeItemNameSingular$);
 
+            $safeItemNameSingular$ServiceException actual$safeItemNameSingular$ServiceException =
+                await Assert.ThrowsAsync<$safeItemNameSingular$ServiceException>(
+                    modify$safeItemNameSingular$Task.AsTask);
+
             // then
-            await Assert.ThrowsAsync<$safeItemNameSingular$ServiceException>(modify$safeItemNameSingular$Task.AsTask);
+            actual$safeItemNameSingular$ServiceException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ServiceException);
 
             this.dateTimeBrokerMock.Verify(broker =>
                 broker.GetCurrentDateTimeOffset(),

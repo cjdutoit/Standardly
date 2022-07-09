@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Templates\Api\Brokers\LocalEvents\" />
-    <Folder Include="Templates\Api\Services\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -376,6 +375,9 @@
     <None Update="Templates\Api\Services\Foundations\Service\Modify\011_ItemServiceTests.Validations.Modify.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\012_$safeItemNameSingular$ServiceTests.Logic.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Templates\Api\Services\Foundations\Service\Modify\012_ItemService.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -398,9 +400,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Templates\Api\Services\Foundations\Service\Modify\018_ItemService.Validations.cs.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Templates\Api\Services\Foundations\Service\Modify\018_ItemServiceTests.Validations.Modify.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Templates\Api\Services\Foundations\Service\Modify\019_ItemServiceTests.Exceptions.Modify.cs.txt">

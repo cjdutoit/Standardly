@@ -31,10 +31,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Retrieve$safeItemNameSingular$ByIdAsync(invalid$safeItemNameSingular$Id);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(retrieve$safeItemNameSingular$ByIdTask.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    retrieve$safeItemNameSingular$ByIdTask.AsTask);
 
             // then
-            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
+            actual$safeItemNameSingular$ValidationException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
 
             this.loggingBrokerMock.Verify(broker =>
                 broker.LogError(It.Is(SameExceptionAs(

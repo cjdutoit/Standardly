@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Moq;
@@ -7,7 +8,7 @@ using $rootnamespace$.$models$.$safeItemNamePlural$;
 using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
 using Xunit;
 
-namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
@@ -32,12 +33,14 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
             ValueTask<$safeItemNameSingular$> add$safeItemNameSingular$Task =
                 this.$parameterSafeItemNameSingular$Service.Remove$safeItemNameSingular$ByIdAsync(random$safeItemNameSingular$.Id);
 
-            $safeItemNameSingular$DependencyException actual$safeItemNameSingular$DependencyException = 
-                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(add$safeItemNameSingular$Task.AsTask);
+            $safeItemNameSingular$DependencyException actual$safeItemNameSingular$DependencyException =
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(
+                    add$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$DependencyException.Should().BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
-			
+            actual$safeItemNameSingular$DependencyException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
+
             this.storageBrokerMock.Verify(broker =>
                 broker.Select$safeItemNameSingular$ByIdAsync(random$safeItemNameSingular$.Id),
                     Times.Once);
@@ -83,12 +86,14 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
             ValueTask<$safeItemNameSingular$> remove$safeItemNameSingular$ByIdTask =
                 this.$parameterSafeItemNameSingular$Service.Remove$safeItemNameSingular$ByIdAsync(some$safeItemNameSingular$Id);
 
-            $safeItemNameSingular$DependencyValidationException actual$safeItemNameSingular$DependencyValidationException = 
-                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyValidationException>(remove$safeItemNameSingular$ByIdTask.AsTask);
+            $safeItemNameSingular$DependencyValidationException actual$safeItemNameSingular$DependencyValidationException =
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyValidationException>(
+                    remove$safeItemNameSingular$ByIdTask.AsTask);
 
             // then
-			actual$safeItemNameSingular$DependencyValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$DependencyValidationException);
-			
+            actual$safeItemNameSingular$DependencyValidationException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$DependencyValidationException);
+
             this.storageBrokerMock.Verify(broker =>
                 broker.Select$safeItemNameSingular$ByIdAsync(It.IsAny<Guid>()),
                     Times.Once);
@@ -129,10 +134,12 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Remove$safeItemNameSingular$ByIdAsync(some$safeItemNameSingular$Id);
 
             $safeItemNameSingular$DependencyException actual$safeItemNameSingular$DependencyException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(delete$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$DependencyException>(
+                    delete$safeItemNameSingular$Task.AsTask);
 
             // then
-			actual$safeItemNameSingular$DependencyException.Should().BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
+            actual$safeItemNameSingular$DependencyException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$DependencyException);
 
             this.storageBrokerMock.Verify(broker =>
                 broker.Select$safeItemNameSingular$ByIdAsync(It.IsAny<Guid>()),
@@ -169,12 +176,14 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
             ValueTask<$safeItemNameSingular$> remove$safeItemNameSingular$ByIdTask =
                 this.$parameterSafeItemNameSingular$Service.Remove$safeItemNameSingular$ByIdAsync(some$safeItemNameSingular$Id);
 
-            $safeItemNameSingular$ServiceException actual$safeItemNameSingular$ServiceException = 
-                await Assert.ThrowsAsync<$safeItemNameSingular$ServiceException>(remove$safeItemNameSingular$ByIdTask.AsTask);
+            $safeItemNameSingular$ServiceException actual$safeItemNameSingular$ServiceException =
+                await Assert.ThrowsAsync<$safeItemNameSingular$ServiceException>(
+                    remove$safeItemNameSingular$ByIdTask.AsTask);
 
             // then
-			actual$safeItemNameSingular$ServiceException.Should().BeEquivalentTo(expected$safeItemNameSingular$ServiceException);
-			
+            actual$safeItemNameSingular$ServiceException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ServiceException);
+
             this.storageBrokerMock.Verify(broker =>
                 broker.Select$safeItemNameSingular$ByIdAsync(It.IsAny<Guid>()),
                         Times.Once());

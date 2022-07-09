@@ -6,7 +6,7 @@ using $rootnamespace$.$models$.$safeItemNamePlural$;
 using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
 using Xunit;
 
-namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
+namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
@@ -25,15 +25,21 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(null$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
-            actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
+            actual$safeItemNameSingular$ValidationException.Should()
+                .BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
 
             this.loggingBrokerMock.Verify(broker =>
                 broker.LogError(It.Is(SameExceptionAs(
                     expected$safeItemNameSingular$ValidationException))),
                         Times.Once);
+
+            this.dateTimeBrokerMock.Verify(broker =>
+                broker.GetCurrentDateTimeOffset(),
+                    Times.Never);
 
             this.storageBrokerMock.Verify(broker =>
                 broker.Update$safeItemNameSingular$Async(It.IsAny<$safeItemNameSingular$>()),
@@ -96,7 +102,8 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(invalid$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             //then
             actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);
@@ -136,7 +143,8 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 this.$parameterSafeItemNameSingular$Service.Modify$safeItemNameSingular$Async(invalid$safeItemNameSingular$);
 
             $safeItemNameSingular$ValidationException actual$safeItemNameSingular$ValidationException =
-                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(modify$safeItemNameSingular$Task.AsTask);
+                await Assert.ThrowsAsync<$safeItemNameSingular$ValidationException>(
+                    modify$safeItemNameSingular$Task.AsTask);
 
             // then
             actual$safeItemNameSingular$ValidationException.Should().BeEquivalentTo(expected$safeItemNameSingular$ValidationException);

@@ -48,12 +48,7 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
                 return maybe$safeItemNameSingular$;
             });
 
-        public async ValueTask<$safeItemNameSingular$> Modify$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$)
-        {
-            $safeItemNameSingular$ maybe$safeItemNameSingular$ =
-                await this.storageBroker.Select$safeItemNameSingular$ByIdAsync($parameterSafeItemNameSingular$.Id);
-
-            return await this.storageBroker.Update$safeItemNameSingular$Async($parameterSafeItemNameSingular$);
-        }
+        public async ValueTask<$safeItemNameSingular$> Modify$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+            await this.storageBroker.Update$safeItemNameSingular$Async($parameterSafeItemNameSingular$);
     }
 }

@@ -72,8 +72,7 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
 
                 ValidateStorage$safeItemNameSingular$(maybe$safeItemNameSingular$, $parameterSafeItemNameSingular$Id);
 
-                return await this.storageBroker
-                    .Delete$safeItemNameSingular$Async(maybe$safeItemNameSingular$);
+                return await this.storageBroker.Delete$safeItemNameSingular$Async(maybe$safeItemNameSingular$);
             });
     }
 }

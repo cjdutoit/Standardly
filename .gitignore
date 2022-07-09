@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/Standardly/v2/0/b
+/Standardly/v2/0/.lutsyncmode
+/Standardly/v2/0/.lutlog

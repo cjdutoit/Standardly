@@ -37,9 +37,9 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
                 broker.Insert$safeItemNameSingular$Async(input$safeItemNameSingular$),
                     Times.Once);
 
-            this.dateTimeBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
+            this.dateTimeBrokerMock.VerifyNoOtherCalls();
         }
     }
 }
