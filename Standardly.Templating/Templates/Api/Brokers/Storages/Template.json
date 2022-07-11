@@ -51,6 +51,10 @@
               "instruction": "dotnet-ef migrations add InitialCreate"
             },
             {
+              "name": "Update Database",
+              "instruction": "dotnet-ef database update"
+            },
+            {
               "name": "Stage all changes",
               "instruction": "git add -A"
             },
@@ -171,6 +175,10 @@
             {
               "name": "Add $safeItemNameSingular$ Model Migration",
               "instruction": "dotnet-ef migrations add Add$safeItemNameSingular$Model"
+            },
+            {
+              "name": "Update Database",
+              "instruction": "dotnet-ef database update"
             },
             {
               "name": "Stage all changes",
