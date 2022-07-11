@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -337,7 +338,11 @@ namespace Standardly.Forms
                 this.GenerateCriteria.GitHubBaseBranchName = txtGitHubBaseBranchName.Text;
                 this.GenerateCriteria.GitHubUsername = txtGitHubUsername.Text;
                 this.GenerateCriteria.DisplayName = txtDisplayName.Text;
-                this.GenerateCriteria.Copyright = txtCopyright.Text.Replace(Environment.NewLine, "##n##");
+
+                this.GenerateCriteria.Copyright = txtCopyright.Text
+                    .Replace("\r", "")
+                    .Replace("\n", "##n##");
+
                 this.GenerateCriteria.License = txtLicense.Text;
 
                 this.GenerateCriteria.Template = this.templates
@@ -641,6 +646,25 @@ namespace Standardly.Forms
             chkSubmitAsDraftPullRequest.Checked = chkPublicRepository.Checked;
 
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string assembly = Assembly.GetExecutingAssembly().Location;
+            string templateFolder = Path.Combine(Path.GetDirectoryName(assembly), "Templates");
+
+            if (!Directory.Exists(templateFolder))
+            {
+                Directory.CreateDirectory(templateFolder);
+            }
+
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                Arguments = templateFolder,
+                FileName = "explorer.exe"
+            };
+
+            Process.Start(startInfo);
         }
     }
 }

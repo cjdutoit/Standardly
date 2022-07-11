@@ -70,7 +70,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -131,7 +131,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -192,7 +192,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -253,7 +253,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -314,7 +314,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -375,7 +375,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -392,11 +392,11 @@
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
-    "  - BROKERS: Logging - Log Information",
-    "  - BROKERS: Logging - Log LogTrace",
-    "  - BROKERS: Logging - Log LogDebug",
-    "  - BROKERS: Logging - Log LogWarning",
-    "  - BROKERS: Logging - Log LogError",
-    "  - BROKERS: Logging - Log LogCritical"
+    "  - BROKERS: Logging - Log Information  ->  users/$username$/brokers-loggers-loginformation",
+    "  - BROKERS: Logging - Log LogTrace  ->  users/$username$/brokers-loggers-logtrace",
+    "  - BROKERS: Logging - Log LogDebug  ->  users/$username$/brokers-loggers-logdebug",
+    "  - BROKERS: Logging - Log LogWarning  ->  users/$username$/brokers-loggers-logwarning",
+    "  - BROKERS: Logging - Log LogError  ->  users/$username$/brokers-loggers-logerror",
+    "  - BROKERS: Logging - Log LogCritical  ->  users/$username$/brokers-loggers-logcritical"
   ]
 }

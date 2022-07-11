@@ -66,7 +66,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -83,6 +83,6 @@
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
-    "  - BROKERS: DateTime - Get Current DateTime Offset"
+    "  - BROKERS: DateTime - Get Current DateTime Offset  ->  users/$username$/brokers-datetime-getcurrentdatetimeoffset"
   ]
 }
