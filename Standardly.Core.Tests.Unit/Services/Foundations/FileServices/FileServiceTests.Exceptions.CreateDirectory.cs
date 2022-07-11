@@ -45,7 +45,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
 
             this.fileSystemBrokerMock.Verify(broker =>
                 broker.CreateDirectory(somePath),
-                    Times.Once);
+                    Times.Exactly(this.retryConfig.MaxRetryAttempts));
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();
         }
@@ -84,7 +84,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
 
             this.fileSystemBrokerMock.Verify(broker =>
                 broker.CreateDirectory(somePath),
-                    Times.Once);
+                    Times.Exactly(this.retryConfig.MaxRetryAttempts));
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();
         }
@@ -123,7 +123,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
 
             this.fileSystemBrokerMock.Verify(broker =>
                 broker.CreateDirectory(somePath),
-                    Times.Once);
+                    Times.Exactly(this.retryConfig.MaxRetryAttempts));
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();
         }
@@ -156,7 +156,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
 
             this.fileSystemBrokerMock.Verify(broker =>
                 broker.CreateDirectory(somePath),
-                    Times.Once);
+                    Times.Exactly(this.retryConfig.MaxRetryAttempts));
 
             this.fileSystemBrokerMock.VerifyNoOtherCalls();
         }

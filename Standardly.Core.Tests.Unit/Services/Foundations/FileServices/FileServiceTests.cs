@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Moq;
 using Standardly.Core.Brokers.FileSystems;
+using Standardly.Core.Models.RetryConfig;
 using Standardly.Core.Services.Foundations.FileServices;
 using Tynamix.ObjectFiller;
 using Xunit;
@@ -19,12 +20,19 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
     public partial class FileServiceTests
     {
         private readonly Mock<IFileSystemBroker> fileSystemBrokerMock;
+        private readonly IRetryConfig retryConfig;
         private readonly IFileService fileService;
 
         public FileServiceTests()
         {
+            int maxRetryAttempts = 3;
+            TimeSpan pauseBetweenFailures = TimeSpan.FromMilliseconds(10);
+            this.retryConfig = new RetryConfig(maxRetryAttempts, pauseBetweenFailures);
             fileSystemBrokerMock = new Mock<IFileSystemBroker>();
-            this.fileService = new FileService(fileSystemBroker: this.fileSystemBrokerMock.Object);
+
+            this.fileService = new FileService(
+                fileSystemBroker: this.fileSystemBrokerMock.Object,
+                retryConfig: this.retryConfig);
         }
 
         public static TheoryData FileServiceDependencyValidationExceptions()

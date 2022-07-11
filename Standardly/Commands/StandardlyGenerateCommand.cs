@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using Standardly.Core.Brokers.ExecutionBroker;
 using Standardly.Core.Brokers.FileSystems;
+using Standardly.Core.Models.RetryConfig;
 using Standardly.Core.Services.Foundations.Executions;
 using Standardly.Core.Services.Foundations.FileServices;
 using Standardly.Core.Services.Foundations.TemplateServices;
@@ -26,17 +27,17 @@ namespace Standardly
         {
             try
             {
+                int maxRetryAttempts = 3;
+                TimeSpan pauseBetweenFailures = TimeSpan.FromSeconds(2);
                 General general = await General.GetLiveInstanceAsync();
                 Locations locations = await Locations.GetLiveInstanceAsync();
                 Project project = await VS.Solutions.GetActiveProjectAsync();
                 IEnumerable<Project> projects = await VS.Solutions.GetAllProjectsAsync();
-
                 Setting settings = GetSettings(general, locations, project, projects);
-
                 IFileSystemBroker fileSystemBroker = new FileSystemBroker();
                 IExecutionBroker executionBroker = new CliExecutionBroker();
-
-                IFileService fileService = new FileService(fileSystemBroker);
+                IRetryConfig retryConfig = new RetryConfig(maxRetryAttempts, pauseBetweenFailures);
+                IFileService fileService = new FileService(fileSystemBroker, retryConfig);
                 IExecutionService executionService = new ExecutionService(executionBroker);
                 ITemplateService templateService = new TemplateService(fileSystemBroker);
 
