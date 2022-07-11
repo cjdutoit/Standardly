@@ -1506,11 +1506,6 @@
           "executionFolder": "$projectFolder$",
           "fileItems": [
             {
-              "template": "$templateFolder$\\Api\\Services\\Foundations\\Service\\Modify\\018_ItemServiceTests.Validations.Modify.cs.txt",
-              "target": "$unitTestProjectFolder$\\$services$\\$foundations$\\$safeItemNamePlural$\\$safeItemNameSingular$ServiceTests.Validations.Modify.cs",
-              "replace": true
-            },
-            {
               "template": "$templateFolder$\\Api\\Services\\Foundations\\Service\\Modify\\018_ItemService.Validations.cs.txt",
               "target": "$projectFolder$\\$services$\\$foundations$\\$safeItemNamePlural$\\$safeItemNameSingular$Service.Validations.cs",
               "replace": true
