@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Standardly.Core.Brokers.ExecutionBroker;
 using Standardly.Core.Brokers.FileSystems;
+using Standardly.Core.Models.RetryConfig;
 using Standardly.Core.Models.Templates.Exceptions;
 using Standardly.Core.Services.Foundations.Executions;
 using Standardly.Core.Services.Foundations.FileServices;
@@ -19,6 +20,7 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
 {
     public partial class TemplateValidationTests
     {
+        private readonly IRetryConfig retryConfig;
         private readonly IFileService fileService;
         private readonly IExecutionService executionService;
         private readonly ITemplateService templateService;
@@ -29,7 +31,8 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
         public TemplateValidationTests()
         {
             this.fileSystemBroker = new FileSystemBroker();
-            fileService = new FileService(this.fileSystemBroker);
+            this.retryConfig = new RetryConfig(3, TimeSpan.FromMilliseconds(200));
+            fileService = new FileService(this.fileSystemBroker, retryConfig);
             executionService = new ExecutionService(new CliExecutionBroker());
             templateService = new TemplateService(this.fileSystemBroker);
 
