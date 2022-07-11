@@ -6,7 +6,7 @@ using $rootnamespace$.$models$.$safeItemNamePlural$;
 using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
 using Xunit;
 
-namespace $rootnamespace$.$models$.$safeItemNamePlural$
+namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
