@@ -103,6 +103,8 @@ namespace Standardly.Forms
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(6, 13);
@@ -126,6 +128,8 @@ namespace Standardly.Forms
             // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.label10);
             this.groupBox6.Controls.Add(this.label1);
             this.groupBox6.Controls.Add(this.chkExperienceUsersOnly);
@@ -214,6 +218,8 @@ namespace Standardly.Forms
             // 
             // gbProjects
             // 
+            this.gbProjects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbProjects.Controls.Add(this.label11);
             this.gbProjects.Controls.Add(this.label7);
             this.gbProjects.Controls.Add(this.label8);
@@ -341,6 +347,8 @@ namespace Standardly.Forms
             // 
             // gbTemplates
             // 
+            this.gbTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbTemplates.Controls.Add(this.txtGitHubBaseBranchName);
             this.gbTemplates.Controls.Add(this.lblGitHubBaseBranchName);
             this.gbTemplates.Controls.Add(this.chkSubmitAsDraftPullRequest);
@@ -570,6 +578,8 @@ namespace Standardly.Forms
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.txtLicense);
             this.groupBox4.Controls.Add(this.txtCopyright);
             this.groupBox4.Controls.Add(this.label3);
@@ -584,6 +594,8 @@ namespace Standardly.Forms
             // 
             // txtLicense
             // 
+            this.txtLicense.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLicense.Location = new System.Drawing.Point(75, 158);
             this.txtLicense.Multiline = true;
@@ -595,6 +607,8 @@ namespace Standardly.Forms
             // 
             // txtCopyright
             // 
+            this.txtCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCopyright.Location = new System.Drawing.Point(75, 26);
             this.txtCopyright.Multiline = true;
@@ -690,6 +704,9 @@ namespace Standardly.Forms
             // 
             // txtMessage
             // 
+            this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMessage.Location = new System.Drawing.Point(7, 483);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
@@ -700,6 +717,7 @@ namespace Standardly.Forms
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(504, 656);
             this.btnCancel.Name = "btnCancel";
@@ -711,6 +729,7 @@ namespace Standardly.Forms
             // 
             // btnGenerateFromTemplate
             // 
+            this.btnGenerateFromTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnGenerateFromTemplate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerateFromTemplate.Location = new System.Drawing.Point(6, 656);
             this.btnGenerateFromTemplate.Name = "btnGenerateFromTemplate";
