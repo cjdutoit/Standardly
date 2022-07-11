@@ -74,7 +74,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -135,7 +135,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -196,7 +196,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -257,7 +257,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -318,7 +318,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
@@ -379,7 +379,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",

@@ -91,7 +91,7 @@
         },
         {
           "name": "Create Pull Request",
-          "executionFolder": "$infrastructureBuildProjectFolder$",
+          "executionFolder": "$projectFolder$",
           "executions": [
             {
               "name": "Create Pull Request",
