@@ -169,6 +169,10 @@
           ],
           "executions": [
             {
+              "name": "Add $safeItemNameSingular$ Model Migration",
+              "instruction": "dotnet-ef migrations add Add$safeItemNameSingular$Model"
+            },
+            {
               "name": "Stage all changes",
               "instruction": "git add -A"
             },
