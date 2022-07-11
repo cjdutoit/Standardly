@@ -39,5 +39,31 @@ namespace $rootnamespace$.$brokers$.Storages
 
             return await broker.$safeItemNamePlural$.FindAsync($parameterSafeItemNameSingular$Id);
         }
+
+        public async ValueTask<$safeItemNameSingular$> Update$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$)
+        {
+            using var broker =
+                new StorageBroker(this.configuration);
+
+            EntityEntry<$safeItemNameSingular$> $parameterSafeItemNameSingular$EntityEntry =
+                broker.$safeItemNamePlural$.Update($parameterSafeItemNameSingular$);
+
+            await broker.SaveChangesAsync();
+
+            return $parameterSafeItemNameSingular$EntityEntry.Entity;
+        }
+
+        public async ValueTask<$safeItemNameSingular$> Delete$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$)
+        {
+            using var broker =
+                new StorageBroker(this.configuration);
+
+            EntityEntry<$safeItemNameSingular$> $parameterSafeItemNameSingular$EntityEntry =
+                broker.$safeItemNamePlural$.Remove($parameterSafeItemNameSingular$);
+
+            await broker.SaveChangesAsync();
+
+            return $parameterSafeItemNameSingular$EntityEntry.Entity;
+        }
     }
 }

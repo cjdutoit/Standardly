@@ -57,6 +57,8 @@ namespace Standardly.Forms
             this.txtProject = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gbTemplates = new System.Windows.Forms.GroupBox();
+            this.txtGitHubBaseBranchName = new System.Windows.Forms.TextBox();
+            this.lblGitHubBaseBranchName = new System.Windows.Forms.Label();
             this.chkSubmitAsDraftPullRequest = new System.Windows.Forms.CheckBox();
             this.chkPublicRepository = new System.Windows.Forms.CheckBox();
             this.lblTemplates = new System.Windows.Forms.Label();
@@ -88,8 +90,6 @@ namespace Standardly.Forms
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnGenerateFromTemplate = new System.Windows.Forms.Button();
-            this.txtGitHubBaseBranchName = new System.Windows.Forms.TextBox();
-            this.lblGitHubBaseBranchName = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -210,6 +210,7 @@ namespace Standardly.Forms
             this.linkLabel1.TabIndex = 14;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "templates folder";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // gbProjects
             // 
@@ -361,6 +362,24 @@ namespace Standardly.Forms
             this.gbTemplates.TabIndex = 0;
             this.gbTemplates.TabStop = false;
             this.gbTemplates.Text = "Template Info";
+            // 
+            // txtGitHubBaseBranchName
+            // 
+            this.txtGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGitHubBaseBranchName.Location = new System.Drawing.Point(209, 104);
+            this.txtGitHubBaseBranchName.Name = "txtGitHubBaseBranchName";
+            this.txtGitHubBaseBranchName.Size = new System.Drawing.Size(579, 20);
+            this.txtGitHubBaseBranchName.TabIndex = 57;
+            // 
+            // lblGitHubBaseBranchName
+            // 
+            this.lblGitHubBaseBranchName.AutoSize = true;
+            this.lblGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGitHubBaseBranchName.Location = new System.Drawing.Point(12, 107);
+            this.lblGitHubBaseBranchName.Name = "lblGitHubBaseBranchName";
+            this.lblGitHubBaseBranchName.Size = new System.Drawing.Size(181, 13);
+            this.lblGitHubBaseBranchName.TabIndex = 58;
+            this.lblGitHubBaseBranchName.Text = "GitHub Base Branch / Branch From: ";
             // 
             // chkSubmitAsDraftPullRequest
             // 
@@ -700,24 +719,6 @@ namespace Standardly.Forms
             this.btnGenerateFromTemplate.Text = "Generate Code From Template";
             this.btnGenerateFromTemplate.UseVisualStyleBackColor = true;
             this.btnGenerateFromTemplate.Click += new System.EventHandler(this.btnGenerateFromTemplate_Click);
-            // 
-            // txtGitHubBaseBranchName
-            // 
-            this.txtGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGitHubBaseBranchName.Location = new System.Drawing.Point(209, 104);
-            this.txtGitHubBaseBranchName.Name = "txtGitHubBaseBranchName";
-            this.txtGitHubBaseBranchName.Size = new System.Drawing.Size(579, 20);
-            this.txtGitHubBaseBranchName.TabIndex = 57;
-            // 
-            // lblGitHubBaseBranchName
-            // 
-            this.lblGitHubBaseBranchName.AutoSize = true;
-            this.lblGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGitHubBaseBranchName.Location = new System.Drawing.Point(12, 107);
-            this.lblGitHubBaseBranchName.Name = "lblGitHubBaseBranchName";
-            this.lblGitHubBaseBranchName.Size = new System.Drawing.Size(181, 13);
-            this.lblGitHubBaseBranchName.TabIndex = 58;
-            this.lblGitHubBaseBranchName.Text = "GitHub Base Branch / Branch From: ";
             // 
             // frmGenerate
             // 

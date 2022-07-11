@@ -8,5 +8,8 @@ namespace $rootnamespace$.$brokers$.Storages
     public partial interface IStorageBroker
     {
         ValueTask<$safeItemNameSingular$> Insert$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$);
+        IQueryable<$safeItemNameSingular$> SelectAll$safeItemNamePlural$();
+        ValueTask<$safeItemNameSingular$> Select$safeItemNameSingular$ByIdAsync(Guid $parameterSafeItemNameSingular$Id);
+        ValueTask<$safeItemNameSingular$> Update$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$);
     }
 }

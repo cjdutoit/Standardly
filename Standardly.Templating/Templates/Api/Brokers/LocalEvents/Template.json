@@ -396,11 +396,11 @@
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
-    "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event",
-    "  - BROKERS: Events - Publish $safeItemNameSingular$ Add Event",
-    "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event",
-    "  - BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event",
-    "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event",
-    "  - BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event"
+    "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Add Event  ->  users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$addevent",
+    "  - BROKERS: Events - Publish $safeItemNameSingular$ Add Event  ->  users/$username$/brokers-events-publish$lowerPluralDescriptionName$addevent",
+    "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Modify Event  ->  users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$modifyevent",
+    "  - BROKERS: Events - Publish To $safeItemNameSingular$ Modify Event  ->  users/$username$/brokers-events-publish$lowerPluralDescriptionName$modifyevent",
+    "  - BROKERS: Events - Subscribe To $safeItemNameSingular$ Remove Event  ->  users/$username$/brokers-events-subscribeto$lowerPluralDescriptionName$removeevent",
+    "  - BROKERS: Events - Publish To $safeItemNameSingular$ Remove Event  ->  users/$username$/brokers-events-publish$lowerPluralDescriptionName$removeevent"
   ]
 }

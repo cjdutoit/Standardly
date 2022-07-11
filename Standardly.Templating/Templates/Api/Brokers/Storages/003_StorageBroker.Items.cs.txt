@@ -23,21 +23,5 @@ namespace $rootnamespace$.$brokers$.Storages
 
             return $parameterSafeItemNameSingular$EntityEntry.Entity;
         }
-
-        public IQueryable<$safeItemNameSingular$> SelectAll$safeItemNamePlural$()
-        {
-            using var broker =
-                new StorageBroker(this.configuration);
-
-            return broker.$safeItemNamePlural$;
-        }
-
-        public async ValueTask<$safeItemNameSingular$> Select$safeItemNameSingular$ByIdAsync(Guid $parameterSafeItemNameSingular$Id)
-        {
-            using var broker =
-                new StorageBroker(this.configuration);
-
-            return await broker.$safeItemNamePlural$.FindAsync($parameterSafeItemNameSingular$Id);
-        }
     }
 }

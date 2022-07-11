@@ -10,7 +10,5 @@ namespace $rootnamespace$.$brokers$.Storages
         ValueTask<$safeItemNameSingular$> Insert$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$);
         IQueryable<$safeItemNameSingular$> SelectAll$safeItemNamePlural$();
         ValueTask<$safeItemNameSingular$> Select$safeItemNameSingular$ByIdAsync(Guid $parameterSafeItemNameSingular$Id);
-        ValueTask<$safeItemNameSingular$> Update$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$);
-        ValueTask<$safeItemNameSingular$> Delete$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$);
     }
 }
