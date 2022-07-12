@@ -670,7 +670,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-retrieveall"
+              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-retrieveall users/$username$/$foundations$-$safeItemNamePlural$-add"
             }
           ]
         },
@@ -859,7 +859,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid users/$username$/$foundations$-$safeItemNamePlural$-add"
+              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid users/$username$/$foundations$-$safeItemNamePlural$-retrieveall"
             }
           ]
         },
