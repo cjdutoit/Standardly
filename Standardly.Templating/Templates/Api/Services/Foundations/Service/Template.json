@@ -22,7 +22,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-add"
+              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-add"
             },
             {
               "name": "Change folder",
@@ -637,7 +637,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-add"
+              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-add"
             }
           ]
         },
@@ -670,7 +670,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-retrieveall users/$username$/$foundations$-$safeItemNamePlural$-add"
+              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-retrieveall users/$username$/foundations-$lowerPluralDescriptionName$-add"
             }
           ]
         },
@@ -826,7 +826,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-retrieveall"
+              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-retrieveall"
             }
           ]
         },
@@ -859,7 +859,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid users/$username$/$foundations$-$safeItemNamePlural$-retrieveall"
+              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-retrievebyid users/$username$/foundations-$lowerPluralDescriptionName$-retrieveall"
             }
           ]
         },
@@ -1067,7 +1067,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid"
+              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-retrievebyid"
             }
           ]
         },
@@ -1100,7 +1100,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-modify users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid"
+              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-modify users/$username$/foundations-$lowerPluralDescriptionName$-retrievebyid"
             }
           ]
         },
@@ -1664,7 +1664,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-modify"
+              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-modify"
             }
           ]
         },
@@ -1697,7 +1697,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-removebyid users/$username$/$foundations$-$safeItemNamePlural$-modify"
+              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-removebyid users/$username$/foundations-$lowerPluralDescriptionName$-modify"
             }
           ]
         },
@@ -1927,7 +1927,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$foundations$-$safeItemNamePlural$-removebyid"
+              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-removebyid"
             }
           ]
         },
@@ -1950,10 +1950,10 @@
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$  ->  users/$username$/$foundations$-$safeItemNamePlural$-add",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$  ->  users/$username$/$foundations$-$safeItemNamePlural$-retrieveall",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id  ->  users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$  ->  users/$username$/$foundations$-$safeItemNamePlural$-modify",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id  ->  users/$username$/$foundations$-$safeItemNamePlural$-removebyid"
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$  ->  users/$username$/foundations-$lowerPluralDescriptionName$-add",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$  ->  users/$username$/foundations-$lowerPluralDescriptionName$-retrieveall",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id  ->  users/$username$/foundations-$lowerPluralDescriptionName$-retrievebyid",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$  ->  users/$username$/foundations-$lowerPluralDescriptionName$-modify",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id  ->  users/$username$/foundations-$lowerPluralDescriptionName$-removebyid"
   ]
 }

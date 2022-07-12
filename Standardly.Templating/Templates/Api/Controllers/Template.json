@@ -22,7 +22,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-post"
+              "instruction": "git checkout -b users/$username$/controllers-$lowerPluralDescriptionName$-post"
             }
           ]
         },
@@ -53,7 +53,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-post"
+              "instruction": "git push origin  users/$username$/controllers-$lowerPluralDescriptionName$-post"
             }
           ]
         },
@@ -86,7 +86,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-getall"
+              "instruction": "git checkout -b users/$username$/controllers-$lowerPluralDescriptionName$-getall"
             }
           ]
         },
@@ -117,7 +117,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-getall"
+              "instruction": "git push origin users/$username$/controllers-$lowerPluralDescriptionName$-getall"
             }
           ]
         },
@@ -150,7 +150,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-getbyid"
+              "instruction": "git checkout -b users/$username$/controllers-$lowerPluralDescriptionName$-getbyid"
             }
           ]
         },
@@ -181,7 +181,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-getbyid"
+              "instruction": "git push origin users/$username$/controllers-$lowerPluralDescriptionName$-getbyid"
             }
           ]
         },
@@ -214,7 +214,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-put"
+              "instruction": "git checkout -b users/$username$/controllers-$lowerPluralDescriptionName$-put"
             }
           ]
         },
@@ -245,7 +245,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-put"
+              "instruction": "git push origin users/$username$/controllers-$lowerPluralDescriptionName$-put"
             }
           ]
         },
@@ -278,7 +278,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$controllers$-$safeItemNamePlural$-delete"
+              "instruction": "git checkout -b users/$username$/controllers-$lowerPluralDescriptionName$-delete"
             }
           ]
         },
@@ -309,7 +309,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/$controllers$-$safeItemNamePlural$-delete"
+              "instruction": "git push origin users/$username$/controllers-$lowerPluralDescriptionName$-delete"
             }
           ]
         },
@@ -333,10 +333,10 @@
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
     "* Add screenshots to the pull request to show it working and handling the errors",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
-    "  - CONTROLLERS: POST $safeItemNameSingular$  ->  users/$username$/$controllers$-$safeItemNamePlural$-post",
-    "  - CONTROLLERS: GET ALL $safeItemNamePlural$  ->  users/$username$/$controllers$-$safeItemNamePlural$-getall",
-    "  - CONTROLLERS: GET $safeItemNameSingular$ By Id  ->  users/$username$/$controllers$-$safeItemNamePlural$-getbyid",
-    "  - CONTROLLERS: PUT $safeItemNameSingular$  ->  users/$username$/$controllers$-$safeItemNamePlural$-put",
-    "  - CONTROLLERS: DELETE $safeItemNameSingular$  ->  users/$username$/$controllers$-$safeItemNamePlural$-delete"
+    "  - CONTROLLERS: POST $safeItemNameSingular$  ->  users/$username$/controllers-$lowerPluralDescriptionName$-post",
+    "  - CONTROLLERS: GET ALL $safeItemNamePlural$  ->  users/$username$/controllers-$lowerPluralDescriptionName$-getall",
+    "  - CONTROLLERS: GET $safeItemNameSingular$ By Id  ->  users/$username$/controllers-$lowerPluralDescriptionName$-getbyid",
+    "  - CONTROLLERS: PUT $safeItemNameSingular$  ->  users/$username$/controllers-$lowerPluralDescriptionName$-put",
+    "  - CONTROLLERS: DELETE $safeItemNameSingular$  ->  users/$username$/controllers-$lowerPluralDescriptionName$-delete"
   ]
 }
