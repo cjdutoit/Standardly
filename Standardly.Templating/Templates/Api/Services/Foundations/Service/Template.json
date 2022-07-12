@@ -859,7 +859,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid"
+              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid users/$username$/$foundations$-$safeItemNamePlural$-add"
             }
           ]
         },
@@ -1100,7 +1100,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-modify"
+              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-modify users/$username$/$foundations$-$safeItemNamePlural$-retrievebyid"
             }
           ]
         },
@@ -1692,7 +1692,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-removebyid"
+              "instruction": "git checkout -b users/$username$/$foundations$-$safeItemNamePlural$-removebyid users/$username$/$foundations$-$safeItemNamePlural$-modify"
             }
           ]
         },
