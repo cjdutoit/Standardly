@@ -9,7 +9,7 @@ namespace Standardly
     {
         public const string Id = "Standardly.4f725561-953f-4998-99c2-ec58132d8d4b";
         public const string Name = "Standardly";
-        public const string Description = @"An extention project that will allow you to generate various things in a 'The Standard' compliant way.";
+        public const string Description = @"A code generator that will allow you to generate various things in a 'The Standard' compliant way.";
         public const string Language = "en-US";
         public const string Version = "0.1";
         public const string Author = "Christo du Toit";
