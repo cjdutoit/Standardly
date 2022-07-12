@@ -6,7 +6,7 @@ using Moq;
 using $rootnamespace$.$models$.$safeItemNamePlural$;
 using Xunit;
 
-namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
+namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {

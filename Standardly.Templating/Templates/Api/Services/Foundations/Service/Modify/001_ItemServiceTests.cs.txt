@@ -13,7 +13,7 @@ using Tynamix.ObjectFiller;
 using Xeptions;
 using Xunit;
 
-namespace TemplateProject.Api.Tests.Unit.Services.Foundations.$safeItemNamePlural$
+namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$ServiceTests
     {
