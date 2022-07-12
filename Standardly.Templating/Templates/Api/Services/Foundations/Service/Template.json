@@ -1378,6 +1378,11 @@
               "template": "$templateFolder$\\Api\\Services\\Foundations\\Service\\Modify\\012_ItemService.cs.txt",
               "target": "$projectFolder$\\$services$\\$foundations$\\$safeItemNamePlural$\\$safeItemNameSingular$Service.cs",
               "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Services\\Foundations\\Service\\Modify\\012_ItemServiceTests.Logic.Modify.cs.txt",
+              "target": "$unitTestProjectFolder$\\$services$\\$foundations$\\$safeItemNamePlural$\\$safeItemNameSingular$ServiceTests.Logic.Modify.cs",
+              "replace": true
             }
           ],
           "executions": [
