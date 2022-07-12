@@ -8,7 +8,7 @@ using $rootnamespace$.$brokers$.DateTimes;
 using $rootnamespace$.$brokers$.Loggings;
 using $rootnamespace$.$brokers$.Storages;
 using $rootnamespace$.$models$.$safeItemNamePlural$;
-using $rootnamespace$.$models$.$safeItemNamePlural$;
+using $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$;
 using Tynamix.ObjectFiller;
 using Xeptions;
 using Xunit;
