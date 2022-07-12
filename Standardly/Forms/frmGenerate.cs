@@ -245,7 +245,7 @@ namespace Standardly.Forms
             ValidateInput(
                chkDisclaimer,
                chkDisclaimer.Checked == false,
-               "* Accept the disclaimer",
+               "* Acknowledge the use of CLI commands / powershell scripts and acceptance of the license/disclaimer",
                errors);
 
             txtMessage.Text = errors.ToString();
@@ -304,27 +304,27 @@ namespace Standardly.Forms
 
         private void txtDisplayName_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void txtGitHubUsername_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void txtGitHubBaseBranchName_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void txtCopyright_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void txtLicense_TextChanged(object sender, EventArgs e)
         {
-
+            HasFormValidationErrors();
         }
 
         private void btnGenerateFromTemplate_Click(object sender, EventArgs e)
@@ -665,6 +665,14 @@ namespace Standardly.Forms
             };
 
             Process.Start(startInfo);
+        }
+
+        private void lnkDisclaimer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string assembly = Assembly.GetExecutingAssembly().Location;
+            string licensePath = Path.Combine(Path.GetDirectoryName(assembly), "LICENSE.txt");
+
+            Process.Start("notepad.exe", licensePath);
         }
     }
 }

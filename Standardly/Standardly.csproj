@@ -45,6 +45,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\StandardlyLicenseCommand.cs" />
     <Compile Include="Commands\StandardlyTemplateFolderCommand.cs" />
     <Compile Include="Forms\frmGenerate.cs">
       <SubType>Form</SubType>

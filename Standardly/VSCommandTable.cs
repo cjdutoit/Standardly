@@ -25,5 +25,6 @@ namespace Standardly
         public const int StandardlyMenuItemGroup = 0x0003;
         public const int StandardlyGenerateCommand = 0x0100;
         public const int StandardlyTemplateFolderCommand = 0x0101;
+        public const int StandardlyLicenseCommand = 0x0102;
     }
 }

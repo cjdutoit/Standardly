@@ -46,6 +46,15 @@
           <LocCanonicalName>.Standardly.StandardlyTemplateFolderCommand</LocCanonicalName>
         </Strings>
       </Button>
+      <Button guid="Standardly" id="StandardlyLicenseCommand" priority="0x0200" type="Button">
+        <Parent guid="Standardly" id="StandardlyMenuItemGroup" />
+        <Icon guid="ImageCatalogGuid" id="Note" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>Standardly License</ButtonText>
+          <LocCanonicalName>.Standardly.StandardlyLicenseCommand</LocCanonicalName>
+        </Strings>
+      </Button>
     </Buttons>
   </Commands>
 
@@ -74,6 +83,7 @@
       <IDSymbol name="StandardlyMenuItemGroup" value="0x0003" />
       <IDSymbol name="StandardlyGenerateCommand" value="0x0100" />
       <IDSymbol name="StandardlyTemplateFolderCommand" value="0x0101" />
+      <IDSymbol name="StandardlyLicenseCommand" value="0x0102" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

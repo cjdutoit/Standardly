@@ -328,6 +328,7 @@
   ],
   "CleanupTasks": [
     "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
+    "* Register the controllers, servics brokers etc in Startup.cs",
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
     "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",

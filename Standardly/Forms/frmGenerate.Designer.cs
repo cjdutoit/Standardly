@@ -186,10 +186,10 @@ namespace Standardly.Forms
             this.chkDisclaimer.ForeColor = System.Drawing.Color.Red;
             this.chkDisclaimer.Location = new System.Drawing.Point(15, 42);
             this.chkDisclaimer.Name = "chkDisclaimer";
-            this.chkDisclaimer.Size = new System.Drawing.Size(752, 17);
+            this.chkDisclaimer.Size = new System.Drawing.Size(880, 17);
             this.chkDisclaimer.TabIndex = 12;
-            this.chkDisclaimer.Text = "I acknowledge that this productivity tool use powershell scripts as defined in th" +
-    "e templates which could be harmfull if modified.  ";
+            this.chkDisclaimer.Text = "I acknowledge that this productivity tool use CLI commands and/or powershell scri" +
+    "pts as defined in the templates which could be harmfull if modified.  ";
             this.chkDisclaimer.UseVisualStyleBackColor = true;
             this.chkDisclaimer.CheckedChanged += new System.EventHandler(this.chkDisclaimer_CheckedChanged);
             // 
@@ -203,6 +203,7 @@ namespace Standardly.Forms
             this.lnkDisclaimer.TabIndex = 13;
             this.lnkDisclaimer.TabStop = true;
             this.lnkDisclaimer.Text = "Disclaimer of Warranties";
+            this.lnkDisclaimer.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkDisclaimer_LinkClicked);
             // 
             // linkLabel1
             // 
