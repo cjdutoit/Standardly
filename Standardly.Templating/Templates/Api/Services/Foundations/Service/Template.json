@@ -1638,7 +1638,7 @@
           "fileItems": [
             {
               "template": "$templateFolder$\\Api\\Services\\Foundations\\Service\\Modify\\024_ItemServiceTests.Exceptions.Modify.cs.txt",
-              "target": "$projectFolder$\\$services$\\$foundations$\\$safeItemNamePlural$\\$safeItemNameSingular$ServiceTests.Exceptions.Modify.cs",
+              "target": "$unitTestProjectFolder$\\$services$\\$foundations$\\$safeItemNamePlural$\\$safeItemNameSingular$ServiceTests.Exceptions.Modify.cs",
               "replace": true
             }
           ],
