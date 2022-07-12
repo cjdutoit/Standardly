@@ -384,6 +384,9 @@
     <None Update="Templates\Api\Services\Foundations\Service\Modify\012_ItemService.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Templates\Api\Services\Foundations\Service\Modify\012_ItemServiceTests.Logic.Modify.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Templates\Api\Services\Foundations\Service\Modify\013_ItemServiceTests.Validations.Modify.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
