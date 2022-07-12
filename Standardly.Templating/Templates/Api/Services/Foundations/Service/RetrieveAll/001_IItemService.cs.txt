@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using $rootnamespace$.$models$.$safeItemNamePlural$;
 
-namespace $rootnamespace$.$models$.$safeItemNamePlural$
+namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
 {
     public interface I$safeItemNameSingular$Service
     {

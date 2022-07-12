@@ -8,7 +8,7 @@ using $rootnamespace$.$models$.$safeItemNamePlural$;
 using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
 using Xeptions;
 
-namespace $rootnamespace$.$models$.$safeItemNamePlural$
+namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
 {
     public partial class $safeItemNameSingular$Service
     {
