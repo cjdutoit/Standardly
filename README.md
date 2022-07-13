@@ -67,3 +67,11 @@ You can either click that button or use the keyboard shortcut Ctrl+Shift+F4 to g
 ![image](https://user-images.githubusercontent.com/797750/178709474-f0f8f7c8-6919-4cc3-b479-64b4b9c2af61.png)
 
  ProTip! If you want to scaffold code that follows on other code sets, you could tandem the branch creation process by changing the Branch From from `main` to the last create branch name for that broker i.e. `users/cjdutoit/brokers-students-delete`.   The `users/cjdutoit/foundations-students-add` will then be branched of that instead of `main`
+ 
+## How can you help?
+
+If you enjoy using the extension, please give it a rating on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=cjdutoit.CJduToit-Standardly).
+
+Should you encounter bugs or if you have feature requests, head on over to the [GitHub repo](https://github.com/cjdutoit/standardly) to open an issue if one doesn't already exist.
+
+Pull requests are also very welcome if you would like to help with bugs or new features that can benefit us all as a '[The Standard](https://github.com/hassanhabib/The-Standard)' community.
