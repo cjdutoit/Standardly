@@ -2,7 +2,7 @@
   "name": "BROKERS: Logging Broker",
   "description": "Generates a Logging Broker",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 1,
   "modelSingularName": "Logging",
   "modelPluralName": "Loggings",
@@ -386,7 +386,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",

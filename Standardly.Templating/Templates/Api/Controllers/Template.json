@@ -2,7 +2,7 @@
   "name": "CONTROLLERS: API Controller",
   "description": "Generates an API Controller for GET, POST, PUT, DELETE operations",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 6,
   "tasks": [
     {
@@ -326,7 +326,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
     "* Register the controllers, servics brokers etc in Startup.cs",
     "* Resolve / remove any TODO items in the task list",

@@ -2,7 +2,7 @@
   "name": "BROKERS: Event Broker",
   "description": "Generates an Event Broker ADD, MODIFY and REMOVED operations",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 1,
   "tasks": [
     {
@@ -390,7 +390,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",
