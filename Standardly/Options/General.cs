@@ -96,7 +96,7 @@ namespace Standardly
         public bool AddGitIgnoreFileIfNotPresent { get; set; } = true;
 
         [Category("General")]
-        [DisplayName("Add EditorConfig File")]
+        [DisplayName("Add License File")]
         [Description("Adds a license file to the Solution if selected and the file is not already present")]
         [DefaultValue(true)]
         public bool AddLicenseFileIfNotPresent { get; set; } = true;
