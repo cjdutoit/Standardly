@@ -84,33 +84,36 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                         {
                             foreach (Models.Actions.Action action in task.Actions)
                             {
-                                if (action.FileItems.Any())
+                                if (this.IsActionRequired(action) == true)
                                 {
-                                    foreach (FileItem fileItem in action.FileItems)
+                                    if (action.FileItems.Any())
                                     {
-                                        if (!string.IsNullOrEmpty(fileItem.Template))
+                                        foreach (FileItem fileItem in action.FileItems)
                                         {
-                                            string sourceString = this.fileService.ReadFromFile(fileItem.Template);
-
-                                            string transformedSourceString = this.templateService
-                                                .TransformString(sourceString, replacementDictionary)
-                                                .Replace("##n##", "\\n");
-
-                                            this.templateService.ValidateTransformation(transformedSourceString);
-
-                                            var fileExists = this.fileService.CheckIfFileExists(fileItem.Target);
-
-                                            if (fileExists == false || (fileExists == true && fileItem.Replace == true))
+                                            if (!string.IsNullOrEmpty(fileItem.Template))
                                             {
-                                                this.fileService.WriteToFile(fileItem.Target, transformedSourceString);
+                                                string sourceString = this.fileService.ReadFromFile(fileItem.Template);
+
+                                                string transformedSourceString = this.templateService
+                                                    .TransformString(sourceString, replacementDictionary)
+                                                    .Replace("##n##", "\\n");
+
+                                                this.templateService.ValidateTransformation(transformedSourceString);
+
+                                                var fileExists = this.fileService.CheckIfFileExists(fileItem.Target);
+
+                                                if (fileExists == false || (fileExists == true && fileItem.Replace == true))
+                                                {
+                                                    this.fileService.WriteToFile(fileItem.Target, transformedSourceString);
+                                                }
                                             }
                                         }
                                     }
-                                }
 
-                                if (action.Executions.Any())
-                                {
-                                    this.executionService.Run(action.Executions, action.ExecutionFolder);
+                                    if (action.Executions.Any())
+                                    {
+                                        this.executionService.Run(action.Executions, action.ExecutionFolder);
+                                    }
                                 }
                             }
                         }
@@ -119,5 +122,21 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 
                 return true;
             });
+
+        private bool IsActionRequired(Models.Actions.Action action)
+        {
+            List<FileItem> fileItems = new List<FileItem>();
+            fileItems.AddRange(action.FileItems);
+
+            foreach (FileItem fileItem in fileItems.ToList())
+            {
+                if (this.fileService.CheckIfFileExists(fileItem.Target) && fileItem.Replace == false)
+                {
+                    fileItems.Remove(fileItem);
+                }
+            }
+
+            return fileItems.Any();
+        }
     }
 }
