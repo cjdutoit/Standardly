@@ -125,6 +125,11 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 
         private bool IsActionRequired(Models.Actions.Action action)
         {
+            if (!action.FileItems.Any())
+            {
+                return true;
+            }
+
             List<FileItem> fileItems = new List<FileItem>();
             fileItems.AddRange(action.FileItems);
 
