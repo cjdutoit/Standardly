@@ -13,7 +13,11 @@ The Standardly Code Generator is a productivity tool to quickly generate code fo
 - Install the [CLI tools for Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
 
 ## Who can use it?
-The productivity tool is recommended for experienced developers.  If you can't write this code yourself, please invest the time first, to understand what it does, how to write the unit tests and follow the TDD process, naming conventions and things as defined in [The Standard](https://github.com/hassanhabib/The-Standard)
+**The productivity tool is recommended for experienced developers.**  
+
+If you can't write this code yourself, please invest the time first, to understand what it does, how to write the unit tests, how the exception handling and validation works, the TDD check-in process, naming conventions and things as defined in [The Standard](https://github.com/hassanhabib/The-Standard)
+
+Any shortcuts will just set you back as you would need this knowledge and experience later to create other things like Processing and Orchestration Services that are not included in the Standardly.
 
 ## What can it do?
 
