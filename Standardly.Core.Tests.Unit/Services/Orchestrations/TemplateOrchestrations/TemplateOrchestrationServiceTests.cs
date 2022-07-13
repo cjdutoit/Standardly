@@ -181,13 +181,13 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             for (int i = 0; i < numberOfActions; i++)
             {
-                var task = new Models.Actions.Action()
+                actions.Add(new Models.Actions.Action()
                 {
                     Name = GetRandomString(),
                     ExecutionFolder = GetRandomString(),
                     FileItems = CreateFileItems(2),
                     Executions = CreateExecutions(2)
-                };
+                });
             }
 
             return actions;
@@ -199,11 +199,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             for (int i = 0; i < numberOfTasks; i++)
             {
-                var task = new Models.Tasks.Task()
+                tasks.Add(new Models.Tasks.Task()
                 {
                     Name = GetRandomString(),
                     Actions = CreateActions(2)
-                };
+                });
             }
 
             return tasks;
