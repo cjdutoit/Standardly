@@ -66,7 +66,7 @@ You can either click that button or use the keyboard shortcut Ctrl+Shift+F4 to g
 
 ![image](https://user-images.githubusercontent.com/797750/178709474-f0f8f7c8-6919-4cc3-b479-64b4b9c2af61.png)
 
- ProTip! If you want to scaffold code that follows on other code sets, you could tandem the branch creation process by changing the Branch From from `main` to the last create branch name for that broker i.e. `users/cjdutoit/brokers-students-delete`.   The `users/cjdutoit/foundations-students-add` will then be branched of that instead of `main`
+- ProTip! If you want to scaffold code that follows on other code sets, you could tandem the branch creation process by changing the "Branch From" from `main` to the last create branch name i.e. if you created a broker you could use `users/%username%/brokers-students-delete` as the "Branch From" value.  When you then generate code for a foundation service, `users/%username%/foundations-students-add` will then be branched of that instead of `main`
  
 ## How can you help?
 
