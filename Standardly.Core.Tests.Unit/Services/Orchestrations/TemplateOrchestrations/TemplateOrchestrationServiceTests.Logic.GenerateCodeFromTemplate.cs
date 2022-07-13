@@ -288,5 +288,93 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             this.fileServiceMock.VerifyNoOtherCalls();
             this.executionServiceMock.VerifyNoOtherCalls();
         }
+
+        [Fact]
+        public void ShouldExecuteActionIfNoFilesPresentOnAction()
+        {
+            // given
+            bool replaceFiles = false;
+            Template randomTemplate = CreateRandomTemplate(replaceFiles);
+            Template inputTemplate = randomTemplate;
+            string randomTransformedStringTemplate = GetRandomString();
+            string transformedStringTemplate = randomTransformedStringTemplate;
+            Dictionary<string, string> randomReplacementDictionary = CreateReplacementDictionary();
+            Template randomTransformedTemplate = CreateRandomTemplate();
+            Template transformedTemplate = randomTemplate;
+
+            string sourceTemplateString = GetRandomString();
+            string targetTemplateString = GetRandomString();
+            string executionMessage = GetRandomString();
+
+            this.templateServiceMock.Setup(templateService =>
+                templateService.TransformString(inputTemplate.RawTemplate, randomReplacementDictionary))
+                    .Returns(transformedStringTemplate);
+
+            this.templateServiceMock.Setup(templateService =>
+                templateService.ConvertStringToTemplate(transformedStringTemplate))
+                    .Returns(transformedTemplate);
+
+            if (transformedTemplate.Tasks.Any())
+            {
+                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                {
+                    if (task.Actions.Any())
+                    {
+                        foreach (Models.Actions.Action action in task.Actions)
+                        {
+                            if (action.FileItems.Any())
+                            {
+                                action.FileItems.Clear();
+                            }
+                        }
+                    }
+                }
+            }
+
+            // when
+            bool actualGenerateCodeFromTemplateResult = this.templateOrchestrationService
+                .GenerateCodeFromTemplate(inputTemplate, randomReplacementDictionary);
+
+            // then
+            actualGenerateCodeFromTemplateResult.Should().BeTrue();
+
+            inputTemplate.Tasks.Count.Should().BeGreaterThan(0);
+
+            this.templateServiceMock.Verify(templateService =>
+                templateService.TransformString(inputTemplate.RawTemplate, randomReplacementDictionary),
+                    Times.Once);
+
+            this.templateServiceMock.Verify(templateService =>
+                templateService.ValidateTransformation(transformedStringTemplate),
+                    Times.Once);
+
+            this.templateServiceMock.Verify(templateService =>
+                templateService.ConvertStringToTemplate(transformedStringTemplate),
+                    Times.Once);
+
+            if (transformedTemplate.Tasks.Any())
+            {
+                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                {
+                    if (task.Actions.Any())
+                    {
+                        foreach (Models.Actions.Action action in task.Actions)
+                        {
+                            if (action.Executions.Any())
+                            {
+                                this.executionServiceMock.Verify(executionService =>
+                                executionService.Run(action.Executions, action.ExecutionFolder),
+                                    Times.Once);
+                            }
+                        }
+                    }
+                }
+            }
+
+            this.templateServiceMock.VerifyNoOtherCalls();
+            this.fileServiceMock.VerifyNoOtherCalls();
+            this.executionServiceMock.VerifyNoOtherCalls();
+        }
+
     }
 }
