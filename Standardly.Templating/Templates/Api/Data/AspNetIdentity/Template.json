@@ -2,7 +2,7 @@
   "name": "DATA: Identity Models on ASP.NET Core",
   "description": "Add models for use with Identity on ASP.NET Core",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 10,
   "modelSingularName": "N/A",
   "modelPluralName": "N/A ",
@@ -102,7 +102,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
     "* Resolve / remove any TODO items in the task list",
     "* Verify that the solution builds and that all tests pass",

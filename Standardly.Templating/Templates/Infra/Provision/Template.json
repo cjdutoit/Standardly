@@ -2,7 +2,7 @@
   "name": "PROVISION: Azure Resources Provisioning",
   "description": "Provision Azure Resources",
   "templateType": "PROVISION",
-  "ProjectsRequired": "Provision",
+  "projectsRequired": "Provision",
   "sortOrder": 10,
   "modelSingularName": "Provision",
   "modelPluralName": "Provisions",
@@ -545,7 +545,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
     "* Verify that the solution builds",
     "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",

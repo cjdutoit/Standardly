@@ -2,7 +2,7 @@
   "name": "CONFIG: Solution Configuration Settings",
   "description": "Adds an .editorconfig, .gitignore and a license file to the project if they are not already present.",
   "templateType": "Config",
-  "ProjectsRequired": "Solution",
+  "projectsRequired": "Solution",
   "sortOrder": 100,
   "modelSingularName": "N/A ",
   "modelPluralName": "N/A",
@@ -200,7 +200,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
     "  - CONFIG: Add .editorconfig to solution  ->  users/$username$/config-solution-editorconfig",

@@ -2,7 +2,7 @@
   "name": "INFRA: Setup Infrastructure Build Project",
   "description": "Setup Infrastructure Build Project",
   "templateType": "INFRA",
-  "ProjectsRequired": "Build",
+  "projectsRequired": "Build",
   "sortOrder": 10,
   "modelSingularName": "Build",
   "modelPluralName": "Builds",
@@ -75,7 +75,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
     "* Execute the build project to generate the YAML file.",
     "* Verify that the solution builds, that all tests pass and commit the newly generated YAML file",

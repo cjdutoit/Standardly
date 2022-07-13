@@ -2,7 +2,7 @@
   "name": "BROKERS: Storage Broker",
   "description": "Generates a Storage Broker with all CRUD operations",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 1,
   "tasks": [
     {
@@ -451,7 +451,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Add propeties to the $safeItemNameSingular$ model",
     "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
     "* Resolve / remove any TODO items in the task list i.e. add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker",
