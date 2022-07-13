@@ -59,8 +59,8 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
         private static string GetRandomString() =>
             new MnemonicString(wordCount: GetRandomNumber()).GetValue();
 
-        private static Template CreateRandomTemplate() =>
-            CreateTemplateFiller().Create();
+        private static Template CreateRandomTemplate(bool replaceFiles = true) =>
+            CreateTemplateFiller(replaceFiles).Create();
 
         private static Dictionary<string, string> CreateDictionary()
         {
@@ -142,7 +142,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             };
         }
 
-        private static List<Models.FileItems.FileItem> CreateFileItems(int numberOfFileItems)
+        private static List<Models.FileItems.FileItem> CreateFileItems(int numberOfFileItems, bool replaceFiles)
         {
             var fileItems = new List<Models.FileItems.FileItem>();
 
@@ -150,7 +150,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             {
                 fileItems.Add(new Models.FileItems.FileItem()
                 {
-                    Replace = true,
+                    Replace = replaceFiles,
                     Template = GetRandomString(),
                     Target = GetRandomString()
                 });
@@ -175,7 +175,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             return executions;
         }
 
-        private static List<Models.Actions.Action> CreateActions(int numberOfActions)
+        private static List<Models.Actions.Action> CreateActions(int numberOfActions, bool replaceFiles)
         {
             var actions = new List<Models.Actions.Action>();
 
@@ -185,7 +185,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                 {
                     Name = GetRandomString(),
                     ExecutionFolder = GetRandomString(),
-                    FileItems = CreateFileItems(2),
+                    FileItems = CreateFileItems(2, replaceFiles),
                     Executions = CreateExecutions(2)
                 });
             }
@@ -193,7 +193,7 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             return actions;
         }
 
-        private static List<Models.Tasks.Task> CreateTasks(int numberOfTasks)
+        private static List<Models.Tasks.Task> CreateTasks(int numberOfTasks, bool replaceFiles)
         {
             var tasks = new List<Models.Tasks.Task>();
 
@@ -202,18 +202,18 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
                 tasks.Add(new Models.Tasks.Task()
                 {
                     Name = GetRandomString(),
-                    Actions = CreateActions(2)
+                    Actions = CreateActions(2, replaceFiles)
                 });
             }
 
             return tasks;
         }
 
-        private static Filler<Template> CreateTemplateFiller()
+        private static Filler<Template> CreateTemplateFiller(bool replaceFiles = true)
         {
             var filler = new Filler<Template>();
             filler.Setup()
-                .OnType<List<Models.Tasks.Task>>().Use(CreateTasks(2))
+                .OnType<List<Models.Tasks.Task>>().Use(CreateTasks(2, replaceFiles))
                 .OnType<Dictionary<string, string>>().Use(CreateDictionary);
 
             return filler;

@@ -161,7 +161,8 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
         public void ShouldNotExecuteActionWhereFilesExistsAndReplaceSetToFalse()
         {
             // given
-            Template randomTemplate = CreateRandomTemplate();
+            bool replaceFiles = false;
+            Template randomTemplate = CreateRandomTemplate(replaceFiles);
             Template inputTemplate = randomTemplate;
             string randomTransformedStringTemplate = GetRandomString();
             string transformedStringTemplate = randomTransformedStringTemplate;
