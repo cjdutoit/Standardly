@@ -1,0 +1,16 @@
+# Standardly - Getting Started
+
+## 1) Install instructions
+- Install the [GitHub CLI commands](https://cli.github.com/)
+- Install the [CLI tools for Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
+- Install .Net 7.0 ([Get .NET 7 Preview](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks))
+- Install the the extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=cjdutoit.Standardly)
+
+## 2) Configuration
+To work with the Code Generator, you will need to add some config (or you will need to complete this every time).
+
+In Visual Studio, go to TOOLS > OPTIONS > Standardly and complete `Display Name` and `Your GitHub Username`.  
+
+
+
+For your own projects, add your default Copyright and License info.  This will then be applied to new projects. (it will not override these in other projects tha
