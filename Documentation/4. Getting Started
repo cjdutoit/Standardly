@@ -9,8 +9,15 @@
 ## 2) Configuration
 To work with the Code Generator, you will need to add some config (or you will need to complete this every time).
 
-In Visual Studio, go to TOOLS > OPTIONS > Standardly and complete `Display Name` and `Your GitHub Username`.  
+In Visual Studio, go to TOOLS > OPTIONS > Standardly and complete 
+- Display Name 
+- Your GitHub Username
+
+Copyright and License are set to MIT License by default.  You can change this if you want smething else.  (This will only be applied to new projects via the .editorconfig file and will not override the license file or copyright for other projects.)
+
+## 3) Creating your project
+3.1 Open Visual Studio and choose "Create a new project"
+3.2 In the Create a new project window, search for "Standardly" and select the Standardly - Multi Project Template
 
 
 
-For your own projects, add your default Copyright and License info.  This will then be applied to new projects. (it will not override these in other projects tha
