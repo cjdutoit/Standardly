@@ -8,7 +8,6 @@ namespace $rootnamespace$.$models$.$safeItemNamePlural$
 
         // TODO:  Add your properties here
 
-        public DateTimeOffset BirthDate { get; set; }
         public Guid CreatedByUserId { get; set; }
         public DateTimeOffset CreatedDate { get; set; }
         public Guid UpdatedByUserId { get; set; }
