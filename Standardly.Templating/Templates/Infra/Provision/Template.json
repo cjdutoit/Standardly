@@ -546,9 +546,9 @@
     }
   ],
   "cleanupTasks": [
-    "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
-    "* Verify that the solution builds",
-    "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+    "* By default we will NOT generate the provision yaml file.  You will need to configure this and when ready build the project to generate the new YAML file, then do a commit and push",
+    "* Resolve / remove any TODO items in the task list if any",
+    "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
     "  - PROVISION: Azure Resources Provisioning  ->  users/$username$/provision-cloud-infrastructure"
   ]
