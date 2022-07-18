@@ -54,9 +54,8 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                         Template template = this.templateService.ConvertStringToTemplate(rawTemplate);
                         templates.Add(template);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        // throw new Exception($"Failed to convert raw template {file} to template", ex);
                     }
                 }
 

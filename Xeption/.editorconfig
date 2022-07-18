@@ -1,7 +1,0 @@
-# To learn more about .editorconfig see https://aka.ms/editorconfigdocs
-
-[*.{cs,vb}]
-#Formatting - header template
-
-#add file header template
-file_header_template = ---------------------------------------------------------------\nCopyright (c) Hassan Habib All rights reserved.\nLicensed under the MIT License.\nSee License.txt in the project root for license information.\n---------------------------------------------------------------
