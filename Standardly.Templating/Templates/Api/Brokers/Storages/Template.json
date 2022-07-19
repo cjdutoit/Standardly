@@ -48,7 +48,7 @@
           "executions": [
             {
               "name": "Add migration",
-              "instruction": "dotnet-ef migrations add InitialCreate --project $projectName$"
+              "instruction": "dotnet ef migrations add InitialCreate --project $projectName$"
             },
             {
               "name": "Update Database",

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace $rootnamespace$.$models$.$safeItemNamePlural$
+namespace $acceptanceTestProjectName$.$models$.$safeItemNamePlural$
 {
     public class $safeItemNameSingular$
     {
