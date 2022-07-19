@@ -2,7 +2,7 @@
   "name": "BROKERS: Storage Broker",
   "description": "Generates a Storage Broker with all CRUD operations",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 1,
   "tasks": [
     {
@@ -451,7 +451,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Register the StorageBroker in Startup.cs => AddBrokers(IServiceCollection services) then do a commit and push.",
     "* Add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker",
     "* Resolve / remove any TODO items in the task list if any",

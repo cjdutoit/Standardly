@@ -2,7 +2,7 @@
   "name": "CONTROLLERS: API Controller",
   "description": "Generates an API Controller for GET, POST, PUT, DELETE operations",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 6,
   "tasks": [
     {
@@ -326,7 +326,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Add screenshots to the pull request to show it working and handling the errors",

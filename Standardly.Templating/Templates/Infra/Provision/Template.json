@@ -2,7 +2,7 @@
   "name": "PROVISION: Azure Resources Provisioning",
   "description": "Provision Azure Resources",
   "templateType": "PROVISION",
-  "ProjectsRequired": "Provision",
+  "projectsRequired": "Provision",
   "sortOrder": 10,
   "modelSingularName": "Provision",
   "modelPluralName": "Provisions",
@@ -545,7 +545,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* By default we will NOT generate the provision yaml file.  You will need to configure this and when ready build the project to generate the new YAML file, then do a commit and push",
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",

@@ -2,7 +2,7 @@
   "name": "BROKERS: Event Broker",
   "description": "Generates an Event Broker ADD, MODIFY and REMOVED operations",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 1,
   "tasks": [
     {
@@ -390,7 +390,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Register the EventBroker in Startup.cs => AddBrokers(IServiceCollection services) then do a commit and push.",
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",

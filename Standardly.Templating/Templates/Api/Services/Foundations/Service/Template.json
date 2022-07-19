@@ -2,7 +2,7 @@
   "name": "FOUNDATIONS: Service",
   "description": "Generates a service",
   "templateType": "API",
-  "ProjectsRequired": "Api,Unit",
+  "projectsRequired": "Api,Unit",
   "sortOrder": 2,
   "tasks": [
     {
@@ -1944,7 +1944,7 @@
       ]
     }
   ],
-  "CleanupTasks": [
+  "cleanupTasks": [
     "* Register the $safeItemNameSingular$Service in Startup.cs => AddServices(IServiceCollection services) then do a commit and push.",
     "* Resolve / remove any TODO items in the task list",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
