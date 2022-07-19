@@ -76,10 +76,9 @@
     }
   ],
   "CleanupTasks": [
-    "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
-    "* Execute the build project to generate the YAML file.",
-    "* Verify that the solution builds, that all tests pass and commit the newly generated YAML file",
-    "* Create a pull request and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+    "* By default we would generate the yaml file for you.  If you want to make some changes, remember to build project to generate the new YAML file, then do a commit and push",
+    "* Resolve / remove any TODO items in the task list if any",
+    "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
     "  - INFRA: Setup Infrastructure Build Project  ->  users/$username$/infra-build-projectsetup"
   ]
