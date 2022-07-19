@@ -52,7 +52,7 @@
             },
             {
               "name": "Update Database",
-              "instruction": "dotnet-ef database update"
+              "instruction": "dotnet ef database update"
             },
             {
               "name": "Stage all changes",
@@ -174,11 +174,11 @@
           "executions": [
             {
               "name": "Add $safeItemNameSingular$ Model Migration",
-              "instruction": "dotnet-ef migrations add Add$safeItemNameSingular$Model --project $projectName$"
+              "instruction": "dotnet ef migrations add Add$safeItemNameSingular$Model --project $projectName$"
             },
             {
               "name": "Update Database",
-              "instruction": "dotnet-ef database update"
+              "instruction": "dotnet ef database update"
             },
             {
               "name": "Stage all changes",
