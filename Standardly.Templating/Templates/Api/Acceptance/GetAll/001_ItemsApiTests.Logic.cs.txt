@@ -1,0 +1,50 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using FluentAssertions;
+using $acceptanceTestProjectName$.$models$.$safeItemNamePlural$;
+using Xunit;
+
+namespace $acceptanceTestProjectName$.Apis.$safeItemNamePlural$
+{
+    public partial class $safeItemNamePlural$ApiTests
+    {
+        [Fact]
+        public async Task ShouldPost$safeItemNameSingular$Async()
+        {
+            // given
+            $safeItemNameSingular$ random$safeItemNameSingular$ = CreateRandom$safeItemNameSingular$();
+            $safeItemNameSingular$ input$safeItemNameSingular$ = random$safeItemNameSingular$;
+            $safeItemNameSingular$ expected$safeItemNameSingular$ = input$safeItemNameSingular$;
+
+            // when 
+            await this.apiBroker.Post$safeItemNameSingular$Async(input$safeItemNameSingular$);
+
+            $safeItemNameSingular$ actual$safeItemNameSingular$ =
+                await this.apiBroker.Get$safeItemNameSingular$ByIdAsync(input$safeItemNameSingular$.Id);
+
+            // then
+            actual$safeItemNameSingular$.Should().BeEquivalentTo(expected$safeItemNameSingular$);
+            await this.apiBroker.Delete$safeItemNameSingular$ByIdAsync(actual$safeItemNameSingular$.Id);
+        }
+
+        [Fact]
+        public async Task ShouldGetAll$safeItemNamePlural$Async()
+        {
+            // given
+            List<$safeItemNameSingular$> random$safeItemNamePlural$ = await PostRandom$safeItemNamePlural$Async();
+            List<$safeItemNameSingular$> expected$safeItemNamePlural$ = random$safeItemNamePlural$;
+
+            // when
+            List<$safeItemNameSingular$> actual$safeItemNamePlural$ = await this.apiBroker.GetAll$safeItemNamePlural$Async();
+
+            // then
+            foreach ($safeItemNameSingular$ expected$safeItemNameSingular$ in expected$safeItemNamePlural$)
+            {
+                $safeItemNameSingular$ actual$safeItemNameSingular$ = actual$safeItemNamePlural$.Single(approval => approval.Id == expected$safeItemNameSingular$.Id);
+                actual$safeItemNameSingular$.Should().BeEquivalentTo(expected$safeItemNameSingular$);
+                await this.apiBroker.Delete$safeItemNameSingular$ByIdAsync(actual$safeItemNameSingular$.Id);
+            }
+        }
+    }
+}

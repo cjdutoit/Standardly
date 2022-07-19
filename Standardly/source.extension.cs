@@ -11,8 +11,8 @@ namespace Standardly
         public const string Name = "Standardly";
         public const string Description = @"A code generator that will allow you to generate various things in a 'The Standard' compliant way.";
         public const string Language = "en-US";
-        public const string Version = "0.3";
+        public const string Version = "0.4";
         public const string Author = "Christo du Toit";
-        public const string Tags = "Standardly, The Standard, Code Generator, Productivity Tool";
+        public const string Tags = "Standardly, The Standard";
     }
 }

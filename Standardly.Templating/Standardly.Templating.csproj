@@ -9,6 +9,45 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Templates\Api\Acceptance\Delete\001_ItemsApiTests.Logic.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\GetAll\001_ItemsApiTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\GetAll\001_ItemsApiTests.Logic.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\GetById\001_ItemsApiTests.Logic.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\Post\001_ApiBroker.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\Post\001_ApiTestCollection.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\Post\003_ItemsApiTests.Logic.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\Post\003_ItemsApiTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\Post\003_ApiBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\Post\002_Item.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\Put\001_ItemsApiTests.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\Put\001_ItemsApiTests.Logic.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Acceptance\Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Templates\Api\Brokers\DateTimes\001_DateTimeBroker.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

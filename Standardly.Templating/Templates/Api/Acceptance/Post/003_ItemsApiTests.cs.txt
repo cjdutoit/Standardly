@@ -1,0 +1,36 @@
+﻿using System;
+using $acceptanceTestProjectName$.$brokers$;
+using $acceptanceTestProjectName$.$models$.$safeItemNamePlural$;
+using Tynamix.ObjectFiller;
+using Xunit;
+
+namespace $acceptanceTestProjectName$.Apis.$safeItemNamePlural$
+{
+    [Collection(nameof(ApiTestCollection))]
+    public partial class $safeItemNamePlural$ApiTests
+    {
+        private readonly ApiBroker apiBroker;
+
+        public $safeItemNamePlural$ApiTests(ApiBroker apiBroker) =>
+            this.apiBroker = apiBroker;
+
+        private static $safeItemNameSingular$ CreateRandom$safeItemNameSingular$() =>
+            CreateRandom$safeItemNameSingular$Filler().Create();
+
+        private static Filler<$safeItemNameSingular$> CreateRandom$safeItemNameSingular$Filler()
+        {
+            Guid userId = Guid.NewGuid();
+            DateTime now = DateTime.UtcNow;
+            var filler = new Filler<$safeItemNameSingular$>();
+
+            filler.Setup()
+                .OnType<DateTimeOffset>().Use(now)
+                .OnProperty($parameterSafeItemNameSingular$ => $parameterSafeItemNameSingular$.CreatedDate).Use(now)
+                .OnProperty($parameterSafeItemNameSingular$ => $parameterSafeItemNameSingular$.CreatedByUserId).Use(userId)
+                .OnProperty($parameterSafeItemNameSingular$ => $parameterSafeItemNameSingular$.UpdatedDate).Use(now)
+                .OnProperty($parameterSafeItemNameSingular$ => $parameterSafeItemNameSingular$.UpdatedByUserId).Use(userId);
+
+            return filler;
+        }
+    }
+}
