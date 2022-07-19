@@ -2,7 +2,7 @@
   "name": "CONTROLLERS: API Controller",
   "description": "Generates an API Controller for GET, POST, PUT, DELETE operations",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 6,
   "tasks": [
     {
@@ -326,12 +326,9 @@
       ]
     }
   ],
-  "CleanupTasks": [
-    "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
-    "* Register the controllers, servics brokers etc in Startup.cs",
-    "* Resolve / remove any TODO items in the task list",
-    "* Verify that the solution builds and that all tests pass",
-    "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+  "cleanupTasks": [
+    "* Resolve / remove any TODO items in the task list if any",
+    "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Add screenshots to the pull request to show it working and handling the errors",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
     "  - CONTROLLERS: POST $safeItemNameSingular$  ->  users/$username$/controllers-$lowerPluralDescriptionName$-post",

@@ -2,7 +2,7 @@
   "name": "BROKERS: Logging Broker",
   "description": "Generates a Logging Broker",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 1,
   "modelSingularName": "Logging",
   "modelPluralName": "Loggings",
@@ -386,11 +386,10 @@
       ]
     }
   ],
-  "CleanupTasks": [
-    "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
+  "cleanupTasks": [
+    "* Register the LoggingBroker in Startup.cs => AddBrokers(IServiceCollection services) then do a commit and push.",
     "* Resolve / remove any TODO items in the task list",
-    "* Verify that the solution builds and that all tests pass",
-    "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+    "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
     "  - BROKERS: Logging - Log Information  ->  users/$username$/brokers-loggers-loginformation",
     "  - BROKERS: Logging - Log LogTrace  ->  users/$username$/brokers-loggers-logtrace",

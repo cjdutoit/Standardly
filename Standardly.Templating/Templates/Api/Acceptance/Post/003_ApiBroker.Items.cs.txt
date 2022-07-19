@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using $acceptanceTestProjectName$.$models$.$safeItemNamePlural$;
+
+namespace $acceptanceTestProjectName$.$brokers$
+{
+    public partial class ApiBroker
+    {
+        private const string $safeItemNamePlural$RelativeUrl = "api/$parameterSafeItemNamePlural$";
+
+        public async ValueTask<$safeItemNameSingular$> Post$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+            await this.apiFactoryClient.PostContentAsync($safeItemNamePlural$RelativeUrl, $parameterSafeItemNameSingular$);
+
+        public async ValueTask<$safeItemNameSingular$> Get$safeItemNameSingular$ByIdAsync(Guid $parameterSafeItemNameSingular$Id) =>
+            await this.apiFactoryClient.GetContentAsync<$safeItemNameSingular$>($"{$safeItemNamePlural$RelativeUrl}/{$parameterSafeItemNameSingular$Id}");
+
+        public async ValueTask<List<$safeItemNameSingular$>> GetAll$safeItemNamePlural$Async() =>
+          await this.apiFactoryClient.GetContentAsync<List<$safeItemNameSingular$>>($"{$safeItemNamePlural$RelativeUrl}/");
+
+        public async ValueTask<$safeItemNameSingular$> Put$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+            await this.apiFactoryClient.PutContentAsync($safeItemNamePlural$RelativeUrl, $parameterSafeItemNameSingular$);
+
+        public async ValueTask<$safeItemNameSingular$> Delete$safeItemNameSingular$ByIdAsync(Guid $parameterSafeItemNameSingular$Id) =>
+            await this.apiFactoryClient.DeleteContentAsync<$safeItemNameSingular$>($"{$safeItemNamePlural$RelativeUrl}/{$parameterSafeItemNameSingular$Id}");
+    }
+}

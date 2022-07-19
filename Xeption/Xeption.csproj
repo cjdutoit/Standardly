@@ -2,53 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
-    <Authors>Hassan Habib</Authors>
-    <Company>Hassan Habib</Company>
-    <Description>Exceptional Exceptions</Description>
-    <Copyright>Copyright (c) Hassan Habib</Copyright>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageIcon>Xeption.png</PackageIcon>
-    <PackageIconUrl />
-    <Version>2.2</Version>
-    <AssemblyVersion>2.2.0.0</AssemblyVersion>
-    <FileVersion>2.2.0.0</FileVersion>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageProjectUrl>https://www.xeption.net</PackageProjectUrl>
-    <PackageLicenseFile>License.txt</PackageLicenseFile>
-    <RepositoryUrl>https://github.com/hassanhabib/Xeption</RepositoryUrl>
-    <RepositoryType>Github</RepositoryType>
-    <PackageTags>Exceptions .NET</PackageTags>
-    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="License.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="Resources\Xeption.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="DeepCloner" Version="0.10.4" />
-    <PackageReference Include="FluentAssertions" Version="6.5.1" />
-    <PackageReference Include="System.Linq" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="License.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Assertions\" />
+    <PackageReference Include="FluentAssertions" Version="6.7.0" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
   "name": "BROKERS: Storage Broker",
   "description": "Generates a Storage Broker with all CRUD operations",
   "templateType": "API",
-  "ProjectsRequired": "Api",
+  "projectsRequired": "Api",
   "sortOrder": 1,
   "tasks": [
     {
@@ -48,11 +48,11 @@
           "executions": [
             {
               "name": "Add migration",
-              "instruction": "dotnet-ef migrations add InitialCreate --project $projectName$"
+              "instruction": "dotnet ef migrations add InitialCreate --project $projectName$"
             },
             {
               "name": "Update Database",
-              "instruction": "dotnet-ef database update"
+              "instruction": "dotnet ef database update"
             },
             {
               "name": "Stage all changes",
@@ -174,11 +174,11 @@
           "executions": [
             {
               "name": "Add $safeItemNameSingular$ Model Migration",
-              "instruction": "dotnet-ef migrations add Add$safeItemNameSingular$Model --project $projectName$"
+              "instruction": "dotnet ef migrations add Add$safeItemNameSingular$Model --project $projectName$"
             },
             {
               "name": "Update Database",
-              "instruction": "dotnet-ef database update"
+              "instruction": "dotnet ef database update"
             },
             {
               "name": "Stage all changes",
@@ -451,12 +451,11 @@
       ]
     }
   ],
-  "CleanupTasks": [
-    "* Add propeties to the $safeItemNameSingular$ model",
-    "* Confirm that formatting meets The Standard requirements i.e. 120 character rule and follow a process of Uglification Beautification process",
-    "* Resolve / remove any TODO items in the task list i.e. add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker",
-    "* Verify that the solution builds and that all tests pass",
-    "* Create a pull request for the respective branches and link the pull request to related issues by adding e.g. #CLOSES 123 to the description",
+  "cleanupTasks": [
+    "* Register the StorageBroker in Startup.cs => AddBrokers(IServiceCollection services) then do a commit and push.",
+    "* Add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker",
+    "* Resolve / remove any TODO items in the task list if any",
+    "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
     "  - BROKERS: Storage Broker  ->  users/$username$/brokers-storage",
     "  - DATA: $safeItemNameSingular$ Model  ->  users/$username$/data-$lowerPluralDescriptionName$-model",

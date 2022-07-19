@@ -101,7 +101,9 @@ namespace Xeptions
                     $"- Expected data item count to be {dictionary.Count}, but found {this.Data.Count}.");
             }
 
-            (var additionalItems, var missingItems, var sharedItems) = GetDataDifferences(dictionary);
+            (IDictionary additionalItems, IDictionary missingItems, IDictionary sharedItems) =
+                GetDataDifferences(dictionary);
+
             isEqual = EvaluateAdditionalKeys(isEqual, messageStringBuilder, additionalItems);
             isEqual = EvaluateMissingKeys(isEqual, messageStringBuilder, missingItems);
             isEqual = EvaluateSharedKeys(isEqual, messageStringBuilder, sharedItems);
