@@ -7,6 +7,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Microsoft.VisualStudio.Threading;
 using Standardly.Core.Brokers.ExecutionBroker;
 using Standardly.Core.Brokers.FileSystems;
 using Standardly.Core.Models.RetryConfig;
@@ -23,6 +24,8 @@ namespace Standardly
     [Command(PackageIds.StandardlyGenerateCommand)]
     internal sealed class StandardlyGenerateCommand : BaseCommand<StandardlyGenerateCommand>
     {
+        OutputWindowPane _pane;
+
         protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
         {
             try
@@ -53,12 +56,30 @@ namespace Standardly
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
-        private Setting GetSettings(General general, Locations locations, Project project, IEnumerable<Project> projects)
+        private async Task UseOutputWindowAsync(string message)
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+            if (_pane is null)
+            {
+                _pane = await VS.Windows.CreateOutputWindowPaneAsync("Standardly");
+            }
+
+            await _pane.ActivateAsync();
+
+            await _pane.WriteLineAsync($"{message}\n\n");
+        }
+
+
+        private Setting GetSettings(
+            General general,
+            Locations locations,
+            Project project,
+            IEnumerable<Project> projects)
         {
             switch (project.Name)
             {

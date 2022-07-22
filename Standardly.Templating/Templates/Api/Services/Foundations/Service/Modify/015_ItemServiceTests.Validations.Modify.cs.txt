@@ -60,7 +60,7 @@ namespace $unitTestProjectName$.$services$.$foundations$.$safeItemNamePlural$
             // given 
             var invalid$safeItemNameSingular$ = new $safeItemNameSingular$
             {
-                //Name = invalidText,
+                // TODO:  Add default values for your properties i.e. Name = invalidText
             };
 
             var invalid$safeItemNameSingular$Exception = new Invalid$safeItemNameSingular$Exception();

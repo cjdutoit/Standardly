@@ -387,6 +387,8 @@
     }
   ],
   "cleanupTasks": [
+    "* BROKERS: LoggingBroker",
+    "* ----------------------------------------------------",
     "* Register the LoggingBroker in Startup.cs => AddBrokers(IServiceCollection services) then do a commit and push.",
     "* Resolve / remove any TODO items in the task list",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",

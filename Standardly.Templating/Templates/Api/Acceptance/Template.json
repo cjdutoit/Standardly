@@ -3,7 +3,7 @@
   "description": "Generates acceptance tests for POST, GET, PUT and DELETE requests",
   "templateType": "API",
   "projectsRequired": "Api",
-  "sortOrder": 1,
+  "sortOrder": 6,
   "tasks": [
     {
       "name": "001 - ACCEPTANCE: Should POST $safeItemNameSingular$",
@@ -418,6 +418,8 @@
     }
   ],
   "cleanupTasks": [
+    "* ACCEPTANCE: $safeItemNamePlural$",
+    "* ----------------------------------------------------",
     "* Add propeties to the $safeItemNameSingular$ model in the Acceptance project",
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
