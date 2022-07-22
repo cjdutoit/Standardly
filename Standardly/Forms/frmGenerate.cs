@@ -34,6 +34,7 @@ namespace Standardly.Forms
             }
         }
 
+        public string OutputMessage { get; private set; }
         public bool Cancelled = false;
         private readonly ITemplateService templateService;
         private readonly ITemplateOrchestrationService templateOrchestrationService;
@@ -374,6 +375,7 @@ namespace Standardly.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.OutputMessage = txtMessage.Text;
             this.Cancelled = true;
             this.Close();
         }
