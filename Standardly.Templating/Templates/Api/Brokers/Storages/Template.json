@@ -14,7 +14,7 @@
           "executions": [
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/brokers-storage"
+              "instruction": "git checkout -b users/$username$/brokers-storage-$lowerPluralDescriptionName$"
             },
             {
               "name": "Install EFxceptions.Identity from NuGet",
@@ -64,7 +64,7 @@
             },
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/brokers-storage"
+              "instruction": "git push origin users/$username$/brokers-storage-$lowerPluralDescriptionName$"
             }
           ]
         },
@@ -97,7 +97,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/data-$lowerPluralDescriptionName$-model users/$username$/brokers-storage"
+              "instruction": "git checkout -b users/$username$/data-$lowerPluralDescriptionName$-model users/$username$/brokers-storage-$lowerPluralDescriptionName$"
             }
           ]
         },
