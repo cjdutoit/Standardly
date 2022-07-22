@@ -1945,7 +1945,11 @@
     }
   ],
   "cleanupTasks": [
+    "* FOUNDATIONS: $safeItemNameSingular$Service",
+    "* ----------------------------------------------------",
     "* Register the $safeItemNameSingular$Service in Startup.cs => AddServices(IServiceCollection services) then do a commit and push.",
+    "* Add any additional validation rules required for your properties to the add unit test, commit a failing test, make it pass and commit and push the passing test. ",
+    "* Add any additional validation rules required for your properties to the modify unit test, commit a failing test, make it pass and commit and push the passing test. ",
     "* Resolve / remove any TODO items in the task list",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",

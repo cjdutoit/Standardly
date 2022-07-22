@@ -76,6 +76,8 @@
     }
   ],
   "cleanupTasks": [
+    "* BUILD: Build Project",
+    "* ----------------------------------------------------",
     "* By default we would generate the yaml file for you.  If you want to make some changes, remember to build project to generate the new YAML file, then do a commit and push",
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",

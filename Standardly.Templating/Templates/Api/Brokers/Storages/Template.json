@@ -452,8 +452,12 @@
     }
   ],
   "cleanupTasks": [
+    "* BROKERS: StorageBroker",
+    "* ----------------------------------------------------",
     "* Register the StorageBroker in Startup.cs => AddBrokers(IServiceCollection services) then do a commit and push.",
-    "* Add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker",
+    "* Add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker.",
+    "* Add any fluent configuration required to StorageBroker.$safeItemNamePlural$.Configurations.cs",
+    "* Extend $safeItemNameSingular$.cs with your required properties and update the migration, then do a commit and push.",
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
