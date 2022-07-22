@@ -53,8 +53,6 @@ namespace Standardly
 
                 var frmGenerate = new frmGenerate(settings, templateService, templateOrchestrationService);
                 frmGenerate.ShowDialog();
-
-                await UseOutputWindowAsync(frmGenerate.OutputMessage);
             }
             catch (Exception)
             {

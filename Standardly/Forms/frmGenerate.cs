@@ -34,6 +34,7 @@ namespace Standardly.Forms
             }
         }
 
+        OutputWindowPane _pane;
         public string OutputMessage { get; private set; }
         public bool Cancelled = false;
         private readonly ITemplateService templateService;
@@ -125,6 +126,20 @@ namespace Standardly.Forms
             {
                 throw ex.InnerException ?? ex;
             }
+        }
+
+        private async Task UseOutputWindowAsync(string message)
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+            if (_pane is null)
+            {
+                _pane = await VS.Windows.CreateOutputWindowPaneAsync("Standardly");
+            }
+
+            await _pane.ActivateAsync();
+
+            await _pane.WriteLineAsync($"{message}\n\n");
         }
 
         private void ValidateInput(Control control, bool condition, string error, StringBuilder errors)
@@ -482,6 +497,7 @@ namespace Standardly.Forms
             }
 
             txtMessage.Text = cleanupTaskMessage.ToString();
+            _ = Task.Run(() => UseOutputWindowAsync(cleanupTaskMessage.ToString()));
         }
 
         private static bool IsTaskRequired(Core.Models.Tasks.Task editorConfig)
