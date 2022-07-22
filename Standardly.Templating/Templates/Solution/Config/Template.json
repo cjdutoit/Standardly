@@ -201,6 +201,9 @@
     }
   ],
   "cleanupTasks": [
+    "----------------------------------------------------",
+    "CONFIG: Configuration",
+    "----------------------------------------------------",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
     "  - CONFIG: Add .editorconfig to solution  ->  users/$username$/config-solution-editorconfig",
     "  - CONFIG: Add .gitignore to solution  ->  users/$username$/config-solution-gitignore",

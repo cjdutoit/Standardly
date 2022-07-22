@@ -418,8 +418,9 @@
     }
   ],
   "cleanupTasks": [
-    "* ACCEPTANCE: $safeItemNamePlural$",
-    "* ----------------------------------------------------",
+    "----------------------------------------------------",
+    "ACCEPTANCE: $safeItemNamePlural$",
+    "----------------------------------------------------",
     "* Add propeties to the $safeItemNameSingular$ model in the Acceptance project",
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",

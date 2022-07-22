@@ -78,8 +78,9 @@
     }
   ],
   "cleanupTasks": [
-    "* BROKERS: DateTimeBroker",
-    "* ----------------------------------------------------",
+    "----------------------------------------------------",
+    "BROKERS: DateTimeBroker",
+    "----------------------------------------------------",
     "* Register the DateTimeBroker in Startup.cs => AddBrokers(IServiceCollection services) then do a commit and push.",
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
