@@ -452,8 +452,9 @@
     }
   ],
   "cleanupTasks": [
-    "* BROKERS: StorageBroker",
-    "* ----------------------------------------------------",
+    "----------------------------------------------------",
+    "BROKERS: StorageBroker",
+    "----------------------------------------------------",
     "* Register the StorageBroker in Startup.cs => AddBrokers(IServiceCollection services) then do a commit and push.",
     "* Add Add$safeItemNameSingular$Configurations(modelBuilder) to the OnModelCreating method of the Storage Broker.",
     "* Add any fluent configuration required to StorageBroker.$safeItemNamePlural$.Configurations.cs",

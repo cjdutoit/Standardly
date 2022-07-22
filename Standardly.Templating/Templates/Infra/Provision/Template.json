@@ -546,8 +546,9 @@
     }
   ],
   "cleanupTasks": [
-    "* PROVISION: Provision Project",
-    "* ----------------------------------------------------",
+    "----------------------------------------------------",
+    "PROVISION: Provision Project",
+    "----------------------------------------------------",
     "* By default we will NOT generate the provision yaml file.  You will need to configure this and when ready build the project to generate the new YAML file, then do a commit and push",
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
