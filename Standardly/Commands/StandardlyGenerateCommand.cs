@@ -77,7 +77,11 @@ namespace Standardly
         }
 
 
-        private Setting GetSettings(General general, Locations locations, Project project, IEnumerable<Project> projects)
+        private Setting GetSettings(
+            General general,
+            Locations locations,
+            Project project,
+            IEnumerable<Project> projects)
         {
             switch (project.Name)
             {
