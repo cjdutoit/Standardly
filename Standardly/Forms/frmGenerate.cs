@@ -662,8 +662,6 @@ namespace Standardly.Forms
         {
             chkSubmitAsDraftPullRequest.Enabled = chkPublicRepository.Checked;
             chkSubmitAsDraftPullRequest.Checked = chkPublicRepository.Checked;
-
-
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
