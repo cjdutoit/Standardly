@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standardly.Templating", "St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standardly.Templating.Tests.Acceptance", "Standardly.Templating.Tests.Acceptance\Standardly.Templating.Tests.Acceptance.csproj", "{411F1B0F-50FF-43FF-8DDE-909F116091F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standardly.Infrastructure.Build", "Standardly.Infrastructure.Build\Standardly.Infrastructure.Build.csproj", "{FA0ACEEF-78C1-4827-9305-DC55F2D08324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standardly.Infrastructure.Build", "Standardly.Infrastructure.Build\Standardly.Infrastructure.Build.csproj", "{FA0ACEEF-78C1-4827-9305-DC55F2D08324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xeption", "Xeption\Xeption.csproj", "{A1D0934D-250F-4584-810C-50703E862E90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xeption", "Xeption\Xeption.csproj", "{A1D0934D-250F-4584-810C-50703E862E90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standardly.SPA", "Standardly.SPA\Standardly.SPA.csproj", "{AFD7C7A4-355E-45A2-B1BE-83CB28A95582}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,14 @@ Global
 		{A1D0934D-250F-4584-810C-50703E862E90}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A1D0934D-250F-4584-810C-50703E862E90}.Release|x86.ActiveCfg = Release|Any CPU
 		{A1D0934D-250F-4584-810C-50703E862E90}.Release|x86.Build.0 = Release|Any CPU
+		{AFD7C7A4-355E-45A2-B1BE-83CB28A95582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD7C7A4-355E-45A2-B1BE-83CB28A95582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD7C7A4-355E-45A2-B1BE-83CB28A95582}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AFD7C7A4-355E-45A2-B1BE-83CB28A95582}.Debug|x86.Build.0 = Debug|Any CPU
+		{AFD7C7A4-355E-45A2-B1BE-83CB28A95582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD7C7A4-355E-45A2-B1BE-83CB28A95582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFD7C7A4-355E-45A2-B1BE-83CB28A95582}.Release|x86.ActiveCfg = Release|Any CPU
+		{AFD7C7A4-355E-45A2-B1BE-83CB28A95582}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
