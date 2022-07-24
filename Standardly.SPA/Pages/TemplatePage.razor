@@ -1,13 +1,115 @@
 ﻿@page "/TemplatePage";
 
 <form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Templates</label>
-        <select class="form-control">
-            @foreach (var item in templates)
-            {
-                <option value="@item.Name">@item.Name</option>
-            }
-        </select>
+    <div class="card">
+        <dic class="card-body">
+
+            <div class="form-group">
+                <label for="dd_template">Templates</label>
+                <select class="form-control" id="dd_template">
+                    <option disabled selected value> -- select a template -- </option>
+                    @foreach (var item in templates)
+                    {
+                        <option value="@item.Name">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_nameSingular">Model Name Singular:</label>
+                        <input class="form-control" id="txt_nameSingular" placeholder="Model Name Singular">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_namePlural">Model Name Plural: </label>
+                        <input class="form-control" id="txt_namePlural" placeholder="Model Name Plural">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="cb_publicRepo">
+                        <label class="form-check-label" for="cb_publicRepo">Public Repository</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="cb_prDraft">
+                        <label class="form-check-label" for="cb_prDraft">Submit Pull Requests As Draft</label>
+                    </div>
+                </div>
+            </div>
+
+        </dic>
     </div>
+    <br />
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_sloutionPath">Project file path:</label>
+                        <input class="form-control" id="txt_sloutionPath" placeholder="d:\MyApp or /home/user/MyApp">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_projName">Project: </label>
+                        <input class="form-control" id="txt_projName" placeholder="Project: ">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_unitTestName">Unit Test Project: </label>
+                        <input class="form-control" id="txt_unitTestName" placeholder="Default name">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_AcceptTestName">Acceptance Test Project: </label>
+                        <input class="form-control" id="txt_AcceptTestName" placeholder="Default name">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_infraBuildName">Infrastructure Build Project: </label>
+                        <input class="form-control" id="txt_infraBuildName" placeholder="Default name">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_infraProvisionName">Infrastructure Provision Project: </label>
+                        <input class="form-control" id="txt_infraProvisionName" placeholder="Default name">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-body">
+             <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="cb_dev">
+                <label class="form-check-label text-danger" for="cb_dev">
+                    I confirm that I am an experienced developer and able to write this code myself.  The use of this productivity tool will NOT limit my skills or learning potential.
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="cb_scripts">
+                <label class="form-check-label text-danger" for="cb_scripts">
+                    I acknowledge that this productivity tool use CLI commands and/or powershell scripts as defined in the templates which could be harmfull if modified.  
+                </label>
+            </div>
+        </div>
+    </div>
+
 </form>
