@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Standardly.SPA
 {
-    public class Startup
+    public partial class Startup
     {
         public Startup(IConfiguration configuration)
             =>  Configuration = configuration;
@@ -23,6 +23,7 @@ namespace Standardly.SPA
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            AddDependency(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

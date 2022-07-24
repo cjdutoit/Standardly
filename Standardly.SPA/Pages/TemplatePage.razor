@@ -1,0 +1,13 @@
+﻿@page "/TemplatePage";
+
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Templates</label>
+        <select class="form-control">
+            @foreach (var item in templates)
+            {
+                <option value="@item.Name">@item.Name</option>
+            }
+        </select>
+    </div>
+</form>
