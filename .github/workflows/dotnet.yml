@@ -1,0 +1,25 @@
+name: .Net
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Check Out
+      uses: actions/checkout@v2
+    - name: Setup Dot Net Version
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 7.0.100-preview.1.22110.4
+        include-prerelease: true
+    - name: Restore
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
