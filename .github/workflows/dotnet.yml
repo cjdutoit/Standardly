@@ -2,10 +2,10 @@ name: .Net
 on:
   push:
     branches:
-    - main
+    - users/coeur85/FIx-buildFromCli
   pull_request:
     branches:
-    - main
+    - users/coeur85/FIx-buildFromCli
 jobs:
   build:
     runs-on: windows-latest
