@@ -390,7 +390,7 @@
       ]
     },
     {
-      "name": "007 - BROKERS: Storage - Delete $safeItemNameSingular$",
+      "name": "007 - BROKERS: Storage - Delete $safeItemNameSingular$ and $safeItemNamePlural$ table migration",
       "actions": [
         {
           "name": "Create branch",
@@ -418,6 +418,15 @@
             }
           ],
           "executions": [
+            {
+              "name": "Add migration",
+              "instruction": "dotnet ef migrations add $safeItemNamePlural$_Table"
+            },
+            {
+              "name": "Update Database",
+              "instruction": "dotnet ef database update"
+            },
+
             {
               "name": "Stage all changes",
               "instruction": "git add -A"
