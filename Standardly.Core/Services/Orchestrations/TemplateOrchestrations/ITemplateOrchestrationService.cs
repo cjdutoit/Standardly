@@ -12,6 +12,6 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
     public interface ITemplateOrchestrationService
     {
         List<Template> FindAllTemplates();
-        bool GenerateCodeFromTemplate(Template template, Dictionary<string, string> replacementDictionary);
+        string GenerateCodeFromTemplate(Template template, Dictionary<string, string> replacementDictionary);
     }
 }
