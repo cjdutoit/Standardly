@@ -57,6 +57,7 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
 
             Assert.False(errorList.Length > 0, errorList.ToString());
         }
+
         [Fact]
         public void ShouldVerifyThatAllTemplateDefinitionsArePresent()
         {
@@ -118,6 +119,7 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
                 }
             }
         }
+        
         [Fact]
         public void ShouldVerifyThatAllTemplatesOnlyHaveTheStandardReplacementVariables()
         {
