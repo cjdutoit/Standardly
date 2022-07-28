@@ -17,7 +17,7 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 {
     public partial class TemplateOrchestrationService
     {
-        private delegate bool ReturningBooleanFunction();
+        private delegate string ReturningStringFunction();
         private delegate List<Template> ReturningTemplateListFunction();
 
         private List<Template> TryCatch(ReturningTemplateListFunction returningTemplateListFunction)
@@ -51,11 +51,11 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             }
         }
 
-        private bool TryCatch(ReturningBooleanFunction returningBooleanFunction)
+        private string TryCatch(ReturningStringFunction returningStringFunction)
         {
             try
             {
-                return returningBooleanFunction();
+                return returningStringFunction();
             }
             catch (NullTemplateOrchestrationException nullTemplateOrchestrationException)
             {

@@ -87,9 +87,13 @@ namespace Standardly.Forms
             this.chkLicense = new System.Windows.Forms.CheckBox();
             this.chkEditorConfig = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnGenerateFromTemplate = new System.Windows.Forms.Button();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.Output = new System.Windows.Forms.TabPage();
+            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.Debug = new System.Windows.Forms.TabPage();
+            this.txtDebug = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -99,6 +103,9 @@ namespace Standardly.Forms
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.Output.SuspendLayout();
+            this.Debug.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -709,19 +716,6 @@ namespace Standardly.Forms
             this.label2.Text = "** The sections below can be configured under Tools > Options > The Standard Code" +
     " Generator > General **";
             // 
-            // txtMessage
-            // 
-            this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMessage.Location = new System.Drawing.Point(7, 483);
-            this.txtMessage.Multiline = true;
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ReadOnly = true;
-            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMessage.Size = new System.Drawing.Size(967, 167);
-            this.txtMessage.TabIndex = 15;
-            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -746,12 +740,73 @@ namespace Standardly.Forms
             this.btnGenerateFromTemplate.UseVisualStyleBackColor = true;
             this.btnGenerateFromTemplate.Click += new System.EventHandler(this.btnGenerateFromTemplate_Click);
             // 
+            // tabControl2
+            // 
+            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl2.Controls.Add(this.Output);
+            this.tabControl2.Controls.Add(this.Debug);
+            this.tabControl2.Location = new System.Drawing.Point(6, 480);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(972, 170);
+            this.tabControl2.TabIndex = 18;
+            // 
+            // Output
+            // 
+            this.Output.Controls.Add(this.txtMessage);
+            this.Output.Location = new System.Drawing.Point(4, 22);
+            this.Output.Name = "Output";
+            this.Output.Padding = new System.Windows.Forms.Padding(3);
+            this.Output.Size = new System.Drawing.Size(960, 144);
+            this.Output.TabIndex = 0;
+            this.Output.Text = "Output";
+            this.Output.UseVisualStyleBackColor = true;
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMessage.Location = new System.Drawing.Point(6, 6);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ReadOnly = true;
+            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMessage.Size = new System.Drawing.Size(948, 132);
+            this.txtMessage.TabIndex = 16;
+            // 
+            // Debug
+            // 
+            this.Debug.Controls.Add(this.txtDebug);
+            this.Debug.Location = new System.Drawing.Point(4, 22);
+            this.Debug.Name = "Debug";
+            this.Debug.Padding = new System.Windows.Forms.Padding(3);
+            this.Debug.Size = new System.Drawing.Size(964, 144);
+            this.Debug.TabIndex = 1;
+            this.Debug.Text = "Debug";
+            this.Debug.UseVisualStyleBackColor = true;
+            // 
+            // txtDebug
+            // 
+            this.txtDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDebug.Location = new System.Drawing.Point(6, 6);
+            this.txtDebug.Multiline = true;
+            this.txtDebug.Name = "txtDebug";
+            this.txtDebug.ReadOnly = true;
+            this.txtDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDebug.Size = new System.Drawing.Size(952, 132);
+            this.txtDebug.TabIndex = 17;
+            // 
             // frmGenerate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 709);
-            this.Controls.Add(this.txtMessage);
+            this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnGenerateFromTemplate);
             this.Controls.Add(this.tabControl1);
@@ -779,8 +834,12 @@ namespace Standardly.Forms
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
+            this.Output.ResumeLayout(false);
+            this.Output.PerformLayout();
+            this.Debug.ResumeLayout(false);
+            this.Debug.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -834,12 +893,16 @@ namespace Standardly.Forms
         private System.Windows.Forms.CheckBox chkLicense;
         private System.Windows.Forms.CheckBox chkEditorConfig;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnGenerateFromTemplate;
         private System.Windows.Forms.CheckBox chkSubmitAsDraftPullRequest;
         private System.Windows.Forms.CheckBox chkPublicRepository;
         private System.Windows.Forms.TextBox txtGitHubBaseBranchName;
         private System.Windows.Forms.Label lblGitHubBaseBranchName;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage Output;
+        private System.Windows.Forms.TextBox txtMessage;
+        private System.Windows.Forms.TabPage Debug;
+        private System.Windows.Forms.TextBox txtDebug;
     }
 }
