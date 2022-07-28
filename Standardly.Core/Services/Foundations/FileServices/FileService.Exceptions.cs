@@ -55,7 +55,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 var failedFileDependencyException =
                     new FailedFileServiceDependencyException(serializationException);
 
-                throw CreateAndLogDependecyException(failedFileDependencyException);
+                throw CreateAndLogDependencyException(failedFileDependencyException);
             }
             catch (OutOfMemoryException outOfMemoryException)
             {
@@ -69,7 +69,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 var failedFileDependencyException =
                     new FailedFileServiceDependencyException(ioException);
 
-                throw CreateAndLogDependecyException(failedFileDependencyException);
+                throw CreateAndLogDependencyException(failedFileDependencyException);
             }
             catch (UnauthorizedAccessException unauthorizedAccessException)
             {
@@ -127,7 +127,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 var failedFileDependencyException =
                     new FailedFileServiceDependencyException(serializationException);
 
-                throw CreateAndLogDependecyException(failedFileDependencyException);
+                throw CreateAndLogDependencyException(failedFileDependencyException);
             }
             catch (OutOfMemoryException outOfMemoryException)
             {
@@ -141,7 +141,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 var failedFileDependencyException =
                     new FailedFileServiceDependencyException(ioException);
 
-                throw CreateAndLogDependecyException(failedFileDependencyException);
+                throw CreateAndLogDependencyException(failedFileDependencyException);
             }
             catch (UnauthorizedAccessException unauthorizedAccessException)
             {
@@ -195,7 +195,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 var failedFileDependencyException =
                     new FailedFileServiceDependencyException(serializationException);
 
-                throw CreateAndLogDependecyException(failedFileDependencyException);
+                throw CreateAndLogDependencyException(failedFileDependencyException);
             }
             catch (OutOfMemoryException outOfMemoryException)
             {
@@ -209,7 +209,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 var failedFileDependencyException =
                     new FailedFileServiceDependencyException(ioException);
 
-                throw CreateAndLogDependecyException(failedFileDependencyException);
+                throw CreateAndLogDependencyException(failedFileDependencyException);
             }
             catch (UnauthorizedAccessException unauthorizedAccessException)
             {
@@ -267,7 +267,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 var failedFileDependencyException =
                     new FailedFileServiceDependencyException(serializationException);
 
-                throw CreateAndLogDependecyException(failedFileDependencyException);
+                throw CreateAndLogDependencyException(failedFileDependencyException);
             }
             catch (OutOfMemoryException outOfMemoryException)
             {
@@ -281,7 +281,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 var failedFileDependencyException =
                     new FailedFileServiceDependencyException(ioException);
 
-                throw CreateAndLogDependecyException(failedFileDependencyException);
+                throw CreateAndLogDependencyException(failedFileDependencyException);
             }
             catch (UnauthorizedAccessException unauthorizedAccessException)
             {
@@ -315,7 +315,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
             return fileServiceDependencyValidationException;
         }
 
-        private FileServiceDependencyException CreateAndLogDependecyException(Xeption exception)
+        private FileServiceDependencyException CreateAndLogDependencyException(Xeption exception)
         {
             var fileServiceDependencyException = new FileServiceDependencyException(exception);
 
