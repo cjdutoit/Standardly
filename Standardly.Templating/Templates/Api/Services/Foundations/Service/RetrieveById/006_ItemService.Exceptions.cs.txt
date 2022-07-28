@@ -59,7 +59,7 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
                 var failed$safeItemNameSingular$StorageException =
                     new Failed$safeItemNameSingular$StorageException(databaseUpdateException);
 
-                throw CreateAndLogDependecyException(failed$safeItemNameSingular$StorageException);
+                throw CreateAndLogDependencyException(failed$safeItemNameSingular$StorageException);
             }
             catch (Exception exception)
             {
@@ -119,7 +119,7 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
             return $parameterSafeItemNameSingular$DependencyValidationException;
         }
 
-        private $safeItemNameSingular$DependencyException CreateAndLogDependecyException(
+        private $safeItemNameSingular$DependencyException CreateAndLogDependencyException(
             Xeption exception)
         {
             var $parameterSafeItemNameSingular$DependencyException = new $safeItemNameSingular$DependencyException(exception);
