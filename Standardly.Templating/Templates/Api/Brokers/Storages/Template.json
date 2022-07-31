@@ -48,7 +48,7 @@
           "executions": [
             {
               "name": "Add migration",
-              "instruction": "dotnet ef migrations add InitialCreate --project $projectName$"
+              "instruction": "dotnet ef migrations add InitialCreate --project $projectName$.csproj"
             },
             {
               "name": "Update Database",
@@ -174,7 +174,7 @@
           "executions": [
             {
               "name": "Add $safeItemNameSingular$ Model Migration",
-              "instruction": "dotnet ef migrations add Add$safeItemNameSingular$Model --project $projectName$"
+              "instruction": "dotnet ef migrations add Add$safeItemNameSingular$Model --project $projectName$.csproj"
             },
             {
               "name": "Update Database",

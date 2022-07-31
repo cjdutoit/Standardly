@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using Standardly.Core.Models.FileItems;
 using Standardly.Core.Models.Templates;
 using Standardly.Core.Services.Foundations.Executions;
@@ -62,7 +63,7 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                 return templates;
             });
 
-        public bool GenerateCodeFromTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
+        public string GenerateCodeFromTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
             TryCatch(() =>
             {
                 ValidateTemplateIsNotNull(template);
@@ -75,16 +76,23 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                 var transformedTemplate = this.templateService
                     .ConvertStringToTemplate(transformedStringTemplate);
 
+                StringBuilder output = new StringBuilder();
+
                 if (transformedTemplate.Tasks.Any())
                 {
                     foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
                     {
+                        output.AppendLine($"{DateTime.Now} - Starting on Task '{task.Name}'");
+
                         if (task.Actions.Any())
                         {
                             foreach (Models.Actions.Action action in task.Actions)
                             {
                                 if (this.IsActionRequired(action) == true)
                                 {
+                                    output.AppendLine(
+                                        $"{DateTime.Now} - Starting on action '{task.Name} > {action.Name}'");
+
                                     if (action.FileItems.Any())
                                     {
                                         foreach (FileItem fileItem in action.FileItems)
@@ -101,8 +109,10 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 
                                                 var fileExists = this.fileService.CheckIfFileExists(fileItem.Target);
 
-                                                if (fileExists == false || (fileExists == true && fileItem.Replace == true))
+                                                if (fileExists == false
+                                                    || (fileExists == true && fileItem.Replace == true))
                                                 {
+                                                    output.AppendLine($"{DateTime.Now} - Adding file '{fileItem.Target}'");
                                                     this.fileService.WriteToFile(fileItem.Target, transformedSourceString);
                                                 }
                                             }
@@ -111,7 +121,11 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 
                                     if (action.Executions.Any())
                                     {
-                                        this.executionService.Run(action.Executions, action.ExecutionFolder);
+                                        output.AppendLine(
+                                            $"{DateTime.Now} - Starting on executions for '{task.Name} > {action.Name}'");
+
+                                        output.AppendLine(
+                                            this.executionService.Run(action.Executions, action.ExecutionFolder));
                                     }
                                 }
                             }
@@ -119,7 +133,7 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                     }
                 }
 
-                return true;
+                return output.ToString();
             });
 
         private bool IsActionRequired(Models.Actions.Action action)

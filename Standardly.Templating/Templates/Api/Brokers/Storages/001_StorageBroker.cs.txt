@@ -18,6 +18,8 @@ namespace $rootnamespace$.$brokers$.Storages
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            
             // TODO: Add your fluent configurations here i.e. Add$safeItemNameSingular$Configurations(modelBuilder);
         }
 

@@ -34,7 +34,9 @@ namespace Standardly.Forms
             }
         }
 
-        OutputWindowPane _pane;
+        OutputWindowPane standardlyPane;
+        OutputWindowPane standardlyDebugPane;
+
         public string OutputMessage { get; private set; }
         public bool Cancelled = false;
         private readonly ITemplateService templateService;
@@ -128,18 +130,18 @@ namespace Standardly.Forms
             }
         }
 
-        private async Task UseOutputWindowAsync(string message)
+        private async Task UseOutputWindowAsync(string message, string windowTitle, OutputWindowPane pane)
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
-            if (_pane is null)
+            if (pane is null)
             {
-                _pane = await VS.Windows.CreateOutputWindowPaneAsync("Standardly");
+                pane = await VS.Windows.CreateOutputWindowPaneAsync(windowTitle);
             }
 
-            await _pane.ActivateAsync();
+            await pane.ActivateAsync();
 
-            await _pane.WriteLineAsync($"{message}\n\n");
+            await pane.WriteLineAsync($"{message}\n\n");
         }
 
         private void ValidateInput(Control control, bool condition, string error, StringBuilder errors)
@@ -397,6 +399,7 @@ namespace Standardly.Forms
 
         private void GenerateCode()
         {
+            StringBuilder debugOutput = new StringBuilder();
             Dictionary<string, string> replacementsDictionary = new Dictionary<string, string>();
             GetReplacementDictionary(replacementsDictionary);
 
@@ -469,8 +472,10 @@ namespace Standardly.Forms
 
                 if (transformedConfigTemplate.Tasks.Any())
                 {
-                    this.templateOrchestrationService
-                        .GenerateCodeFromTemplate(transformedConfigTemplate, replacementsDictionary);
+                    debugOutput.AppendLine(this.templateOrchestrationService
+                        .GenerateCodeFromTemplate(transformedConfigTemplate, replacementsDictionary));
+
+                    debugOutput.AppendLine();
                 }
             }
 
@@ -484,10 +489,12 @@ namespace Standardly.Forms
 
             this.templateService.ValidateSourceFiles(transformedTemplate);
 
-            this.templateOrchestrationService
-                .GenerateCodeFromTemplate(transformedTemplate, replacementsDictionary);
+            debugOutput.AppendLine(this.templateOrchestrationService
+                .GenerateCodeFromTemplate(transformedTemplate, replacementsDictionary));
 
+            _ = Task.Run(() => UseOutputWindowAsync(debugOutput.ToString(), "Standardly - Debug", standardlyDebugPane));
             StringBuilder cleanupTaskMessage = new StringBuilder();
+
             cleanupTaskMessage.AppendLine("The code generation has been completed.  " +
                 "Please complete / review the following cleanup tasks:");
 
@@ -496,8 +503,9 @@ namespace Standardly.Forms
                 cleanupTaskMessage.AppendLine(task);
             }
 
+            txtDebug.Text = debugOutput.ToString();
             txtMessage.Text = cleanupTaskMessage.ToString();
-            _ = Task.Run(() => UseOutputWindowAsync(cleanupTaskMessage.ToString()));
+            _ = Task.Run(() => UseOutputWindowAsync(cleanupTaskMessage.ToString(), "Standardly", standardlyPane));
         }
 
         private static bool IsTaskRequired(Core.Models.Tasks.Task editorConfig)

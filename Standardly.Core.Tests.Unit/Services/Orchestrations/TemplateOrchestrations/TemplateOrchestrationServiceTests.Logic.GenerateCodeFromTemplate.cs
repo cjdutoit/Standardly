@@ -78,11 +78,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             }
 
             // when
-            bool actualGenerateCodeFromTemplateResult = this.templateOrchestrationService
+            string actualGenerateCodeFromTemplateResult = this.templateOrchestrationService
                 .GenerateCodeFromTemplate(inputTemplate, randomReplacementDictionary);
 
             // then
-            actualGenerateCodeFromTemplateResult.Should().BeTrue();
+            actualGenerateCodeFromTemplateResult.Should().NotBeNullOrEmpty();
 
             inputTemplate.Tasks.Count.Should().BeGreaterThan(0);
 
@@ -214,11 +214,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             }
 
             // when
-            bool actualGenerateCodeFromTemplateResult = this.templateOrchestrationService
+            string actualGenerateCodeFromTemplateResult = this.templateOrchestrationService
                 .GenerateCodeFromTemplate(inputTemplate, randomReplacementDictionary);
 
             // then
-            actualGenerateCodeFromTemplateResult.Should().BeTrue();
+            actualGenerateCodeFromTemplateResult.Should().NotBeNullOrEmpty();
 
             inputTemplate.Tasks.Count.Should().BeGreaterThan(0);
 
@@ -332,11 +332,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
             }
 
             // when
-            bool actualGenerateCodeFromTemplateResult = this.templateOrchestrationService
+            string actualGenerateCodeFromTemplateResult = this.templateOrchestrationService
                 .GenerateCodeFromTemplate(inputTemplate, randomReplacementDictionary);
 
             // then
-            actualGenerateCodeFromTemplateResult.Should().BeTrue();
+            actualGenerateCodeFromTemplateResult.Should().NotBeNullOrEmpty();
 
             inputTemplate.Tasks.Count.Should().BeGreaterThan(0);
 
