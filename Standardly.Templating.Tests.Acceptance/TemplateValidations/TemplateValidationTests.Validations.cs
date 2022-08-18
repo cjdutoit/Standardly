@@ -152,10 +152,6 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
                             .Add($"Template[{templateName}].{dictionaryEntry.Key}", dictionaryEntry.Value);
                     }
                 }
-                catch (Exception ex)
-                {
-                    throw;
-                }
             }
 
             // then

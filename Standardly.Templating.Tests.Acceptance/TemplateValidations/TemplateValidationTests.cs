@@ -89,6 +89,8 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
             replacementsDictionary.Add("$safeItemNamePlural$", GetRandomString());
             replacementsDictionary.Add("$parameterSafeItemNameSingular$", GetRandomString());
             replacementsDictionary.Add("$parameterSafeItemNamePlural$", GetRandomString());
+            replacementsDictionary.Add("$parameterSafeItemNameSingularLower$", GetRandomString());
+            replacementsDictionary.Add("$parameterSafeItemNamePluralLower$", GetRandomString());
             replacementsDictionary.Add("$lowerDescriptionName$", GetRandomString());
             replacementsDictionary.Add("$upperDescriptionName$", GetRandomString());
             replacementsDictionary.Add("$lowerPluralDescriptionName$", GetRandomString());
