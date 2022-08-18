@@ -533,6 +533,8 @@ namespace Standardly.Forms
             string templateFolder = Path.Combine(Path.GetDirectoryName(assembly), "Templates");
             var parameterSafeItemNameSingular = PrivatePropertyName(GenerateCriteria.NameSingular);
             var parameterSafeItemNamePlural = PrivatePropertyName(GenerateCriteria.NamePlural);
+            var parameterSafeItemNameSingularLower = parameterSafeItemNameSingular.ToLower();
+            var parameterSafeItemNamePluralLower = parameterSafeItemNamePlural.ToLower();
             var lowerDescriptionName = DescriptionPropertyName(GenerateCriteria.NameSingular);
             var upperDescriptionName = UpperDescriptionPropertyName(GenerateCriteria.NameSingular);
             var lowerPluralDescriptionName = DescriptionPropertyName(GenerateCriteria.NamePlural);
@@ -544,6 +546,8 @@ namespace Standardly.Forms
             replacementsDictionary.Add("$safeItemNamePlural$", GenerateCriteria.NamePlural);
             replacementsDictionary.Add("$parameterSafeItemNameSingular$", parameterSafeItemNameSingular);
             replacementsDictionary.Add("$parameterSafeItemNamePlural$", parameterSafeItemNamePlural);
+            replacementsDictionary.Add("$parameterSafeItemNameSingularLower$", parameterSafeItemNameSingularLower);
+            replacementsDictionary.Add("$parameterSafeItemNamePluralLower$", parameterSafeItemNamePluralLower);
             replacementsDictionary.Add("$lowerDescriptionName$", lowerDescriptionName);
             replacementsDictionary.Add("$upperDescriptionName$", upperDescriptionName);
             replacementsDictionary.Add("$lowerPluralDescriptionName$", lowerPluralDescriptionName);

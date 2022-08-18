@@ -22,7 +22,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/acceptance-$lowerPluralDescriptionName$-post"
+              "instruction": "git checkout -b users/$username$/acceptance-$parameterSafeItemNamePluralLower$-post"
             },
             {
               "name": "Install DeepCloner from NuGet",
@@ -134,7 +134,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/acceptance-$lowerPluralDescriptionName$-post"
+              "instruction": "git push origin users/$username$/acceptance-$parameterSafeItemNamePluralLower$-post"
             }
           ]
         },
@@ -167,7 +167,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/acceptance-$lowerPluralDescriptionName$-getall users/$username$/acceptance-$lowerPluralDescriptionName$-post"
+              "instruction": "git checkout -b users/$username$/acceptance-$parameterSafeItemNamePluralLower$-getall users/$username$/acceptance-$parameterSafeItemNamePluralLower$-post"
             }
           ]
         },
@@ -203,7 +203,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/acceptance-$lowerPluralDescriptionName$-getall"
+              "instruction": "git push origin users/$username$/acceptance-$parameterSafeItemNamePluralLower$-getall"
             }
           ]
         },
@@ -236,7 +236,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/acceptance-$lowerPluralDescriptionName$-getbyid users/$username$/acceptance-$lowerPluralDescriptionName$-getall"
+              "instruction": "git checkout -b users/$username$/acceptance-$parameterSafeItemNamePluralLower$-getbyid users/$username$/acceptance-$parameterSafeItemNamePluralLower$-getall"
             }
           ]
         },
@@ -267,7 +267,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/acceptance-$lowerPluralDescriptionName$-getbyid"
+              "instruction": "git push origin users/$username$/acceptance-$parameterSafeItemNamePluralLower$-getbyid"
             }
           ]
         },
@@ -300,7 +300,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/acceptance-$lowerPluralDescriptionName$-put users/$username$/acceptance-$lowerPluralDescriptionName$-getbyid"
+              "instruction": "git checkout -b users/$username$/acceptance-$parameterSafeItemNamePluralLower$-put users/$username$/acceptance-$parameterSafeItemNamePluralLower$-getbyid"
             }
           ]
         },
@@ -336,7 +336,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/acceptance-$lowerPluralDescriptionName$-put"
+              "instruction": "git push origin users/$username$/acceptance-$parameterSafeItemNamePluralLower$-put"
             }
           ]
         },
@@ -369,7 +369,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/acceptance-$lowerPluralDescriptionName$-delete users/$username$/acceptance-$lowerPluralDescriptionName$-put"
+              "instruction": "git checkout -b users/$username$/acceptance-$parameterSafeItemNamePluralLower$-delete users/$username$/acceptance-$parameterSafeItemNamePluralLower$-put"
             }
           ]
         },
@@ -400,7 +400,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/acceptance-$lowerPluralDescriptionName$-delete"
+              "instruction": "git push origin users/$username$/acceptance-$parameterSafeItemNamePluralLower$-delete"
             }
           ]
         },
@@ -425,10 +425,10 @@
     "* Resolve / remove any TODO items in the task list if any",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
-    "  - ACCEPTANCE: Should POST $safeItemNameSingular$  ->  users/$username$/acceptance-$lowerPluralDescriptionName$-post",
-    "  - ACCEPTANCE: Should GET ALL $safeItemNamePlural$  ->  users/$username$/acceptance-$lowerPluralDescriptionName$-getall",
-    "  - ACCEPTANCE: Should GET $safeItemNameSingular$ By Id  ->  users/$username$/acceptance-$lowerPluralDescriptionName$-getbyid",
-    "  - ACCEPTANCE: Should PUT $safeItemNameSingular$  ->  users/$username$/acceptance-$lowerPluralDescriptionName$-put",
-    "  - ACCEPTANCE: Should DELETE $safeItemNameSingular$  ->  users/$username$/acceptance-$lowerPluralDescriptionName$-delete"
+    "  - ACCEPTANCE: Should POST $safeItemNameSingular$  ->  users/$username$/acceptance-$parameterSafeItemNamePluralLower$-post",
+    "  - ACCEPTANCE: Should GET ALL $safeItemNamePlural$  ->  users/$username$/acceptance-$parameterSafeItemNamePluralLower$-getall",
+    "  - ACCEPTANCE: Should GET $safeItemNameSingular$ By Id  ->  users/$username$/acceptance-$parameterSafeItemNamePluralLower$-getbyid",
+    "  - ACCEPTANCE: Should PUT $safeItemNameSingular$  ->  users/$username$/acceptance-$parameterSafeItemNamePluralLower$-put",
+    "  - ACCEPTANCE: Should DELETE $safeItemNameSingular$  ->  users/$username$/acceptance-$parameterSafeItemNamePluralLower$-delete"
   ]
 }

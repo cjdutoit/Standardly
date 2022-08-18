@@ -14,7 +14,7 @@
           "executions": [
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/brokers-storage-$lowerPluralDescriptionName$"
+              "instruction": "git checkout -b users/$username$/brokers-storage-$parameterSafeItemNamePluralLower$"
             },
             {
               "name": "Install EFxceptions.Identity from NuGet",
@@ -64,7 +64,7 @@
             },
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/brokers-storage-$lowerPluralDescriptionName$"
+              "instruction": "git push origin users/$username$/brokers-storage-$parameterSafeItemNamePluralLower$"
             }
           ]
         },
@@ -97,7 +97,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/data-$lowerPluralDescriptionName$-model users/$username$/brokers-storage-$lowerPluralDescriptionName$"
+              "instruction": "git checkout -b users/$username$/data-$parameterSafeItemNamePluralLower$-model users/$username$/brokers-storage-$parameterSafeItemNamePluralLower$"
             }
           ]
         },
@@ -122,7 +122,7 @@
             },
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/data-$lowerPluralDescriptionName$-model"
+              "instruction": "git push origin users/$username$/data-$parameterSafeItemNamePluralLower$-model"
             }
           ]
         },
@@ -147,7 +147,7 @@
           "executions": [
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-insert users/$username$/data-$lowerPluralDescriptionName$-model"
+              "instruction": "git checkout -b users/$username$/brokers-$parameterSafeItemNamePluralLower$-insert users/$username$/data-$parameterSafeItemNamePluralLower$-model"
             }
           ]
         },
@@ -190,7 +190,7 @@
             },
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-insert"
+              "instruction": "git push origin users/$username$/brokers-$parameterSafeItemNamePluralLower$-insert"
             }
           ]
         },
@@ -215,7 +215,7 @@
           "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-selectall users/$username$/brokers-$lowerPluralDescriptionName$-insert"
+              "instruction": "git checkout -b users/$username$/brokers-$parameterSafeItemNamePluralLower$-selectall users/$username$/brokers-$parameterSafeItemNamePluralLower$-insert"
             }
           ]
         },
@@ -251,7 +251,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectall"
+              "instruction": "git push origin users/$username$/brokers-$parameterSafeItemNamePluralLower$-selectall"
             }
           ]
         },
@@ -276,7 +276,7 @@
           "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid users/$username$/brokers-$lowerPluralDescriptionName$-selectall"
+              "instruction": "git checkout -b users/$username$/brokers-$parameterSafeItemNamePluralLower$-selectbyid users/$username$/brokers-$parameterSafeItemNamePluralLower$-selectall"
             }
           ]
         },
@@ -312,7 +312,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid"
+              "instruction": "git push origin users/$username$/brokers-$parameterSafeItemNamePluralLower$-selectbyid"
             }
           ]
         },
@@ -337,7 +337,7 @@
           "executions": [
             {
               "name": "Create new branch based on the current branch",
-              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-update users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid"
+              "instruction": "git checkout -b users/$username$/brokers-$parameterSafeItemNamePluralLower$-update users/$username$/brokers-$parameterSafeItemNamePluralLower$-selectbyid"
             }
           ]
         },
@@ -373,7 +373,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-update"
+              "instruction": "git push origin users/$username$/brokers-$parameterSafeItemNamePluralLower$-update"
             }
           ]
         },
@@ -398,7 +398,7 @@
           "executions": [
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/brokers-$lowerPluralDescriptionName$-delete users/$username$/brokers-$lowerPluralDescriptionName$-update"
+              "instruction": "git checkout -b users/$username$/brokers-$parameterSafeItemNamePluralLower$-delete users/$username$/brokers-$parameterSafeItemNamePluralLower$-update"
             }
           ]
         },
@@ -434,7 +434,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/brokers-$lowerPluralDescriptionName$-delete"
+              "instruction": "git push origin users/$username$/brokers-$parameterSafeItemNamePluralLower$-delete"
             }
           ]
         },
@@ -463,11 +463,11 @@
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
     "  - BROKERS: Storage Broker  ->  users/$username$/brokers-storage",
-    "  - DATA: $safeItemNameSingular$ Model  ->  users/$username$/data-$lowerPluralDescriptionName$-model",
-    "  - BROKERS: Storage - Insert $safeItemNameSingular$  ->  users/$username$/brokers-$lowerPluralDescriptionName$-insert",
-    "  - BROKERS: Storage - Select All $safeItemNamePlural$  ->  users/$username$/brokers-$lowerPluralDescriptionName$-selectall",
-    "  - BROKERS: Storage - Select $safeItemNameSingular$ By Id  ->  users/$username$/brokers-$lowerPluralDescriptionName$-selectbyid",
-    "  - BROKERS: Storage - Update $safeItemNameSingular$  ->  users/$username$/brokers-$lowerPluralDescriptionName$-update",
-    "  - BROKERS: Storage - Delete $safeItemNameSingular$  ->  users/$username$/brokers-$lowerPluralDescriptionName$-delete"
+    "  - DATA: $safeItemNameSingular$ Model  ->  users/$username$/data-$parameterSafeItemNamePluralLower$-model",
+    "  - BROKERS: Storage - Insert $safeItemNameSingular$  ->  users/$username$/brokers-$parameterSafeItemNamePluralLower$-insert",
+    "  - BROKERS: Storage - Select All $safeItemNamePlural$  ->  users/$username$/brokers-$parameterSafeItemNamePluralLower$-selectall",
+    "  - BROKERS: Storage - Select $safeItemNameSingular$ By Id  ->  users/$username$/brokers-$parameterSafeItemNamePluralLower$-selectbyid",
+    "  - BROKERS: Storage - Update $safeItemNameSingular$  ->  users/$username$/brokers-$parameterSafeItemNamePluralLower$-update",
+    "  - BROKERS: Storage - Delete $safeItemNameSingular$  ->  users/$username$/brokers-$parameterSafeItemNamePluralLower$-delete"
   ]
 }
