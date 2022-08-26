@@ -34,8 +34,8 @@ namespace Standardly
                 TimeSpan pauseBetweenFailures = TimeSpan.FromSeconds(2);
                 General general = await General.GetLiveInstanceAsync();
                 Locations locations = await Locations.GetLiveInstanceAsync();
-                Project project = await VS.Solutions.GetActiveProjectAsync();
                 IEnumerable<Project> projects = await VS.Solutions.GetAllProjectsAsync();
+                Project project = await VS.Solutions.GetActiveProjectAsync() ?? projects.FirstOrDefault();
                 Setting settings = GetSettings(general, locations, project, projects);
                 IFileSystemBroker fileSystemBroker = new FileSystemBroker();
                 IExecutionBroker executionBroker = new CliExecutionBroker();
@@ -54,7 +54,7 @@ namespace Standardly
                 var frmGenerate = new frmGenerate(settings, templateService, templateOrchestrationService);
                 frmGenerate.ShowDialog();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -81,6 +81,11 @@ namespace Standardly
             Project project,
             IEnumerable<Project> projects)
         {
+            if (project is null)
+            {
+                project = projects.FirstOrDefault();
+            }
+
             switch (project.Name)
             {
                 case string s when s.Contains(".Tests"):
@@ -101,7 +106,11 @@ namespace Standardly
                     }
             }
 
-            FileInfo solutionFileInfo = new FileInfo(project.Parent.FullPath);
+            var solutionFolderPath = project.Parent.Type.ToString() == "SolutionFolder"
+                ? project.Parent.Parent.FullPath
+                : project.Parent.FullPath;
+
+            FileInfo solutionFileInfo = new FileInfo(solutionFolderPath);
             string solutionFolder = solutionFileInfo.DirectoryName;
 
             SolutionItem unitTestProject = project.Parent.Children

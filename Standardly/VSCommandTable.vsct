@@ -60,7 +60,19 @@
 
   <CommandPlacements>
     <CommandPlacement guid="Standardly" id="StandardlyGenerateCommand" priority="0x0200">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_ADD" />
+    </CommandPlacement>
+    
+    <CommandPlacement guid="Standardly" id="StandardlyGenerateCommand" priority="0x0200">
       <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_ADD_ITEM" />
+    </CommandPlacement>
+
+    <CommandPlacement guid="Standardly" id="StandardlyGenerateCommand" priority="0x0200">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_ADD_PROJ" />
+    </CommandPlacement>
+
+    <CommandPlacement guid="Standardly" id="StandardlyGenerateCommand" priority="0x0200">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SLNFLDR_ADD" />
     </CommandPlacement>
 
     <CommandPlacement guid="Standardly" id="StandardlyGenerateCommand" priority="0x0200">
@@ -68,8 +80,13 @@
     </CommandPlacement>
 
     <CommandPlacement guid="Standardly" id="StandardlyGenerateCommand" priority="0x0200">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SLNFLDR_ADD_PROJ" />
+    </CommandPlacement>
+
+    <CommandPlacement guid="Standardly" id="StandardlyGenerateCommand" priority="0x0200">
       <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_ADD_ITEMS" />
     </CommandPlacement>
+
   </CommandPlacements>
 
   <KeyBindings>

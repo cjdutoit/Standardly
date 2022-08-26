@@ -22,7 +22,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-add"
+              "instruction": "git checkout -b users/$username$/foundations-$parameterSafeItemNamePluralLower$-add"
             },
             {
               "name": "Change folder",
@@ -637,7 +637,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-add"
+              "instruction": "git push origin users/$username$/foundations-$parameterSafeItemNamePluralLower$-add"
             }
           ]
         },
@@ -670,7 +670,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-retrieveall users/$username$/foundations-$lowerPluralDescriptionName$-add"
+              "instruction": "git checkout -b users/$username$/foundations-$parameterSafeItemNamePluralLower$-retrieveall users/$username$/foundations-$parameterSafeItemNamePluralLower$-add"
             }
           ]
         },
@@ -826,7 +826,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-retrieveall"
+              "instruction": "git push origin users/$username$/foundations-$parameterSafeItemNamePluralLower$-retrieveall"
             }
           ]
         },
@@ -859,7 +859,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-retrievebyid users/$username$/foundations-$lowerPluralDescriptionName$-retrieveall"
+              "instruction": "git checkout -b users/$username$/foundations-$parameterSafeItemNamePluralLower$-retrievebyid users/$username$/foundations-$parameterSafeItemNamePluralLower$-retrieveall"
             }
           ]
         },
@@ -1067,7 +1067,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-retrievebyid"
+              "instruction": "git push origin users/$username$/foundations-$parameterSafeItemNamePluralLower$-retrievebyid"
             }
           ]
         },
@@ -1100,7 +1100,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-modify users/$username$/foundations-$lowerPluralDescriptionName$-retrievebyid"
+              "instruction": "git checkout -b users/$username$/foundations-$parameterSafeItemNamePluralLower$-modify users/$username$/foundations-$parameterSafeItemNamePluralLower$-retrievebyid"
             }
           ]
         },
@@ -1664,7 +1664,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-modify"
+              "instruction": "git push origin users/$username$/foundations-$parameterSafeItemNamePluralLower$-modify"
             }
           ]
         },
@@ -1697,7 +1697,7 @@
             },
             {
               "name": "Create new branch",
-              "instruction": "git checkout -b users/$username$/foundations-$lowerPluralDescriptionName$-removebyid users/$username$/foundations-$lowerPluralDescriptionName$-modify"
+              "instruction": "git checkout -b users/$username$/foundations-$parameterSafeItemNamePluralLower$-removebyid users/$username$/foundations-$parameterSafeItemNamePluralLower$-modify"
             }
           ]
         },
@@ -1927,7 +1927,7 @@
           "executions": [
             {
               "name": "Push changes to <remote>",
-              "instruction": "git push origin users/$username$/foundations-$lowerPluralDescriptionName$-removebyid"
+              "instruction": "git push origin users/$username$/foundations-$parameterSafeItemNamePluralLower$-removebyid"
             }
           ]
         },
@@ -1953,10 +1953,10 @@
     "* Resolve / remove any TODO items in the task list",
     "* Link the pull request(s) to related issues by adding e.g. #CLOSES 123 to the description",
     "* Review Draft Pull Requests (and add more commits by pushing to any of the branches if needed):",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$  ->  users/$username$/foundations-$lowerPluralDescriptionName$-add",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$  ->  users/$username$/foundations-$lowerPluralDescriptionName$-retrieveall",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id  ->  users/$username$/foundations-$lowerPluralDescriptionName$-retrievebyid",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$  ->  users/$username$/foundations-$lowerPluralDescriptionName$-modify",
-    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id  ->  users/$username$/foundations-$lowerPluralDescriptionName$-removebyid"
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Add $safeItemNameSingular$  ->  users/$username$/foundations-$parameterSafeItemNamePluralLower$-add",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve All $safeItemNamePlural$  ->  users/$username$/foundations-$parameterSafeItemNamePluralLower$-retrieveall",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Retrieve $safeItemNameSingular$ By Id  ->  users/$username$/foundations-$parameterSafeItemNamePluralLower$-retrievebyid",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Modify $safeItemNameSingular$  ->  users/$username$/foundations-$parameterSafeItemNamePluralLower$-modify",
+    "  - FOUNDATIONS: $safeItemNameSingular$ Service - Remove $safeItemNameSingular$ By Id  ->  users/$username$/foundations-$parameterSafeItemNamePluralLower$-removebyid"
   ]
 }
