@@ -1,12 +1,10 @@
-﻿using System;
-using EFxceptions.Identity;
+﻿using EFxceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using $rootnamespace$.$models$.Users;
 
 namespace $rootnamespace$.$brokers$.Storages
 {
-    public partial class StorageBroker : EFxceptionsIdentityContext<ApplicationUser, ApplicationRole, Guid>, IStorageBroker
+    public partial class StorageBroker : EFxceptionsContext, IStorageBroker
     {
         private readonly IConfiguration configuration;
 
