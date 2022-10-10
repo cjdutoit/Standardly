@@ -142,49 +142,49 @@
     <None Update="Templates\Api\Brokers\Loggings\Template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\002_Item.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\002_Item.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\001_IStorageBroker.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\001_IStorageBroker.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\003_IStorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\003_IStorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\001_StorageBroker.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\001_StorageBroker.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\003_StorageBroker.Items.Configurations.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\003_StorageBroker.Items.Configurations.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\003_StorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\003_StorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\004_IStorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\004_IStorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\004_StorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\004_StorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\005_IStorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\005_IStorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\005_StorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\005_StorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\006_IStorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\006_IStorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\006_StorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\006_StorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\007_IStorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\007_IStorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\007_StorageBroker.Items.cs.txt">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\007_StorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Api\Brokers\Storages\Template.json">
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\Template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Templates\Api\Controllers\001_ItemController.cs.txt">
