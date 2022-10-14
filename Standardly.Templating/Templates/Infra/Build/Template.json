@@ -42,6 +42,11 @@
               "replace": true
             },
             {
+              "template": "$templateFolder$\\Infra\\Build\\001_ScriptGenerationService.cs.txt",
+              "target": "$infrastructureBuildProjectFolder$\\$services$\\ScriptGenerationService.cs",
+              "replace": true
+            },
+            {
               "template": "$templateFolder$\\Infra\\Build\\001_dotnet.yml.txt",
               "target": "$solutionFolder$\\.github\\workflows\\dotnet.yml",
               "replace": true

@@ -634,6 +634,9 @@
     <None Update="Templates\Infra\Build\001_dotnet.yml.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Templates\Infra\Build\001_ScriptGenerationService.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Templates\Infra\Build\001_Program.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
