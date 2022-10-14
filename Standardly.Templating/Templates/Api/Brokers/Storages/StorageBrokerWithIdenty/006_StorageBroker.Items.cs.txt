@@ -11,46 +11,15 @@ namespace $rootnamespace$.$brokers$.Storages
     {
         public DbSet<$safeItemNameSingular$> $safeItemNamePlural$ { get; set; }
 
-        public async ValueTask<$safeItemNameSingular$> Insert$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$)
-        {
-            using var broker =
-                new StorageBroker(this.configuration);
+        public async ValueTask<$safeItemNameSingular$> Insert$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+            await InsertAsync($parameterSafeItemNameSingular$);
 
-            EntityEntry<$safeItemNameSingular$> $parameterSafeItemNameSingular$EntityEntry =
-                await broker.$safeItemNamePlural$.AddAsync($parameterSafeItemNameSingular$);
+        public IQueryable<$safeItemNameSingular$> SelectAll$safeItemNamePlural$()=> SelectAll<$safeItemNameSingular$>();
 
-            await broker.SaveChangesAsync();
+        public async ValueTask<$safeItemNameSingular$> Select$safeItemNameSingular$ByIdAsync(Guid $parameterSafeItemNameSingular$Id) =>
+            await SelectAsync<$safeItemNameSingular$>($parameterSafeItemNameSingular$Id);
 
-            return $parameterSafeItemNameSingular$EntityEntry.Entity;
-        }
-
-        public IQueryable<$safeItemNameSingular$> SelectAll$safeItemNamePlural$()
-        {
-            using var broker =
-                new StorageBroker(this.configuration);
-
-            return broker.$safeItemNamePlural$;
-        }
-
-        public async ValueTask<$safeItemNameSingular$> Select$safeItemNameSingular$ByIdAsync(Guid $parameterSafeItemNameSingular$Id)
-        {
-            using var broker =
-                new StorageBroker(this.configuration);
-
-            return await broker.$safeItemNamePlural$.FindAsync($parameterSafeItemNameSingular$Id);
-        }
-
-        public async ValueTask<$safeItemNameSingular$> Update$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$)
-        {
-            using var broker =
-                new StorageBroker(this.configuration);
-
-            EntityEntry<$safeItemNameSingular$> $parameterSafeItemNameSingular$EntityEntry =
-                broker.$safeItemNamePlural$.Update($parameterSafeItemNameSingular$);
-
-            await broker.SaveChangesAsync();
-
-            return $parameterSafeItemNameSingular$EntityEntry.Entity;
-        }
+        public async ValueTask<$safeItemNameSingular$> Update$safeItemNameSingular$Async($safeItemNameSingular$ $parameterSafeItemNameSingular$) =>
+            await UpdateAsync($parameterSafeItemNameSingular$);
     }
 }

@@ -8,7 +8,7 @@ namespace $rootnamespace$.$brokers$.Storages
         private static void Add$safeItemNameSingular$Configurations(ModelBuilder modelBuilder)
         {
             // TODO: Add your fluent configurations here
-            // TODO: Call this method from StorageBroker.cs AddConfigurations method
+            // TODO: Call this method from StorageBroker.cs OnModelCreating method
         }
     }
 }
