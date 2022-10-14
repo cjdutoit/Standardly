@@ -169,6 +169,11 @@
               "template": "$templateFolder$\\Api\\Brokers\\Storages\\StorageBrokerWithIdenty\\003_StorageBroker.Items.Configurations.cs.txt",
               "target": "$projectFolder$\\$brokers$\\Storages\\StorageBroker.$safeItemNamePlural$.Configurations.cs",
               "replace": true
+            },
+            {
+              "template": "$templateFolder$\\Api\\Brokers\\Storages\\StorageBroker\\003_StorageBroker.Items.SeedData.cs.txt",
+              "target": "$projectFolder$\\$brokers$\\Storages\\StorageBroker.$safeItemNamePlural$.SeedData.cs",
+              "replace": true
             }
           ],
           "executions": [
