@@ -160,6 +160,9 @@
     <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\003_StorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\003_StorageBroker.Items.SeedData.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Templates\Api\Brokers\Storages\StorageBrokerWithIdenty\004_IStorageBroker.Items.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -197,6 +200,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Templates\Api\Brokers\Storages\StorageBroker\003_IStorageBroker.Items.cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\Api\Brokers\Storages\StorageBroker\003_StorageBroker.Items.SeedData.cs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Templates\Api\Brokers\Storages\StorageBroker\003_StorageBroker.Items.Configurations.cs.txt">
