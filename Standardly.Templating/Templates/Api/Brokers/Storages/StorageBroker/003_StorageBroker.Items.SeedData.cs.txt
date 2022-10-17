@@ -5,9 +5,9 @@ namespace $rootnamespace$.$brokers$.Storages
 {
     public partial class StorageBroker
     {
-        private static void Add$safeItemNameSingular$Configurations(ModelBuilder modelBuilder)
+        private static void Add$safeItemNameSingular$SeedData(ModelBuilder modelBuilder)
         {
-            // TODO: Add your fluent configurations here
+            // TODO: Add your seed data here
             // TODO: Call this method from StorageBroker.cs OnModelCreating method
         }
     }
