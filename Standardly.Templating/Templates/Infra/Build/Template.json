@@ -47,8 +47,8 @@
               "replace": true
             },
             {
-              "template": "$templateFolder$\\Infra\\Build\\001_dotnet.yml.txt",
-              "target": "$solutionFolder$\\.github\\workflows\\dotnet.yml",
+              "template": "$templateFolder$\\Infra\\Build\\001_build.yml.txt",
+              "target": "$solutionFolder$\\.github\\workflows\\build.yml",
               "replace": true
             }
           ],

@@ -631,7 +631,7 @@
     <None Update="Templates\Api\Services\Foundations\Service\Template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Templates\Infra\Build\001_dotnet.yml.txt">
+    <None Update="Templates\Infra\Build\001_build.yml.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Templates\Infra\Build\001_ScriptGenerationService.cs.txt">
