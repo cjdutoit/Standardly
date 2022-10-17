@@ -1,6 +1,5 @@
 ﻿namespace $rootnamespace$.$brokers$.Events
 {
-    public partial class EventBroker
-    {
-    }
+    public partial class EventBroker : IEventBroker
+    { }
 }
