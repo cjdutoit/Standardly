@@ -120,10 +120,11 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
             IEnumerable<(dynamic Rule, string Parameter)> sharedValidations,
             params (dynamic Rule, string Parameter)[] validations)
         {
-            List<(dynamic Rule, string Parameter)> allValidations =
-                sharedValidations.Concat(validations).ToList();
+            List<(dynamic Rule, string Parameter)> allValidations = new List<(dynamic Rule, string Parameter)>();
+            allValidations.AddRange(sharedValidations);
+            allValidations.AddRange(validations);
 
-            Validate(allValidations);
+            Validate(allValidations.ToArray());
         }
         
         private static void Validate(params (dynamic Rule, string Parameter)[] validations)
