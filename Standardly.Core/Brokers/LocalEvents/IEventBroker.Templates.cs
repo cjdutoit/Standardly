@@ -11,5 +11,9 @@ namespace Standardly.Core.Brokers.Events
                 templateAddEventHandler);
 
         ValueTask PublishTemplateAddEventAsync(Template template);
+        
+        void SubscribeToTemplateModifyEvent(
+            Func<Template, ValueTask<Template>> 
+                templateModifyEventHandler);
     }
 }

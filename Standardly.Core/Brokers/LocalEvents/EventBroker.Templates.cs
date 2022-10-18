@@ -8,6 +8,9 @@ namespace Standardly.Core.Brokers.Events
     {
         private static Func<Template, ValueTask<Template>> 
             TemplateAddEventHandler;
+        
+        private static Func<Template, ValueTask<Template>> 
+            TemplateModifyEventHandler;
 
         public void SubscribeToTemplateAddEvent(
             Func<Template, ValueTask<Template>> 
@@ -17,5 +20,11 @@ namespace Standardly.Core.Brokers.Events
         public async ValueTask PublishTemplateAddEventAsync(
             Template template) =>
         await TemplateAddEventHandler(template);
+
+        public void SubscribeToTemplateModifyEvent(
+            Func<Template, ValueTask<Template>> 
+                templateModifyEventHandler) =>
+            TemplateModifyEventHandler = templateModifyEventHandler;
+
     }
 }
