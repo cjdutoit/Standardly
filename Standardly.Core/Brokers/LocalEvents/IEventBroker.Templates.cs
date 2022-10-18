@@ -9,5 +9,7 @@ namespace Standardly.Core.Brokers.Events
         void SubscribeToTemplateAddEvent(
             Func<Template, ValueTask<Template>> 
                 templateAddEventHandler);
+
+        ValueTask PublishTemplateAddEventAsync(Template template);
     }
 }
