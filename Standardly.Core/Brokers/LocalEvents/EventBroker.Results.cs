@@ -12,6 +12,9 @@ namespace Standardly.Core.Brokers.Events
         private static Func<Result, ValueTask<Result>> 
             ResultModifyEventHandler;
 
+        private static Func<Result, ValueTask<Result>> 
+            ResultRemoveEventHandler;
+
         public void SubscribeToResultAddEvent(
             Func<Result, ValueTask<Result>> 
                 resultAddEventHandler) =>
@@ -29,5 +32,10 @@ namespace Standardly.Core.Brokers.Events
         public async ValueTask PublishResultModifyEventAsync(
             Result result) =>
         await ResultModifyEventHandler(result);
+
+        public void SubscribeToResultRemoveEvent(
+            Func<Result, ValueTask<Result>> 
+                resultRemoveEventHandler) =>
+            ResultRemoveEventHandler = resultRemoveEventHandler;
     }
 }
