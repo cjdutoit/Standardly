@@ -37,5 +37,9 @@ namespace Standardly.Core.Brokers.Events
             Func<Result, ValueTask<Result>> 
                 resultRemoveEventHandler) =>
             ResultRemoveEventHandler = resultRemoveEventHandler;
+
+        public async ValueTask PublishResultRemoveEventAsync(
+            Result result) =>
+        await ResultRemoveEventHandler(result);
     }
 }
