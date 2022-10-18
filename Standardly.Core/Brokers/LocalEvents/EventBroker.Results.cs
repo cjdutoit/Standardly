@@ -26,5 +26,8 @@ namespace Standardly.Core.Brokers.Events
                 resultModifyEventHandler) =>
             ResultModifyEventHandler = resultModifyEventHandler;
 
+        public async ValueTask PublishResultModifyEventAsync(
+            Result result) =>
+        await ResultModifyEventHandler(result);
     }
 }
