@@ -13,5 +13,9 @@ namespace Standardly.Core.Brokers.Events
             Func<Result, ValueTask<Result>> 
                 resultAddEventHandler) =>
             ResultAddEventHandler = resultAddEventHandler;
+
+        public async ValueTask PublishResultAddEventAsync(
+            Result result) =>
+        await ResultAddEventHandler(result);
     }
 }
