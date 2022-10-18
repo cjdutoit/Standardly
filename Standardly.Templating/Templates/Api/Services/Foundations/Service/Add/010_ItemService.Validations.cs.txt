@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using $rootnamespace$.$models$.$safeItemNamePlural$;
 using $rootnamespace$.$models$.$safeItemNamePlural$.Exceptions;
 
@@ -9,7 +11,7 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
         private IEnumerable<(dynamic Rule, string Parameter)> SharedValidations($safeItemNameSingular$ $parameterSafeItemNameSingular$)
         {
             List<(dynamic Rule, string Parameter)> sharedValidations = 
-                new List<(dynamic Rule, string Parameter)>(
+                new List<(dynamic Rule, string Parameter)>{
                     (Rule: IsInvalid($parameterSafeItemNameSingular$.Id), Parameter: nameof($safeItemNameSingular$.Id)),
 
                     // TODO: Add any other shared structural validation rules 
@@ -18,7 +20,7 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
                     (Rule: IsInvalid($parameterSafeItemNameSingular$.CreatedByUserId), Parameter: nameof($safeItemNameSingular$.CreatedByUserId)),
                     (Rule: IsInvalid($parameterSafeItemNameSingular$.UpdatedDate), Parameter: nameof($safeItemNameSingular$.UpdatedDate)),
                     (Rule: IsInvalid($parameterSafeItemNameSingular$.UpdatedByUserId), Parameter: nameof($safeItemNameSingular$.UpdatedByUserId))
-                );
+                };
 
             return sharedValidations;
         }
@@ -91,10 +93,11 @@ namespace $rootnamespace$.$services$.$foundations$.$safeItemNamePlural$
             IEnumerable<(dynamic Rule, string Parameter)> sharedValidations,
             params (dynamic Rule, string Parameter)[] validations)
         {
-            List<(dynamic Rule, string Parameter)> allValidations =
-                sharedValidations.Concat(validations).ToList();
+            List<(dynamic Rule, string Parameter)> allValidations = new List<(dynamic Rule, string Parameter)>();
+            allValidations.AddRange(sharedValidations);
+            allValidations.AddRange(validations);
 
-            Validate(allValidations);
+            Validate(allValidations.ToArray());
         }
         
         private static void Validate(params (dynamic Rule, string Parameter)[] validations)
