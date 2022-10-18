@@ -21,5 +21,7 @@ namespace Standardly.Core.Brokers.Events
         void SubscribeToTemplateRemoveEvent(
             Func<Template, ValueTask<Template>> 
                 templateRemoveEventHandler);
+
+        ValueTask PublishTemplateRemoveEventAsync(Template template);
     }
 }

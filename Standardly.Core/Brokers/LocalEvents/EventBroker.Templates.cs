@@ -37,5 +37,9 @@ namespace Standardly.Core.Brokers.Events
             Func<Template, ValueTask<Template>> 
                 templateRemoveEventHandler) =>
             TemplateRemoveEventHandler = templateRemoveEventHandler;
+
+        public async ValueTask PublishTemplateRemoveEventAsync(
+            Template template) =>
+        await TemplateRemoveEventHandler(template);
     }
 }
