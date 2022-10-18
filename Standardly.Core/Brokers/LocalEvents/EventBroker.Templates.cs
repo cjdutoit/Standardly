@@ -26,5 +26,8 @@ namespace Standardly.Core.Brokers.Events
                 templateModifyEventHandler) =>
             TemplateModifyEventHandler = templateModifyEventHandler;
 
+        public async ValueTask PublishTemplateModifyEventAsync(
+            Template template) =>
+        await TemplateModifyEventHandler(template);
     }
 }
