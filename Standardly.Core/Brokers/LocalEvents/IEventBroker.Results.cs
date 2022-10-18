@@ -9,5 +9,7 @@ namespace Standardly.Core.Brokers.Events
         void SubscribeToResultAddEvent(
             Func<Result, ValueTask<Result>> 
                 resultAddEventHandler);
+
+        ValueTask PublishResultAddEventAsync(Result result);
     }
 }
