@@ -17,5 +17,9 @@ namespace Standardly.Core.Brokers.Events
                 resultModifyEventHandler);
 
         ValueTask PublishResultModifyEventAsync(Result result);
+
+        void SubscribeToResultRemoveEvent(
+            Func<Result, ValueTask<Result>> 
+                resultRemoveEventHandler);
     }
 }
