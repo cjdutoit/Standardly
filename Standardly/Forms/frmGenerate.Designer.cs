@@ -36,7 +36,18 @@ namespace Standardly.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGenerate));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.templateGeneration = new System.Windows.Forms.TabPage();
+            this.gbModel = new System.Windows.Forms.GroupBox();
+            this.lblModelText = new System.Windows.Forms.Label();
+            this.txtModelPluralName = new System.Windows.Forms.TextBox();
+            this.lblModelPlural = new System.Windows.Forms.Label();
+            this.txtModelSingularName = new System.Windows.Forms.TextBox();
+            this.lblModelSingular = new System.Windows.Forms.Label();
+            this.gbRepo = new System.Windows.Forms.GroupBox();
+            this.txtGitHubBaseBranchName = new System.Windows.Forms.TextBox();
+            this.chkSubmitAsDraftPullRequest = new System.Windows.Forms.CheckBox();
+            this.lblGitHubBaseBranchName = new System.Windows.Forms.Label();
+            this.chkPublicRepository = new System.Windows.Forms.CheckBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,21 +68,25 @@ namespace Standardly.Forms
             this.txtProject = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gbTemplates = new System.Windows.Forms.GroupBox();
-            this.txtGitHubBaseBranchName = new System.Windows.Forms.TextBox();
-            this.lblGitHubBaseBranchName = new System.Windows.Forms.Label();
-            this.chkSubmitAsDraftPullRequest = new System.Windows.Forms.CheckBox();
-            this.chkPublicRepository = new System.Windows.Forms.CheckBox();
-            this.lblTemplates = new System.Windows.Forms.Label();
-            this.lblModelPlural = new System.Windows.Forms.Label();
-            this.lblModelSingular = new System.Windows.Forms.Label();
-            this.lblTemplateType = new System.Windows.Forms.Label();
-            this.cbTemplates = new System.Windows.Forms.ComboBox();
-            this.cbTemplateType = new System.Windows.Forms.ComboBox();
-            this.txtModelPluralName = new System.Windows.Forms.TextBox();
-            this.txtModelSingularName = new System.Windows.Forms.TextBox();
+            this.panelMultipleTemplates = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.cbFoundationService = new System.Windows.Forms.CheckBox();
+            this.cbStorageBroker = new System.Windows.Forms.CheckBox();
+            this.cbData = new System.Windows.Forms.CheckBox();
+            this.panelSingleTemplate = new System.Windows.Forms.Panel();
             this.txtTemplateSearch = new System.Windows.Forms.TextBox();
             this.lblSerachTemplates = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbTemplateType = new System.Windows.Forms.ComboBox();
+            this.lblTemplates = new System.Windows.Forms.Label();
+            this.cbTemplates = new System.Windows.Forms.ComboBox();
+            this.lblTemplateType = new System.Windows.Forms.Label();
+            this.rbMultipleTemplates = new System.Windows.Forms.RadioButton();
+            this.rbSingleTemplate = new System.Windows.Forms.RadioButton();
+            this.entityModel = new System.Windows.Forms.TabPage();
+            this.lblClassName = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.globalConfiguration = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtGitHubUsername = new System.Windows.Forms.TextBox();
             this.lblGitHubUsername = new System.Windows.Forms.Label();
@@ -87,51 +102,179 @@ namespace Standardly.Forms
             this.chkLicense = new System.Windows.Forms.CheckBox();
             this.chkEditorConfig = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnGenerateFromTemplate = new System.Windows.Forms.Button();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.Output = new System.Windows.Forms.TabPage();
-            this.txtMessage = new System.Windows.Forms.TextBox();
-            this.Debug = new System.Windows.Forms.TabPage();
-            this.txtDebug = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pnlStorageBroker = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.templateGeneration.SuspendLayout();
+            this.gbModel.SuspendLayout();
+            this.gbRepo.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.gbProjects.SuspendLayout();
             this.gbTemplates.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.panelMultipleTemplates.SuspendLayout();
+            this.panelSingleTemplate.SuspendLayout();
+            this.entityModel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.globalConfiguration.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.Output.SuspendLayout();
-            this.Debug.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.pnlStorageBroker.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.templateGeneration);
+            this.tabControl1.Controls.Add(this.entityModel);
+            this.tabControl1.Controls.Add(this.globalConfiguration);
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(6, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(972, 464);
+            this.tabControl1.Size = new System.Drawing.Size(972, 637);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // templateGeneration
             // 
-            this.tabPage1.Controls.Add(this.groupBox6);
-            this.tabPage1.Controls.Add(this.gbProjects);
-            this.tabPage1.Controls.Add(this.gbTemplates);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(964, 438);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Template";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.templateGeneration.Controls.Add(this.gbModel);
+            this.templateGeneration.Controls.Add(this.gbRepo);
+            this.templateGeneration.Controls.Add(this.groupBox6);
+            this.templateGeneration.Controls.Add(this.gbProjects);
+            this.templateGeneration.Controls.Add(this.gbTemplates);
+            this.templateGeneration.Location = new System.Drawing.Point(4, 22);
+            this.templateGeneration.Name = "templateGeneration";
+            this.templateGeneration.Padding = new System.Windows.Forms.Padding(3);
+            this.templateGeneration.Size = new System.Drawing.Size(964, 611);
+            this.templateGeneration.TabIndex = 0;
+            this.templateGeneration.Text = "Template";
+            this.templateGeneration.UseVisualStyleBackColor = true;
+            // 
+            // gbModel
+            // 
+            this.gbModel.Controls.Add(this.lblModelText);
+            this.gbModel.Controls.Add(this.txtModelPluralName);
+            this.gbModel.Controls.Add(this.lblModelPlural);
+            this.gbModel.Controls.Add(this.txtModelSingularName);
+            this.gbModel.Controls.Add(this.lblModelSingular);
+            this.gbModel.Location = new System.Drawing.Point(7, 167);
+            this.gbModel.Name = "gbModel";
+            this.gbModel.Size = new System.Drawing.Size(947, 110);
+            this.gbModel.TabIndex = 24;
+            this.gbModel.TabStop = false;
+            this.gbModel.Text = "Model";
+            // 
+            // lblModelText
+            // 
+            this.lblModelText.AutoSize = true;
+            this.lblModelText.ForeColor = System.Drawing.Color.Red;
+            this.lblModelText.Location = new System.Drawing.Point(293, 57);
+            this.lblModelText.Name = "lblModelText";
+            this.lblModelText.Size = new System.Drawing.Size(374, 13);
+            this.lblModelText.TabIndex = 55;
+            this.lblModelText.Text = "Open the Entity Model tab to extend / alter the default model that will be used.";
+            // 
+            // txtModelPluralName
+            // 
+            this.txtModelPluralName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelPluralName.Location = new System.Drawing.Point(538, 19);
+            this.txtModelPluralName.Name = "txtModelPluralName";
+            this.txtModelPluralName.Size = new System.Drawing.Size(250, 20);
+            this.txtModelPluralName.TabIndex = 5;
+            this.txtModelPluralName.TextChanged += new System.EventHandler(this.txtModelPluralName_TextChanged);
+            // 
+            // lblModelPlural
+            // 
+            this.lblModelPlural.AutoSize = true;
+            this.lblModelPlural.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelPlural.Location = new System.Drawing.Point(430, 23);
+            this.lblModelPlural.Name = "lblModelPlural";
+            this.lblModelPlural.Size = new System.Drawing.Size(102, 13);
+            this.lblModelPlural.TabIndex = 53;
+            this.lblModelPlural.Text = "Model Name Plural: ";
+            // 
+            // txtModelSingularName
+            // 
+            this.txtModelSingularName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelSingularName.Location = new System.Drawing.Point(132, 16);
+            this.txtModelSingularName.Name = "txtModelSingularName";
+            this.txtModelSingularName.Size = new System.Drawing.Size(250, 20);
+            this.txtModelSingularName.TabIndex = 4;
+            this.txtModelSingularName.TextChanged += new System.EventHandler(this.txtModelSingularName_TextChanged);
+            // 
+            // lblModelSingular
+            // 
+            this.lblModelSingular.AutoSize = true;
+            this.lblModelSingular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelSingular.Location = new System.Drawing.Point(12, 19);
+            this.lblModelSingular.Name = "lblModelSingular";
+            this.lblModelSingular.Size = new System.Drawing.Size(114, 13);
+            this.lblModelSingular.TabIndex = 54;
+            this.lblModelSingular.Text = "Model Name Singular: ";
+            // 
+            // gbRepo
+            // 
+            this.gbRepo.Controls.Add(this.txtGitHubBaseBranchName);
+            this.gbRepo.Controls.Add(this.chkSubmitAsDraftPullRequest);
+            this.gbRepo.Controls.Add(this.lblGitHubBaseBranchName);
+            this.gbRepo.Controls.Add(this.chkPublicRepository);
+            this.gbRepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbRepo.Location = new System.Drawing.Point(6, 283);
+            this.gbRepo.Name = "gbRepo";
+            this.gbRepo.Size = new System.Drawing.Size(948, 51);
+            this.gbRepo.TabIndex = 23;
+            this.gbRepo.TabStop = false;
+            this.gbRepo.Text = "Repository Info";
+            // 
+            // txtGitHubBaseBranchName
+            // 
+            this.txtGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGitHubBaseBranchName.Location = new System.Drawing.Point(209, 19);
+            this.txtGitHubBaseBranchName.Name = "txtGitHubBaseBranchName";
+            this.txtGitHubBaseBranchName.Size = new System.Drawing.Size(433, 20);
+            this.txtGitHubBaseBranchName.TabIndex = 57;
+            // 
+            // chkSubmitAsDraftPullRequest
+            // 
+            this.chkSubmitAsDraftPullRequest.AutoSize = true;
+            this.chkSubmitAsDraftPullRequest.Enabled = false;
+            this.chkSubmitAsDraftPullRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSubmitAsDraftPullRequest.Location = new System.Drawing.Point(775, 21);
+            this.chkSubmitAsDraftPullRequest.Name = "chkSubmitAsDraftPullRequest";
+            this.chkSubmitAsDraftPullRequest.Size = new System.Drawing.Size(167, 17);
+            this.chkSubmitAsDraftPullRequest.TabIndex = 56;
+            this.chkSubmitAsDraftPullRequest.Text = "Submit Pull Requests As Draft";
+            this.chkSubmitAsDraftPullRequest.UseVisualStyleBackColor = true;
+            // 
+            // lblGitHubBaseBranchName
+            // 
+            this.lblGitHubBaseBranchName.AutoSize = true;
+            this.lblGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGitHubBaseBranchName.Location = new System.Drawing.Point(12, 22);
+            this.lblGitHubBaseBranchName.Name = "lblGitHubBaseBranchName";
+            this.lblGitHubBaseBranchName.Size = new System.Drawing.Size(181, 13);
+            this.lblGitHubBaseBranchName.TabIndex = 58;
+            this.lblGitHubBaseBranchName.Text = "GitHub Base Branch / Branch From: ";
+            // 
+            // chkPublicRepository
+            // 
+            this.chkPublicRepository.AutoSize = true;
+            this.chkPublicRepository.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPublicRepository.Location = new System.Drawing.Point(658, 21);
+            this.chkPublicRepository.Name = "chkPublicRepository";
+            this.chkPublicRepository.Size = new System.Drawing.Size(108, 17);
+            this.chkPublicRepository.TabIndex = 55;
+            this.chkPublicRepository.Text = "Public Repository";
+            this.chkPublicRepository.UseVisualStyleBackColor = true;
+            this.chkPublicRepository.CheckedChanged += new System.EventHandler(this.chkPublicRepository_CheckedChanged);
             // 
             // groupBox6
             // 
@@ -144,7 +287,7 @@ namespace Standardly.Forms
             this.groupBox6.Controls.Add(this.lnkDisclaimer);
             this.groupBox6.Controls.Add(this.linkLabel1);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(7, 344);
+            this.groupBox6.Location = new System.Drawing.Point(7, 517);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(948, 88);
             this.groupBox6.TabIndex = 22;
@@ -240,7 +383,7 @@ namespace Standardly.Forms
             this.gbProjects.Controls.Add(this.txtProject);
             this.gbProjects.Controls.Add(this.label6);
             this.gbProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProjects.Location = new System.Drawing.Point(7, 167);
+            this.gbProjects.Location = new System.Drawing.Point(7, 340);
             this.gbProjects.Name = "gbProjects";
             this.gbProjects.Size = new System.Drawing.Size(948, 171);
             this.gbProjects.TabIndex = 1;
@@ -357,20 +500,11 @@ namespace Standardly.Forms
             // 
             this.gbTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbTemplates.Controls.Add(this.txtGitHubBaseBranchName);
-            this.gbTemplates.Controls.Add(this.lblGitHubBaseBranchName);
-            this.gbTemplates.Controls.Add(this.chkSubmitAsDraftPullRequest);
-            this.gbTemplates.Controls.Add(this.chkPublicRepository);
-            this.gbTemplates.Controls.Add(this.lblTemplates);
-            this.gbTemplates.Controls.Add(this.lblModelPlural);
-            this.gbTemplates.Controls.Add(this.lblModelSingular);
-            this.gbTemplates.Controls.Add(this.lblTemplateType);
-            this.gbTemplates.Controls.Add(this.cbTemplates);
-            this.gbTemplates.Controls.Add(this.cbTemplateType);
-            this.gbTemplates.Controls.Add(this.txtModelPluralName);
-            this.gbTemplates.Controls.Add(this.txtModelSingularName);
-            this.gbTemplates.Controls.Add(this.txtTemplateSearch);
-            this.gbTemplates.Controls.Add(this.lblSerachTemplates);
+            this.gbTemplates.Controls.Add(this.label12);
+            this.gbTemplates.Controls.Add(this.panelMultipleTemplates);
+            this.gbTemplates.Controls.Add(this.panelSingleTemplate);
+            this.gbTemplates.Controls.Add(this.rbMultipleTemplates);
+            this.gbTemplates.Controls.Add(this.rbSingleTemplate);
             this.gbTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTemplates.Location = new System.Drawing.Point(7, 7);
             this.gbTemplates.Name = "gbTemplates";
@@ -379,97 +513,112 @@ namespace Standardly.Forms
             this.gbTemplates.TabStop = false;
             this.gbTemplates.Text = "Template Info";
             // 
-            // txtGitHubBaseBranchName
+            // panelMultipleTemplates
             // 
-            this.txtGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGitHubBaseBranchName.Location = new System.Drawing.Point(209, 104);
-            this.txtGitHubBaseBranchName.Name = "txtGitHubBaseBranchName";
-            this.txtGitHubBaseBranchName.Size = new System.Drawing.Size(579, 20);
-            this.txtGitHubBaseBranchName.TabIndex = 57;
+            this.panelMultipleTemplates.Controls.Add(this.pnlStorageBroker);
+            this.panelMultipleTemplates.Controls.Add(this.checkBox1);
+            this.panelMultipleTemplates.Controls.Add(this.checkBox3);
+            this.panelMultipleTemplates.Controls.Add(this.cbFoundationService);
+            this.panelMultipleTemplates.Controls.Add(this.cbStorageBroker);
+            this.panelMultipleTemplates.Controls.Add(this.cbData);
+            this.panelMultipleTemplates.Enabled = false;
+            this.panelMultipleTemplates.Location = new System.Drawing.Point(192, 86);
+            this.panelMultipleTemplates.Name = "panelMultipleTemplates";
+            this.panelMultipleTemplates.Size = new System.Drawing.Size(750, 62);
+            this.panelMultipleTemplates.TabIndex = 56;
             // 
-            // lblGitHubBaseBranchName
+            // checkBox1
             // 
-            this.lblGitHubBaseBranchName.AutoSize = true;
-            this.lblGitHubBaseBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGitHubBaseBranchName.Location = new System.Drawing.Point(12, 107);
-            this.lblGitHubBaseBranchName.Name = "lblGitHubBaseBranchName";
-            this.lblGitHubBaseBranchName.Size = new System.Drawing.Size(181, 13);
-            this.lblGitHubBaseBranchName.TabIndex = 58;
-            this.lblGitHubBaseBranchName.Text = "GitHub Base Branch / Branch From: ";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(613, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(129, 17);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "Acceptance Tests";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // chkSubmitAsDraftPullRequest
+            // checkBox3
             // 
-            this.chkSubmitAsDraftPullRequest.AutoSize = true;
-            this.chkSubmitAsDraftPullRequest.Enabled = false;
-            this.chkSubmitAsDraftPullRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkSubmitAsDraftPullRequest.Location = new System.Drawing.Point(132, 131);
-            this.chkSubmitAsDraftPullRequest.Name = "chkSubmitAsDraftPullRequest";
-            this.chkSubmitAsDraftPullRequest.Size = new System.Drawing.Size(167, 17);
-            this.chkSubmitAsDraftPullRequest.TabIndex = 56;
-            this.chkSubmitAsDraftPullRequest.Text = "Submit Pull Requests As Draft";
-            this.chkSubmitAsDraftPullRequest.UseVisualStyleBackColor = true;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Location = new System.Drawing.Point(487, 3);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(80, 17);
+            this.checkBox3.TabIndex = 1;
+            this.checkBox3.Text = "Controller";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // chkPublicRepository
+            // cbFoundationService
             // 
-            this.chkPublicRepository.AutoSize = true;
-            this.chkPublicRepository.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPublicRepository.Location = new System.Drawing.Point(15, 131);
-            this.chkPublicRepository.Name = "chkPublicRepository";
-            this.chkPublicRepository.Size = new System.Drawing.Size(108, 17);
-            this.chkPublicRepository.TabIndex = 55;
-            this.chkPublicRepository.Text = "Public Repository";
-            this.chkPublicRepository.UseVisualStyleBackColor = true;
-            this.chkPublicRepository.CheckedChanged += new System.EventHandler(this.chkPublicRepository_CheckedChanged);
+            this.cbFoundationService.AutoSize = true;
+            this.cbFoundationService.Checked = true;
+            this.cbFoundationService.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbFoundationService.Location = new System.Drawing.Point(305, 3);
+            this.cbFoundationService.Name = "cbFoundationService";
+            this.cbFoundationService.Size = new System.Drawing.Size(136, 17);
+            this.cbFoundationService.TabIndex = 1;
+            this.cbFoundationService.Text = "Foundation Service";
+            this.cbFoundationService.UseVisualStyleBackColor = true;
             // 
-            // lblTemplates
+            // cbStorageBroker
             // 
-            this.lblTemplates.AutoSize = true;
-            this.lblTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplates.Location = new System.Drawing.Point(12, 54);
-            this.lblTemplates.Name = "lblTemplates";
-            this.lblTemplates.Size = new System.Drawing.Size(57, 13);
-            this.lblTemplates.TabIndex = 52;
-            this.lblTemplates.Text = "Template: ";
+            this.cbStorageBroker.AutoSize = true;
+            this.cbStorageBroker.Checked = true;
+            this.cbStorageBroker.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbStorageBroker.Location = new System.Drawing.Point(148, 3);
+            this.cbStorageBroker.Name = "cbStorageBroker";
+            this.cbStorageBroker.Size = new System.Drawing.Size(111, 17);
+            this.cbStorageBroker.TabIndex = 1;
+            this.cbStorageBroker.Text = "Storage Broker";
+            this.cbStorageBroker.UseVisualStyleBackColor = true;
+            this.cbStorageBroker.CheckedChanged += new System.EventHandler(this.cbStorageBroker_CheckedChanged);
             // 
-            // lblModelPlural
+            // cbData
             // 
-            this.lblModelPlural.AutoSize = true;
-            this.lblModelPlural.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelPlural.Location = new System.Drawing.Point(430, 82);
-            this.lblModelPlural.Name = "lblModelPlural";
-            this.lblModelPlural.Size = new System.Drawing.Size(102, 13);
-            this.lblModelPlural.TabIndex = 53;
-            this.lblModelPlural.Text = "Model Name Plural: ";
+            this.cbData.AutoSize = true;
+            this.cbData.Checked = true;
+            this.cbData.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbData.Location = new System.Drawing.Point(3, 3);
+            this.cbData.Name = "cbData";
+            this.cbData.Size = new System.Drawing.Size(99, 17);
+            this.cbData.TabIndex = 0;
+            this.cbData.Text = "Data / Entity";
+            this.cbData.UseVisualStyleBackColor = true;
             // 
-            // lblModelSingular
+            // panelSingleTemplate
             // 
-            this.lblModelSingular.AutoSize = true;
-            this.lblModelSingular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelSingular.Location = new System.Drawing.Point(12, 78);
-            this.lblModelSingular.Name = "lblModelSingular";
-            this.lblModelSingular.Size = new System.Drawing.Size(114, 13);
-            this.lblModelSingular.TabIndex = 54;
-            this.lblModelSingular.Text = "Model Name Singular: ";
+            this.panelSingleTemplate.Controls.Add(this.txtTemplateSearch);
+            this.panelSingleTemplate.Controls.Add(this.lblSerachTemplates);
+            this.panelSingleTemplate.Controls.Add(this.cbTemplateType);
+            this.panelSingleTemplate.Controls.Add(this.lblTemplates);
+            this.panelSingleTemplate.Controls.Add(this.cbTemplates);
+            this.panelSingleTemplate.Controls.Add(this.lblTemplateType);
+            this.panelSingleTemplate.Location = new System.Drawing.Point(192, 10);
+            this.panelSingleTemplate.Name = "panelSingleTemplate";
+            this.panelSingleTemplate.Size = new System.Drawing.Size(750, 60);
+            this.panelSingleTemplate.TabIndex = 55;
             // 
-            // lblTemplateType
+            // txtTemplateSearch
             // 
-            this.lblTemplateType.AutoSize = true;
-            this.lblTemplateType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateType.Location = new System.Drawing.Point(430, 27);
-            this.lblTemplateType.Name = "lblTemplateType";
-            this.lblTemplateType.Size = new System.Drawing.Size(84, 13);
-            this.lblTemplateType.TabIndex = 51;
-            this.lblTemplateType.Text = "Template Type: ";
+            this.txtTemplateSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTemplateSearch.Location = new System.Drawing.Point(124, 4);
+            this.txtTemplateSearch.Name = "txtTemplateSearch";
+            this.txtTemplateSearch.Size = new System.Drawing.Size(240, 20);
+            this.txtTemplateSearch.TabIndex = 1;
+            this.txtTemplateSearch.TextChanged += new System.EventHandler(this.txtTemplateSearch_TextChanged);
             // 
-            // cbTemplates
+            // lblSerachTemplates
             // 
-            this.cbTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTemplates.FormattingEnabled = true;
-            this.cbTemplates.Location = new System.Drawing.Point(132, 51);
-            this.cbTemplates.Name = "cbTemplates";
-            this.cbTemplates.Size = new System.Drawing.Size(656, 21);
-            this.cbTemplates.TabIndex = 3;
-            this.cbTemplates.SelectedIndexChanged += new System.EventHandler(this.cbTemplates_SelectedIndexChanged);
+            this.lblSerachTemplates.AutoSize = true;
+            this.lblSerachTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSerachTemplates.Location = new System.Drawing.Point(8, 6);
+            this.lblSerachTemplates.Name = "lblSerachTemplates";
+            this.lblSerachTemplates.Size = new System.Drawing.Size(110, 13);
+            this.lblSerachTemplates.TabIndex = 0;
+            this.lblSerachTemplates.Text = "Search for templates: ";
             // 
             // cbTemplateType
             // 
@@ -481,62 +630,109 @@ namespace Standardly.Forms
             "Blazor ",
             "React",
             "Config"});
-            this.cbTemplateType.Location = new System.Drawing.Point(538, 24);
+            this.cbTemplateType.Location = new System.Drawing.Point(472, 4);
             this.cbTemplateType.Name = "cbTemplateType";
             this.cbTemplateType.Size = new System.Drawing.Size(250, 21);
             this.cbTemplateType.TabIndex = 2;
             this.cbTemplateType.SelectedIndexChanged += new System.EventHandler(this.cbTemplateType_SelectedIndexChanged);
             // 
-            // txtModelPluralName
+            // lblTemplates
             // 
-            this.txtModelPluralName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelPluralName.Location = new System.Drawing.Point(538, 78);
-            this.txtModelPluralName.Name = "txtModelPluralName";
-            this.txtModelPluralName.Size = new System.Drawing.Size(250, 20);
-            this.txtModelPluralName.TabIndex = 5;
-            this.txtModelPluralName.TextChanged += new System.EventHandler(this.txtModelPluralName_TextChanged);
+            this.lblTemplates.AutoSize = true;
+            this.lblTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplates.Location = new System.Drawing.Point(61, 33);
+            this.lblTemplates.Name = "lblTemplates";
+            this.lblTemplates.Size = new System.Drawing.Size(57, 13);
+            this.lblTemplates.TabIndex = 52;
+            this.lblTemplates.Text = "Template: ";
             // 
-            // txtModelSingularName
+            // cbTemplates
             // 
-            this.txtModelSingularName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelSingularName.Location = new System.Drawing.Point(132, 75);
-            this.txtModelSingularName.Name = "txtModelSingularName";
-            this.txtModelSingularName.Size = new System.Drawing.Size(250, 20);
-            this.txtModelSingularName.TabIndex = 4;
-            this.txtModelSingularName.TextChanged += new System.EventHandler(this.txtModelSingularName_TextChanged);
+            this.cbTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTemplates.FormattingEnabled = true;
+            this.cbTemplates.Location = new System.Drawing.Point(124, 30);
+            this.cbTemplates.Name = "cbTemplates";
+            this.cbTemplates.Size = new System.Drawing.Size(598, 21);
+            this.cbTemplates.TabIndex = 3;
+            this.cbTemplates.SelectedIndexChanged += new System.EventHandler(this.cbTemplates_SelectedIndexChanged);
             // 
-            // txtTemplateSearch
+            // lblTemplateType
             // 
-            this.txtTemplateSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemplateSearch.Location = new System.Drawing.Point(132, 25);
-            this.txtTemplateSearch.Name = "txtTemplateSearch";
-            this.txtTemplateSearch.Size = new System.Drawing.Size(240, 20);
-            this.txtTemplateSearch.TabIndex = 1;
-            this.txtTemplateSearch.TextChanged += new System.EventHandler(this.txtTemplateSearch_TextChanged);
+            this.lblTemplateType.AutoSize = true;
+            this.lblTemplateType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplateType.Location = new System.Drawing.Point(382, 7);
+            this.lblTemplateType.Name = "lblTemplateType";
+            this.lblTemplateType.Size = new System.Drawing.Size(84, 13);
+            this.lblTemplateType.TabIndex = 51;
+            this.lblTemplateType.Text = "Template Type: ";
             // 
-            // lblSerachTemplates
+            // rbMultipleTemplates
             // 
-            this.lblSerachTemplates.AutoSize = true;
-            this.lblSerachTemplates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSerachTemplates.Location = new System.Drawing.Point(12, 27);
-            this.lblSerachTemplates.Name = "lblSerachTemplates";
-            this.lblSerachTemplates.Size = new System.Drawing.Size(110, 13);
-            this.lblSerachTemplates.TabIndex = 0;
-            this.lblSerachTemplates.Text = "Search for templates: ";
+            this.rbMultipleTemplates.AutoSize = true;
+            this.rbMultipleTemplates.Location = new System.Drawing.Point(15, 89);
+            this.rbMultipleTemplates.Name = "rbMultipleTemplates";
+            this.rbMultipleTemplates.Size = new System.Drawing.Size(163, 17);
+            this.rbMultipleTemplates.TabIndex = 54;
+            this.rbMultipleTemplates.Text = "Multiple Templates (API)";
+            this.rbMultipleTemplates.UseVisualStyleBackColor = true;
+            this.rbMultipleTemplates.CheckedChanged += new System.EventHandler(this.rbMultipleTemplates_CheckedChanged);
             // 
-            // tabPage2
+            // rbSingleTemplate
             // 
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Controls.Add(this.groupBox4);
-            this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(964, 438);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Configuration";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.rbSingleTemplate.AutoSize = true;
+            this.rbSingleTemplate.Checked = true;
+            this.rbSingleTemplate.Location = new System.Drawing.Point(15, 22);
+            this.rbSingleTemplate.Name = "rbSingleTemplate";
+            this.rbSingleTemplate.Size = new System.Drawing.Size(116, 17);
+            this.rbSingleTemplate.TabIndex = 53;
+            this.rbSingleTemplate.TabStop = true;
+            this.rbSingleTemplate.Text = "Single Template";
+            this.rbSingleTemplate.UseVisualStyleBackColor = true;
+            this.rbSingleTemplate.CheckedChanged += new System.EventHandler(this.rbSingleTemplate_CheckedChanged);
+            // 
+            // entityModel
+            // 
+            this.entityModel.Controls.Add(this.lblClassName);
+            this.entityModel.Controls.Add(this.dataGridView1);
+            this.entityModel.Location = new System.Drawing.Point(4, 22);
+            this.entityModel.Name = "entityModel";
+            this.entityModel.Padding = new System.Windows.Forms.Padding(3);
+            this.entityModel.Size = new System.Drawing.Size(964, 611);
+            this.entityModel.TabIndex = 2;
+            this.entityModel.Text = "Entity Model";
+            this.entityModel.UseVisualStyleBackColor = true;
+            // 
+            // lblClassName
+            // 
+            this.lblClassName.AutoSize = true;
+            this.lblClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClassName.Location = new System.Drawing.Point(7, 7);
+            this.lblClassName.Name = "lblClassName";
+            this.lblClassName.Size = new System.Drawing.Size(79, 24);
+            this.lblClassName.TabIndex = 1;
+            this.lblClassName.Text = "Class.cs";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(11, 76);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(943, 150);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // globalConfiguration
+            // 
+            this.globalConfiguration.Controls.Add(this.groupBox1);
+            this.globalConfiguration.Controls.Add(this.groupBox4);
+            this.globalConfiguration.Controls.Add(this.groupBox5);
+            this.globalConfiguration.Controls.Add(this.label2);
+            this.globalConfiguration.Location = new System.Drawing.Point(4, 22);
+            this.globalConfiguration.Name = "globalConfiguration";
+            this.globalConfiguration.Padding = new System.Windows.Forms.Padding(3);
+            this.globalConfiguration.Size = new System.Drawing.Size(964, 611);
+            this.globalConfiguration.TabIndex = 1;
+            this.globalConfiguration.Text = "Configuration";
+            this.globalConfiguration.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -716,6 +912,29 @@ namespace Standardly.Forms
             this.label2.Text = "** The sections below can be configured under Tools > Options > The Standard Code" +
     " Generator > General **";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.txtMessage);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(964, 611);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Output";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMessage.Location = new System.Drawing.Point(3, 3);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ReadOnly = true;
+            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMessage.Size = new System.Drawing.Size(958, 605);
+            this.txtMessage.TabIndex = 17;
+            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -740,73 +959,47 @@ namespace Standardly.Forms
             this.btnGenerateFromTemplate.UseVisualStyleBackColor = true;
             this.btnGenerateFromTemplate.Click += new System.EventHandler(this.btnGenerateFromTemplate_Click);
             // 
-            // tabControl2
+            // comboBox1
             // 
-            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl2.Controls.Add(this.Output);
-            this.tabControl2.Controls.Add(this.Debug);
-            this.tabControl2.Location = new System.Drawing.Point(6, 480);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(972, 170);
-            this.tabControl2.TabIndex = 18;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(121, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(598, 21);
+            this.comboBox1.TabIndex = 4;
             // 
-            // Output
+            // label9
             // 
-            this.Output.Controls.Add(this.txtMessage);
-            this.Output.Location = new System.Drawing.Point(4, 22);
-            this.Output.Name = "Output";
-            this.Output.Padding = new System.Windows.Forms.Padding(3);
-            this.Output.Size = new System.Drawing.Size(960, 144);
-            this.Output.TabIndex = 0;
-            this.Output.Text = "Output";
-            this.Output.UseVisualStyleBackColor = true;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(31, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(84, 13);
+            this.label9.TabIndex = 53;
+            this.label9.Text = "Storage Broker: ";
             // 
-            // txtMessage
+            // pnlStorageBroker
             // 
-            this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMessage.Location = new System.Drawing.Point(6, 6);
-            this.txtMessage.Multiline = true;
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ReadOnly = true;
-            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMessage.Size = new System.Drawing.Size(948, 132);
-            this.txtMessage.TabIndex = 16;
+            this.pnlStorageBroker.Controls.Add(this.label9);
+            this.pnlStorageBroker.Controls.Add(this.comboBox1);
+            this.pnlStorageBroker.Location = new System.Drawing.Point(3, 26);
+            this.pnlStorageBroker.Name = "pnlStorageBroker";
+            this.pnlStorageBroker.Size = new System.Drawing.Size(739, 33);
+            this.pnlStorageBroker.TabIndex = 2;
             // 
-            // Debug
+            // label12
             // 
-            this.Debug.Controls.Add(this.txtDebug);
-            this.Debug.Location = new System.Drawing.Point(4, 22);
-            this.Debug.Name = "Debug";
-            this.Debug.Padding = new System.Windows.Forms.Padding(3);
-            this.Debug.Size = new System.Drawing.Size(964, 144);
-            this.Debug.TabIndex = 1;
-            this.Debug.Text = "Debug";
-            this.Debug.UseVisualStyleBackColor = true;
-            // 
-            // txtDebug
-            // 
-            this.txtDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDebug.Location = new System.Drawing.Point(6, 6);
-            this.txtDebug.Multiline = true;
-            this.txtDebug.Name = "txtDebug";
-            this.txtDebug.ReadOnly = true;
-            this.txtDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDebug.Size = new System.Drawing.Size(952, 132);
-            this.txtDebug.TabIndex = 17;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(16, 112);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 13);
+            this.label12.TabIndex = 57;
             // 
             // frmGenerate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 709);
-            this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnGenerateFromTemplate);
             this.Controls.Add(this.tabControl1);
@@ -819,26 +1012,36 @@ namespace Standardly.Forms
             this.Text = "Standardly - Code Generator";
             this.TopMost = true;
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.templateGeneration.ResumeLayout(false);
+            this.gbModel.ResumeLayout(false);
+            this.gbModel.PerformLayout();
+            this.gbRepo.ResumeLayout(false);
+            this.gbRepo.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.gbProjects.ResumeLayout(false);
             this.gbProjects.PerformLayout();
             this.gbTemplates.ResumeLayout(false);
             this.gbTemplates.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.panelMultipleTemplates.ResumeLayout(false);
+            this.panelMultipleTemplates.PerformLayout();
+            this.panelSingleTemplate.ResumeLayout(false);
+            this.panelSingleTemplate.PerformLayout();
+            this.entityModel.ResumeLayout(false);
+            this.entityModel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.globalConfiguration.ResumeLayout(false);
+            this.globalConfiguration.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
-            this.Output.ResumeLayout(false);
-            this.Output.PerformLayout();
-            this.Debug.ResumeLayout(false);
-            this.Debug.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.pnlStorageBroker.ResumeLayout(false);
+            this.pnlStorageBroker.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -846,7 +1049,7 @@ namespace Standardly.Forms
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage templateGeneration;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
@@ -877,7 +1080,7 @@ namespace Standardly.Forms
         private System.Windows.Forms.TextBox txtModelSingularName;
         private System.Windows.Forms.TextBox txtTemplateSearch;
         private System.Windows.Forms.Label lblSerachTemplates;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage globalConfiguration;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtGitHubUsername;
         private System.Windows.Forms.Label lblGitHubUsername;
@@ -899,10 +1102,26 @@ namespace Standardly.Forms
         private System.Windows.Forms.CheckBox chkPublicRepository;
         private System.Windows.Forms.TextBox txtGitHubBaseBranchName;
         private System.Windows.Forms.Label lblGitHubBaseBranchName;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage Output;
+        private System.Windows.Forms.TabPage entityModel;
+        private System.Windows.Forms.Label lblClassName;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox gbModel;
+        private System.Windows.Forms.Label lblModelText;
+        private System.Windows.Forms.GroupBox gbRepo;
+        private System.Windows.Forms.RadioButton rbMultipleTemplates;
+        private System.Windows.Forms.RadioButton rbSingleTemplate;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txtMessage;
-        private System.Windows.Forms.TabPage Debug;
-        private System.Windows.Forms.TextBox txtDebug;
+        private System.Windows.Forms.Panel panelMultipleTemplates;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox cbFoundationService;
+        private System.Windows.Forms.CheckBox cbStorageBroker;
+        private System.Windows.Forms.CheckBox cbData;
+        private System.Windows.Forms.Panel panelSingleTemplate;
+        private System.Windows.Forms.Panel pnlStorageBroker;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label12;
     }
 }

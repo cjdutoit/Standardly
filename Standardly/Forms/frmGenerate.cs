@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Standardly.Core.Models.EntityModelItems;
 using Standardly.Core.Models.FileItems;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
@@ -44,6 +45,7 @@ namespace Standardly.Forms
         private readonly Setting settings;
         private List<Template> templates;
         private BindingSource templateBindingSource;
+        private List<EntityModelItem> entity = new List<EntityModelItem>();
 
         public GenerateCriteria GenerateCriteria { get; private set; }
 
@@ -58,6 +60,8 @@ namespace Standardly.Forms
             this.templateOrchestrationService = templateOrchestrationService;
             InitializeComponent();
             InitializeControls();
+
+
         }
 
         private void InitializeControls()
@@ -503,7 +507,6 @@ namespace Standardly.Forms
                 cleanupTaskMessage.AppendLine(task);
             }
 
-            txtDebug.Text = debugOutput.ToString();
             txtMessage.Text = cleanupTaskMessage.ToString();
             _ = Task.Run(() => UseOutputWindowAsync(cleanupTaskMessage.ToString(), "Standardly", standardlyPane));
         }
@@ -701,6 +704,23 @@ namespace Standardly.Forms
             string licensePath = Path.Combine(Path.GetDirectoryName(assembly), "LICENSE.txt");
 
             Process.Start("notepad.exe", licensePath);
+        }
+
+        private void rbSingleTemplate_CheckedChanged(object sender, EventArgs e)
+        {
+            panelSingleTemplate.Enabled = rbSingleTemplate.Checked;
+            panelMultipleTemplates.Enabled = !rbSingleTemplate.Checked;
+        }
+
+        private void rbMultipleTemplates_CheckedChanged(object sender, EventArgs e)
+        {
+            panelSingleTemplate.Enabled = !rbMultipleTemplates.Checked;
+            panelMultipleTemplates.Enabled = rbMultipleTemplates.Checked;
+        }
+
+        private void cbStorageBroker_CheckedChanged(object sender, EventArgs e)
+        {
+            pnlStorageBroker.Visible = cbStorageBroker.Checked;
         }
     }
 }
