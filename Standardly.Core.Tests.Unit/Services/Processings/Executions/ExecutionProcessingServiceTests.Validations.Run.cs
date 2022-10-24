@@ -38,6 +38,11 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
             // then
             actualException.Should().BeEquivalentTo(expectedExecutionProcessingValidationException);
 
+            this.loggingBrokerMock.Verify(broker =>
+                broker.LogError(It.Is(SameExceptionAs(
+                    expectedExecutionProcessingValidationException))),
+                        Times.Once);
+
             this.executionServiceMock.Verify(broker =>
                 broker.Run(nullExecutions, executionFolder),
                     Times.Never);

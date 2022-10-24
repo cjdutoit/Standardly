@@ -25,6 +25,11 @@ namespace Standardly.Core.Services.Processings.Executions
         }
 
         public string Run(List<Execution> executions, string executionFolder) =>
-            this.executionService.Run(executions, executionFolder);
+            TryCatch(() =>
+            {
+                ValidateOnRun(executions, executionFolder);
+
+                return this.executionService.Run(executions, executionFolder);
+            });
     }
 }
