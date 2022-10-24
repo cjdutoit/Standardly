@@ -25,6 +25,6 @@ namespace Standardly.Core.Services.Processings.Executions
         }
 
         public string Run(List<Execution> executions, string executionFolder) =>
-            throw new System.NotImplementedException();
+            this.executionService.Run(executions, executionFolder);
     }
 }
