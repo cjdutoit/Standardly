@@ -21,11 +21,15 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
             string invalidFilePath)
         {
             // given
-            var invalidPathFilesProcessingException =
-                new InvalidPathFileProcessingException();
+            var invalidFilesProcessingException =
+                new InvalidFileProcessingException();
+
+            invalidFilesProcessingException.AddData(
+                key: "path",
+                values: "Text is required");
 
             var expectedFilesProcessingValidationException =
-                new FileProcessingValidationException(invalidPathFilesProcessingException);
+                new FileProcessingValidationException(invalidFilesProcessingException);
 
             // when
             System.Action runAction = () =>

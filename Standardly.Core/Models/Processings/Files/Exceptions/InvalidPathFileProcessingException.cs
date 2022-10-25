@@ -8,9 +8,9 @@ using Xeptions;
 
 namespace Standardly.Core.Models.Processings.Files.Exceptions
 {
-    public class InvalidPathFileProcessingException : Xeption
+    public class InvalidFileProcessingException : Xeption
     {
-        public InvalidPathFileProcessingException()
+        public InvalidFileProcessingException()
             : base(message: "Invalid file path, Please correct the errors and try again.")
         { }
     }

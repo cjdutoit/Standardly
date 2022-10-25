@@ -20,7 +20,12 @@ namespace Standardly.Core.Services.Foundations.FileServices
             this.loggingBroker = loggingBroker;
         }
         public bool CheckIfFileExists(string path) =>
-            this.fileService.CheckIfFileExists(path);
+            TryCatch(() =>
+            {
+                ValidateCheckIfFileExists(path);
+
+                return this.fileService.CheckIfFileExists(path);
+            });
 
         public void WriteToFile(string path, string content) =>
             throw new System.NotImplementedException();
