@@ -23,6 +23,10 @@ namespace Standardly.Core.Services.Processings.Executions
             {
                 throw CreateAndLogValidationException(nullExecutionProcessingException);
             }
+            catch (InvalidPathExecutionProcessingException invalidPathExecutionProcessingException)
+            {
+                throw CreateAndLogValidationException(invalidPathExecutionProcessingException);
+            }
         }
 
         private ExecutionProcessingValidationException CreateAndLogValidationException(Xeption exception)

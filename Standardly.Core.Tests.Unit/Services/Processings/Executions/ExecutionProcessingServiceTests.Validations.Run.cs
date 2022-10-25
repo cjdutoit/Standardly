@@ -62,11 +62,11 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
             List<Execution> randomExecutions = CreateRandomExecutions();
             string inputExecutionFolder = invalidExecutionFolder;
 
-            var nullExecutionProcessingException =
-                new NullExecutionProcessingException();
+            var invalidPathExecutionProcessingException =
+                new InvalidPathExecutionProcessingException();
 
             var expectedExecutionProcessingValidationException =
-                new ExecutionProcessingValidationException(nullExecutionProcessingException);
+                new ExecutionProcessingValidationException(invalidPathExecutionProcessingException);
 
             // when
             System.Action runAction = () =>
