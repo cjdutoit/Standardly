@@ -6,7 +6,7 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Services.Processings.Executions
+namespace Standardly.Core.Models.Processings.Exceptions
 {
     public class ExecutionProcessingDependencyValidationException : Xeption
     {
