@@ -30,10 +30,6 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
                 key: "path",
                 values: "Text is required");
 
-            invalidFilesProcessingException.AddData(
-                key: "content",
-                values: "Text is required");
-
             var expectedFilesProcessingValidationException =
                 new FileProcessingValidationException(invalidFilesProcessingException);
 
