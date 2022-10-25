@@ -58,7 +58,12 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public bool CheckIfDirectoryExists(string path) =>
-            this.fileService.CheckIfDirectoryExists(path);
+            TryCatch(() =>
+            {
+                ValidateCheckIfDirectoryExists(path);
+
+                return this.fileService.CheckIfDirectoryExists(path);
+            });
 
         public void CreateDirectory(string path) =>
             throw new System.NotImplementedException();

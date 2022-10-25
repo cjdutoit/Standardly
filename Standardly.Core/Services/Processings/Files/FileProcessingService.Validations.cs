@@ -34,6 +34,11 @@ namespace Standardly.Core.Services.Foundations.FileServices
             Validate((Rule: IsInvalid(path), Parameter: nameof(path)));
         }
 
+        private static void ValidateCheckIfDirectoryExists(string path)
+        {
+            Validate((Rule: IsInvalid(path), Parameter: nameof(path)));
+        }
+
         private static void ValidateRetrieveListOfFiles(string path, string searchPattern)
         {
             Validate(
