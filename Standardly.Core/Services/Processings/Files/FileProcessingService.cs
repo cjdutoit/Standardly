@@ -50,7 +50,12 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public string[] RetrieveListOfFiles(string path, string searchPattern = "*") =>
-            this.fileService.RetrieveListOfFiles(path, searchPattern);
+            TryCatch(() =>
+            {
+                ValidateRetrieveListOfFiles(path, searchPattern);
+
+                return this.fileService.RetrieveListOfFiles(path, searchPattern);
+            });
 
         public bool CheckIfDirectoryExists(string path) =>
             throw new System.NotImplementedException();

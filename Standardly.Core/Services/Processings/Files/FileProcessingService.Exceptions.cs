@@ -17,6 +17,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
         private delegate bool ReturningBooleanFunction();
         private delegate void ReturningNothingFunction();
         private delegate string ReturningStringFunction();
+        private delegate string[] ReturningArrayFunction();
 
         private bool TryCatch(ReturningBooleanFunction returningBooleanFunction)
         {
@@ -120,6 +121,18 @@ namespace Standardly.Core.Services.Foundations.FileServices
                     new FailedFileProcessingServiceException(exception);
 
                 throw CreateAndLogServiceException(failedFileProcessingServiceException);
+            }
+        }
+
+        private string[] TryCatch(ReturningArrayFunction returningArrayFunction)
+        {
+            try
+            {
+                return returningArrayFunction();
+            }
+            catch (InvalidFileProcessingException invalidPathFileProcessingException)
+            {
+                throw CreateAndLogValidationException(invalidPathFileProcessingException);
             }
         }
 
