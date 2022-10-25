@@ -4,6 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using FluentAssertions;
 using Moq;
 using Xunit;
 
@@ -17,11 +18,19 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
             // given
             string randomPath = GetRandomString();
             string inputFilePath = randomPath;
+            string randomContent = GetRandomString();
+            string expectedResult = randomContent;
+
+            this.fileServiceMock.Setup(service =>
+                service.ReadFromFile(randomPath))
+                    .Returns(expectedResult);
 
             // when
-            this.fileProcessingService.ReadFromFile(inputFilePath);
+            string actualResult = this.fileProcessingService.ReadFromFile(inputFilePath);
 
             // then
+            actualResult.Should().BeEquivalentTo(expectedResult);
+
             this.fileServiceMock.Verify(service =>
                 service.ReadFromFile(inputFilePath),
                     Times.Once);
