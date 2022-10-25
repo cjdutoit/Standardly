@@ -7,12 +7,12 @@
 using System;
 using Xeptions;
 
-namespace Standardly.Core.Services.Processings.Executions
+namespace Standardly.Core.Models.Processings.Files.Exceptions
 {
-    public class FailedExecutionProcessingServiceException : Xeption
+    public class FailedFileProcessingServiceException : Xeption
     {
-        public FailedExecutionProcessingServiceException(Exception innerException)
-            : base(message: "Failed execution service occurred, please contact support", innerException)
+        public FailedFileProcessingServiceException(Exception innerException)
+            : base(message: "Failed file service occurred, please contact support", innerException)
         { }
     }
 }
