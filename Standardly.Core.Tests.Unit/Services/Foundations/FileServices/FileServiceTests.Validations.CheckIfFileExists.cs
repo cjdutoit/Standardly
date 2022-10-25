@@ -25,14 +25,14 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                 new InvalidFilePathException(invalidPath);
 
             var expectedFileValidationException =
-                new FileServiceValidationException(invalidFilePathException);
+                new FileValidationException(invalidFilePathException);
 
             // when
             Action checkIfFileExistsAction = () =>
                 this.fileService.CheckIfFileExists(invalidPath);
 
-            FileServiceValidationException actualException =
-                Assert.Throws<FileServiceValidationException>(checkIfFileExistsAction);
+            FileValidationException actualException =
+                Assert.Throws<FileValidationException>(checkIfFileExistsAction);
 
             // then
             actualException.Should().BeEquivalentTo(expectedFileValidationException);

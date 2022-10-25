@@ -27,7 +27,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                     dependencyValidationException);
 
             var expectedFileServiceDependencyValidationException =
-                new FileServiceDependencyValidationException(invalidFileServiceDependencyException);
+                new FileDependencyValidationException(invalidFileServiceDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
                 broker.CheckIfFileExists(somePath))
@@ -37,8 +37,8 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             Action writeToFileAction = () =>
                 this.fileService.CheckIfFileExists(somePath);
 
-            FileServiceDependencyValidationException actualException =
-                Assert.Throws<FileServiceDependencyValidationException>(writeToFileAction);
+            FileDependencyValidationException actualException =
+                Assert.Throws<FileDependencyValidationException>(writeToFileAction);
 
             // then
             actualException.Should().BeEquivalentTo(expectedFileServiceDependencyValidationException);
@@ -67,7 +67,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                     invalidFileServiceDependencyException);
 
             var expectedFileServiceDependencyException =
-                new FileServiceDependencyException(failedFileServiceDependencyException);
+                new FileDependencyException(failedFileServiceDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
                 broker.CheckIfFileExists(somePath))
@@ -77,7 +77,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             Action writeToFileAction = () =>
                 this.fileService.CheckIfFileExists(somePath);
 
-            FileServiceDependencyException actualException = Assert.Throws<FileServiceDependencyException>(
+            FileDependencyException actualException = Assert.Throws<FileDependencyException>(
                 writeToFileAction);
 
             // then
@@ -107,7 +107,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                     invalidFileServiceDependencyException);
 
             var expectedFileServiceDependencyException =
-                new FileServiceDependencyException(failedFileServiceDependencyException);
+                new FileDependencyException(failedFileServiceDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
                 broker.CheckIfFileExists(somePath))
@@ -117,7 +117,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             Action writeToFileAction = () =>
                 this.fileService.CheckIfFileExists(somePath);
 
-            FileServiceDependencyException actualException = Assert.Throws<FileServiceDependencyException>(
+            FileDependencyException actualException = Assert.Throws<FileDependencyException>(
                 writeToFileAction);
 
             // then

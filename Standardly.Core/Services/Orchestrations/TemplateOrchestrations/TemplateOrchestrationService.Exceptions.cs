@@ -26,15 +26,15 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 return returningTemplateListFunction();
             }
-            catch (FileServiceValidationException fileValidationException)
+            catch (FileValidationException fileValidationException)
             {
                 throw CreateAndLogDependencyValidationException(fileValidationException);
             }
-            catch (FileServiceDependencyValidationException fileDependencyValidationException)
+            catch (FileDependencyValidationException fileDependencyValidationException)
             {
                 throw CreateAndLogDependencyValidationException(fileDependencyValidationException);
             }
-            catch (FileServiceDependencyException fileDependencyException)
+            catch (FileDependencyException fileDependencyException)
             {
                 throw CreateAndLogDependencyException(fileDependencyException);
             }
@@ -61,11 +61,11 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 throw CreateAndLogValidationException(nullTemplateOrchestrationException);
             }
-            catch (FileServiceValidationException fileServiceValidationException)
+            catch (FileValidationException fileServiceValidationException)
             {
                 throw CreateAndLogDependencyValidationException(fileServiceValidationException);
             }
-            catch (FileServiceDependencyValidationException fileServiceDependencyValidationException)
+            catch (FileDependencyValidationException fileServiceDependencyValidationException)
             {
                 throw CreateAndLogDependencyValidationException(fileServiceDependencyValidationException);
             }
@@ -89,7 +89,7 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 throw CreateAndLogDependencyException(fileServiceException);
             }
-            catch (FileServiceDependencyException fileServiceDependencyException)
+            catch (FileDependencyException fileServiceDependencyException)
             {
                 throw CreateAndLogDependencyException(fileServiceDependencyException);
             }

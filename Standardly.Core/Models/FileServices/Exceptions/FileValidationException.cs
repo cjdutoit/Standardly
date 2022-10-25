@@ -6,11 +6,13 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.Processings.Exceptions
+namespace Standardly.Core.Models.FileServices.Exceptions
 {
-    public class NullExecutionProcessingException : Xeption
+    public class FileValidationException : Xeption
     {
-        public NullExecutionProcessingException()
-            : base(message: "Execution is null.") { }
+        public FileValidationException(Xeption innerException)
+            : base(message: "File validation error occurred, fix the errors and try again.",
+                  innerException)
+        { }
     }
 }

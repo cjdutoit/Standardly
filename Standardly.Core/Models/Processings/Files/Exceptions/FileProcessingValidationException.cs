@@ -6,12 +6,12 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.FileServices.Exceptions
+namespace Standardly.Core.Models.Processings.Files.Exceptions
 {
-    public class FileServiceDependencyValidationException : Xeption
+    public class FileProcessingValidationException : Xeption
     {
-        public FileServiceDependencyValidationException(Xeption innerException)
-            : base(message: "File service dependency validation error occurred, fix the errors and try again.",
+        public FileProcessingValidationException(Xeption innerException)
+            : base(message: "File processing validation error occurred, please try again.",
                   innerException)
         { }
     }

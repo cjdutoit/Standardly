@@ -28,14 +28,14 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                 new InvalidFilePathException(invalidPath);
 
             var expectedFileServiceValidationException =
-                new FileServiceValidationException(invalidFilePathException);
+                new FileValidationException(invalidFilePathException);
 
             // when
             Action retrieveListOfFiles = () =>
                 this.fileService.RetrieveListOfFiles(invalidPath, inputSearchPattern);
 
-            FileServiceValidationException actualFileServiceValidationException =
-                Assert.Throws<FileServiceValidationException>(retrieveListOfFiles);
+            FileValidationException actualFileServiceValidationException =
+                Assert.Throws<FileValidationException>(retrieveListOfFiles);
 
             // then
             actualFileServiceValidationException.Should().BeEquivalentTo(expectedFileServiceValidationException);
@@ -62,15 +62,15 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                 new InvalidFileSearchPatternException();
 
             var expectedFileServiceValidationException =
-                new FileServiceValidationException(invalidFileSearchPatternException);
+                new FileValidationException(invalidFileSearchPatternException);
 
             // when
             Action retrieveListOfFiles = () =>
                 this.fileService.RetrieveListOfFiles(inputPath, invalidSearchPattern);
 
             // then
-            FileServiceValidationException actualFileServiceValidationException =
-                Assert.Throws<FileServiceValidationException>(retrieveListOfFiles);
+            FileValidationException actualFileServiceValidationException =
+                Assert.Throws<FileValidationException>(retrieveListOfFiles);
 
             actualFileServiceValidationException.Should().BeEquivalentTo(expectedFileServiceValidationException);
 

@@ -6,12 +6,11 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.Processings.Exceptions
+namespace Standardly.Core.Models.Processings.Executions.Exceptions
 {
-    public class ExecutionProcessingServiceException : Xeption
+    public class NullExecutionProcessingException : Xeption
     {
-        public ExecutionProcessingServiceException(Xeption innerException)
-            : base(message: "Execution service error occurred, please contact support", innerException)
-        { }
+        public NullExecutionProcessingException()
+            : base(message: "Execution is null.") { }
     }
 }

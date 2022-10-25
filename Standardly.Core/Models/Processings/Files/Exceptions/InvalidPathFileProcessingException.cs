@@ -6,12 +6,12 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.Processings.Exceptions
+namespace Standardly.Core.Models.Processings.Files.Exceptions
 {
-    public class ExecutionProcessingDependencyException : Xeption
+    public class InvalidFileProcessingException : Xeption
     {
-        public ExecutionProcessingDependencyException(Xeption innerException)
-            : base(message: "Execution dependency error occurred, please contact support.", innerException)
+        public InvalidFileProcessingException()
+            : base(message: "Invalid file path, Please correct the errors and try again.")
         { }
     }
 }
