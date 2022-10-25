@@ -74,6 +74,6 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public void DeleteDirectory(string path, bool recursive = false) =>
-            throw new System.NotImplementedException();
+            this.fileService.DeleteDirectory(path, recursive);
     }
 }
