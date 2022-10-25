@@ -28,7 +28,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                     dependencyValidationException);
 
             var expectedFileServiceDependencyValidationException =
-                new FileServiceDependencyValidationException(
+                new FileDependencyValidationException(
                     invalidFileDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
@@ -40,8 +40,8 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                 this.fileService.WriteToFile(somePath, someContent);
 
             // then
-            FileServiceDependencyValidationException actualFileServiceDependencyValidationException =
-                Assert.Throws<FileServiceDependencyValidationException>(writeToFileAction);
+            FileDependencyValidationException actualFileServiceDependencyValidationException =
+                Assert.Throws<FileDependencyValidationException>(writeToFileAction);
 
             actualFileServiceDependencyValidationException.Should()
                 .BeEquivalentTo(expectedFileServiceDependencyValidationException);

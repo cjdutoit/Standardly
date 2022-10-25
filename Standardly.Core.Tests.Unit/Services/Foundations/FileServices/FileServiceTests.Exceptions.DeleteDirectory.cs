@@ -26,7 +26,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                 new InvalidFileServiceDependencyException(dependencyValidationException);
 
             var expectedFileServiceDependencyValidationException =
-                new FileServiceDependencyValidationException(invalidFileServiceDependencyException);
+                new FileDependencyValidationException(invalidFileServiceDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
                 broker.DeleteDirectory(somePath, false))
@@ -36,8 +36,8 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             Action writeToFileAction = () =>
                 this.fileService.DeleteDirectory(somePath);
 
-            FileServiceDependencyValidationException actualFileServiceDependencyValidationException =
-                Assert.Throws<FileServiceDependencyValidationException>(writeToFileAction);
+            FileDependencyValidationException actualFileServiceDependencyValidationException =
+                Assert.Throws<FileDependencyValidationException>(writeToFileAction);
 
             // then
             actualFileServiceDependencyValidationException

@@ -93,8 +93,8 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             return new TheoryData<Exception>()
             {
-                new FileServiceValidationException(innerException),
-                new FileServiceDependencyValidationException(innerException),
+                new FileValidationException(innerException),
+                new FileDependencyValidationException(innerException),
             };
         }
 
@@ -117,8 +117,8 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             return new TheoryData<Exception>()
             {
-                new FileServiceValidationException(innerException),
-                new FileServiceDependencyValidationException(innerException),
+                new FileValidationException(innerException),
+                new FileDependencyValidationException(innerException),
                 new ExecutionValidationException(innerException),
                 new ExecutionDependencyValidationException(innerException),
                 new TemplateValidationException(innerException),

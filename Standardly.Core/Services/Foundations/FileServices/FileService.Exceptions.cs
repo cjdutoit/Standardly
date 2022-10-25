@@ -299,18 +299,18 @@ namespace Standardly.Core.Services.Foundations.FileServices
             }
         }
 
-        private FileServiceValidationException CreateAndLogValidationException(Xeption exception)
+        private FileValidationException CreateAndLogValidationException(Xeption exception)
         {
             var fileValidationException =
-                new FileServiceValidationException(exception);
+                new FileValidationException(exception);
 
             return fileValidationException;
         }
 
-        private FileServiceDependencyValidationException CreateAndLogDependencyValidationException(Xeption exception)
+        private FileDependencyValidationException CreateAndLogDependencyValidationException(Xeption exception)
         {
             var fileServiceDependencyValidationException =
-                new FileServiceDependencyValidationException(exception);
+                new FileDependencyValidationException(exception);
 
             return fileServiceDependencyValidationException;
         }
