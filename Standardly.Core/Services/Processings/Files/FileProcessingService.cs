@@ -19,29 +19,28 @@ namespace Standardly.Core.Services.Foundations.FileServices
             this.fileService = fileService;
             this.loggingBroker = loggingBroker;
         }
+        public bool CheckIfFileExists(string path) =>
+            this.fileService.CheckIfFileExists(path);
 
-        public bool CheckIfDirectoryExists(string path) =>
+        public void WriteToFile(string path, string content) =>
             throw new System.NotImplementedException();
 
-        public bool CheckIfFileExists(string path) =>
+        public string ReadFromFile(string path) =>
+            throw new System.NotImplementedException();
+
+        public void DeleteFile(string path) =>
+            throw new System.NotImplementedException();
+
+        public string[] RetrieveListOfFiles(string path, string searchPattern = "*") =>
+            throw new System.NotImplementedException();
+
+        public bool CheckIfDirectoryExists(string path) =>
             throw new System.NotImplementedException();
 
         public void CreateDirectory(string path) =>
             throw new System.NotImplementedException();
 
         public void DeleteDirectory(string path, bool recursive = false) =>
-            throw new System.NotImplementedException();
-
-        public void DeleteFile(string path) =>
-            throw new System.NotImplementedException();
-
-        public string ReadFromFile(string path) =>
-            throw new System.NotImplementedException();
-
-        public string[] RetrieveListOfFiles(string path, string searchPattern = "*") =>
-            throw new System.NotImplementedException();
-
-        public void WriteToFile(string path, string content) =>
             throw new System.NotImplementedException();
     }
 }

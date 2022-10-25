@@ -6,7 +6,7 @@
 
 using System;
 using Standardly.Core.Models.Executions.Exceptions;
-using Standardly.Core.Models.Processings.Exceptions;
+using Standardly.Core.Models.Processings.Executions.Exceptions;
 using Xeptions;
 
 namespace Standardly.Core.Services.Processings.Executions

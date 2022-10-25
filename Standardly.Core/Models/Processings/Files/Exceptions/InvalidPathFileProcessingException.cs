@@ -6,11 +6,12 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.Processings.Exceptions
+namespace Standardly.Core.Models.Processings.Files.Exceptions
 {
-    public class NullExecutionProcessingException : Xeption
+    public class InvalidPathFileProcessingException : Xeption
     {
-        public NullExecutionProcessingException()
-            : base(message: "Execution is null.") { }
+        public InvalidPathFileProcessingException()
+            : base(message: "Invalid file path, Please correct the errors and try again.")
+        { }
     }
 }

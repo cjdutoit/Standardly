@@ -6,12 +6,12 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.Processings.Exceptions
+namespace Standardly.Core.Models.Processings.Executions.Exceptions
 {
-    public class ExecutionProcessingDependencyValidationException : Xeption
+    public class ExecutionProcessingValidationException : Xeption
     {
-        public ExecutionProcessingDependencyValidationException(Xeption innerException)
-            : base(message: "Execution dependency validation error occurred, please try again.",
+        public ExecutionProcessingValidationException(Xeption innerException)
+            : base(message: "Execution validation error occurred, please try again.",
                   innerException)
         { }
     }

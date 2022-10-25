@@ -6,12 +6,12 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.Processings.Exceptions
+namespace Standardly.Core.Models.Processings.Executions.Exceptions
 {
-    public class ExecutionProcessingServiceException : Xeption
+    public class ExecutionProcessingDependencyException : Xeption
     {
-        public ExecutionProcessingServiceException(Xeption innerException)
-            : base(message: "Execution service error occurred, please contact support", innerException)
+        public ExecutionProcessingDependencyException(Xeption innerException)
+            : base(message: "Execution dependency error occurred, please contact support.", innerException)
         { }
     }
 }

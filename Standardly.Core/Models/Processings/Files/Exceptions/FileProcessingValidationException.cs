@@ -6,12 +6,13 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.Processings.Exceptions
+namespace Standardly.Core.Models.Processings.Files.Exceptions
 {
-    public class InvalidPathExecutionProcessingException : Xeption
+    public class FileProcessingValidationException : Xeption
     {
-        public InvalidPathExecutionProcessingException()
-            : base(message: "Invalid file execution path, Please correct the errors and try again.")
+        public FileProcessingValidationException(Xeption innerException)
+            : base(message: "File processing validation error occurred, please try again.",
+                  innerException)
         { }
     }
 }
