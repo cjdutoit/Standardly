@@ -33,6 +33,14 @@ namespace Standardly.Core.Services.Foundations.FileServices
             {
                 throw CreateAndLogDependencyValidationException(fileDependencyValidationException);
             }
+            catch (FileDependencyException fileDependencyException)
+            {
+                throw CreateAndLogDependencyException(fileDependencyException);
+            }
+            catch (FileServiceException fileServiceException)
+            {
+                throw CreateAndLogDependencyException(fileServiceException);
+            }
         }
 
         private FileProcessingValidationException CreateAndLogValidationException(Xeption exception)
@@ -54,6 +62,17 @@ namespace Standardly.Core.Services.Foundations.FileServices
             this.loggingBroker.LogError(fileProcessingDependencyValidationException);
 
             return fileProcessingDependencyValidationException;
+        }
+
+        private FileProcessingDependencyException CreateAndLogDependencyException(Xeption exception)
+        {
+            var fileProcessingDependencyException =
+                new FileProcessingDependencyException(
+                    exception.InnerException as Xeption);
+
+            this.loggingBroker.LogError(fileProcessingDependencyException);
+
+            return fileProcessingDependencyException;
         }
     }
 }
