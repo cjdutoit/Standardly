@@ -4,6 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using Standardly.Core.Models.FileServices.Exceptions;
 using Standardly.Core.Models.Processings.Files.Exceptions;
 using Standardly.Core.Services.Processings.Files;
 using Xeptions;
@@ -24,6 +25,14 @@ namespace Standardly.Core.Services.Foundations.FileServices
             {
                 throw CreateAndLogValidationException(invalidPathFileProcessingException);
             }
+            catch (FileValidationException fileValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(fileValidationException);
+            }
+            catch (FileDependencyValidationException fileDependencyValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(fileDependencyValidationException);
+            }
         }
 
         private FileProcessingValidationException CreateAndLogValidationException(Xeption exception)
@@ -34,6 +43,17 @@ namespace Standardly.Core.Services.Foundations.FileServices
             this.loggingBroker.LogError(fileProcessingValidationException);
 
             return fileProcessingValidationException;
+        }
+
+        private FileProcessingDependencyValidationException CreateAndLogDependencyValidationException(Xeption exception)
+        {
+            var fileProcessingDependencyValidationException =
+                new FileProcessingDependencyValidationException(
+                    exception.InnerException as Xeption);
+
+            this.loggingBroker.LogError(fileProcessingDependencyValidationException);
+
+            return fileProcessingDependencyValidationException;
         }
     }
 }
