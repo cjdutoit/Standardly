@@ -52,6 +52,19 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
             };
         }
 
+        public static TheoryData DependencyExceptions()
+        {
+            string randomMessage = GetRandomString();
+            string exceptionMessage = randomMessage;
+            var innerException = new Xeption(exceptionMessage);
+
+            return new TheoryData<Xeption>
+            {
+                new ExecutionDependencyException(innerException),
+                new ExecutionServiceException(innerException)
+            };
+        }
+
         private static string GetRandomString() =>
             new MnemonicString().GetValue();
 
