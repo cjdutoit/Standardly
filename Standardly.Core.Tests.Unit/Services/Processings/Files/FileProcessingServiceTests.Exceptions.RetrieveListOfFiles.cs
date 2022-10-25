@@ -16,7 +16,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
     {
         [Theory]
         [MemberData(nameof(DependencyValidationExceptions))]
-        public void ShouldThrowDependencyValidationOnWriteToFileIfDependencyValidationErrorOccursAndLogItAsync(
+        public void ShouldThrowDependencyValidationOnRetrieveListOfFilesIfDependencyValidationErrorOccursAndLogItAsync(
             Xeption dependencyValidationException)
         {
             // given
@@ -29,19 +29,19 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
                     dependencyValidationException.InnerException as Xeption);
 
             this.fileServiceMock.Setup(service =>
-                service.WriteToFile(inputPath, inputContent))
+                service.RetrieveListOfFiles(inputPath, inputContent))
                     .Throws(dependencyValidationException);
 
             // when
             System.Action runAction = () =>
-                this.fileProcessingService.WriteToFile(inputPath, inputContent);
+                this.fileProcessingService.RetrieveListOfFiles(inputPath, inputContent);
 
             // then
             FileProcessingDependencyValidationException actualException =
                 Assert.Throws<FileProcessingDependencyValidationException>(runAction);
 
             this.fileServiceMock.Verify(service =>
-                service.WriteToFile(inputPath, inputContent),
+                service.RetrieveListOfFiles(inputPath, inputContent),
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
@@ -55,7 +55,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
 
         [Theory]
         [MemberData(nameof(DependencyExceptions))]
-        public void ShouldThrowDependencyOnWriteToFileIfDependencyErrorOccursAndLogItAsync(
+        public void ShouldThrowDependencyOnRetrieveListOfFilesIfDependencyErrorOccursAndLogItAsync(
             Xeption dependencyException)
         {
             // given
@@ -68,19 +68,19 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
                     dependencyException.InnerException as Xeption);
 
             this.fileServiceMock.Setup(service =>
-                service.WriteToFile(inputPath, inputContent))
+                service.RetrieveListOfFiles(inputPath, inputContent))
                     .Throws(dependencyException);
 
             // when
             System.Action runAction = () =>
-                this.fileProcessingService.WriteToFile(inputPath, inputContent);
+                this.fileProcessingService.RetrieveListOfFiles(inputPath, inputContent);
 
             // then
             FileProcessingDependencyException actualException =
                 Assert.Throws<FileProcessingDependencyException>(runAction);
 
             this.fileServiceMock.Verify(service =>
-                service.WriteToFile(inputPath, inputContent),
+                service.RetrieveListOfFiles(inputPath, inputContent),
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
@@ -93,7 +93,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
         }
 
         [Fact]
-        public void ShouldThrowServiceExceptionOnWriteToFileIfServiceErrorOccursAndLogItAsync()
+        public void ShouldThrowServiceExceptionOnRetrieveListOfFilesIfServiceErrorOccursAndLogItAsync()
         {
             // given
             string randomPath = GetRandomString();
@@ -110,19 +110,19 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
                     failedFileProcessingServiceException);
 
             this.fileServiceMock.Setup(service =>
-                service.WriteToFile(inputPath, inputContent))
+                service.RetrieveListOfFiles(inputPath, inputContent))
                     .Throws(serviceException);
 
             // when
             System.Action runAction = () =>
-                this.fileProcessingService.WriteToFile(inputPath, inputContent);
+                this.fileProcessingService.RetrieveListOfFiles(inputPath, inputContent);
 
             // then
             FileProcessingServiceException actualException =
                 Assert.Throws<FileProcessingServiceException>(runAction);
 
             this.fileServiceMock.Verify(service =>
-                service.WriteToFile(inputPath, inputContent),
+                service.RetrieveListOfFiles(inputPath, inputContent),
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
