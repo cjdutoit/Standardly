@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using Moq;
 using Standardly.Core.Brokers.Loggings;
@@ -60,6 +61,22 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
                 new FileDependencyException(innerException),
                 new FileServiceException(innerException)
             };
+        }
+
+        private static int GetRandomNumber() =>
+            new IntRange(min: 2, max: 10).GetValue();
+
+        private static string[] GetRandomListOfStrings()
+        {
+            int randomNumber = GetRandomNumber();
+            List<string> randomStringList = new List<string>();
+
+            for (int i = 0; i < randomNumber; i++)
+            {
+                randomStringList.Add(GetRandomString());
+            }
+
+            return randomStringList.ToArray();
         }
 
         private static string GetRandomString() =>

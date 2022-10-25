@@ -34,6 +34,13 @@ namespace Standardly.Core.Services.Foundations.FileServices
             Validate((Rule: IsInvalid(path), Parameter: nameof(path)));
         }
 
+        private static void ValidateRetrieveListOfFiles(string path, string searchPattern)
+        {
+            Validate(
+                (Rule: IsInvalid(path), Parameter: nameof(path)),
+                (Rule: IsInvalid(searchPattern), Parameter: nameof(searchPattern)));
+        }
+
         private static dynamic IsInvalid(string text) => new
         {
             Condition = String.IsNullOrWhiteSpace(text),
