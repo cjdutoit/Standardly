@@ -36,6 +36,14 @@ namespace Standardly.Core.Services.Processings.Executions
             {
                 throw CreateAndLogDependencyValidationException(executionDependencyValidationException);
             }
+            catch (ExecutionDependencyException executionDependencyException)
+            {
+                throw CreateAndLogDependencyException(executionDependencyException);
+            }
+            catch (ExecutionServiceException executionServiceException)
+            {
+                throw CreateAndLogDependencyException(executionServiceException);
+            }
         }
 
         private ExecutionProcessingValidationException CreateAndLogValidationException(Xeption exception)
@@ -57,6 +65,17 @@ namespace Standardly.Core.Services.Processings.Executions
             this.loggingBroker.LogError(executionProcessingDependencyValidationException);
 
             return executionProcessingDependencyValidationException;
+        }
+
+        private ExecutionProcessingDependencyException CreateAndLogDependencyException(Xeption exception)
+        {
+            var executionProcessingDependencyException =
+                new ExecutionProcessingDependencyException(
+                    exception.InnerException as Xeption);
+
+            this.loggingBroker.LogError(executionProcessingDependencyException);
+
+            return executionProcessingDependencyException;
         }
     }
 }

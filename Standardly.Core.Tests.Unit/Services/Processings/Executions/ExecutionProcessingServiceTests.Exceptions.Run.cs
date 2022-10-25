@@ -56,7 +56,6 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
             this.loggingBrokerMock.VerifyNoOtherCalls();
         }
 
-
         [Theory]
         [MemberData(nameof(DependencyExceptions))]
         public async Task ShouldThrowDependencyOnUpsertIfDependencyErrorOccursAndLogItAsync(
@@ -96,6 +95,5 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
             this.executionServiceMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
         }
-
     }
 }
