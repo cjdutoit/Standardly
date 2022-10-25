@@ -50,5 +50,43 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
             this.fileServiceMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Theory]
+        [MemberData(nameof(DependencyExceptions))]
+        public void ShouldThrowDependencyOnRunIfDependencyErrorOccursAndLogItAsync(
+            Xeption dependencyException)
+        {
+            // given
+            string randomPath = GetRandomString();
+            string inputPath = randomPath;
+
+            var expectedFileProcessingDependencyException =
+                new FileProcessingDependencyException(
+                    dependencyException.InnerException as Xeption);
+
+            this.fileServiceMock.Setup(service =>
+                service.CheckIfFileExists(inputPath))
+                    .Throws(dependencyException);
+
+            // when
+            System.Action runAction = () =>
+                this.fileProcessingService.CheckIfFileExists(inputPath);
+
+            // then
+            FileProcessingDependencyException actualException =
+                Assert.Throws<FileProcessingDependencyException>(runAction);
+
+            this.fileServiceMock.Verify(service =>
+                service.CheckIfFileExists(inputPath),
+                    Times.Once);
+
+            this.loggingBrokerMock.Verify(broker =>
+                broker.LogError(It.Is(SameExceptionAs(
+                    expectedFileProcessingDependencyException))),
+                        Times.Once);
+
+            this.fileServiceMock.VerifyNoOtherCalls();
+            this.loggingBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }

@@ -66,7 +66,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                 new FailedFileServiceDependencyException(invalidFileServiceDependencyException);
 
             var expectedFileServiceDependencyException =
-                new FileServiceDependencyException(failedFileServiceDependencyException);
+                new FileDependencyException(failedFileServiceDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
                 broker.ReadFile(somePath))
@@ -76,8 +76,8 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             Action writeToFileAction = () =>
                 this.fileService.ReadFromFile(somePath);
 
-            FileServiceDependencyException actualFileServiceDependencyException =
-                Assert.Throws<FileServiceDependencyException>(writeToFileAction);
+            FileDependencyException actualFileServiceDependencyException =
+                Assert.Throws<FileDependencyException>(writeToFileAction);
 
             // then
             actualFileServiceDependencyException.Should().BeEquivalentTo(expectedFileServiceDependencyException);
@@ -104,7 +104,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                 new FailedFileServiceDependencyException(invalidFileServiceDependencyException);
 
             var expectedFileServiceDependencyException =
-                new FileServiceDependencyException(failedFileServiceDependencyException);
+                new FileDependencyException(failedFileServiceDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
                 broker.ReadFile(somePath))
@@ -114,8 +114,8 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             Action writeToFileAction = () =>
                 this.fileService.ReadFromFile(somePath);
 
-            FileServiceDependencyException actualFileServiceDependencyException =
-                Assert.Throws<FileServiceDependencyException>(writeToFileAction);
+            FileDependencyException actualFileServiceDependencyException =
+                Assert.Throws<FileDependencyException>(writeToFileAction);
 
             // then
             actualFileServiceDependencyException.Should().BeEquivalentTo(expectedFileServiceDependencyException);

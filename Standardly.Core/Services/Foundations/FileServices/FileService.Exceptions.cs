@@ -315,17 +315,17 @@ namespace Standardly.Core.Services.Foundations.FileServices
             return fileServiceDependencyValidationException;
         }
 
-        private FileServiceDependencyException CreateAndLogDependencyException(Xeption exception)
+        private FileDependencyException CreateAndLogDependencyException(Xeption exception)
         {
-            var fileServiceDependencyException = new FileServiceDependencyException(exception);
+            var fileServiceDependencyException = new FileDependencyException(exception);
 
             return fileServiceDependencyException;
         }
 
-        private FileServiceDependencyException CreateAndLogCriticalDependencyException(
+        private FileDependencyException CreateAndLogCriticalDependencyException(
             Xeption exception)
         {
-            var fileServiceDependencyException = new FileServiceDependencyException(exception);
+            var fileServiceDependencyException = new FileDependencyException(exception);
 
             return fileServiceDependencyException;
         }

@@ -34,7 +34,7 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 throw CreateAndLogDependencyValidationException(fileDependencyValidationException);
             }
-            catch (FileServiceDependencyException fileDependencyException)
+            catch (FileDependencyException fileDependencyException)
             {
                 throw CreateAndLogDependencyException(fileDependencyException);
             }
@@ -89,7 +89,7 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
             {
                 throw CreateAndLogDependencyException(fileServiceException);
             }
-            catch (FileServiceDependencyException fileServiceDependencyException)
+            catch (FileDependencyException fileServiceDependencyException)
             {
                 throw CreateAndLogDependencyException(fileServiceDependencyException);
             }
