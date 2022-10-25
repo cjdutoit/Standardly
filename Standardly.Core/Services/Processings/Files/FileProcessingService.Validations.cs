@@ -46,6 +46,11 @@ namespace Standardly.Core.Services.Foundations.FileServices
                 (Rule: IsInvalid(searchPattern), Parameter: nameof(searchPattern)));
         }
 
+        private static void ValidateCreateDirectory(string path)
+        {
+            Validate((Rule: IsInvalid(path), Parameter: nameof(path)));
+        }
+
         private static dynamic IsInvalid(string text) => new
         {
             Condition = String.IsNullOrWhiteSpace(text),
