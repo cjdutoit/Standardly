@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Moq;
 using Standardly.Core.Models.Executions;
 using Standardly.Core.Models.Processings.Exceptions;
@@ -20,7 +19,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
     {
         [Theory]
         [MemberData(nameof(DependencyValidationExceptions))]
-        public async Task ShouldThrowDependencyValidationOnRunIfDependencyValidationErrorOccursAndLogItAsync(
+        public void ShouldThrowDependencyValidationOnRunIfDependencyValidationErrorOccursAndLogItAsync(
             Xeption dependencyValidationException)
         {
             // given
@@ -60,7 +59,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
 
         [Theory]
         [MemberData(nameof(DependencyExceptions))]
-        public async Task ShouldThrowDependencyOnRunIfDependencyErrorOccursAndLogItAsync(
+        public void ShouldThrowDependencyOnRunIfDependencyErrorOccursAndLogItAsync(
             Xeption dependencyException)
         {
             // given
@@ -99,7 +98,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
         }
 
         [Fact]
-        public async Task ShouldThrowServiceExceptionOnRunIfServiceErrorOccursAndLogItAsync()
+        public void ShouldThrowServiceExceptionOnRunIfServiceErrorOccursAndLogItAsync()
         {
             // given
             string randomExecutionFolder = GetRandomString();
@@ -125,8 +124,8 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
                 this.executionProcessingService.Run(randomExecutions, inputExecutionFolder);
 
             // then
-            ExecutionProcessingDependencyException actualException =
-                Assert.Throws<ExecutionProcessingDependencyException>(runAction);
+            ExecutionProcessingServiceException actualException =
+                Assert.Throws<ExecutionProcessingServiceException>(runAction);
 
             this.executionServiceMock.Verify(service =>
                 service.Run(inputExecutions, inputExecutionFolder),
@@ -140,7 +139,5 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
             this.executionServiceMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
         }
-
-
     }
 }
