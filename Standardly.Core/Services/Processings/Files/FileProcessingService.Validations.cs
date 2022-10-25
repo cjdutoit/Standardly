@@ -14,9 +14,14 @@ namespace Standardly.Core.Services.Foundations.FileServices
     {
         private static void ValidateCheckIfFileExists(string path)
         {
+            Validate((Rule: IsInvalid(path), Parameter: nameof(path)));
+        }
+
+        private static void ValidateWriteToFile(string path, string content)
+        {
             Validate(
-                (Rule: IsInvalid(path),
-                Parameter: nameof(path)));
+                (Rule: IsInvalid(path), Parameter: nameof(path)),
+                (Rule: IsInvalid(content), Parameter: nameof(content)));
         }
 
         private static dynamic IsInvalid(string text) => new

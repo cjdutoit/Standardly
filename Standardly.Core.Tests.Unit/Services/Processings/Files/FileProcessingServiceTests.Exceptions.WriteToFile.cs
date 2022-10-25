@@ -16,31 +16,32 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
     {
         [Theory]
         [MemberData(nameof(DependencyValidationExceptions))]
-        public void ShouldThrowDependencyValidationOnCheckIfFileExistsIfDependencyValidationErrorOccursAndLogItAsync(
+        public void ShouldThrowDependencyValidationOnRunIfDependencyValidationErrorOccursAndLogItAsync(
             Xeption dependencyValidationException)
         {
             // given
             string randomPath = GetRandomString();
             string inputPath = randomPath;
+            string inputContent = randomPath;
 
             var expectedFileProcessingDependencyValidationException =
                 new FileProcessingDependencyValidationException(
                     dependencyValidationException.InnerException as Xeption);
 
             this.fileServiceMock.Setup(service =>
-                service.CheckIfFileExists(inputPath))
+                service.WriteToFile(inputPath, inputContent))
                     .Throws(dependencyValidationException);
 
             // when
             System.Action runAction = () =>
-                this.fileProcessingService.CheckIfFileExists(inputPath);
+                this.fileProcessingService.WriteToFile(inputPath, inputContent);
 
             // then
             FileProcessingDependencyValidationException actualException =
                 Assert.Throws<FileProcessingDependencyValidationException>(runAction);
 
             this.fileServiceMock.Verify(service =>
-                service.CheckIfFileExists(inputPath),
+                service.WriteToFile(inputPath, inputContent),
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
@@ -54,31 +55,32 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
 
         [Theory]
         [MemberData(nameof(DependencyExceptions))]
-        public void ShouldThrowDependencyOnCheckIfFileExistsIfDependencyErrorOccursAndLogItAsync(
+        public void ShouldThrowDependencyOnRunIfDependencyErrorOccursAndLogItAsync(
             Xeption dependencyException)
         {
             // given
             string randomPath = GetRandomString();
             string inputPath = randomPath;
+            string inputContent = randomPath;
 
             var expectedFileProcessingDependencyException =
                 new FileProcessingDependencyException(
                     dependencyException.InnerException as Xeption);
 
             this.fileServiceMock.Setup(service =>
-                service.CheckIfFileExists(inputPath))
+                service.WriteToFile(inputPath, inputContent))
                     .Throws(dependencyException);
 
             // when
             System.Action runAction = () =>
-                this.fileProcessingService.CheckIfFileExists(inputPath);
+                this.fileProcessingService.WriteToFile(inputPath, inputContent);
 
             // then
             FileProcessingDependencyException actualException =
                 Assert.Throws<FileProcessingDependencyException>(runAction);
 
             this.fileServiceMock.Verify(service =>
-                service.CheckIfFileExists(inputPath),
+                service.WriteToFile(inputPath, inputContent),
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
@@ -91,11 +93,12 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
         }
 
         [Fact]
-        public void ShouldThrowServiceExceptionOnCheckIfFileExistsIfServiceErrorOccursAndLogItAsync()
+        public void ShouldThrowServiceExceptionOnRunIfServiceErrorOccursAndLogItAsync()
         {
             // given
             string randomPath = GetRandomString();
             string inputPath = randomPath;
+            string inputContent = randomPath;
 
             var serviceException = new Exception();
 
@@ -107,19 +110,19 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
                     failedFileProcessingServiceException);
 
             this.fileServiceMock.Setup(service =>
-                service.CheckIfFileExists(inputPath))
+                service.WriteToFile(inputPath, inputContent))
                     .Throws(serviceException);
 
             // when
             System.Action runAction = () =>
-                this.fileProcessingService.CheckIfFileExists(inputPath);
+                this.fileProcessingService.WriteToFile(inputPath, inputContent);
 
             // then
             FileProcessingServiceException actualException =
                 Assert.Throws<FileProcessingServiceException>(runAction);
 
             this.fileServiceMock.Verify(service =>
-                service.CheckIfFileExists(inputPath),
+                service.WriteToFile(inputPath, inputContent),
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>

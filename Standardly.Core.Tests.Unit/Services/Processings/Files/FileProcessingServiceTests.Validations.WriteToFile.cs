@@ -17,10 +17,13 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void ShouldThrowValidationExceptionIfPathIsInvalidAndLogItAsync(
-            string invalidFilePath)
+        public void ShouldThrowValidationExceptionIfInputsIsInvalidAndLogItAsync(
+            string invalidInput)
         {
             // given
+            string invalidPath = invalidInput;
+            string invalidContent = invalidInput;
+
             var invalidFilesProcessingException =
                 new InvalidFileProcessingException();
 
@@ -28,12 +31,16 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
                 key: "path",
                 values: "Text is required");
 
+            invalidFilesProcessingException.AddData(
+                key: "content",
+                values: "Text is required");
+
             var expectedFilesProcessingValidationException =
                 new FileProcessingValidationException(invalidFilesProcessingException);
 
             // when
             System.Action runAction = () =>
-                this.fileProcessingService.CheckIfFileExists(invalidFilePath);
+                this.fileProcessingService.WriteToFile(path: invalidPath, content: invalidContent);
 
             FileProcessingValidationException actualException =
                 Assert.Throws<FileProcessingValidationException>(runAction);
@@ -47,7 +54,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
                         Times.Once);
 
             this.fileServiceMock.Verify(broker =>
-                broker.CheckIfFileExists(invalidFilePath),
+                broker.WriteToFile(invalidPath, invalidContent),
                     Times.Never);
 
             this.fileServiceMock.VerifyNoOtherCalls();

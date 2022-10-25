@@ -15,12 +15,48 @@ namespace Standardly.Core.Services.Foundations.FileServices
     public partial class FileProcessingService : IFileProcessingService
     {
         private delegate bool ReturningBooleanFunction();
+        private delegate void ReturningNothingFunction();
 
         private bool TryCatch(ReturningBooleanFunction returningBooleanFunction)
         {
             try
             {
                 return returningBooleanFunction();
+            }
+            catch (InvalidFileProcessingException invalidPathFileProcessingException)
+            {
+                throw CreateAndLogValidationException(invalidPathFileProcessingException);
+            }
+            catch (FileValidationException fileValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(fileValidationException);
+            }
+            catch (FileDependencyValidationException fileDependencyValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(fileDependencyValidationException);
+            }
+            catch (FileDependencyException fileDependencyException)
+            {
+                throw CreateAndLogDependencyException(fileDependencyException);
+            }
+            catch (FileServiceException fileServiceException)
+            {
+                throw CreateAndLogDependencyException(fileServiceException);
+            }
+            catch (Exception exception)
+            {
+                var failedFileProcessingServiceException =
+                    new FailedFileProcessingServiceException(exception);
+
+                throw CreateAndLogServiceException(failedFileProcessingServiceException);
+            }
+        }
+
+        private void TryCatch(ReturningNothingFunction returningNothingFunction)
+        {
+            try
+            {
+                returningNothingFunction();
             }
             catch (InvalidFileProcessingException invalidPathFileProcessingException)
             {
