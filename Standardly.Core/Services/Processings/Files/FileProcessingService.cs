@@ -35,7 +35,12 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public string ReadFromFile(string path) =>
-            throw new System.NotImplementedException();
+            TryCatch(() =>
+            {
+                ValidateReadFromFile(path);
+
+                return this.fileService.ReadFromFile(path);
+            });
 
         public void DeleteFile(string path) =>
             throw new System.NotImplementedException();

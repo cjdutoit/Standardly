@@ -16,6 +16,7 @@ namespace Standardly.Core.Services.Foundations.FileServices
     {
         private delegate bool ReturningBooleanFunction();
         private delegate void ReturningNothingFunction();
+        private delegate string ReturningStringFunction();
 
         private bool TryCatch(ReturningBooleanFunction returningBooleanFunction)
         {
@@ -57,6 +58,41 @@ namespace Standardly.Core.Services.Foundations.FileServices
             try
             {
                 returningNothingFunction();
+            }
+            catch (InvalidFileProcessingException invalidPathFileProcessingException)
+            {
+                throw CreateAndLogValidationException(invalidPathFileProcessingException);
+            }
+            catch (FileValidationException fileValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(fileValidationException);
+            }
+            catch (FileDependencyValidationException fileDependencyValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(fileDependencyValidationException);
+            }
+            catch (FileDependencyException fileDependencyException)
+            {
+                throw CreateAndLogDependencyException(fileDependencyException);
+            }
+            catch (FileServiceException fileServiceException)
+            {
+                throw CreateAndLogDependencyException(fileServiceException);
+            }
+            catch (Exception exception)
+            {
+                var failedFileProcessingServiceException =
+                    new FailedFileProcessingServiceException(exception);
+
+                throw CreateAndLogServiceException(failedFileProcessingServiceException);
+            }
+        }
+
+        private string TryCatch(ReturningStringFunction returningStringFunction)
+        {
+            try
+            {
+                return returningStringFunction();
             }
             catch (InvalidFileProcessingException invalidPathFileProcessingException)
             {
