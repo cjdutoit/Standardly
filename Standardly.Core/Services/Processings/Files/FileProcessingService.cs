@@ -28,7 +28,11 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public void WriteToFile(string path, string content) =>
-            this.fileService.WriteToFile(path, content);
+            TryCatch(() =>
+            {
+                ValidateWriteToFile(path, content);
+                this.fileService.WriteToFile(path, content);
+            });
 
         public string ReadFromFile(string path) =>
             throw new System.NotImplementedException();
