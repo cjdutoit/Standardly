@@ -17,7 +17,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void ShouldThrowValidationExceptionIfInputsIsInvalidAndLogItAsync(
+        public void ShouldThrowValidationExceptionOnWriteToFileIfInputsIsInvalidAndLogItAsync(
             string invalidInput)
         {
             // given
