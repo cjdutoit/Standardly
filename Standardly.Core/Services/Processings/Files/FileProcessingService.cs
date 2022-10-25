@@ -66,7 +66,12 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public void CreateDirectory(string path) =>
-            this.fileService.CreateDirectory(path);
+            TryCatch(() =>
+            {
+                ValidateCreateDirectory(path);
+
+                this.fileService.CreateDirectory(path);
+            });
 
         public void DeleteDirectory(string path, bool recursive = false) =>
             throw new System.NotImplementedException();
