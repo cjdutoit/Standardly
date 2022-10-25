@@ -17,7 +17,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void ShouldThrowValidationExceptionOnReafFromFileIfPathIsInvalidAndLogItAsync(
+        public void ShouldThrowValidationExceptionOnReadFromFileIfPathIsInvalidAndLogItAsync(
             string invalidFilePath)
         {
             // given

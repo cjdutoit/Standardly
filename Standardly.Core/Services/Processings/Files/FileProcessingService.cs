@@ -43,7 +43,11 @@ namespace Standardly.Core.Services.Foundations.FileServices
             });
 
         public void DeleteFile(string path) =>
-            throw new System.NotImplementedException();
+            TryCatch(() =>
+            {
+                ValidateDeleteFile(path);
+                this.fileService.DeleteFile(path);
+            });
 
         public string[] RetrieveListOfFiles(string path, string searchPattern = "*") =>
             throw new System.NotImplementedException();

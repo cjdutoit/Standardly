@@ -17,10 +17,12 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void ShouldThrowValidationExceptionOnCheckIfFileExistsIfPathIsInvalidAndLogItAsync(
-            string invalidFilePath)
+        public void ShouldThrowValidationExceptionOnDeleteFileIfInputsIsInvalidAndLogItAsync(
+            string invalidInput)
         {
             // given
+            string invalidPath = invalidInput;
+
             var invalidFilesProcessingException =
                 new InvalidFileProcessingException();
 
@@ -33,7 +35,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
 
             // when
             System.Action runAction = () =>
-                this.fileProcessingService.CheckIfFileExists(invalidFilePath);
+                this.fileProcessingService.DeleteFile(path: invalidPath);
 
             FileProcessingValidationException actualException =
                 Assert.Throws<FileProcessingValidationException>(runAction);
@@ -47,7 +49,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Files
                         Times.Once);
 
             this.fileServiceMock.Verify(broker =>
-                broker.CheckIfFileExists(invalidFilePath),
+                broker.DeleteFile(invalidPath),
                     Times.Never);
 
             this.fileServiceMock.VerifyNoOtherCalls();
