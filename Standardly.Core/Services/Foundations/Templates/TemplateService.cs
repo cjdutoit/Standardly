@@ -63,7 +63,7 @@ namespace Standardly.Core.Services.Foundations.Templates
                 return template;
             });
 
-        public void ValidateSourceFiles(Template template) =>
+        public void ValidateTemplateSourceFiles(Template template) =>
             TryCatch(() =>
             {
                 List<(dynamic Rule, string Parameter)> validationRules = new List<(dynamic rule, string parameter)>();

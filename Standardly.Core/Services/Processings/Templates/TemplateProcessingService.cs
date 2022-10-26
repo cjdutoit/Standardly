@@ -30,10 +30,10 @@ namespace Standardly.Core.Services.Foundations.Templates
                 return this.templateService.ConvertStringToTemplate(content);
             });
 
-        public Template ConvertToTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
+        public Template TransformTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
             throw new System.NotImplementedException();
 
-        public void ValidateSourceFiles(Template template) =>
+        public void ValidateTemplateSourceFiles(Template template) =>
             throw new System.NotImplementedException();
     }
 }

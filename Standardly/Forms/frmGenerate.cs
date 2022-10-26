@@ -414,7 +414,7 @@ namespace Standardly.Forms
                 Template transformedConfigTemplate = this.templateService
                     .ConvertStringToTemplate(rawTransformedConfigTemplate);
 
-                this.templateService.ValidateSourceFiles(transformedConfigTemplate);
+                this.templateService.ValidateTemplateSourceFiles(transformedConfigTemplate);
 
                 Core.Models.Foundations.Tasks.Task editorConfigTask = transformedConfigTemplate.Tasks
                     .FirstOrDefault(task => task.Name == "CONFIG: Add .editorconfig to solution");
@@ -487,7 +487,7 @@ namespace Standardly.Forms
             Template transformedTemplate = this.templateService
                 .ConvertStringToTemplate(rawTransformedTemplate);
 
-            this.templateService.ValidateSourceFiles(transformedTemplate);
+            this.templateService.ValidateTemplateSourceFiles(transformedTemplate);
 
             debugOutput.AppendLine(this.templateOrchestrationService
                 .GenerateCodeFromTemplate(transformedTemplate, replacementsDictionary));

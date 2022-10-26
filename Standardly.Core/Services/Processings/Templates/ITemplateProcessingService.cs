@@ -12,7 +12,7 @@ namespace Standardly.Core.Services.Processings.Templates
     public interface ITemplateProcessingService
     {
         Template ConvertStringToTemplate(string @string);
-        Template ConvertToTemplate(Template template, Dictionary<string, string> replacementDictionary);
-        void ValidateSourceFiles(Template template);
+        Template TransformTemplate(Template template, Dictionary<string, string> replacementDictionary);
+        void ValidateTemplateSourceFiles(Template template);
     }
 }
