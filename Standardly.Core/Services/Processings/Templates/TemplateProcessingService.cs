@@ -23,7 +23,7 @@ namespace Standardly.Core.Services.Foundations.Templates
         }
 
         public Template ConvertStringToTemplate(string @string) =>
-            throw new System.NotImplementedException();
+            this.templateService.ConvertStringToTemplate(@string);
 
         public Template ConvertToTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
             throw new System.NotImplementedException();
