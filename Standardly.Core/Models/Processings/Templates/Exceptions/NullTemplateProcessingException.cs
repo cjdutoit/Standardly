@@ -6,12 +6,12 @@
 
 using Xeptions;
 
-namespace Standardly.Core.Models.Processings.Executions.Exceptions
+namespace Standardly.Core.Models.Processings.Templates.Exceptions
 {
-    public class NullExecutionProcessingException : Xeption
+    public class NullTemplateProcessingException : Xeption
     {
-        public NullExecutionProcessingException()
-            : base(message: "Execution is null.")
+        public NullTemplateProcessingException()
+            : base(message: "Template is null.")
         { }
     }
 }
