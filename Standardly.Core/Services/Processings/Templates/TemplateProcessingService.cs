@@ -34,6 +34,6 @@ namespace Standardly.Core.Services.Foundations.Templates
             throw new System.NotImplementedException();
 
         public void ValidateTemplateSourceFiles(Template template) =>
-            throw new System.NotImplementedException();
+            this.templateService.ValidateTemplateSourceFiles(template);
     }
 }
