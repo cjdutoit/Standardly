@@ -15,10 +15,12 @@ using Standardly.Core.Models.Foundations.Executions;
 using Standardly.Core.Models.Foundations.FileItems;
 using Standardly.Core.Models.Foundations.Tasks;
 using Standardly.Core.Models.Foundations.Templates;
+using Standardly.Core.Models.Foundations.Templates.Exceptions;
 using Standardly.Core.Services.Foundations.Templates;
 using Standardly.Core.Services.Processings.Templates;
 using Tynamix.ObjectFiller;
 using Xeptions;
+using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Processings.Templates
 {
@@ -40,6 +42,32 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Templates
 
         private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException) =>
             actualException => actualException.SameExceptionAs(expectedException);
+
+        public static TheoryData DependencyValidationExceptions()
+        {
+            string randomMessage = GetRandomString();
+            string exceptionMessage = randomMessage;
+            var innerException = new Xeption(exceptionMessage);
+
+            return new TheoryData<Xeption>
+            {
+                new TemplateValidationException(innerException),
+                new TemplateDependencyValidationException(innerException)
+            };
+        }
+
+        public static TheoryData DependencyExceptions()
+        {
+            string randomMessage = GetRandomString();
+            string exceptionMessage = randomMessage;
+            var innerException = new Xeption(exceptionMessage);
+
+            return new TheoryData<Xeption>
+            {
+                new TemplateDependencyException(innerException),
+                new TemplateServiceException(innerException)
+            };
+        }
 
         private static string GetRandomString() =>
             new MnemonicString().GetValue();
@@ -72,11 +100,6 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Templates
             }
 
             return stringBuilder.ToString();
-        }
-
-        private static string SerializeTemplate(Template template)
-        {
-            return JsonConvert.SerializeObject(template);
         }
 
         private static List<Execution> CreateListOfExecutions()
@@ -144,6 +167,11 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Templates
             }
 
             return list;
+        }
+
+        private static string SerializeTemplate(Template template)
+        {
+            return JsonConvert.SerializeObject(template);
         }
 
         private static List<string> CreateListOfStrings()

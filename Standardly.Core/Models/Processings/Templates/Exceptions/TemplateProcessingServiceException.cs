@@ -8,10 +8,10 @@ using Xeptions;
 
 namespace Standardly.Core.Models.Processings.Templates.Exceptions
 {
-    public class InvalidArgumentTemplateProcessingException : Xeption
+    public class TemplateProcessingServiceException : Xeption
     {
-        public InvalidArgumentTemplateProcessingException()
-            : base(message: "Invalid template processing argument(s), please correct the errors and try again.")
+        public TemplateProcessingServiceException(Xeption innerException)
+            : base(message: "Execution processing service error occurred, please contact support", innerException)
         { }
     }
 }

@@ -23,8 +23,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standardly.Templating.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standardly.Infrastructure.Build", "Standardly.Infrastructure.Build\Standardly.Infrastructure.Build.csproj", "{FA0ACEEF-78C1-4827-9305-DC55F2D08324}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xeption", "Xeption\Xeption.csproj", "{A1D0934D-250F-4584-810C-50703E862E90}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,14 +86,6 @@ Global
 		{FA0ACEEF-78C1-4827-9305-DC55F2D08324}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA0ACEEF-78C1-4827-9305-DC55F2D08324}.Release|x86.ActiveCfg = Release|Any CPU
 		{FA0ACEEF-78C1-4827-9305-DC55F2D08324}.Release|x86.Build.0 = Release|Any CPU
-		{A1D0934D-250F-4584-810C-50703E862E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1D0934D-250F-4584-810C-50703E862E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1D0934D-250F-4584-810C-50703E862E90}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A1D0934D-250F-4584-810C-50703E862E90}.Debug|x86.Build.0 = Debug|Any CPU
-		{A1D0934D-250F-4584-810C-50703E862E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1D0934D-250F-4584-810C-50703E862E90}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1D0934D-250F-4584-810C-50703E862E90}.Release|x86.ActiveCfg = Release|Any CPU
-		{A1D0934D-250F-4584-810C-50703E862E90}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

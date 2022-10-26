@@ -8,10 +8,11 @@ using Xeptions;
 
 namespace Standardly.Core.Models.Processings.Templates.Exceptions
 {
-    public class InvalidArgumentTemplateProcessingException : Xeption
+    public class TemplateProcessingDependencyValidationException : Xeption
     {
-        public InvalidArgumentTemplateProcessingException()
-            : base(message: "Invalid template processing argument(s), please correct the errors and try again.")
+        public TemplateProcessingDependencyValidationException(Xeption innerException)
+            : base(message: "Template processing dependency validation error occurred, please try again.",
+                  innerException)
         { }
     }
 }

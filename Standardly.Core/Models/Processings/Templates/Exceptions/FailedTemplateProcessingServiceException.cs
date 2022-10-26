@@ -4,14 +4,15 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using System;
 using Xeptions;
 
 namespace Standardly.Core.Models.Processings.Templates.Exceptions
 {
-    public class InvalidArgumentTemplateProcessingException : Xeption
+    public class FailedTemplateProcessingServiceException : Xeption
     {
-        public InvalidArgumentTemplateProcessingException()
-            : base(message: "Invalid template processing argument(s), please correct the errors and try again.")
+        public FailedTemplateProcessingServiceException(Exception innerException)
+            : base(message: "Failed template procesing service occurred, please contact support", innerException)
         { }
     }
 }
