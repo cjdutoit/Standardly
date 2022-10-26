@@ -13,7 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Standardly.Core.Models.Foundations.FileItems;
-using Standardly.Core.Services.Foundations.TemplateServices;
+using Standardly.Core.Services.Foundations.Templates;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Standardly.Models.Settings;
 using Action = Standardly.Core.Models.Foundations.Actions.Action;

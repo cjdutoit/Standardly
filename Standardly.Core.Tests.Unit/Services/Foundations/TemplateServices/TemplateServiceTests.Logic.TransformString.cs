@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
-namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
+namespace Standardly.Core.Tests.Unit.Services.Foundations.Templates
 {
     public partial class TemplateServiceTests
     {

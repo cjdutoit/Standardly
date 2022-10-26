@@ -14,11 +14,11 @@ using Standardly.Core.Models.Foundations.Executions;
 using Standardly.Core.Models.Foundations.FileItems;
 using Standardly.Core.Models.Foundations.Tasks;
 using Standardly.Core.Models.Foundations.Templates;
-using Standardly.Core.Services.Foundations.TemplateServices;
+using Standardly.Core.Services.Foundations.Templates;
 using Tynamix.ObjectFiller;
 using Xunit;
 
-namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
+namespace Standardly.Core.Tests.Unit.Services.Foundations.Templates
 {
     public partial class TemplateServiceTests
     {

@@ -11,11 +11,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Standardly.Core.Models.Foundations.FileItems;
-using Standardly.Core.Models.Foundations.Tasks;
 using Standardly.Core.Models.Foundations.Templates;
 using Standardly.Core.Services.Foundations.Executions;
 using Standardly.Core.Services.Foundations.Files;
-using Standardly.Core.Services.Foundations.TemplateServices;
+using Standardly.Core.Services.Foundations.Templates;
 
 namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 {
@@ -81,7 +80,7 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 
                 if (transformedTemplate.Tasks.Any())
                 {
-                    foreach (Task task in transformedTemplate.Tasks)
+                    foreach (Models.Foundations.Tasks.Task task in transformedTemplate.Tasks)
                     {
                         output.AppendLine($"{DateTime.Now} - Starting on Task '{task.Name}'");
 
