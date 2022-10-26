@@ -63,6 +63,29 @@ namespace Standardly.Core.Services.Foundations.Templates
             {
                 throw CreateAndLogValidationException(nullTemplateProcessingException);
             }
+            catch (TemplateValidationException templateValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(templateValidationException);
+            }
+            catch (TemplateDependencyValidationException templateDependencyValidationException)
+            {
+                throw CreateAndLogDependencyValidationException(templateDependencyValidationException);
+            }
+            catch (TemplateDependencyException templateDependencyException)
+            {
+                throw CreateAndLogDependencyException(templateDependencyException);
+            }
+            catch (TemplateServiceException templateServiceException)
+            {
+                throw CreateAndLogDependencyException(templateServiceException);
+            }
+            catch (Exception exception)
+            {
+                var failedTemplateProcessingServiceException =
+                    new FailedTemplateProcessingServiceException(exception);
+
+                throw CreateAndLogServiceException(failedTemplateProcessingServiceException);
+            }
         }
 
         private TemplateProcessingValidationException CreateAndLogValidationException(Xeption exception)
