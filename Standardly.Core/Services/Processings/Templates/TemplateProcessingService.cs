@@ -31,7 +31,20 @@ namespace Standardly.Core.Services.Foundations.Templates
             });
 
         public Template TransformTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
-            throw new System.NotImplementedException();
+            TryCatch(() =>
+            {
+                ValidateTransformTemplate(template, replacementDictionary);
+
+                var transformedStringTemplate = this.templateService
+                        .TransformString(template.RawTemplate, replacementDictionary);
+
+                this.templateService.ValidateTransformation(transformedStringTemplate);
+
+                var transformedTemplate = this.templateService
+                    .ConvertStringToTemplate(transformedStringTemplate);
+
+                return transformedTemplate;
+            });
 
         public void ValidateTemplateSourceFiles(Template template) =>
             TryCatch(() =>
