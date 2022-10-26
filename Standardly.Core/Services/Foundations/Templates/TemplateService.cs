@@ -25,14 +25,14 @@ namespace Standardly.Core.Services.Foundations.Templates
             this.fileSystemBroker = fileSystemBroker;
         }
 
-        public string TransformString(string @string, Dictionary<string, string> replacementDictionary)
+        public string TransformString(string content, Dictionary<string, string> replacementDictionary)
         {
-            if (string.IsNullOrEmpty(@string))
+            if (string.IsNullOrEmpty(content))
             {
                 return string.Empty;
             }
 
-            string template = @string;
+            string template = content;
 
             if (replacementDictionary != null && replacementDictionary.Any())
             {
@@ -45,19 +45,19 @@ namespace Standardly.Core.Services.Foundations.Templates
             return template;
         }
 
-        public void ValidateTransformation(string @string) =>
+        public void ValidateTransformation(string content) =>
             TryCatch(() =>
             {
-                ValidateTagReplacement(@string);
+                ValidateTagReplacement(content);
             });
 
-        public Template ConvertStringToTemplate(string @string) =>
+        public Template ConvertStringToTemplate(string content) =>
             TryCatch(() =>
             {
-                ValidateStringTemplateIsNotNull(@string);
+                ValidateStringTemplateIsNotNull(content);
 
-                Template template = JsonConvert.DeserializeObject<Template>(@string);
-                template.RawTemplate = @string;
+                Template template = JsonConvert.DeserializeObject<Template>(content);
+                template.RawTemplate = content;
                 ValidateTemplate(template);
 
                 return template;

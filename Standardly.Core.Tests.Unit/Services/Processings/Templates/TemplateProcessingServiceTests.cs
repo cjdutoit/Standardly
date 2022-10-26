@@ -4,12 +4,13 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 using Moq;
 using Newtonsoft.Json;
 using Standardly.Core.Brokers.Loggings;
-using Standardly.Core.Models.Foundations.Actions;
 using Standardly.Core.Models.Foundations.Executions;
 using Standardly.Core.Models.Foundations.FileItems;
 using Standardly.Core.Models.Foundations.Tasks;
@@ -17,6 +18,7 @@ using Standardly.Core.Models.Foundations.Templates;
 using Standardly.Core.Services.Foundations.Templates;
 using Standardly.Core.Services.Processings.Templates;
 using Tynamix.ObjectFiller;
+using Xeptions;
 
 namespace Standardly.Core.Tests.Unit.Services.Processings.Templates
 {
@@ -35,6 +37,9 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Templates
                 templateService: this.templateServiceMock.Object,
                 loggingBroker: this.loggingBrokerMock.Object);
         }
+
+        private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException) =>
+            actualException => actualException.SameExceptionAs(expectedException);
 
         private static string GetRandomString() =>
             new MnemonicString().GetValue();
@@ -107,9 +112,9 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Templates
             return list;
         }
 
-        private static List<Action> CreateListOfActions()
+        private static List<Models.Foundations.Actions.Action> CreateListOfActions()
         {
-            List<Action> list = new List<Action>();
+            List<Models.Foundations.Actions.Action> list = new List<Models.Foundations.Actions.Action>();
 
             for (int i = 0; i < GetRandomNumber(); i++)
             {

@@ -22,8 +22,13 @@ namespace Standardly.Core.Services.Foundations.Templates
             this.loggingBroker = loggingBroker;
         }
 
-        public Template ConvertStringToTemplate(string @string) =>
-            this.templateService.ConvertStringToTemplate(@string);
+        public Template ConvertStringToTemplate(string content) =>
+            TryCatch(() =>
+            {
+                ValidateConvertStringToTemplate(content);
+
+                return this.templateService.ConvertStringToTemplate(content);
+            });
 
         public Template ConvertToTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
             throw new System.NotImplementedException();
