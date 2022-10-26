@@ -7,13 +7,12 @@
 using System.Collections.Generic;
 using Standardly.Core.Models.Foundations.Templates;
 
-namespace Standardly.Core.Services.Foundations.Templates
+namespace Standardly.Core.Services.Processings.Templates
 {
-    public interface ITemplateService
+    public interface ITemplateProcessingService
     {
-        string TransformString(string content, Dictionary<string, string> replacementDictionary);
-        void ValidateTransformation(string content);
-        Template ConvertStringToTemplate(string content);
+        Template ConvertStringToTemplate(string @string);
+        Template ConvertToTemplate(Template template, Dictionary<string, string> replacementDictionary);
         void ValidateSourceFiles(Template template);
     }
 }
