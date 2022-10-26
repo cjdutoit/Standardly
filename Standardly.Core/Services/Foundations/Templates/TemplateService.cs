@@ -14,7 +14,7 @@ using Standardly.Core.Models.Foundations.FileItems;
 using Standardly.Core.Models.Foundations.Tasks;
 using Standardly.Core.Models.Foundations.Templates;
 
-namespace Standardly.Core.Services.Foundations.TemplateServices
+namespace Standardly.Core.Services.Foundations.Templates
 {
     public partial class TemplateService : ITemplateService
     {

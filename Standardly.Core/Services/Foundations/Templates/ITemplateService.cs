@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using Standardly.Core.Models.Foundations.Templates;
 
-namespace Standardly.Core.Services.Foundations.TemplateServices
+namespace Standardly.Core.Services.Foundations.Templates
 {
     public interface ITemplateService
     {
