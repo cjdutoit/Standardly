@@ -7,7 +7,7 @@
 using System;
 using FluentAssertions;
 using Moq;
-using Standardly.Core.Models.FileServices.Exceptions;
+using Standardly.Core.Models.Foundations.Files.Exceptions;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
@@ -25,7 +25,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             var invalidFileServiceDependencyException =
                 new InvalidFileServiceDependencyException(dependencyValidationException);
 
-            var expectedFileServiceDependencyValidationException =
+            var expectedFileDependencyValidationException =
                 new FileDependencyValidationException(invalidFileServiceDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
@@ -36,12 +36,12 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             Action writeToFileAction = () =>
                 this.fileService.ReadFromFile(somePath);
 
-            FileDependencyValidationException actualFileServiceDependencyValidationException =
+            FileDependencyValidationException actualFileDependencyValidationException =
                 Assert.Throws<FileDependencyValidationException>(writeToFileAction);
 
             // then
-            actualFileServiceDependencyValidationException.Should()
-                .BeEquivalentTo(expectedFileServiceDependencyValidationException);
+            actualFileDependencyValidationException.Should()
+                .BeEquivalentTo(expectedFileDependencyValidationException);
 
             this.fileSystemBrokerMock.Verify(broker =>
                 broker.ReadFile(somePath),
@@ -62,11 +62,11 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
                 new InvalidFileServiceDependencyException(
                     dependencyException);
 
-            var failedFileServiceDependencyException =
-                new FailedFileServiceDependencyException(invalidFileServiceDependencyException);
+            var failedFileDependencyException =
+                new FailedFileDependencyException(invalidFileServiceDependencyException);
 
-            var expectedFileServiceDependencyException =
-                new FileDependencyException(failedFileServiceDependencyException);
+            var expectedFileDependencyException =
+                new FileDependencyException(failedFileDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
                 broker.ReadFile(somePath))
@@ -76,11 +76,11 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             Action writeToFileAction = () =>
                 this.fileService.ReadFromFile(somePath);
 
-            FileDependencyException actualFileServiceDependencyException =
+            FileDependencyException actualFileDependencyException =
                 Assert.Throws<FileDependencyException>(writeToFileAction);
 
             // then
-            actualFileServiceDependencyException.Should().BeEquivalentTo(expectedFileServiceDependencyException);
+            actualFileDependencyException.Should().BeEquivalentTo(expectedFileDependencyException);
 
             this.fileSystemBrokerMock.Verify(broker =>
                 broker.ReadFile(somePath),
@@ -90,7 +90,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
         }
 
         [Theory]
-        [MemberData(nameof(CriticalFileServiceDependencyExceptions))]
+        [MemberData(nameof(CriticalFileDependencyExceptions))]
         public void ShouldThrowDependencyExceptionOnReadFromFileIfDependencyErrorOccursAndLogItCritical(
             Exception dependencyException)
         {
@@ -100,11 +100,11 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             var invalidFileServiceDependencyException =
                 new InvalidFileServiceDependencyException(dependencyException);
 
-            var failedFileServiceDependencyException =
-                new FailedFileServiceDependencyException(invalidFileServiceDependencyException);
+            var failedFileDependencyException =
+                new FailedFileDependencyException(invalidFileServiceDependencyException);
 
-            var expectedFileServiceDependencyException =
-                new FileDependencyException(failedFileServiceDependencyException);
+            var expectedFileDependencyException =
+                new FileDependencyException(failedFileDependencyException);
 
             this.fileSystemBrokerMock.Setup(broker =>
                 broker.ReadFile(somePath))
@@ -114,11 +114,11 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             Action writeToFileAction = () =>
                 this.fileService.ReadFromFile(somePath);
 
-            FileDependencyException actualFileServiceDependencyException =
+            FileDependencyException actualFileDependencyException =
                 Assert.Throws<FileDependencyException>(writeToFileAction);
 
             // then
-            actualFileServiceDependencyException.Should().BeEquivalentTo(expectedFileServiceDependencyException);
+            actualFileDependencyException.Should().BeEquivalentTo(expectedFileDependencyException);
 
             this.fileSystemBrokerMock.Verify(broker =>
                 broker.ReadFile(somePath),

@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------
 
 using System.Collections.Generic;
-using Standardly.Core.Models.Templates;
+using Standardly.Core.Models.Foundations.Templates;
 
 namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 {

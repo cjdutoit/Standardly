@@ -9,9 +9,11 @@ using System.Text;
 using Moq;
 using Newtonsoft.Json;
 using Standardly.Core.Brokers.FileSystems;
-using Standardly.Core.Models.Executions;
-using Standardly.Core.Models.FileItems;
-using Standardly.Core.Models.Templates;
+using Standardly.Core.Models.Foundations.Actions;
+using Standardly.Core.Models.Foundations.Executions;
+using Standardly.Core.Models.Foundations.FileItems;
+using Standardly.Core.Models.Foundations.Tasks;
+using Standardly.Core.Models.Foundations.Templates;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Tynamix.ObjectFiller;
 using Xunit;
@@ -109,13 +111,13 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
             return list;
         }
 
-        private static List<Models.Actions.Action> CreateListOfActions()
+        private static List<Action> CreateListOfActions()
         {
-            List<Models.Actions.Action> list = new List<Models.Actions.Action>();
+            List<Action> list = new List<Action>();
 
             for (int i = 0; i < GetRandomNumber(); i++)
             {
-                list.Add(new Models.Actions.Action()
+                list.Add(new Models.Foundations.Actions.Action()
                 {
                     Name = GetRandomString(1),
                     ExecutionFolder = GetRandomString(1),
@@ -127,13 +129,13 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
             return list;
         }
 
-        private static List<Models.Tasks.Task> CreateListOfTasks()
+        private static List<Task> CreateListOfTasks()
         {
-            List<Models.Tasks.Task> list = new List<Models.Tasks.Task>();
+            List<Task> list = new List<Task>();
 
             for (int i = 0; i < GetRandomNumber(); i++)
             {
-                list.Add(new Models.Tasks.Task()
+                list.Add(new Models.Foundations.Tasks.Task()
                 {
                     Name = GetRandomString(1),
                     Actions = CreateListOfActions()
@@ -168,7 +170,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
             var filler = new Filler<Template>();
             filler.Setup()
                 .OnType<List<string>>().Use(CreateListOfStrings)
-                .OnType<List<Models.Tasks.Task>>().Use(CreateListOfTasks);
+                .OnType<List<Task>>().Use(CreateListOfTasks);
 
             return filler;
         }

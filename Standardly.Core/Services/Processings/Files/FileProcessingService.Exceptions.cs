@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------
 
 using System;
-using Standardly.Core.Models.FileServices.Exceptions;
+using Standardly.Core.Models.Foundations.Files.Exceptions;
 using Standardly.Core.Models.Processings.Files.Exceptions;
 using Standardly.Core.Services.Processings.Files;
 using Xeptions;

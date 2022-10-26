@@ -12,12 +12,12 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Standardly.Core.Models.FileItems;
+using Standardly.Core.Models.Foundations.FileItems;
 using Standardly.Core.Services.Foundations.TemplateServices;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Standardly.Models.Settings;
-using Action = Standardly.Core.Models.Actions.Action;
-using Template = Standardly.Core.Models.Templates.Template;
+using Action = Standardly.Core.Models.Foundations.Actions.Action;
+using Template = Standardly.Core.Models.Foundations.Templates.Template;
 
 namespace Standardly.Forms
 {
@@ -416,13 +416,13 @@ namespace Standardly.Forms
 
                 this.templateService.ValidateSourceFiles(transformedConfigTemplate);
 
-                Core.Models.Tasks.Task editorConfigTask = transformedConfigTemplate.Tasks
+                Core.Models.Foundations.Tasks.Task editorConfigTask = transformedConfigTemplate.Tasks
                     .FirstOrDefault(task => task.Name == "CONFIG: Add .editorconfig to solution");
 
-                Core.Models.Tasks.Task gitIgnoreTask = transformedConfigTemplate.Tasks
+                Core.Models.Foundations.Tasks.Task gitIgnoreTask = transformedConfigTemplate.Tasks
                     .FirstOrDefault(task => task.Name == "CONFIG: Add .gitignore to solution");
 
-                Core.Models.Tasks.Task licenseTask = transformedConfigTemplate.Tasks
+                Core.Models.Foundations.Tasks.Task licenseTask = transformedConfigTemplate.Tasks
                     .FirstOrDefault(task => task.Name == "CONFIG: Add license file to solution");
 
                 if (!GenerateCriteria.AddEditorConfigFile)
@@ -508,7 +508,7 @@ namespace Standardly.Forms
             _ = Task.Run(() => UseOutputWindowAsync(cleanupTaskMessage.ToString(), "Standardly", standardlyPane));
         }
 
-        private static bool IsTaskRequired(Core.Models.Tasks.Task editorConfig)
+        private static bool IsTaskRequired(Core.Models.Foundations.Tasks.Task editorConfig)
         {
             List<FileItem> fileItems = new List<FileItem>();
             foreach (Action action in editorConfig.Actions)

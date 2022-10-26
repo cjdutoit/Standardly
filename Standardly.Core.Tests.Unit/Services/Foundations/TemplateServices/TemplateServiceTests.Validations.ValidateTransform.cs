@@ -7,7 +7,7 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using Standardly.Core.Models.Templates.Exceptions;
+using Standardly.Core.Models.Foundations.Templates.Exceptions;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices

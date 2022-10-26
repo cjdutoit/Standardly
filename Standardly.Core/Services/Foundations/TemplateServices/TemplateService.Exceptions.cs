@@ -5,7 +5,8 @@
 // ---------------------------------------------------------------
 
 using System;
-using Standardly.Core.Models.Templates.Exceptions;
+using Standardly.Core.Models.Foundations.Templates;
+using Standardly.Core.Models.Foundations.Templates.Exceptions;
 using Xeptions;
 
 namespace Standardly.Core.Services.Foundations.TemplateServices
@@ -14,7 +15,7 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
     {
         private delegate string ReturningStringFunction();
         private delegate void ReturningNothingFunction();
-        private delegate Models.Templates.Template ReturningTemplateFunction();
+        private delegate Template ReturningTemplateFunction();
 
         private string TryCatch(ReturningStringFunction returningStringFunction)
         {
@@ -31,7 +32,7 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             }
         }
 
-        private Models.Templates.Template TryCatch(ReturningTemplateFunction returningTemplateFunction)
+        private Template TryCatch(ReturningTemplateFunction returningTemplateFunction)
         {
             try
             {

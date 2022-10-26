@@ -8,8 +8,8 @@ using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Moq;
-using Standardly.Core.Models.TemplateOrchestrations.Exceptions;
-using Standardly.Core.Models.Templates;
+using Standardly.Core.Models.Foundations.Templates;
+using Standardly.Core.Models.Orchestrations.TemplateOrchestrations.Exceptions;
 using Xeptions;
 using Xunit;
 

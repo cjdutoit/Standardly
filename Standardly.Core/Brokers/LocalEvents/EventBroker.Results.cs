@@ -1,22 +1,28 @@
+// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
 using System;
 using System.Threading.Tasks;
-using Standardly.Core.Models.Results;
+using Standardly.Core.Models.Foundations.Results;
 
 namespace Standardly.Core.Brokers.Events
 {
     public partial class EventBroker
     {
-        private static Func<Result, ValueTask<Result>> 
+        private static Func<Result, ValueTask<Result>>
             ResultAddEventHandler;
-        
-        private static Func<Result, ValueTask<Result>> 
+
+        private static Func<Result, ValueTask<Result>>
             ResultModifyEventHandler;
 
-        private static Func<Result, ValueTask<Result>> 
+        private static Func<Result, ValueTask<Result>>
             ResultRemoveEventHandler;
 
         public void SubscribeToResultAddEvent(
-            Func<Result, ValueTask<Result>> 
+            Func<Result, ValueTask<Result>>
                 resultAddEventHandler) =>
             ResultAddEventHandler = resultAddEventHandler;
 
@@ -25,7 +31,7 @@ namespace Standardly.Core.Brokers.Events
         await ResultAddEventHandler(result);
 
         public void SubscribeToResultModifyEvent(
-            Func<Result, ValueTask<Result>> 
+            Func<Result, ValueTask<Result>>
                 resultModifyEventHandler) =>
             ResultModifyEventHandler = resultModifyEventHandler;
 
@@ -34,7 +40,7 @@ namespace Standardly.Core.Brokers.Events
         await ResultModifyEventHandler(result);
 
         public void SubscribeToResultRemoveEvent(
-            Func<Result, ValueTask<Result>> 
+            Func<Result, ValueTask<Result>>
                 resultRemoveEventHandler) =>
             ResultRemoveEventHandler = resultRemoveEventHandler;
 

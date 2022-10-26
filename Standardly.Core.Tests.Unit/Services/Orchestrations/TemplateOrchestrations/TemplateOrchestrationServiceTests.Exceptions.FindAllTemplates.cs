@@ -7,7 +7,7 @@
 using System;
 using FluentAssertions;
 using Moq;
-using Standardly.Core.Models.TemplateOrchestrations.Exceptions;
+using Standardly.Core.Models.Orchestrations.TemplateOrchestrations.Exceptions;
 using Xeptions;
 using Xunit;
 

@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------
 
 using Moq;
-using Standardly.Core.Models.Templates;
+using Standardly.Core.Models.Foundations.Templates;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices

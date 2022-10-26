@@ -10,10 +10,11 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Standardly.Core.Models.FileItems;
-using Standardly.Core.Models.Templates;
+using Standardly.Core.Models.Foundations.FileItems;
+using Standardly.Core.Models.Foundations.Tasks;
+using Standardly.Core.Models.Foundations.Templates;
 using Standardly.Core.Services.Foundations.Executions;
-using Standardly.Core.Services.Foundations.FileServices;
+using Standardly.Core.Services.Foundations.Files;
 using Standardly.Core.Services.Foundations.TemplateServices;
 
 namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
@@ -80,13 +81,13 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
 
                 if (transformedTemplate.Tasks.Any())
                 {
-                    foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                    foreach (Task task in transformedTemplate.Tasks)
                     {
                         output.AppendLine($"{DateTime.Now} - Starting on Task '{task.Name}'");
 
                         if (task.Actions.Any())
                         {
-                            foreach (Models.Actions.Action action in task.Actions)
+                            foreach (Models.Foundations.Actions.Action action in task.Actions)
                             {
                                 if (this.IsActionRequired(action) == true)
                                 {
@@ -136,7 +137,7 @@ namespace Standardly.Core.Services.Orchestrations.TemplateOrchestrations
                 return output.ToString();
             });
 
-        private bool IsActionRequired(Models.Actions.Action action)
+        private bool IsActionRequired(Models.Foundations.Actions.Action action)
         {
             if (!action.FileItems.Any())
             {

@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------
 
 using System;
-using Standardly.Core.Models.Executions.Exceptions;
+using Standardly.Core.Models.Foundations.Executions.Exceptions;
 using Xeptions;
 
 namespace Standardly.Core.Services.Foundations.Executions
