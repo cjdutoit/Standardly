@@ -30,18 +30,21 @@ namespace Standardly.Core.Services.Foundations.Templates
                 return this.templateService.ConvertStringToTemplate(content);
             });
 
-        public Template TransformTemplate(Template template, Dictionary<string, string> replacementDictionary)
-        {
-            var transformedStringTemplate = this.templateService
-                    .TransformString(template.RawTemplate, replacementDictionary);
+        public Template TransformTemplate(Template template, Dictionary<string, string> replacementDictionary) =>
+            TryCatch(() =>
+            {
+                ValidateTransformTemplate(template, replacementDictionary);
 
-            this.templateService.ValidateTransformation(transformedStringTemplate);
+                var transformedStringTemplate = this.templateService
+                        .TransformString(template.RawTemplate, replacementDictionary);
 
-            var transformedTemplate = this.templateService
-                .ConvertStringToTemplate(transformedStringTemplate);
+                this.templateService.ValidateTransformation(transformedStringTemplate);
 
-            return transformedTemplate;
-        }
+                var transformedTemplate = this.templateService
+                    .ConvertStringToTemplate(transformedStringTemplate);
+
+                return transformedTemplate;
+            });
 
         public void ValidateTemplateSourceFiles(Template template) =>
             TryCatch(() =>

@@ -31,7 +31,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Templates
 
             invalidArgumentTemplateProcessingException.AddData(
                 key: "replacementDictionary",
-                values: "Dictionary is required");
+                values: "Dictionary values is required");
 
             var expectedTemplateProcessingValidationException =
                 new TemplateProcessingValidationException(invalidArgumentTemplateProcessingException);

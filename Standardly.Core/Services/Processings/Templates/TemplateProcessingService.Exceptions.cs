@@ -63,6 +63,10 @@ namespace Standardly.Core.Services.Foundations.Templates
             {
                 throw CreateAndLogValidationException(nullTemplateProcessingException);
             }
+            catch (InvalidArgumentTemplateProcessingException invalidArgumentTemplateProcessingException)
+            {
+                throw CreateAndLogValidationException(invalidArgumentTemplateProcessingException);
+            }
             catch (TemplateValidationException templateValidationException)
             {
                 throw CreateAndLogDependencyValidationException(templateValidationException);
