@@ -8,9 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Standardly.Core.Models.Executions;
-using Standardly.Core.Models.Templates;
-using Standardly.Core.Models.Templates.Exceptions;
+using Standardly.Core.Models.Foundations.Executions;
+using Standardly.Core.Models.Foundations.Tasks;
+using Standardly.Core.Models.Foundations.Templates;
+using Standardly.Core.Models.Foundations.Templates.Exceptions;
 
 namespace Standardly.Core.Services.Foundations.TemplateServices
 {
@@ -77,7 +78,7 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             return taskRules;
         }
 
-        private List<(dynamic Rule, string Parameter)> GetActionValidationRules(Models.Tasks.Task task)
+        private List<(dynamic Rule, string Parameter)> GetActionValidationRules(Task task)
         {
             var actionRules = new List<(dynamic Rule, string Parameter)>();
 
@@ -103,7 +104,7 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             return actionRules;
         }
 
-        private List<(dynamic Rule, string Parameter)> GetFileItemValidationRules(Models.Actions.Action action, int actionIndex)
+        private List<(dynamic Rule, string Parameter)> GetFileItemValidationRules(Models.Foundations.Actions.Action action, int actionIndex)
         {
             var fileItemRules = new List<(dynamic Rule, string Parameter)>();
 
@@ -126,7 +127,7 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             return fileItemRules;
         }
 
-        private List<(dynamic Rule, string Parameter)> GetExecutionValidationRules(Models.Actions.Action action, int actionIndex)
+        private List<(dynamic Rule, string Parameter)> GetExecutionValidationRules(Models.Foundations.Actions.Action action, int actionIndex)
         {
             var executionRules = new List<(dynamic Rule, string Parameter)>();
 
@@ -163,13 +164,13 @@ namespace Standardly.Core.Services.Foundations.TemplateServices
             Message = "Text is required"
         };
 
-        private static dynamic IsInvalid(List<Models.Tasks.Task> tasks) => new
+        private static dynamic IsInvalid(List<Task> tasks) => new
         {
             Condition = tasks.Count == 0,
             Message = "Tasks is required"
         };
 
-        private static dynamic IsInvalid(List<Models.Actions.Action> actions) => new
+        private static dynamic IsInvalid(List<Models.Foundations.Actions.Action> actions) => new
         {
             Condition = actions.Count == 0,
             Message = "Actions is required"

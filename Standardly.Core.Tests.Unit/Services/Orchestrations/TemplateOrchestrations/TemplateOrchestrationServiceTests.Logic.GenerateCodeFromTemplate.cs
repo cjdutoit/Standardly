@@ -8,8 +8,10 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Moq;
-using Standardly.Core.Models.FileItems;
-using Standardly.Core.Models.Templates;
+using Standardly.Core.Models.Foundations.Actions;
+using Standardly.Core.Models.Foundations.FileItems;
+using Standardly.Core.Models.Foundations.Tasks;
+using Standardly.Core.Models.Foundations.Templates;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrations
@@ -42,11 +44,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             if (transformedTemplate.Tasks.Any())
             {
-                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                foreach (Task task in transformedTemplate.Tasks)
                 {
                     if (task.Actions.Any())
                     {
-                        foreach (Models.Actions.Action action in task.Actions)
+                        foreach (Action action in task.Actions)
                         {
                             if (action.FileItems.Any())
                             {
@@ -100,11 +102,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             if (transformedTemplate.Tasks.Any())
             {
-                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                foreach (Task task in transformedTemplate.Tasks)
                 {
                     if (task.Actions.Any())
                     {
-                        foreach (Models.Actions.Action action in task.Actions)
+                        foreach (Action action in task.Actions)
                         {
                             if (action.FileItems.Any())
                             {
@@ -184,11 +186,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             if (transformedTemplate.Tasks.Any())
             {
-                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                foreach (Task task in transformedTemplate.Tasks)
                 {
                     if (task.Actions.Any())
                     {
-                        foreach (Models.Actions.Action action in task.Actions)
+                        foreach (Action action in task.Actions)
                         {
                             if (action.FileItems.Any())
                             {
@@ -236,11 +238,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             if (transformedTemplate.Tasks.Any())
             {
-                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                foreach (Task task in transformedTemplate.Tasks)
                 {
                     if (task.Actions.Any())
                     {
-                        foreach (Models.Actions.Action action in task.Actions)
+                        foreach (Action action in task.Actions)
                         {
                             if (action.FileItems.Any())
                             {
@@ -316,11 +318,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             if (transformedTemplate.Tasks.Any())
             {
-                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                foreach (Task task in transformedTemplate.Tasks)
                 {
                     if (task.Actions.Any())
                     {
-                        foreach (Models.Actions.Action action in task.Actions)
+                        foreach (Action action in task.Actions)
                         {
                             if (action.FileItems.Any())
                             {
@@ -354,11 +356,11 @@ namespace Standardly.Core.Tests.Unit.Services.Orchestrations.TemplateOrchestrati
 
             if (transformedTemplate.Tasks.Any())
             {
-                foreach (Models.Tasks.Task task in transformedTemplate.Tasks)
+                foreach (Task task in transformedTemplate.Tasks)
                 {
                     if (task.Actions.Any())
                     {
-                        foreach (Models.Actions.Action action in task.Actions)
+                        foreach (Action action in task.Actions)
                         {
                             if (action.Executions.Any())
                             {

@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using Standardly.Core.Brokers.Loggings;
+using Standardly.Core.Services.Foundations.Files;
 using Standardly.Core.Services.Processings.Files;
 
 namespace Standardly.Core.Services.Foundations.FileServices

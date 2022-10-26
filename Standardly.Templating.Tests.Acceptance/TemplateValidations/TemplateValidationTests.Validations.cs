@@ -11,8 +11,10 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Standardly.Core.Models.Templates;
-using Standardly.Core.Models.Templates.Exceptions;
+using Standardly.Core.Models.Foundations.FileItems;
+using Standardly.Core.Models.Foundations.Tasks;
+using Standardly.Core.Models.Foundations.Templates;
+using Standardly.Core.Models.Foundations.Templates.Exceptions;
 using Xunit;
 
 namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
@@ -86,13 +88,13 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
 
                     for (int taskCounter = 0; taskCounter <= transformedTemplate.Tasks.Count - 1; taskCounter++)
                     {
-                        Core.Models.Tasks.Task task = transformedTemplate.Tasks[taskCounter];
+                        Task task = transformedTemplate.Tasks[taskCounter];
 
                         for (int actionCounter = 0; actionCounter <= task.Actions.Count - 1; actionCounter++)
                         {
-                            Core.Models.Actions.Action action = task.Actions[actionCounter];
+                            Core.Models.Foundations.Actions.Action action = task.Actions[actionCounter];
 
-                            foreach (Core.Models.FileItems.FileItem fileItem in action.FileItems)
+                            foreach (FileItem fileItem in action.FileItems)
                             {
                                 validationRules.Add(
                                     (Rule: IsInvalid(
@@ -100,7 +102,7 @@ namespace Standardly.Templating.Tests.Acceptance.TemplateValidations
                                             template: transformedTemplate.Name ?? $"template[{templateCounter}]",
                                             task: task.Name ?? $"task[{taskCounter}]",
                                             action: action.Name ?? $"action[{actionCounter}]"),
-                                        Parameter: nameof(Core.Models.FileItems.FileItem.Template)));
+                                        Parameter: nameof(FileItem.Template)));
                             }
                         }
                     }

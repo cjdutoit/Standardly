@@ -6,8 +6,8 @@
 
 using System;
 using System.Collections.Generic;
-using Standardly.Core.Models.Executions;
-using Standardly.Core.Models.Executions.Exceptions;
+using Standardly.Core.Models.Foundations.Executions;
+using Standardly.Core.Models.Foundations.Executions.Exceptions;
 
 namespace Standardly.Core.Services.Foundations.Executions
 {

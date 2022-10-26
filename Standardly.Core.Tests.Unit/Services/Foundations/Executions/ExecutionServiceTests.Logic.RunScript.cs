@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 using Moq;
-using Standardly.Core.Models.Executions;
+using Standardly.Core.Models.Foundations.Executions;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.Executions

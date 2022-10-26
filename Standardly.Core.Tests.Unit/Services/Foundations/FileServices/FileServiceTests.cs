@@ -10,8 +10,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Moq;
 using Standardly.Core.Brokers.FileSystems;
-using Standardly.Core.Models.RetryConfig;
-using Standardly.Core.Services.Foundations.FileServices;
+using Standardly.Core.Models.Configurations.RetryConfig;
+using Standardly.Core.Services.Foundations.Files;
 using Tynamix.ObjectFiller;
 using Xunit;
 
@@ -54,7 +54,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
             };
         }
 
-        public static TheoryData CriticalFileServiceDependencyExceptions()
+        public static TheoryData CriticalFileDependencyExceptions()
         {
             return new TheoryData<Exception>()
             {

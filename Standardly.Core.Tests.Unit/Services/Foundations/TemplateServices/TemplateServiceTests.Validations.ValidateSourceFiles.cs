@@ -4,13 +4,13 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System;
 using System.IO;
 using FluentAssertions;
 using Moq;
-using Standardly.Core.Models.FileItems;
-using Standardly.Core.Models.Templates;
-using Standardly.Core.Models.Templates.Exceptions;
+using Standardly.Core.Models.Foundations.FileItems;
+using Standardly.Core.Models.Foundations.Tasks;
+using Standardly.Core.Models.Foundations.Templates;
+using Standardly.Core.Models.Foundations.Templates.Exceptions;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
@@ -28,11 +28,11 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
 
             for (int taskCounter = 0; taskCounter <= inputTemplate.Tasks.Count - 1; taskCounter++)
             {
-                Models.Tasks.Task task = inputTemplate.Tasks[taskCounter];
+                Task task = inputTemplate.Tasks[taskCounter];
 
                 for (int actionCounter = 0; actionCounter <= task.Actions.Count - 1; actionCounter++)
                 {
-                    Models.Actions.Action action = task.Actions[actionCounter];
+                    Models.Foundations.Actions.Action action = task.Actions[actionCounter];
 
                     foreach (FileItem fileItem in action.FileItems)
                     {
@@ -57,7 +57,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 new TemplateValidationException(invalidTemplateSourceException);
 
             // when
-            Action transformRawTemplateItemAction = () =>
+            System.Action transformRawTemplateItemAction = () =>
                 this.templateService.ValidateSourceFiles(inputTemplate);
 
             TemplateValidationException actualException = Assert.Throws<TemplateValidationException>(

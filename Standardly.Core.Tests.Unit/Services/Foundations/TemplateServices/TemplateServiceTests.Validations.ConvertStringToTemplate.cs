@@ -7,10 +7,11 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using Standardly.Core.Models.Executions;
-using Standardly.Core.Models.FileItems;
-using Standardly.Core.Models.Templates;
-using Standardly.Core.Models.Templates.Exceptions;
+using Standardly.Core.Models.Foundations.Executions;
+using Standardly.Core.Models.Foundations.FileItems;
+using Standardly.Core.Models.Foundations.Tasks;
+using Standardly.Core.Models.Foundations.Templates;
+using Standardly.Core.Models.Foundations.Templates.Exceptions;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
@@ -30,7 +31,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 new TemplateValidationException(nullTemplateException);
 
             // when
-            Action convertStringToTemplateAction = () =>
+            System.Action convertStringToTemplateAction = () =>
                 this.templateService.ConvertStringToTemplate(emptyStringTemplate);
 
             TemplateValidationException actualTemplateValidationException =
@@ -85,7 +86,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 new TemplateValidationException(invalidTemplateException);
 
             // when
-            Action runConvertRawFileToTemplateAction = () =>
+            System.Action runConvertRawFileToTemplateAction = () =>
                 this.templateService.ConvertStringToTemplate(inputRawFile);
 
             var actualException = Assert.Throws<TemplateValidationException>(
@@ -110,7 +111,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 ProjectsRequired = GetRandomString()
             };
 
-            Models.Tasks.Task someTask = new Models.Tasks.Task()
+            Task someTask = new Models.Foundations.Tasks.Task()
             {
                 Name = invalidString,
             };
@@ -134,7 +135,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 new TemplateValidationException(invalidTemplateException);
 
             // when
-            Action runConvertRawFileToTemplateAction = () =>
+            System.Action runConvertRawFileToTemplateAction = () =>
                 this.templateService.ConvertStringToTemplate(inputRawFile);
 
             TemplateValidationException actualException = Assert.Throws<TemplateValidationException>(
@@ -159,12 +160,12 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 ProjectsRequired = GetRandomString()
             };
 
-            Models.Tasks.Task someTask = new Models.Tasks.Task()
+            Task someTask = new Models.Foundations.Tasks.Task()
             {
                 Name = GetRandomString(),
-                Actions = new List<Models.Actions.Action>()
+                Actions = new List<Models.Foundations.Actions.Action>()
                 {
-                    new Models.Actions.Action()
+                    new Models.Foundations.Actions.Action()
                     {
                         Name = invalidString,
                         FileItems = new List<FileItem>(),
@@ -192,7 +193,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 new TemplateValidationException(invalidTemplateException);
 
             // when
-            Action runConvertRawFileToTemplateAction = () =>
+            System.Action runConvertRawFileToTemplateAction = () =>
                 this.templateService.ConvertStringToTemplate(inputRawFile);
 
             TemplateValidationException actualException = Assert.Throws<TemplateValidationException>(
@@ -217,12 +218,12 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 ProjectsRequired = GetRandomString()
             };
 
-            Models.Tasks.Task someTask = new Models.Tasks.Task()
+            Task someTask = new Models.Foundations.Tasks.Task()
             {
                 Name = GetRandomString(),
-                Actions = new List<Models.Actions.Action>()
+                Actions = new List<Models.Foundations.Actions.Action>()
                 {
-                    new Models.Actions.Action()
+                    new Models.Foundations.Actions.Action()
                     {
                         Name = GetRandomString(),
                         FileItems = new List<FileItem>()
@@ -264,7 +265,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 new TemplateValidationException(invalidTemplateException);
 
             // when
-            Action runConvertRawFileToTemplateAction = () =>
+            System.Action runConvertRawFileToTemplateAction = () =>
                 this.templateService.ConvertStringToTemplate(inputRawFile);
 
             TemplateValidationException actualException = Assert.Throws<TemplateValidationException>(
@@ -289,12 +290,12 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 ProjectsRequired = GetRandomString()
             };
 
-            Models.Tasks.Task someTask = new Models.Tasks.Task()
+            Task someTask = new Models.Foundations.Tasks.Task()
             {
                 Name = GetRandomString(),
-                Actions = new List<Models.Actions.Action>()
+                Actions = new List<Models.Foundations.Actions.Action>()
                 {
-                    new Models.Actions.Action()
+                    new Models.Foundations.Actions.Action()
                     {
                         Name = GetRandomString(),
                         FileItems = new List<FileItem>()
@@ -336,7 +337,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.TemplateServices
                 new TemplateValidationException(invalidTemplateException);
 
             // when
-            Action runConvertRawFileToTemplateAction = () =>
+            System.Action runConvertRawFileToTemplateAction = () =>
                 this.templateService.ConvertStringToTemplate(inputRawFile);
 
             TemplateValidationException actualException = Assert.Throws<TemplateValidationException>(

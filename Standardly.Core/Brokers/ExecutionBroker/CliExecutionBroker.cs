@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 using System.Text;
-using Standardly.Core.Models.Executions;
+using Standardly.Core.Models.Foundations.Executions;
 
 namespace Standardly.Core.Brokers.ExecutionBroker
 {

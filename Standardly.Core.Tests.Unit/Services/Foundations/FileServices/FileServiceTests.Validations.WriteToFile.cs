@@ -7,7 +7,7 @@
 using System;
 using FluentAssertions;
 using Moq;
-using Standardly.Core.Models.FileServices.Exceptions;
+using Standardly.Core.Models.Foundations.Files.Exceptions;
 using Xunit;
 
 namespace Standardly.Core.Tests.Unit.Services.Foundations.FileServices
