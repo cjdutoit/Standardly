@@ -24,7 +24,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.Templates
                     .Returns(true);
 
             // when
-            this.templateService.ValidateSourceFiles(inputTemplate);
+            this.templateService.ValidateTemplateSourceFiles(inputTemplate);
 
             //then
             this.fileSystemBrokerMock.Verify(broker =>

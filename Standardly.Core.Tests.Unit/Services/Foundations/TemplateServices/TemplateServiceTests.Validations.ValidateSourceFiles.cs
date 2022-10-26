@@ -58,7 +58,7 @@ namespace Standardly.Core.Tests.Unit.Services.Foundations.Templates
 
             // when
             Action transformRawTemplateItemAction = () =>
-                this.templateService.ValidateSourceFiles(inputTemplate);
+                this.templateService.ValidateTemplateSourceFiles(inputTemplate);
 
             TemplateValidationException actualException = Assert.Throws<TemplateValidationException>(
                 transformRawTemplateItemAction);

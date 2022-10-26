@@ -16,7 +16,7 @@ namespace Standardly.Core.Tests.Unit.Services.Processings.Executions
     public partial class ExecutionProcessingServiceTests
     {
         [Fact]
-        public void ShouldThrowValidationExceptionOnIfExecutionsIsNullAndLogItAsync()
+        public void ShouldThrowValidationExceptionOnRunIfExecutionsIsNullAndLogItAsync()
         {
             // given
             List<Execution> nullExecutions = null;
