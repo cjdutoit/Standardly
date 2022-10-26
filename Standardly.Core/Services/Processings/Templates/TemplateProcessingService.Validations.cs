@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using System;
+using Standardly.Core.Models.Foundations.Templates;
 using Standardly.Core.Models.Processings.Templates.Exceptions;
 using Standardly.Core.Services.Processings.Templates;
 
@@ -15,6 +16,14 @@ namespace Standardly.Core.Services.Foundations.Templates
         private static void ValidateConvertStringToTemplate(string content)
         {
             Validate((Rule: IsInvalid(content), Parameter: nameof(content)));
+        }
+
+        private static void ValidateTemplateIsNotNull(Template template)
+        {
+            if (template is null)
+            {
+                throw new NullTemplateProcessingException();
+            }
         }
 
         private static dynamic IsInvalid(string text) => new

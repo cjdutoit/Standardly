@@ -16,6 +16,7 @@ namespace Standardly.Core.Services.Foundations.Templates
     public partial class TemplateProcessingService : ITemplateProcessingService
     {
         private delegate Template ReturningTemplateFunction();
+        private delegate void ReturningNothingFunction();
 
         private Template TryCatch(ReturningTemplateFunction returningTemplateFunction)
         {
@@ -49,6 +50,18 @@ namespace Standardly.Core.Services.Foundations.Templates
                     new FailedTemplateProcessingServiceException(exception);
 
                 throw CreateAndLogServiceException(failedTemplateProcessingServiceException);
+            }
+        }
+
+        private void TryCatch(ReturningNothingFunction returningNothingFunction)
+        {
+            try
+            {
+                returningNothingFunction();
+            }
+            catch (NullTemplateProcessingException nullTemplateProcessingException)
+            {
+                throw CreateAndLogValidationException(nullTemplateProcessingException);
             }
         }
 
