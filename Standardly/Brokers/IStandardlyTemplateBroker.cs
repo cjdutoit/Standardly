@@ -6,15 +6,11 @@
 
 using System.Collections.Generic;
 using Standardly.Core.Models.Foundations.Templates;
-using Standardly.Core.Models.Orchestrations;
-using Standardly.Models.Events;
 
 namespace Standardly.Brokers
 {
-    public interface IStandardlyClientBroker
+    public interface IStandardlyTemplateBroker
     {
-        event EventHandler<ItemProcessedEventArgs> Processed;
         List<Template> FindAllTemplates();
-        void GenerateCode(TemplateGenerationInfo templateGenerationInfo);
     }
 }
