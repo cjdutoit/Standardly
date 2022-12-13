@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using Standardly.Core.Models.Foundations.Templates;
+using Standardly.Models.Foundations.TemplateGenerations.Templates;
 
 namespace Standardly.Models.Settings
 {

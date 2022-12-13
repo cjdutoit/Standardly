@@ -45,8 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Brokers\IStandardlyClientBroker.cs" />
-    <Compile Include="Brokers\StandardlyClientBroker.cs" />
+    <Compile Include="Brokers\IStandardlyTemplateBroker.cs" />
+    <Compile Include="Brokers\IStandardlyGenerationBroker.cs" />
+    <Compile Include="Brokers\StandardlyTemplateBroker.cs" />
+    <Compile Include="Brokers\StandardlyGenerationBroker.cs" />
     <Compile Include="Commands\StandardlyLicenseCommand.cs" />
     <Compile Include="Commands\StandardlyTemplateFolderCommand.cs" />
     <Compile Include="Forms\frmGenerate.cs">
@@ -58,6 +60,14 @@
     <Compile Include="Mappers\GeneralMapper.cs" />
     <Compile Include="Mappers\LocationMapper.cs" />
     <Compile Include="Models\Events\ItemProcessedEventArgs.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\EntityModels\EntityModel.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\TemplateGeneration.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Action.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Appends\Append.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Executions\Execution.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Files\File.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Task.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Template.cs" />
     <Compile Include="Models\Settings\General.cs" />
     <Compile Include="Models\Settings\GenerateCriteria.cs" />
     <Compile Include="Models\Settings\Location.cs" />
@@ -67,6 +77,8 @@
     <Compile Include="Options\Locations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\StandardlyGenerateCommand.cs" />
+    <Compile Include="Services\Foundations\TemplateGenerations\ITemplateGenerationService.cs" />
+    <Compile Include="Services\Foundations\TemplateRetrievals\ITemplateRetrievalService.cs" />
     <Compile Include="StandardlyPackage.cs" />
     <Compile Include="source.extension.cs">
       <AutoGen>True</AutoGen>
