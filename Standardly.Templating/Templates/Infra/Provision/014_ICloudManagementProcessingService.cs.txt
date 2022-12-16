@@ -1,9 +1,0 @@
-﻿using System.Threading.Tasks;
-
-namespace $infrastructureProvisionProjectName$.$services$.$processings$.CloudManagementProcessings
-{
-    public interface ICloudManagementProcessingService
-    {
-        ValueTask ProcessAsync();
-    }
-}

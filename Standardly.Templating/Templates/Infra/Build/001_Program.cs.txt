@@ -1,5 +1,0 @@
-﻿using $rootnamespace$.$services$;
-
-var scriptGenerationService = new ScriptGenerationService();
-scriptGenerationService.GenerateBuildScript();
-scriptGenerationService.GenerateProvisionScript();
