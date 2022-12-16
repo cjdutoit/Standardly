@@ -4,8 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using Standardly.Core.Models.Foundations.Templates;
-using Standardly.Models.Foundations.TemplateGenerations.Templates;
+using Template = Standardly.Models.Foundations.TemplateGenerations.Templates.Template;
 
 namespace Standardly.Models.Settings
 {

@@ -4,13 +4,15 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System.Collections.Generic;
-using Standardly.Models.Foundations.TemplateGenerations.Templates;
+using Standardly.Models.Events;
+using Standardly.Models.Foundations;
 
 namespace Standardly.Services.Foundations
 {
-    public interface ITemplateRetrievalService
+    public interface ITemplateService
     {
-        List<Template> FindAllTemplates();
+        event EventHandler<ItemProcessedEventArgs> Processed;
+        TemplateGeneration FindAllTemplates();
+        void GenerateCode(TemplateGeneration templateGenerationInfo);
     }
 }
