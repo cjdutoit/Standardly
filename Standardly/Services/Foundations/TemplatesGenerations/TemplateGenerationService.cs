@@ -24,11 +24,11 @@ using InternalTemplate = Standardly.Models.Foundations.TemplateGenerations.Templ
 
 namespace Standardly.Services.Foundations
 {
-    public partial class TemplateService : ITemplateService
+    public partial class TemplateGenerationService : ITemplateGenerationService
     {
         private readonly IStandardlyClientBroker standardlyClientBroker;
 
-        public TemplateService(IStandardlyClientBroker standardlyClientBroker)
+        public TemplateGenerationService(IStandardlyClientBroker standardlyClientBroker)
         {
             this.standardlyClientBroker = standardlyClientBroker;
             this.standardlyClientBroker.Processed += ItemProcessed;

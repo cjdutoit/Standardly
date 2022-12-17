@@ -9,7 +9,7 @@ using Standardly.Models.Foundations;
 
 namespace Standardly.Services.Foundations
 {
-    public interface ITemplateService
+    public interface ITemplateGenerationService
     {
         event EventHandler<ItemProcessedEventArgs> Processed;
         TemplateGeneration FindAllTemplates();

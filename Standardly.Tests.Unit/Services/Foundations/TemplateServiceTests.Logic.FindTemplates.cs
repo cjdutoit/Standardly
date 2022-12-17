@@ -53,7 +53,7 @@ namespace Standardly.Tests.Unit.Services.Foundations
 
             // when
             TemplateGeneration actualTemplateGeneration =
-                this.templateService.FindAllTemplates();
+                this.templateGenerationService.FindAllTemplates();
 
             // then
             actualTemplateGeneration.Templates.Should().BeEquivalentTo(expectedTemplates);

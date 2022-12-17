@@ -44,6 +44,12 @@
     <PackageReference Include="Moq">
       <Version>4.18.3</Version>
     </PackageReference>
+    <PackageReference Include="Standardly.Commands">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Standardly.Core">
+      <Version>1.0.7</Version>
+    </PackageReference>
     <PackageReference Include="Tynamix.ObjectFiller">
       <Version>1.5.8</Version>
     </PackageReference>
@@ -53,22 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\Foundations\TemplateServiceTests.cs" />
+    <Compile Include="Services\Foundations\TemplateServiceTests.Exceptions.FindTemplates.cs" />
     <Compile Include="Services\Foundations\TemplateServiceTests.Logic.FindTemplates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Standardly.Commands\Standardly.Commands\Standardly.Commands.csproj">
-      <Project>{0a30136e-866b-4445-b2e3-ffc7f100667f}</Project>
-      <Name>Standardly.Commands</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Standardly.Core\Standardly.Core\Standardly.Core.csproj">
-      <Project>{cac9ba6c-ea9b-4f37-987b-dd13d9305c9b}</Project>
-      <Name>Standardly.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Standardly.Templates\Standardly.Templates\Standardly.Templates.csproj">
-      <Project>{b16ab3e5-097e-4c1e-afaa-c79854546348}</Project>
-      <Name>Standardly.Templates</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Standardly\Standardly.csproj">
       <Project>{183f1141-e4e3-4892-9f30-004843d72f8f}</Project>
       <Name>Standardly</Name>

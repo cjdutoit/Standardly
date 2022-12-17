@@ -4,26 +4,59 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using Moq;
 using Newtonsoft.Json;
 using Standardly.Brokers;
+using Standardly.Core.Models.Clients.Exceptions;
 using Standardly.Services.Foundations;
 using Tynamix.ObjectFiller;
+using Xeptions;
+using Xunit;
 
 namespace Standardly.Tests.Unit.Services.Foundations
 {
     public partial class TemplateServiceTests
     {
         private readonly Mock<IStandardlyClientBroker> standardlyClientBrokerMock;
-        private readonly ITemplateService templateService;
+        private readonly ITemplateGenerationService templateGenerationService;
 
         public TemplateServiceTests()
         {
             this.standardlyClientBrokerMock = new Mock<IStandardlyClientBroker>();
 
-            this.templateService = new TemplateService(
+            this.templateGenerationService = new TemplateGenerationService(
                 standardlyClientBroker: this.standardlyClientBrokerMock.Object);
+        }
+
+        public static TheoryData TemplateGenerationDependencyValidationExceptions()
+        {
+            string exceptionMessage = GetRandomString();
+            var innerException = new Xeption(exceptionMessage);
+
+            return new TheoryData<Exception>()
+            {
+                new StandardlyClientValidationException(innerException)
+            };
+        }
+
+        public static TheoryData TemplateGenerationDependencyExceptions()
+        {
+            string exceptionMessage = GetRandomString();
+            var innerException = new Xeption(exceptionMessage);
+
+            var standardlyClientDependencyException =
+                new StandardlyClientDependencyException(innerException);
+
+            var standardlyClientServiceException =
+                new StandardlyClientServiceException(innerException);
+
+            return new TheoryData<Exception>
+            {
+                standardlyClientDependencyException,
+                standardlyClientServiceException,
+            };
         }
 
         private static string SerializeTemplate(Core.Models.Foundations.Templates.Template template) =>
