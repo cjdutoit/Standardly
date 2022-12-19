@@ -53,6 +53,8 @@
     <Compile Include="Mappers\LocationMapper.cs" />
     <Compile Include="Models\Events\ItemProcessedEventArgs.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\EntityModels\EntityModel.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\InvalidClientValidationException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\TemplateGenerationDependencyValidationException.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\TemplateGenerationServiceDepencencyException.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\FailedTemplateGenerationServiceDepencencyException.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\TemplateGeneration.cs" />
@@ -71,6 +73,8 @@
     <Compile Include="Options\Locations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\StandardlyGenerateCommand.cs" />
+    <Compile Include="Services\Foundations\TemplatesGenerations\TemplateGenerationService.Exceptions.cs" />
+    <Compile Include="Services\Foundations\TemplatesGenerations\TemplateGenerationService.Validations.cs" />
     <Compile Include="Services\Foundations\TemplatesGenerations\TemplateGenerationService.cs" />
     <Compile Include="Services\Foundations\TemplatesGenerations\ITemplateGenerationService.cs" />
     <Compile Include="StandardlyPackage.cs" />

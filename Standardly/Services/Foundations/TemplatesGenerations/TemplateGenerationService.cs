@@ -36,16 +36,17 @@ namespace Standardly.Services.Foundations
 
         public event EventHandler<ItemProcessedEventArgs> Processed;
 
-        public TemplateGeneration FindAllTemplates()
-        {
-            List<ExternalTemplate> templates =
-                this.standardlyClientBroker.FindAllTemplates();
+        public TemplateGeneration FindAllTemplates() =>
+            TryCatch(() =>
+            {
+                List<ExternalTemplate> templates =
+                    this.standardlyClientBroker.FindAllTemplates();
 
-            List<InternalTemplate> localTemplates =
-                templates.Select(AsTemplate).ToList();
+                List<InternalTemplate> localTemplates =
+                    templates.Select(AsTemplate).ToList();
 
-            return new TemplateGeneration { Templates = localTemplates };
-        }
+                return new TemplateGeneration { Templates = localTemplates };
+            });
 
         public void GenerateCode(TemplateGeneration templateGenerationInfo) =>
             throw new NotImplementedException();
