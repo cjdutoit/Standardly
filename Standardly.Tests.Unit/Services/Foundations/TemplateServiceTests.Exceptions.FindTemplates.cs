@@ -80,5 +80,39 @@ namespace Standardly.Tests.Unit.Services.Foundations
                 broker.FindAllTemplates(),
                     Times.Once);
         }
+
+        [Fact]
+        public void ShoudThrowServiceExceptionOnFindAllTemplatesIfServiceErrorOccurs()
+        {
+            // given
+            var serviceException = new Exception();
+
+            var failedTemplateGenerationServiceException =
+                new FailedTemplateGenerationServiceException(serviceException);
+
+            var expectedTemplateGenerationServiceException =
+                new TemplateGenerationServiceException(
+                    failedTemplateGenerationServiceException);
+
+            this.standardlyClientBrokerMock.Setup(broker =>
+                broker.FindAllTemplates())
+                    .Throws(serviceException);
+
+            // when
+            Action findAllTemplatesAction = () =>
+                this.templateGenerationService
+                    .FindAllTemplates();
+
+            TemplateGenerationServiceException actualException =
+                Assert.Throws<TemplateGenerationServiceException>(findAllTemplatesAction);
+
+            // then
+            actualException.Should()
+                .BeEquivalentTo(expectedTemplateGenerationServiceException);
+
+            this.standardlyClientBrokerMock.Verify(service =>
+                service.FindAllTemplates(),
+                    Times.Once);
+        }
     }
 }
