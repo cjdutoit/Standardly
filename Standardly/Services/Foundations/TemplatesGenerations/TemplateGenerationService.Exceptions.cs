@@ -40,6 +40,13 @@ namespace Standardly.Services.Foundations
                 var failedClientException = new FailedClientException(standardlyClientServiceException);
                 throw CreateAndLogDependencyException(failedClientException);
             }
+            catch (Exception exception)
+            {
+                var failedTemplateGenerationServiceException =
+                    new FailedTemplateGenerationServiceException(exception as Xeption);
+
+                throw CreateAndLogServiceException(failedTemplateGenerationServiceException);
+            }
         }
 
         private TemplateGenerationDependencyValidationException CreateAndLogDependencyValidationException(
@@ -57,6 +64,13 @@ namespace Standardly.Services.Foundations
                 new TemplateGenerationDependencyException(exception);
 
             throw templateGenerationDependencyException;
+        }
+
+        private TemplateGenerationServiceException CreateAndLogServiceException(Exception exception)
+        {
+            var templateGenerationServiceException = new TemplateGenerationServiceException(exception);
+
+            return templateGenerationServiceException;
         }
     }
 }
