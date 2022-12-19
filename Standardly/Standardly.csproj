@@ -54,9 +54,10 @@
     <Compile Include="Models\Events\ItemProcessedEventArgs.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\EntityModels\EntityModel.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\InvalidClientValidationException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\TemplateGenerationDependencyException.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\TemplateGenerationDependencyValidationException.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\TemplateGenerationServiceDepencencyException.cs" />
-    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\FailedTemplateGenerationServiceDepencencyException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\FailedClientException.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\TemplateGeneration.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Action.cs" />
     <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Appends\Append.cs" />

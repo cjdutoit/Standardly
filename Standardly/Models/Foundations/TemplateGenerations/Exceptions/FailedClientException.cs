@@ -8,11 +8,11 @@ using Xeptions;
 
 namespace Standardly.Models.Foundations.TemplateGenerations.Exceptions
 {
-    public class FailedTemplateGenerationServiceDepencencyException : Xeption
+    public class FailedClientException : Xeption
     {
-        public FailedTemplateGenerationServiceDepencencyException(Exception innerException)
+        public FailedClientException(Exception innerException)
             : base(
-                  message: "Failed template generation service depencency error occurred, please contact support",
+                  message: "Failed client error occurred, please contact support",
                   innerException)
         { }
     }
