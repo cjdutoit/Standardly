@@ -30,6 +30,16 @@ namespace Standardly.Services.Foundations
 
                 throw CreateAndLogDependencyValidationException(invalidTemplateGenerationException);
             }
+            catch (StandardlyClientDependencyException standardlyClientDependencyException)
+            {
+                var failedClientException = new FailedClientException(standardlyClientDependencyException);
+                throw CreateAndLogDependencyException(failedClientException);
+            }
+            catch (StandardlyClientServiceException standardlyClientServiceException)
+            {
+                var failedClientException = new FailedClientException(standardlyClientServiceException);
+                throw CreateAndLogDependencyException(failedClientException);
+            }
         }
 
         private TemplateGenerationDependencyValidationException CreateAndLogDependencyValidationException(
@@ -39,6 +49,14 @@ namespace Standardly.Services.Foundations
                 new TemplateGenerationDependencyValidationException(exception);
 
             return templateGenerationDependencyValidationException;
+        }
+
+        private TemplateGenerationDependencyException CreateAndLogDependencyException(Xeption exception)
+        {
+            var templateGenerationDependencyException =
+                new TemplateGenerationDependencyException(exception);
+
+            throw templateGenerationDependencyException;
         }
     }
 }

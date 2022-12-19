@@ -59,7 +59,7 @@ namespace Standardly.Tests.Unit.Services.Foundations
 
             var expectedTemplateGenerationDependencyException =
                 new TemplateGenerationDependencyException(
-                    dependencyException.InnerException as Xeption);
+                    failedClientException);
 
             this.standardlyClientBrokerMock.Setup(broker =>
                 broker.FindAllTemplates())
