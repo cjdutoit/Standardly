@@ -1,0 +1,23 @@
+name: .Net
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Check Out
+        uses: actions/checkout@v2
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Build and Restore
+        run: msbuild /t:Rebuild /Restore /v:Minimal
+
+      - name: Test
+        run: msbuild Standardly.Tests.Unit /t:Test /v:Minimal
