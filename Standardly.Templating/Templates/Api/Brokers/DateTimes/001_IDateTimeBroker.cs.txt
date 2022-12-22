@@ -1,9 +1,0 @@
-﻿using System;
-
-namespace $rootnamespace$.$brokers$.DateTimes
-{
-    public interface IDateTimeBroker
-    {
-        DateTimeOffset GetCurrentDateTimeOffset();
-    }
-}

@@ -1,5 +1,0 @@
-﻿namespace $rootnamespace$.$brokers$.Storages
-{
-    public partial interface IStorageBroker
-    { }
-}

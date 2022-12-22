@@ -1,9 +1,0 @@
-﻿using Xunit;
-
-namespace $acceptanceTestProjectName$.$brokers$
-{
-    [CollectionDefinition(nameof(ApiTestCollection))]
-    public class ApiTestCollection : ICollectionFixture<ApiBroker>
-    {
-    }
-}

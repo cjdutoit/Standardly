@@ -1,9 +1,0 @@
-﻿using System.Collections.Generic;
-
-namespace $infrastructureProvisionProjectName$.$models$.Configurations
-{
-    public class CloudAction
-    {
-        public List<string> Environments { get; set; }
-    }
-}

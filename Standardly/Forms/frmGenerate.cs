@@ -17,7 +17,7 @@ using Standardly.Core.Services.Foundations.Templates;
 using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
 using Standardly.Models.Settings;
 using Action = Standardly.Core.Models.Foundations.Actions.Action;
-using Template = Standardly.Core.Models.Foundations.Templates.Template;
+using Template = Standardly.Models.Foundations.TemplateGenerations.Templates.Template;
 
 namespace Standardly.Forms
 {

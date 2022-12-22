@@ -7,15 +7,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Microsoft.VisualStudio.Threading;
-using Standardly.Core.Brokers.ExecutionBroker;
-using Standardly.Core.Brokers.FileSystems;
-using Standardly.Core.Models.Configurations.RetryConfig;
-using Standardly.Core.Services.Foundations.Executions;
-using Standardly.Core.Services.Foundations.Files;
-using Standardly.Core.Services.Foundations.Templates;
-using Standardly.Core.Services.Orchestrations.TemplateOrchestrations;
-using Standardly.Forms;
 using Standardly.Mappers;
 using Standardly.Models.Settings;
 
@@ -28,36 +19,30 @@ namespace Standardly
 
         protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
         {
-            try
-            {
-                int maxRetryAttempts = 3;
-                TimeSpan pauseBetweenFailures = TimeSpan.FromSeconds(2);
-                General general = await General.GetLiveInstanceAsync();
-                Locations locations = await Locations.GetLiveInstanceAsync();
-                IEnumerable<Project> projects = await VS.Solutions.GetAllProjectsAsync();
-                Project project = await VS.Solutions.GetActiveProjectAsync() ?? projects.FirstOrDefault();
-                Setting settings = GetSettings(general, locations, project, projects);
-                IFileSystemBroker fileSystemBroker = new FileSystemBroker();
-                IExecutionBroker executionBroker = new CliExecutionBroker();
-                IRetryConfig retryConfig = new RetryConfig(maxRetryAttempts, pauseBetweenFailures);
-                IFileService fileService = new FileService(fileSystemBroker, retryConfig);
-                IExecutionService executionService = new ExecutionService(executionBroker);
-                ITemplateService templateService = new TemplateService(fileSystemBroker);
+            //int maxRetryAttempts = 3;
+            //TimeSpan pauseBetweenFailures = TimeSpan.FromSeconds(2);
+            //General general = await General.GetLiveInstanceAsync();
+            //Locations locations = await Locations.GetLiveInstanceAsync();
+            //IEnumerable<Project> projects = await VS.Solutions.GetAllProjectsAsync();
+            //Project project = await VS.Solutions.GetActiveProjectAsync() ?? projects.FirstOrDefault();
+            //Setting settings = GetSettings(general, locations, project, projects);
+            //IFileSystemBroker fileSystemBroker = new FileSystemBroker();
+            //IExecutionBroker executionBroker = new CliExecutionBroker();
+            //IRetryConfig retryConfig = new RetryConfig(maxRetryAttempts, pauseBetweenFailures);
+            //IFileService fileService = new FileService(fileSystemBroker, retryConfig);
+            //IExecutionService executionService = new ExecutionService(executionBroker);
+            //ITemplateService templateService = new TemplateService(fileSystemBroker);
 
-                ITemplateOrchestrationService templateOrchestrationService =
-                    new TemplateOrchestrationService(
-                        fileService: fileService,
-                        executionService: executionService,
-                        templateService: templateService
-                    );
+            //ITemplateOrchestrationService templateOrchestrationService =
+            //    new TemplateOrchestrationService(
+            //        fileService: fileService,
+            //        executionService: executionService,
+            //        templateService: templateService
+            //    );
 
-                var frmGenerate = new frmGenerate(settings, templateService, templateOrchestrationService);
-                frmGenerate.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            //var frmGenerate = new frmGenerate(settings, templateService, templateOrchestrationService);
+            //frmGenerate.ShowDialog();
+            await Task.Run(() => { });
         }
 
         private async Task UseOutputWindowAsync(string message)

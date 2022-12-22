@@ -45,16 +45,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Brokers\IStandardlyClientBroker.cs" />
+    <Compile Include="Brokers\StandardlyClientBroker.cs" />
     <Compile Include="Commands\StandardlyLicenseCommand.cs" />
     <Compile Include="Commands\StandardlyTemplateFolderCommand.cs" />
-    <Compile Include="Forms\frmGenerate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmGenerate.Designer.cs">
-      <DependentUpon>frmGenerate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mappers\GeneralMapper.cs" />
     <Compile Include="Mappers\LocationMapper.cs" />
+    <Compile Include="Models\Events\ItemProcessedEventArgs.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\EntityModels\EntityModel.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\FailedTemplateGenerationServiceException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\InvalidClientValidationException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\TemplateGenerationDependencyException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\TemplateGenerationDependencyValidationException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\TemplateGenerationServiceDepencencyException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\FailedClientException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Exceptions\TemplateGenerationServiceException.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\TemplateGeneration.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Action.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Appends\Append.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Executions\Execution.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Actions\Files\File.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Tasks\Task.cs" />
+    <Compile Include="Models\Foundations\TemplateGenerations\Templates\Template.cs" />
     <Compile Include="Models\Settings\General.cs" />
     <Compile Include="Models\Settings\GenerateCriteria.cs" />
     <Compile Include="Models\Settings\Location.cs" />
@@ -64,6 +76,10 @@
     <Compile Include="Options\Locations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\StandardlyGenerateCommand.cs" />
+    <Compile Include="Services\Foundations\TemplatesGenerations\ITemplateGenerationService.cs" />
+    <Compile Include="Services\Foundations\TemplatesGenerations\TemplateGenerationService.cs" />
+    <Compile Include="Services\Foundations\TemplatesGenerations\TemplateGenerationService.Exceptions.cs" />
+    <Compile Include="Services\Foundations\TemplatesGenerations\TemplateGenerationService.Validations.cs" />
     <Compile Include="StandardlyPackage.cs" />
     <Compile Include="source.extension.cs">
       <AutoGen>True</AutoGen>
@@ -122,42 +138,35 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Community.VisualStudio.VSCT" Version="16.0.29.6" PrivateAssets="all" />
-    <PackageReference Include="Community.VisualStudio.Toolkit.17" Version="17.0.451" ExcludeAssets="Runtime">
+    <PackageReference Include="Community.VisualStudio.Toolkit.17" Version="17.0.486" ExcludeAssets="Runtime">
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>6.0.0</Version>
+      <Version>7.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging">
-      <Version>6.0.0</Version>
+      <Version>7.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Console">
-      <Version>6.0.0</Version>
+      <Version>7.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.EventLog">
-      <Version>6.0.0</Version>
+      <Version>7.0.0</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.3.2093">
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.4.2119">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Standardly.Core">
+      <Version>1.0.7</Version>
+    </PackageReference>
+    <PackageReference Include="Xeption">
+      <Version>2.5.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Standardly.Core\Standardly.Core.csproj">
-      <Project>{d58dfeec-b08a-40c2-8d2d-fa5eb9993767}</Project>
-      <Name>Standardly.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Standardly.Templating\Standardly.Templating.csproj">
-      <Project>{32a3445d-b5ed-4b5c-9cf8-cb98169647c0}</Project>
-      <Name>Standardly.Templating</Name>
-    </ProjectReference>
+    <Folder Include="Forms\" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Forms\frmGenerate.resx">
-      <DependentUpon>frmGenerate.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
