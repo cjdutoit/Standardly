@@ -20,4 +20,8 @@ jobs:
         run: msbuild /t:Rebuild /Restore /v:Minimal
 
       - name: Test
-        run: msbuild Standardly\Standardly.Tests.Unit
+        uses: microsoft/vstest-action@v1.0.0
+        with:
+            testAssembly: Standardly.Tests.Unit.dll
+            searchFolder: .\Standardly.Tests.Unit\bin\Debug\
+            runInParallel: true
