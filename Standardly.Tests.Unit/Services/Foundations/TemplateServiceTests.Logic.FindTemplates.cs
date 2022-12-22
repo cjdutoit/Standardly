@@ -63,6 +63,12 @@ namespace Standardly.Tests.Unit.Services.Foundations
                     Times.Once());
         }
 
+        [Fact]
+        public void FailingTest()
+        {
+            Assert.True(false);
+        }
+
         private static List<InternalTemplate> MapToInternalTemplate(dynamic randomTemplateProperties)
         {
             return new List<InternalTemplate>

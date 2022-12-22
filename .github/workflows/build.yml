@@ -20,4 +20,4 @@ jobs:
         run: msbuild /t:Rebuild /Restore /v:Minimal
 
       - name: Test
-        run: msbuild Standardly.Tests.Unit /t:Test /v:Minimal
+        run: msbuild Standardly\Standardly.Tests.Unit
