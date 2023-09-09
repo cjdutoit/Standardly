@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0-windows</TargetFramework>
-    <ImplicitUsings>disable</ImplicitUsings>
+    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 
@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.8.13-preview-1" />
     <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.8.13-preview-1" />
+    <PackageReference Include="Standardly.Core" Version="1.0.10" />
     <PackageReference Include="Standardly.Templates.TheStandard" Version="1.0.0.3" />
   </ItemGroup>
 
@@ -22,6 +23,10 @@
     </Content>
   </ItemGroup>
 
-
-
+	<ItemGroup>
+		<Content Update="$(NuGetPackagesPath)\**\standardly.templates*\**\Templates\**\*.*">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	
 </Project>
