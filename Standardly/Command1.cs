@@ -1,12 +1,8 @@
-﻿// ---------------------------------------------------------------
-// Copyright (c) Christo du Toit. All rights reserved.
-// Licensed under the MIT License.
-// See License.txt in the project root for license information.
-// ---------------------------------------------------------------
+﻿// ----------------------------------------------------------------------------------
+// Copyright (c) The Standard Organization: A coalition of the Good-Hearted Engineers
+// ----------------------------------------------------------------------------------
 
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;

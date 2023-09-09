@@ -1,8 +1,6 @@
-﻿// ---------------------------------------------------------------
-// Copyright (c) Christo du Toit. All rights reserved.
-// Licensed under the MIT License.
-// See License.txt in the project root for license information.
-// ---------------------------------------------------------------
+﻿// ----------------------------------------------------------------------------------
+// Copyright (c) The Standard Organization: A coalition of the Good-Hearted Engineers
+// ----------------------------------------------------------------------------------
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.Extensibility;
@@ -18,7 +16,7 @@ namespace Standardly
         /// <inheritdoc/>
         public override ExtensionConfiguration ExtensionConfiguration => new()
         {
-            Metadata = new("Standardly.9d6353ac-f8be-431b-972a-97c30b9af3df", this.ExtensionAssemblyVersion, "Publisher name", "Standardly"),
+            Metadata = new("Standardly.7617d8fd-7a97-4228-bec0-4e6e15d71d56", this.ExtensionAssemblyVersion, "Publisher name", "Standardly"),
         };
 
         /// <inheritdoc />
