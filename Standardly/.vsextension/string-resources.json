@@ -1,3 +1,9 @@
 {
-  "Standardly.Command1.DisplayName": "Sample Remote Command"
+  "Standardly.DisplayName": "Standardly",
+  "Standardly.GenerateCodeCommand.DisplayName": "Generate Code",
+  "Standardly.ShowDocumentationCommand.DisplayName": "Show Documentation",
+  "Standardly.ShowMyUsageStats.DisplayName": "Show My Usage Stats",
+  "Standardly.ShowTemplatesFolderCommand.DisplayName": "Show Template Folder",
+  "Standardly.ShowLicenseCommand.DisplayName": "Show License",
+  "Standardly.ToolWindows.GenerateCodeToolWindowCommand.DisplayName": "Standardly - Generate Code"
 }
