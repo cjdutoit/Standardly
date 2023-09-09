@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0-windows</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 
@@ -14,7 +14,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.8.13-preview-1" />
     <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.8.13-preview-1" />
     <PackageReference Include="Standardly.Core" Version="1.0.10" />
-    <PackageReference Include="Standardly.Templates.TheStandard" Version="1.0.0.3" />
+    <PackageReference Include="Standardly.Templates.TheStandard" Version="1.0.0.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,12 +22,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
-	<ItemGroup>
-		<Content Update="$(NuGetPackagesPath)\**\standardly.templates*\**\Templates\**\*.*">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
 
 	<ItemGroup>
 	  <None Update="ToolWindows\GenerateCodeToolWindowContent.xaml">

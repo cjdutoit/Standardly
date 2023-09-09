@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using System.Runtime.Serialization;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility.UI;
 
 namespace Standardly.ToolWindows

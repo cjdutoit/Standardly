@@ -5,6 +5,8 @@
 // ---------------------------------------------------------------
 
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
