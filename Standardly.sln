@@ -6,12 +6,16 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F51F88BB-6417-4EE3-B8DC-C7C0A2FA1105}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.github\workflows\build.yml = .github\workflows\build.yml
 		LICENSE.txt = LICENSE.txt
+		NuGet.config = NuGet.config
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standardly.Infrastructure.Build", "Standardly.Infrastructure.Build\Standardly.Infrastructure.Build.csproj", "{FA0ACEEF-78C1-4827-9305-DC55F2D08324}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standardly", "Standardly\Standardly.csproj", "{213DCC4A-6F6D-4451-9F71-DCCB308856BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standardly.Tests.Unit", "Standardly.Tests.Unit\Standardly.Tests.Unit.csproj", "{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,18 @@ Global
 		{213DCC4A-6F6D-4451-9F71-DCCB308856BF}.Release|arm64.Build.0 = Release|Any CPU
 		{213DCC4A-6F6D-4451-9F71-DCCB308856BF}.Release|x86.ActiveCfg = Release|Any CPU
 		{213DCC4A-6F6D-4451-9F71-DCCB308856BF}.Release|x86.Build.0 = Release|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Debug|arm64.Build.0 = Debug|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Debug|x86.Build.0 = Debug|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Release|arm64.ActiveCfg = Release|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Release|arm64.Build.0 = Release|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{0B5A6E68-BC67-422B-BE5C-148FACFDF0A8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
