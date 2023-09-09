@@ -88,7 +88,16 @@ namespace Standardly.Infrastructure.Build.Services
                                 }
                             }
                         }
-                    }
+                    },
+                    {
+                       "add_tag",
+                       new TagJob(
+                           runsOn: BuildMachines.UbuntuLatest,
+                           dependsOn: "build",
+                           projectRelativePath,
+                           githubToken: "${{ secrets.PAT_FOR_TAGGING }}",
+                           branchName: branchName)
+                   },
                 }
             };
 
