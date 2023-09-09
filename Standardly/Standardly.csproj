@@ -22,10 +22,6 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="$(NuGetPackagesPath)\**\standardly.templates*\**\Templates\**\*.*">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+
 
 </Project>
