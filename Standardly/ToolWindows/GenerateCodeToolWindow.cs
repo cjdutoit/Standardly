@@ -29,7 +29,7 @@ namespace Standardly.ToolWindows
         public GenerateCodeToolWindow(VisualStudioExtensibility extensibility)
             : base(extensibility)
         {
-            this.Title = "My Tool Window";
+            this.Title = "Standardly - Generate Code";
         }
 
         /// <inheritdoc />

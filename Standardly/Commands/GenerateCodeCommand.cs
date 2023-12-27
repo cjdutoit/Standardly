@@ -5,11 +5,15 @@
 // ---------------------------------------------------------------
 
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
+using Standardly.models.configurations;
 using Standardly.ToolWindows;
 
 namespace Standardly.Commands
@@ -56,6 +60,21 @@ namespace Standardly.Commands
         /// <inheritdoc />
         public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
         {
+            string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+            string extensionFolder = Path.GetDirectoryName(assemblyLocation);
+            string appSettingsRelativePath = "appsettings.json";
+            string appSettingsPath = Path.Combine(extensionFolder, appSettingsRelativePath);
+
+            var configurationBuilder = new ConfigurationBuilder()
+                .SetBasePath(extensionFolder)
+                .AddJsonFile(appSettingsPath, optional: true, reloadOnChange: true);
+
+            var configuration = configurationBuilder.Build();
+
+            var standardlyConfiguration = configuration
+                .GetSection("standardlyConfiguration")
+                .Get<StandardlyConfiguration>();
+
             await this.Extensibility.Shell()
                 .ShowToolWindowAsync<GenerateCodeToolWindow>(activate: true, cancellationToken);
         }
