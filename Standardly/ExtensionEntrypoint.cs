@@ -12,7 +12,7 @@ using Standardly.Commands;
 namespace Standardly
 {
     /// <summary>
-    /// Extension entrypoint for the VisualStudio.Extensibility extension.
+    /// Extension entry point for the VisualStudio.Extensibility extension.
     /// </summary>
     [VisualStudioContribution]
     internal class ExtensionEntrypoint : Extension
@@ -40,11 +40,11 @@ namespace Standardly
         public static MenuConfiguration Standardly => new("%Standardly.DisplayName%")
         {
             Placements = new CommandPlacement[]
-            {
+    {
                 CommandPlacement.KnownPlacements.ExtensionsMenu
-            },
+    },
             Children = new[]
-            {
+    {
                 MenuChild.Command<GenerateCodeCommand>(),
                 MenuChild.Command<ShowDocumentationCommand>(),
                 MenuChild.Command<ShowTemplatesFolderCommand>(),
