@@ -4,7 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace Standardly.models.configurations
+namespace Standardly.Models.Configurations
 {
     internal class Locations
     {

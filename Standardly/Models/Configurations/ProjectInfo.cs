@@ -6,13 +6,11 @@
 
 namespace Standardly.Models.Configurations
 {
-    internal class General
+    internal class ProjectInfo
     {
-        public bool addEditorConfigFile { get; set; }
-        public bool addGitIgnoreFile { get; set; }
-        public bool addGitAttributesFile { get; set; }
-        public bool addReadmeFile { get; set; }
-        public bool addLicenseFile { get; set; }
-        public string LicenseType { get; set; }
+        public string ProjectName { get; set; }
+        public string ProjectFullPath { get; set; }
+        public string ProjectFolder { get; set; }
+        public string ProjectFile { get; set; }
     }
 }
