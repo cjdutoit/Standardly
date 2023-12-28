@@ -80,6 +80,10 @@ namespace Standardly.Commands
                 .Get<StandardlyConfiguration>();
 
             var structureInfo = await GetSettings(context, cancellationToken);
+            var standardlyClient = new Core.Clients.StandardlyClient();
+
+            //var frmGenerate = new frmGenerate(structureInfo, standardlyClient);
+            //frmGenerate.ShowDialog();
 
             await this.Extensibility.Shell()
                 .ShowToolWindowAsync<GenerateCodeToolWindow>(activate: true, cancellationToken);
@@ -171,53 +175,23 @@ namespace Standardly.Commands
             structureInfo.RootNameSpace = project.Name;
 
             structureInfo.Project = project != null
-                ? new ProjectInfo
-                {
-                    ProjectName = project.Name,
-                    ProjectFullPath = project.Path,
-                    ProjectFolder = new FileInfo(project.Path)?.Directory?.FullName ?? string.Empty,
-                    ProjectFile = new FileInfo(project.Path).Name,
-                }
+                ? new ProjectInfo(projectName: project.Name, projectPath: project.Path)
                 : null;
 
             structureInfo.UnitTestProject = unitTestProject != null
-                ? new ProjectInfo
-                {
-                    ProjectName = unitTestProject.Name,
-                    ProjectFullPath = unitTestProject.Path,
-                    ProjectFolder = new FileInfo(unitTestProject.Path)?.Directory?.FullName ?? string.Empty,
-                    ProjectFile = new FileInfo(unitTestProject.Path).Name,
-                }
+                ? new ProjectInfo(projectName: unitTestProject.Name, projectPath: unitTestProject.Path)
                 : null;
 
             structureInfo.AcceptanceTestProject = acceptanceTestProject != null
-                ? new ProjectInfo
-                {
-                    ProjectName = acceptanceTestProject.Name,
-                    ProjectFullPath = acceptanceTestProject.Path,
-                    ProjectFolder = new FileInfo(acceptanceTestProject.Path)?.Directory?.FullName ?? string.Empty,
-                    ProjectFile = new FileInfo(acceptanceTestProject.Path).Name,
-                }
+                ? new ProjectInfo(projectName: acceptanceTestProject.Name, projectPath: acceptanceTestProject.Path)
                 : null;
 
             structureInfo.IntegrationTestProject = integrationTestProject != null
-                ? new ProjectInfo
-                {
-                    ProjectName = integrationTestProject.Name,
-                    ProjectFullPath = integrationTestProject.Path,
-                    ProjectFolder = new FileInfo(integrationTestProject.Path)?.Directory?.FullName ?? string.Empty,
-                    ProjectFile = new FileInfo(integrationTestProject.Path).Name,
-                }
+                ? new ProjectInfo(projectName: integrationTestProject.Name, projectPath: integrationTestProject.Path)
                 : null;
 
             structureInfo.InfrastructureProject = infrastructureProject != null
-                ? new ProjectInfo
-                {
-                    ProjectName = infrastructureProject.Name,
-                    ProjectFullPath = infrastructureProject.Path,
-                    ProjectFolder = new FileInfo(infrastructureProject.Path)?.Directory?.FullName ?? string.Empty,
-                    ProjectFile = new FileInfo(infrastructureProject.Path).Name,
-                }
+                ? new ProjectInfo(projectName: infrastructureProject.Name, projectPath: infrastructureProject.Path)
                 : null;
 
             return structureInfo;
