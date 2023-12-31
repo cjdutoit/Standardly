@@ -50,6 +50,7 @@ namespace Standardly
                 MenuChild.Command<ShowTemplatesFolderCommand>(),
                 MenuChild.Command<ShowMyUsageStats>(),
                 MenuChild.Command<ShowLicenseCommand>(),
+                MenuChild.Command<ShowConfigurationCommand>(),
             },
         };
     }
