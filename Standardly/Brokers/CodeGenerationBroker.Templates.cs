@@ -20,7 +20,7 @@ namespace Standardly.Brokers
             string templateFolderPath = Path.Combine(Path.GetDirectoryName(assembly), @"Templates");
             string templateDefinitionFileName = "Template.json";
 
-            return await this.standardlyClient.TemplateClient
+            return await this.standardlyClient.Templates
                 .FindAllTemplatesAsync(templateFolderPath, templateDefinitionFileName);
         }
     }

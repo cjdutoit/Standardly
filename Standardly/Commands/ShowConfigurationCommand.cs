@@ -5,29 +5,30 @@
 // ---------------------------------------------------------------
 
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
-using Microsoft.VisualStudio.Extensibility.Shell;
 
 namespace Standardly.Commands
 {
     /// <summary>
-    /// ShowMyUsageStats handler.
+    /// ShowConfigurationCommand handler.
     /// </summary>
     [VisualStudioContribution]
-    internal class ShowMyUsageStats : Command
+    internal class ShowConfigurationCommand : Command
     {
         private readonly TraceSource logger;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ShowMyUsageStats"/> class.
+        /// Initializes a new instance of the <see cref="ShowConfigurationCommand"/> class.
         /// </summary>
         /// <param name="extensibility">Extensibility object.</param>
         /// <param name="traceSource">Trace source instance to utilize.</param>
-        public ShowMyUsageStats(VisualStudioExtensibility extensibility, TraceSource traceSource)
+        public ShowConfigurationCommand(VisualStudioExtensibility extensibility, TraceSource traceSource)
             : base(extensibility)
         {
             // This optional TraceSource can be used for logging in the command. You can use dependency injection
@@ -37,7 +38,7 @@ namespace Standardly.Commands
 
         /// <inheritdoc />
         public override CommandConfiguration CommandConfiguration =>
-            new(displayName: "%Standardly.ShowMyUsageStats.DisplayName%")
+            new(displayName: "%Standardly.ShowConfigurationCommand.DisplayName%")
             {
                 Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
             };
@@ -52,7 +53,13 @@ namespace Standardly.Commands
         /// <inheritdoc />
         public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
         {
-            await this.Extensibility.Shell().ShowPromptAsync("Hello from an extension!", PromptOptions.OK, cancellationToken);
+            await Task.Run(() =>
+            {
+                string assembly = Assembly.GetExecutingAssembly().Location;
+                string licensePath = Path.Combine(Path.GetDirectoryName(assembly), "appsettings.json");
+
+                Process.Start("notepad.exe", licensePath);
+            });
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿// ----------------------------------------------------------------------------------
-// Copyright (c) The Standard Organization: A coalition of the Good-Hearted Engineers
-// ----------------------------------------------------------------------------------
+﻿// ---------------------------------------------------------------
+// Copyright (c) Christo du Toit. All rights reserved.
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.Extensibility;
@@ -10,7 +12,7 @@ using Standardly.Commands;
 namespace Standardly
 {
     /// <summary>
-    /// Extension entrypoint for the VisualStudio.Extensibility extension.
+    /// Extension entry point for the VisualStudio.Extensibility extension.
     /// </summary>
     [VisualStudioContribution]
     internal class ExtensionEntrypoint : Extension
@@ -22,7 +24,8 @@ namespace Standardly
                 id: "Standardly.4f725561-953f-4998-99c2-ec58132d8d48",
                 version: this.ExtensionAssemblyVersion,
                 publisherName: "Christo du Toit",
-                displayName: "Standardly"),
+                displayName: "Standardly",
+                description: "Standardly - Your Code Generation Engine"),
         };
 
         /// <inheritdoc />
@@ -47,8 +50,8 @@ namespace Standardly
                 MenuChild.Command<ShowTemplatesFolderCommand>(),
                 MenuChild.Command<ShowMyUsageStats>(),
                 MenuChild.Command<ShowLicenseCommand>(),
+                MenuChild.Command<ShowConfigurationCommand>(),
             },
-            Priority = 1000,
         };
     }
 }

@@ -5,5 +5,6 @@
   "Standardly.ShowMyUsageStats.DisplayName": "Show My Usage Stats",
   "Standardly.ShowTemplatesFolderCommand.DisplayName": "Show Template Folder",
   "Standardly.ShowLicenseCommand.DisplayName": "Show License",
+  "Standardly.ShowConfigurationCommand.DisplayName": "Show Configuration Settings",
   "Standardly.ToolWindows.GenerateCodeToolWindowCommand.DisplayName": "Standardly - Generate Code"
 }
