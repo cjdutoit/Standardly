@@ -80,7 +80,14 @@ namespace Standardly.Commands
                 .Get<StandardlyConfiguration>();
 
             var structureInfo = await GetSettings(context, cancellationToken);
-            var standardlyClient = new Core.Clients.StandardlyClient();
+            try
+            {
+                var standardlyClient = new Core.Clients.StandardlyClient();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
 
             //var frmGenerate = new frmGenerate(structureInfo, standardlyClient);
             //frmGenerate.ShowDialog();
@@ -134,6 +141,11 @@ namespace Standardly.Commands
             new CancellationToken());
 
             IProjectSnapshot? project = activeProject ?? projects.FirstOrDefault();
+
+            if (project == null)
+            {
+                throw new Exception("No project found.");
+            }
 
             var structureInfo = new StructureInfo();
             string assumeProjectName = project.Name;

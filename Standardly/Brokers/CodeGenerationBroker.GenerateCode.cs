@@ -13,7 +13,7 @@ namespace Standardly.Brokers
     {
         public async ValueTask GenerateCodeAsync(TemplateGenerationInfo templateGenerationInfo)
         {
-            await this.standardlyClient.GenerationClient.GenerateCodeAsync(templateGenerationInfo);
+            await this.standardlyClient.CodeGenerations.GenerateCodeAsync(templateGenerationInfo);
         }
     }
 }

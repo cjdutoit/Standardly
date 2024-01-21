@@ -13,14 +13,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.EventLog" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.9.1068-preview-2" />
     <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.9.1068-preview-2" />
-    <PackageReference Include="Standardly.Core" Version="1.0.10" />
+    <PackageReference Include="Standardly.Core" Version="1.0.12" />
     <PackageReference Include="Standardly.Templates.TheStandard" Version="1.0.0.5" />
   </ItemGroup>
 
@@ -48,6 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Forms\" />
     <Folder Include="Options\" />
   </ItemGroup>
 
