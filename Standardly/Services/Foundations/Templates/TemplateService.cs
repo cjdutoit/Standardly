@@ -10,12 +10,15 @@ using Standardly.Brokers;
 using Standardly.Models.Foundations.Templates.ProcessedEvents;
 using ExternalAction = Standardly.Core.Models.Services.Foundations.Templates.Tasks.Actions.Action;
 using ExternalAppend = Standardly.Core.Models.Services.Foundations.Templates.Tasks.Actions.Appends.Append;
+using ExternalEntityModel = Standardly.Core.Models.Services.Foundations.Templates.EntityModels.EntityModel;
 using ExternalExecution = Standardly.Core.Models.Services.Foundations.Executions.Execution;
 using ExternalFile = Standardly.Core.Models.Services.Foundations.Templates.Tasks.Actions.Files.File;
+using ExternalProcessed = Standardly.Core.Models.Services.Foundations.ProcessedEvents.Processed;
 using ExternalTask = Standardly.Core.Models.Services.Foundations.Templates.Tasks.Task;
 using ExternalTemplateGenerationInfo = Standardly.Core.Models.Services.Orchestrations
     .TemplateGenerations.TemplateGenerationInfo;
 using ExternalTemplates = Standardly.Core.Models.Services.Foundations.Templates.Template;
+using InternalEntityModel = Standardly.Models.Foundations.Templates.EntityModels.EntityModel;
 using LocalAction = Standardly.Models.Foundations.Templates.Tasks.Actions.Action;
 using LocalAppend = Standardly.Models.Foundations.Templates.Tasks.Actions.Appends.Append;
 using LocalExecution = Standardly.Models.Foundations.Templates.Tasks.Actions.Executions.Execution;
@@ -219,7 +222,173 @@ namespace Standardly.Services.Foundations.Templates
 
         private ExternalTemplateGenerationInfo MapToExternalTemplateGenerationInfo(LocalTemplateGenerationInfo templateGenerationInfo)
         {
-            throw new NotImplementedException();
+            ExternalTemplateGenerationInfo externalTemplateGenerationInfo = new ExternalTemplateGenerationInfo
+            {
+                Templates = MapToExternalTemplates(templateGenerationInfo.Templates),
+                EntityModelDefinition = MapToExternalEntityModelDefinition(templateGenerationInfo.EntityModelDefinition),
+                Processed = new ExternalProcessed
+                {
+                    Message = templateGenerationInfo.Processed.Message,
+                    ProcessedItems = templateGenerationInfo.Processed.ProcessedItems,
+                    Status = templateGenerationInfo.Processed.Status,
+                    TimeStamp = templateGenerationInfo.Processed.TimeStamp,
+                    TotalItems = templateGenerationInfo.Processed.TotalItems,
+                },
+                ReplacementDictionary = templateGenerationInfo.ReplacementDictionary,
+                ScriptExecutionIsEnabled = templateGenerationInfo.ScriptExecutionIsEnabled
+            };
+
+            return externalTemplateGenerationInfo;
+        }
+
+        private List<ExternalTemplates> MapToExternalTemplates(List<LocalTemplate> templates)
+        {
+            List<ExternalTemplates> externalTemplates = new List<ExternalTemplates>();
+
+            foreach (LocalTemplate template in templates)
+            {
+                ExternalTemplates externalTemplate = new ExternalTemplates
+                {
+                    RawTemplate = template.RawTemplate,
+                    ModelSingularName = template.ModelSingularName,
+                    ModelPluralName = template.ModelPluralName,
+                    Name = template.Name,
+                    Description = template.Description,
+                    Organisation = template.Organisation,
+                    Stack = template.Stack,
+                    Language = template.Language,
+                    TemplateType = template.TemplateType,
+                    SortOrder = template.SortOrder,
+                    ProjectsRequired = template.ProjectsRequired,
+                    Tasks = MapToExternalTasks(template.Tasks),
+                    CleanupTasks = template.CleanupTasks,
+                    ReplacementDictionary = template.ReplacementDictionary,
+                };
+
+                externalTemplates.Add(externalTemplate);
+            }
+
+            return externalTemplates;
+        }
+
+        private List<ExternalTask> MapToExternalTasks(List<LocalTask> tasks)
+        {
+            List<ExternalTask> externalTasks = new List<ExternalTask>();
+
+            foreach (LocalTask task in tasks)
+            {
+                ExternalTask externalTask = new ExternalTask
+                {
+                    Name = task.Name,
+                    BranchName = task.BranchName,
+                    Actions = MapToExternalActions(task.Actions),
+                };
+
+                externalTasks.Add(externalTask);
+            }
+
+            return externalTasks;
+        }
+
+        private List<ExternalAction> MapToExternalActions(List<LocalAction> actions)
+        {
+            List<ExternalAction> externalActions = new List<ExternalAction>();
+
+            foreach (LocalAction action in actions)
+            {
+                ExternalAction externalAction = new ExternalAction
+                {
+                    Name = action.Name,
+                    ExecutionFolder = action.ExecutionFolder,
+                    Files = MapToExternalFiles(action.Files),
+                    Appends = MapToExternalAppends(action.Appends),
+                    Executions = MapToExternalExecutions(action.Executions)
+                };
+
+                externalActions.Add(externalAction);
+            }
+
+            return externalActions;
+        }
+
+        private List<ExternalExecution> MapToExternalExecutions(List<LocalExecution> executions)
+        {
+            List<ExternalExecution> externalExecutions = new List<ExternalExecution>();
+
+            foreach (LocalExecution execution in executions)
+            {
+                ExternalExecution externalExecution = new ExternalExecution
+                {
+                    Name = execution.Name,
+                    Instruction = execution.Instruction
+                };
+
+                externalExecutions.Add(externalExecution);
+            }
+
+            return externalExecutions;
+        }
+
+        private List<ExternalAppend> MapToExternalAppends(List<LocalAppend> appends)
+        {
+            List<ExternalAppend> externalAppends = new List<ExternalAppend>();
+
+            foreach (LocalAppend append in appends)
+            {
+                ExternalAppend externalAppend = new ExternalAppend
+                {
+                    Target = append.Target,
+                    DoesNotContainContent = append.DoesNotContainContent,
+                    RegexToMatchForAppend = append.RegexToMatchForAppend,
+                    ContentToAppend = append.ContentToAppend,
+                    AppendToBeginning = append.AppendToBeginning,
+                    AppendEvenIfContentAlreadyExist = append.AppendEvenIfContentAlreadyExist
+                };
+
+                externalAppends.Add(externalAppend);
+            }
+
+            return externalAppends;
+        }
+
+        private List<ExternalFile> MapToExternalFiles(List<LocalFile> files)
+        {
+            List<ExternalFile> externalFiles = new List<ExternalFile>();
+
+            foreach (LocalFile file in files)
+            {
+                ExternalFile externalFile = new ExternalFile
+                {
+                    Template = file.Template,
+                    Target = file.Target,
+                    Replace = file.Replace,
+                };
+
+                externalFiles.Add(externalFile);
+            }
+
+            return externalFiles;
+        }
+
+        private List<ExternalEntityModel> MapToExternalEntityModelDefinition(List<InternalEntityModel> entityModelDefinition)
+        {
+            List<ExternalEntityModel> externalEntityModelDefinition = new List<ExternalEntityModel>();
+
+            foreach (InternalEntityModel entityModel in entityModelDefinition)
+            {
+                ExternalEntityModel externalEntityModel = new ExternalEntityModel
+                {
+                    PropertyType = entityModel.PropertyType,
+                    PropertyName = entityModel.PropertyName,
+                    Required = entityModel.Required,
+                    KeyProperty = entityModel.KeyProperty,
+                    AuditProperty = entityModel.AuditProperty
+                };
+
+                externalEntityModelDefinition.Add(externalEntityModel);
+            }
+
+            return externalEntityModelDefinition;
         }
 
         private LocalTemplateGenerationInfo MapToTemplateGenerationInfo(ExternalTemplateGenerationInfo

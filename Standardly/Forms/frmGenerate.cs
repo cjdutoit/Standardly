@@ -66,20 +66,27 @@ namespace Standardly.Forms
 
         private async ValueTask InitializeControls()
         {
-            txtGitHubBaseBranchName.Text = this.settings.General.DefaultBranchName;
-            txtGitHubUsername.Text = this.settings.General.GitHubUsername;
-            txtDisplayName.Text = this.settings.General.DisplayName;
-            txtCopyright.Text = this.settings.General.Copyright.Replace("\n", Environment.NewLine);
-            txtLicense.Text = this.settings.General.License;
-            txtProject.Text = this.settings.ProjectInfo.ProjectName;
-            txtUnitTestProject.Text = this.settings.ProjectInfo.UnitTestProjectName;
-            txtAcceptanceTestProject.Text = this.settings.ProjectInfo.AcceptanceTestProjectName;
-            txtInfrastructureBuildProject.Text = this.settings.ProjectInfo.InfrastructureBuildProjectName;
-            txtInfrastructureProvisionProject.Text = this.settings.ProjectInfo.InfrastructureProvisionProjectName;
-            chkExperienceUsersOnly.Checked = this.settings.General.AcceptWarningMessage;
-            chkDisclaimer.Checked = this.settings.General.AcceptDisclaimer;
-            await BindTemplates();
-            this.templateService.SubscribeToProcessedEvent(ProcessedEventHandler);
+            try
+            {
+                txtGitHubBaseBranchName.Text = this.settings.General.DefaultBranchName;
+                txtGitHubUsername.Text = this.settings.General.GitHubUsername;
+                txtDisplayName.Text = this.settings.General.DisplayName;
+                txtCopyright.Text = this.settings.General.Copyright.Replace("\n", Environment.NewLine);
+                txtLicense.Text = this.settings.General.License;
+                txtProject.Text = this.settings.ProjectInfo.ProjectName;
+                txtUnitTestProject.Text = this.settings.ProjectInfo.UnitTestProjectName;
+                txtAcceptanceTestProject.Text = this.settings.ProjectInfo.AcceptanceTestProjectName;
+                txtInfrastructureBuildProject.Text = this.settings.ProjectInfo.InfrastructureBuildProjectName;
+                txtInfrastructureProvisionProject.Text = this.settings.ProjectInfo.InfrastructureProvisionProjectName;
+                chkExperienceUsersOnly.Checked = this.settings.General.AcceptWarningMessage;
+                chkDisclaimer.Checked = this.settings.General.AcceptDisclaimer;
+                await BindTemplates();
+                this.templateService.SubscribeToProcessedEvent(ProcessedEventHandler);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.InnerException.Message, "Standardly", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async ValueTask BindTemplates()
@@ -128,7 +135,7 @@ namespace Standardly.Forms
             }
             catch (Exception ex)
             {
-                throw ex.InnerException ?? ex;
+                throw ex.InnerException.InnerException ?? ex.InnerException ?? ex;
             }
         }
 

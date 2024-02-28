@@ -7,6 +7,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using Microsoft.VisualStudio.Threading;
 using Standardly.Brokers;
 using Standardly.Forms;
@@ -40,7 +41,7 @@ namespace Standardly
             }
             catch (Exception ex)
             {
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.InnerException.Message, "Standardly", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
