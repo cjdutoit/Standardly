@@ -17,9 +17,8 @@ namespace Standardly.Mappers
                 DisplayName = data.DisplayName,
                 Copyright = data.Copyright,
                 License = data.License,
-                AddEditorConfigFileIfNotPresent = data.AddEditorConfigFileIfNotPresent,
-                AddGitIgnoreFileIfNotPresent = data.AddGitIgnoreFileIfNotPresent,
-                AddLicenseFileIfNotPresent = data.AddLicenseFileIfNotPresent
+                AcceptWarningMessage = data.AcceptWarningMessage,
+                AcceptDisclaimer = data.AcceptDisclaimer,
             };
 
             return model;

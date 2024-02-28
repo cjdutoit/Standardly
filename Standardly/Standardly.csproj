@@ -74,6 +74,7 @@
     <Compile Include="Models\Foundations\Templates\Tasks\Actions\Action.cs" />
     <Compile Include="Models\Foundations\Templates\Tasks\Actions\Appends\Append.cs" />
     <Compile Include="Models\Foundations\Templates\Tasks\Actions\Files\File.cs" />
+    <Compile Include="Models\Foundations\Templates\Tasks\Actions\Executions\Execution.cs" />
     <Compile Include="Models\Foundations\Templates\Tasks\Task.cs" />
     <Compile Include="Models\Foundations\Templates\Template.cs" />
     <Compile Include="Models\Foundations\Templates\TemplateGenerationInfo.cs" />
@@ -173,13 +174,6 @@
     <PackageReference Include="Standardly.Templates.TheStandard">
       <Version>1.0.0.5</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Forms\frmGenerate.resx">
-      <DependentUpon>frmGenerate.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>frmGenerate1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

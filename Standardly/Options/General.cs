@@ -84,21 +84,15 @@ namespace Standardly
             "CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.";
 
         [Category("General")]
-        [DisplayName("Add EditorConfig File")]
-        [Description("Adds the .editorconfig file to the Solution if selected and the file is not already present")]
+        [DisplayName("Accept Warning Message")]
+        [Description("Accept the warning message that new developer to The Standard should rather write the code themselves in order to gain the skills")]
         [DefaultValue(true)]
-        public bool AddEditorConfigFileIfNotPresent { get; set; } = true;
+        public bool AcceptWarningMessage { get; set; } = false;
 
         [Category("General")]
-        [DisplayName("Add GitIgnore File")]
-        [Description("Adds the .gitignore file to the Solution if selected and the file is not already present")]
+        [DisplayName("Accept Disclaimer")]
+        [Description("Accept the disclaimer message and content of license file.")]
         [DefaultValue(true)]
-        public bool AddGitIgnoreFileIfNotPresent { get; set; } = true;
-
-        [Category("General")]
-        [DisplayName("Add License File")]
-        [Description("Adds a license file to the Solution if selected and the file is not already present")]
-        [DefaultValue(true)]
-        public bool AddLicenseFileIfNotPresent { get; set; } = true;
+        public bool AcceptDisclaimer { get; set; } = false;
     }
 }

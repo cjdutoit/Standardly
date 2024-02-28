@@ -6,6 +6,7 @@
 
 using System.Threading.Tasks;
 using Standardly.Core.Models.Clients.Exceptions;
+using Standardly.Models.Foundations.Templates;
 using Standardly.Models.Foundations.Templates.Exceptions;
 
 namespace Standardly.Services.Foundations.Templates
@@ -14,6 +15,40 @@ namespace Standardly.Services.Foundations.Templates
     {
         private delegate void ReturningNothingFunction();
         private delegate ValueTask ReturningValueTaskFunction();
+        private delegate ValueTask<TemplateGenerationInfo> ReturningTemplateGenerationInfoValueTaskFunction();
+
+        private async ValueTask<TemplateGenerationInfo> TryCatch(ReturningTemplateGenerationInfoValueTaskFunction
+            returningTemplateGenerationInfoValueTaskFunction)
+        {
+            try
+            {
+                return await returningTemplateGenerationInfoValueTaskFunction();
+            }
+            catch (StandardlyClientValidationException standardlyClientValidationException)
+            {
+                throw new TemplateValidationException(
+                    message: "Template validation error occurred, fix the errors and try again.",
+                    innerException: standardlyClientValidationException);
+            }
+            catch (StandardlyClientDependencyException standardlyClientDependencyException)
+            {
+                throw new TemplateDependencyException(
+                    message: "Template dependency error occurred, contact support.",
+                    innerException: standardlyClientDependencyException);
+            }
+            catch (StandardlyClientServiceException standardlyClientServiceException)
+            {
+                throw new TemplateDependencyException(
+                    message: "Template dependency error occurred, contact support.",
+                    innerException: standardlyClientServiceException);
+            }
+            catch (Exception exception)
+            {
+                throw new TemplateServiceException(
+                    message: "Template service error occurred, contact support.",
+                    innerException: exception);
+            }
+        }
 
         private void TryCatch(ReturningNothingFunction returningNothingFunction)
         {

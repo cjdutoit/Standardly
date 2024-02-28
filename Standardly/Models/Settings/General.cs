@@ -13,8 +13,8 @@ namespace Standardly.Models.Settings
         public string DisplayName { get; set; }
         public string Copyright { get; set; }
         public string License { get; set; }
-        public bool AddEditorConfigFileIfNotPresent { get; set; }
-        public bool AddGitIgnoreFileIfNotPresent { get; set; }
+        public bool AcceptWarningMessage { get; set; }
+        public bool AcceptDisclaimer { get; set; }
         public bool AddLicenseFileIfNotPresent { get; set; }
     }
 }

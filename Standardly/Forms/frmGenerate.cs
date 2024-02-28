@@ -76,8 +76,8 @@ namespace Standardly.Forms
             txtAcceptanceTestProject.Text = this.settings.ProjectInfo.AcceptanceTestProjectName;
             txtInfrastructureBuildProject.Text = this.settings.ProjectInfo.InfrastructureBuildProjectName;
             txtInfrastructureProvisionProject.Text = this.settings.ProjectInfo.InfrastructureProvisionProjectName;
-            chkExperienceUsersOnly.Checked = false;
-            chkDisclaimer.Checked = false;
+            chkExperienceUsersOnly.Checked = this.settings.General.AcceptWarningMessage;
+            chkDisclaimer.Checked = this.settings.General.AcceptDisclaimer;
             await BindTemplates();
             this.templateService.SubscribeToProcessedEvent(ProcessedEventHandler);
         }

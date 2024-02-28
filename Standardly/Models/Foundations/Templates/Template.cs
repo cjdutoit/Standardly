@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using System.Collections.Generic;
+using LocalTask = Standardly.Models.Foundations.Templates.Tasks.Task;
 
 namespace Standardly.Models.Foundations.Templates
 {
@@ -89,7 +90,7 @@ namespace Standardly.Models.Foundations.Templates
         /// <summary>
         /// All the tasks that needs to be completed to generate the template as a whole.
         /// </summary>
-        public List<Task> Tasks { get; set; } = new List<Task>();
+        public List<LocalTask> Tasks { get; set; } = new List<LocalTask>();
 
         /// <summary>
         /// A list of any manual tasks not currently handled by the template generation process.

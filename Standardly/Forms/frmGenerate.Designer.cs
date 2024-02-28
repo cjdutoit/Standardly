@@ -89,6 +89,7 @@ namespace Standardly.Forms
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.Debug = new System.Windows.Forms.TabPage();
             this.txtDebug = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -111,7 +112,7 @@ namespace Standardly.Forms
             this.tabControl1.Location = new System.Drawing.Point(6, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(972, 464);
+            this.tabControl1.Size = new System.Drawing.Size(972, 482);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -122,7 +123,7 @@ namespace Standardly.Forms
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(964, 438);
+            this.tabPage1.Size = new System.Drawing.Size(964, 456);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Template";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -131,6 +132,7 @@ namespace Standardly.Forms
             // 
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.Controls.Add(this.label9);
             this.groupBox6.Controls.Add(this.label10);
             this.groupBox6.Controls.Add(this.label1);
             this.groupBox6.Controls.Add(this.chkExperienceUsersOnly);
@@ -140,7 +142,7 @@ namespace Standardly.Forms
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(7, 344);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(948, 88);
+            this.groupBox6.Size = new System.Drawing.Size(948, 109);
             this.groupBox6.TabIndex = 22;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Legal Stuff";
@@ -149,7 +151,7 @@ namespace Standardly.Forms
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(31, 67);
+            this.label10.Location = new System.Drawing.Point(31, 83);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(162, 13);
             this.label10.TabIndex = 22;
@@ -159,7 +161,7 @@ namespace Standardly.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(374, 67);
+            this.label1.Location = new System.Drawing.Point(374, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 13);
             this.label1.TabIndex = 22;
@@ -172,11 +174,10 @@ namespace Standardly.Forms
             this.chkExperienceUsersOnly.ForeColor = System.Drawing.Color.Red;
             this.chkExperienceUsersOnly.Location = new System.Drawing.Point(15, 19);
             this.chkExperienceUsersOnly.Name = "chkExperienceUsersOnly";
-            this.chkExperienceUsersOnly.Size = new System.Drawing.Size(916, 17);
+            this.chkExperienceUsersOnly.Size = new System.Drawing.Size(747, 17);
             this.chkExperienceUsersOnly.TabIndex = 11;
-            this.chkExperienceUsersOnly.Text = "I confirm that I am an experienced developer and able to write this code myself. " +
-    " The use of this productivity tool will NOT limit my skills or learning potentia" +
-    "l.";
+            this.chkExperienceUsersOnly.Text = "Only use this productivity tool to generate code samples for learning OR to save " +
+    "you time if you are an experienced developer. ";
             this.chkExperienceUsersOnly.UseVisualStyleBackColor = true;
             this.chkExperienceUsersOnly.CheckedChanged += new System.EventHandler(this.chkExperienceUsersOnly_CheckedChanged);
             // 
@@ -185,7 +186,7 @@ namespace Standardly.Forms
             this.chkDisclaimer.AutoSize = true;
             this.chkDisclaimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDisclaimer.ForeColor = System.Drawing.Color.Red;
-            this.chkDisclaimer.Location = new System.Drawing.Point(15, 42);
+            this.chkDisclaimer.Location = new System.Drawing.Point(15, 64);
             this.chkDisclaimer.Name = "chkDisclaimer";
             this.chkDisclaimer.Size = new System.Drawing.Size(880, 17);
             this.chkDisclaimer.TabIndex = 12;
@@ -198,7 +199,7 @@ namespace Standardly.Forms
             // 
             this.lnkDisclaimer.AutoSize = true;
             this.lnkDisclaimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkDisclaimer.Location = new System.Drawing.Point(193, 67);
+            this.lnkDisclaimer.Location = new System.Drawing.Point(193, 83);
             this.lnkDisclaimer.Name = "lnkDisclaimer";
             this.lnkDisclaimer.Size = new System.Drawing.Size(145, 13);
             this.lnkDisclaimer.TabIndex = 13;
@@ -210,7 +211,7 @@ namespace Standardly.Forms
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(560, 67);
+            this.linkLabel1.Location = new System.Drawing.Point(560, 83);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(97, 13);
             this.linkLabel1.TabIndex = 14;
@@ -526,7 +527,7 @@ namespace Standardly.Forms
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(964, 438);
+            this.tabPage2.Size = new System.Drawing.Size(964, 456);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Configuration";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -594,7 +595,7 @@ namespace Standardly.Forms
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(6, 85);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(952, 347);
+            this.groupBox4.Size = new System.Drawing.Size(952, 365);
             this.groupBox4.TabIndex = 28;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Copyright";
@@ -688,10 +689,10 @@ namespace Standardly.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl2.Controls.Add(this.Output);
             this.tabControl2.Controls.Add(this.Debug);
-            this.tabControl2.Location = new System.Drawing.Point(6, 480);
+            this.tabControl2.Location = new System.Drawing.Point(6, 501);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(972, 170);
+            this.tabControl2.Size = new System.Drawing.Size(972, 149);
             this.tabControl2.TabIndex = 18;
             // 
             // Output
@@ -700,7 +701,7 @@ namespace Standardly.Forms
             this.Output.Location = new System.Drawing.Point(4, 22);
             this.Output.Name = "Output";
             this.Output.Padding = new System.Windows.Forms.Padding(3);
-            this.Output.Size = new System.Drawing.Size(964, 144);
+            this.Output.Size = new System.Drawing.Size(964, 123);
             this.Output.TabIndex = 0;
             this.Output.Text = "Output";
             this.Output.UseVisualStyleBackColor = true;
@@ -715,7 +716,7 @@ namespace Standardly.Forms
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.ReadOnly = true;
             this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMessage.Size = new System.Drawing.Size(948, 132);
+            this.txtMessage.Size = new System.Drawing.Size(948, 111);
             this.txtMessage.TabIndex = 16;
             // 
             // Debug
@@ -741,6 +742,17 @@ namespace Standardly.Forms
             this.txtDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDebug.Size = new System.Drawing.Size(952, 132);
             this.txtDebug.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(31, 39);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(732, 13);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "If you are new to The Standard, it is highly advised to write the code yourself t" +
+    "o gain the skills and feedback from peer reviews.";
             // 
             // frmGenerate
             // 
@@ -838,5 +850,6 @@ namespace Standardly.Forms
         private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.TabPage Debug;
         private System.Windows.Forms.TextBox txtDebug;
+        private System.Windows.Forms.Label label9;
     }
 }
