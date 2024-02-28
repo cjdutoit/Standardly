@@ -13,7 +13,6 @@ using ExternalAppend = Standardly.Core.Models.Services.Foundations.Templates.Tas
 using ExternalEntityModel = Standardly.Core.Models.Services.Foundations.Templates.EntityModels.EntityModel;
 using ExternalExecution = Standardly.Core.Models.Services.Foundations.Executions.Execution;
 using ExternalFile = Standardly.Core.Models.Services.Foundations.Templates.Tasks.Actions.Files.File;
-using ExternalProcessed = Standardly.Core.Models.Services.Foundations.ProcessedEvents.Processed;
 using ExternalTask = Standardly.Core.Models.Services.Foundations.Templates.Tasks.Task;
 using ExternalTemplateGenerationInfo = Standardly.Core.Models.Services.Orchestrations
     .TemplateGenerations.TemplateGenerationInfo;
@@ -226,14 +225,7 @@ namespace Standardly.Services.Foundations.Templates
             {
                 Templates = MapToExternalTemplates(templateGenerationInfo.Templates),
                 EntityModelDefinition = MapToExternalEntityModelDefinition(templateGenerationInfo.EntityModelDefinition),
-                Processed = new ExternalProcessed
-                {
-                    Message = templateGenerationInfo.Processed.Message,
-                    ProcessedItems = templateGenerationInfo.Processed.ProcessedItems,
-                    Status = templateGenerationInfo.Processed.Status,
-                    TimeStamp = templateGenerationInfo.Processed.TimeStamp,
-                    TotalItems = templateGenerationInfo.Processed.TotalItems,
-                },
+                Processed = null,
                 ReplacementDictionary = templateGenerationInfo.ReplacementDictionary,
                 ScriptExecutionIsEnabled = templateGenerationInfo.ScriptExecutionIsEnabled
             };
