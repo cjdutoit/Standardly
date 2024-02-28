@@ -5,12 +5,14 @@
 // ---------------------------------------------------------------
 
 using System.Threading.Tasks;
-using Standardly.Core.Models.Services.Orchestrations.TemplateGenerations;
+using Standardly.Models.Foundations.Templates;
 
-namespace Standardly.Brokers
+namespace Standardly.Services.Foundations.Templates
 {
-    internal partial interface ICodeGenerationBroker
+    internal interface ITemplateService
     {
+        ValueTask<TemplateGenerationInfo> FindAllTemplatesAsync();
+
         ValueTask GenerateCodeAsync(TemplateGenerationInfo templateGenerationInfo);
 
         void SubscribeToProcessedEvent(

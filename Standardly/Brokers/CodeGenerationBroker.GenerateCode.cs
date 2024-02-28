@@ -15,5 +15,13 @@ namespace Standardly.Brokers
         {
             await this.standardlyClient.CodeGenerations.GenerateCodeAsync(templateGenerationInfo);
         }
+
+        public void SubscribeToProcessedEvent(Func<TemplateGenerationInfo, ValueTask> processedEventClientHandler)
+        {
+            this.standardlyClient.CodeGenerations.SubscribeToProcessedEvent(async (templateGenerationInfo) =>
+            {
+                await processedEventClientHandler(templateGenerationInfo);
+            });
+        }
     }
 }
